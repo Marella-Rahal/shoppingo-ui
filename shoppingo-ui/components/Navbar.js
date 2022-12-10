@@ -153,8 +153,8 @@ const Navbar = () => {
         <div
           className={
             sideNav
-              ? "fixed z-10 top-0 right-0 h-full w-[80%] xs:w-[70%] bg-bgColor flex flex-col p-5 xs:p-7 space-y-7 overflow-y-auto ease-linear duration-300"
-              : "fixed z-10 top-0 right-[-100%] h-full w-[80%] xs:w-[70%] bg-bgColor flex flex-col p-5 xs:p-7 space-y-7 overflow-y-auto ease-linear duration-100"
+              ? "fixed z-10 top-0 right-0 h-full w-[80%] xs:w-[70%] bg-bgColor flex flex-col p-5 xs:p-7 space-y-5 xs:space-y-7 overflow-y-auto ease-linear duration-300"
+              : "fixed z-10 top-0 right-[-100%] h-full w-[80%] xs:w-[70%] bg-bgColor flex flex-col p-5 xs:p-7 space-y-5 xs:space-y-7 overflow-y-auto ease-linear duration-100"
           }
         >
           {/* //todo */}
