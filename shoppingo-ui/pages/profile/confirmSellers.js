@@ -1,0 +1,19 @@
+import React from "react";
+import Navbar from "../../components/Navbar";
+import ConfirmSeller from "../../components/ConfirmSeller/ConfirmSeller";
+
+const ConfirmSellers = () => {
+  return (
+    <>
+      <Navbar />
+      <div className="pt-40 pb-10 w-full min-h-screen flex flex-col space-y-5">
+        <ConfirmSeller />
+        <ConfirmSeller />
+        <ConfirmSeller />
+        <ConfirmSeller />
+      </div>
+    </>
+  );
+};
+
+export default ConfirmSellers;
