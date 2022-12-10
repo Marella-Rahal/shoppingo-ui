@@ -7,7 +7,7 @@ const Services = () => {
 
       <div className="mt-16 flex flex-wrap justify-evenly">
         <div
-          data-aos="fade-right"
+          data-aos="zoom-in"
           className="w-[350px] m-5 pb-2 flex flex-col items-center space-y-3  rounded-xl shadow-xl shadow-shadowColor"
         >
           <img
@@ -38,7 +38,7 @@ const Services = () => {
         </div>
 
         <div
-          data-aos="fade-left"
+          data-aos="zoom-in"
           className="w-[350px] m-5 pb-2 flex flex-col items-center space-y-3  rounded-xl shadow-xl shadow-shadowColor"
         >
           <img
