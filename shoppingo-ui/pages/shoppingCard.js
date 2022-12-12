@@ -8,7 +8,7 @@ const ShoppingCard = () => {
     <>
       <Navbar />
       <div className="pt-32 px-4 md:px-8 min-h-screen flex flex-col justify-between">
-        <div className="flex flex-col space-y-7">
+        <div className="flex flex-col">
           {/* Delete */}
           <div className="flex space-x-2 justify-end items-center cursor-pointer group">
             <span className="text-textColor underline group-hover:scale-[1.1]">
@@ -29,7 +29,7 @@ const ShoppingCard = () => {
           </div>
         </div>
 
-        <div className="my-10 flex justify-between space-x-5">
+        <div className="mt-14 mb-10 flex justify-between space-x-5">
           <div className="py-2 px-4 rounded-lg shadow-md shadow-shadowColor text-end">
             السعر الكلي : 999999999999 ل.س
           </div>

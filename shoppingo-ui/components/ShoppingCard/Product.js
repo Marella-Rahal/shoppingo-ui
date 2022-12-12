@@ -5,8 +5,8 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const Product = () => {
   return (
-    <div className="relative flex flex-col w-[275px] rounded-md shadow-lg shadow-shadowColor mt-9 mr-5">
-      <div className="absolute -top-5 -right-4 w-9 h-9 rounded-full bg-textColor border-[3px] border-white shadow-md shadow-shadowColor flex justify-center items-center hover:scale-[1.1]">
+    <div className="relative flex flex-col w-[275px] rounded-md shadow-lg shadow-shadowColor mt-14 mr-2 sm:mr-5">
+      <div className="absolute -top-5 -right-4 w-9 h-9 rounded-full bg-textColor border-[3px] border-white shadow-md shadow-shadowColor flex justify-center items-center hover:scale-[1.1] cursor-pointer">
         <AiOutlineClose className="text-white w-6 h-6" />
       </div>
       {/* Product Image */}
@@ -63,8 +63,8 @@ const Product = () => {
           <p className="text-textColor2">: السعر</p>
 
           <div className="flex flex-row-reverse">
-            <div className="font-bold">100000000</div>
-            <div className="text-center mr-1">ل.س</div>
+            <div className="font-bold text-sm">100000000</div>
+            <div className="text-center text-sm mr-1">ل.س</div>
           </div>
         </div>
       </div>
