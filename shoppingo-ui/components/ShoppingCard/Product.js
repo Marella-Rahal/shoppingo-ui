@@ -40,7 +40,7 @@ const Product = () => {
       </div>
 
       {/* Price and Quantity */}
-      <div className="flex w-full h-[80px] rounded-b-md">
+      <div className="flex w-full h-[85px] rounded-b-md">
         {/* Quantity */}
         <div className="w-1/2 border-r-2 border-shadowColor/20 flex flex-col justify-center space-y-2">
           <p className="text-textColor2 text-center">: الكمية</p>
