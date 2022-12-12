@@ -64,7 +64,7 @@ const Product = () => {
 
           <div className="flex flex-row-reverse">
             <div className="font-bold text-sm">100000000</div>
-            <div className="text-center text-sm mr-1">ل.س</div>
+            <div className="text-sm mr-1">ل.س</div>
           </div>
         </div>
       </div>
