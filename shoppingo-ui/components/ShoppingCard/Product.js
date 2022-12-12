@@ -62,9 +62,9 @@ const Product = () => {
         <div className="w-1/2 flex flex-col justify-center items-center space-y-1">
           <p className="text-textColor2">: السعر</p>
 
-          <div>
+          <div className="flex flex-row-reverse">
             <div className="font-bold">100000000</div>
-            <div className="text-center">ل.س</div>
+            <div className="text-center mr-1">ل.س</div>
           </div>
         </div>
       </div>
