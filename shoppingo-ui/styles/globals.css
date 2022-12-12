@@ -39,6 +39,6 @@
   }
 
   button {
-    @apply shadow-md shadow-shadowColor rounded-xl uppercase bg-effectColor opacity-[0.9] text-white
+    @apply shadow-md shadow-shadowColor rounded-xl uppercase bg-effectColor opacity-[0.9] text-white outline-none
   }
 }

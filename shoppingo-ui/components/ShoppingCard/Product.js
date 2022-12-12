@@ -30,11 +30,11 @@ const Product = () => {
 
       <div className="flex w-full h-[60px] border-b-2 border-shadowColor/20">
         <div className="w-1/2 px-3 flex justify-between items-center border-r-2 border-shadowColor/20">
-          <span className="font-bold uppercase">S</span>
+          <span className="font-bold uppercase">xxl</span>
           <p>: القياس</p>
         </div>
         <div className="w-1/2 px-3 flex justify-between items-center">
-          <div className="w-6 h-6 rounded-full bg-red-700" />
+          <div className="w-6 h-6 rounded-full bg-red-700 shadow-md shadow-shadowColor" />
           <p>: اللون</p>
         </div>
       </div>
@@ -50,7 +50,7 @@ const Product = () => {
               <FaMinus className="text-white" />
             </div>
 
-            <div className="font-bold">10</div>
+            <div className="font-bold">10000</div>
 
             <div className="w-6 h-6 rounded-full shadow-md flex items-center justify-center shadow-shadowColor bg-textColor2 border-[3px] border-white cursor-pointer hover:scale-[1.1]">
               <FaPlus className="text-white" />
@@ -62,7 +62,7 @@ const Product = () => {
         <div className="w-1/2 flex flex-col justify-center items-center space-y-2">
           <p className="text-textColor2">: السعر</p>
 
-          <div className="font-bold">10000</div>
+          <div className="font-bold">100000000</div>
         </div>
       </div>
     </div>
