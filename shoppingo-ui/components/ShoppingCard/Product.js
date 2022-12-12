@@ -40,7 +40,7 @@ const Product = () => {
       </div>
 
       {/* Price and Quantity */}
-      <div className="flex w-full h-[75px] rounded-b-md">
+      <div className="flex w-full h-[80px] rounded-b-md">
         {/* Quantity */}
         <div className="w-1/2 border-r-2 border-shadowColor/20 flex flex-col justify-center space-y-2">
           <p className="text-textColor2 text-center">: الكمية</p>
@@ -59,10 +59,13 @@ const Product = () => {
         </div>
 
         {/* Price */}
-        <div className="w-1/2 flex flex-col justify-center items-center space-y-2">
+        <div className="w-1/2 flex flex-col justify-center items-center space-y-1">
           <p className="text-textColor2">: السعر</p>
 
-          <div className="font-bold">100000000</div>
+          <div>
+            <div className="font-bold">100000000</div>
+            <div className="text-center">ل.س</div>
+          </div>
         </div>
       </div>
     </div>
