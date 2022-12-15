@@ -122,13 +122,13 @@ const Navbar = () => {
                 </li>  */}
 
           <li className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]">
-            <Link href="/">
+            <Link href="/shop">
               <MdLocalOffer className="text-effectColor group-hover:text-textColor text-[30px]" />
             </Link>
           </li>
 
           <li className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]">
-            <Link href="/">
+            <Link href="/shop">
               <AiFillShop className="text-effectColor group-hover:text-textColor text-[30px]" />
             </Link>
           </li>
@@ -186,7 +186,7 @@ const Navbar = () => {
               className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
               onClick={handleSideNav}
             >
-              <Link href="/">
+              <Link href="/shop">
                 <AiFillShop className="text-effectColor group-hover:text-textColor text-[30px]" />
               </Link>
             </li>
@@ -195,7 +195,7 @@ const Navbar = () => {
               className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
               onClick={handleSideNav}
             >
-              <Link href="/">
+              <Link href="/shop">
                 <MdLocalOffer className="text-effectColor group-hover:text-textColor text-[30px]" />
               </Link>
             </li>
