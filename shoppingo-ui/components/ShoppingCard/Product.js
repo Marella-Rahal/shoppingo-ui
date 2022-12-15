@@ -11,7 +11,7 @@ const Product = () => {
       </div>
       {/* Product Image */}
       <img
-        src="home.svg"
+        src="logo.svg"
         className="w-full h-[200px] rounded-t-md border-b-2 border-shadowColor/20"
       />
 
@@ -40,9 +40,9 @@ const Product = () => {
       </div>
 
       {/* Price and Quantity */}
-      <div className="flex w-full h-[60px] rounded-b-md pb-2">
+      <div className="flex w-full h-[65px] rounded-b-md ">
         {/* Quantity */}
-        <div className="w-1/2 border-r-2 border-shadowColor/20 flex flex-col justify-center space-y-1">
+        <div className="w-1/2 border-r-2 border-shadowColor/20 flex flex-col justify-center space-y-1 pb-2">
           <p className="text-textColor2 text-center">: الكمية</p>
 
           <div className="flex justify-between px-2">
@@ -59,7 +59,7 @@ const Product = () => {
         </div>
 
         {/* Price */}
-        <div className="w-1/2 flex flex-col justify-center space-y-1">
+        <div className="w-1/2 flex flex-col justify-center space-y-2 pb-2">
           <p className="text-textColor2 text-center">: السعر</p>
 
           <div className="flex justify-center px-2">

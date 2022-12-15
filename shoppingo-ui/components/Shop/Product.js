@@ -4,10 +4,10 @@ import { ImHeart } from "react-icons/im";
 
 const Product = () => {
   return (
-    <div className="relative flex flex-col space-y-3 mt-14 mr-2 sm:mr-5 pb-3 w-[250px] h-fit rounded-lg shadow-md shadow-shadowColor">
+    <div className="relative flex flex-col space-y-3 mt-10 mr-0 sm:mr-5 pb-3 w-[250px] h-fit rounded-lg shadow-md shadow-shadowColor">
       <ImHeart
         style={{ color: "red" }}
-        className="absolute left-2 top-2 text-xl hover:scale-[1.2] cursor-pointer"
+        className="absolute left-2 top-2 text-xl hover:scale-[1.2] cursor-pointer drop-shadow-lg"
       />
       <img
         src="offer.svg"
@@ -15,7 +15,7 @@ const Product = () => {
       />
       {/* section 1 */}
       <img
-        src="home.svg"
+        src="logo.svg"
         className="w-full h-[260px] border-b-2 border-shadowColor/20"
       />
       {/* section 2 */}
@@ -31,11 +31,11 @@ const Product = () => {
       {/* section 3 */}
       <div className="flex justify-between items-center px-3">
         <div className="flex space-x-2">
-          <BsStarFill className="text-yellow-400 text-2xl" />
-          <BsStarFill className="text-yellow-400 text-2xl" />
-          <BsStarFill className="text-yellow-400 text-2xl" />
-          <BsStarHalf className="text-yellow-400 text-2xl" />
-          <BsStar className="text-2xl" />
+          <BsStarFill className="text-yellow-400 text-2xl drop-shadow-lg hover:scale-[1.1]" />
+          <BsStarFill className="text-yellow-400 text-2xl drop-shadow-lg hover:scale-[1.1]" />
+          <BsStarFill className="text-yellow-400 text-2xl drop-shadow-lg hover:scale-[1.1]" />
+          <BsStarHalf className="text-yellow-400 text-2xl drop-shadow-lg hover:scale-[1.1]" />
+          <BsStar className="text-2xl drop-shadow-lg hover:scale-[1.1]" />
         </div>
         <span className="font-bold">3.5</span>
       </div>
