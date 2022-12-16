@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Classification = (props) => {
+  //** for putting htmlfor and id for every input and label */
+  const [gender, setGender] = useState("");
+  useEffect(() => {
+    props.woman == true ? setGender("woman") : setGender("man");
+  }, []);
+  //************************ */
+
   return (
     <>
       {/* drop down */}
-      <div className="absolute top-12 md:-right-10 bg-white rounded-lg shadow-md shadow-shadowColor hidden group-hover:flex text-sm font-bold">
+      <div className="absolute top-[70px] left-[1px] md:top-[50px] md:-left-[37px] bg-white rounded-lg shadow-md shadow-shadowColor hidden group-hover:flex text-sm font-bold">
         {/* left section */}
         <div className="flex flex-col items-end p-2 space-y-2">
           {props.woman && (
             <>
               {/* one label */}
               <div className="flex space-x-2 items-center">
-                <label htmlFor="skirt" className="text-textColor">
+                <label htmlFor={`${gender} + skirt`} className="text-textColor">
                   تنورة
                 </label>
                 <input
                   type="checkbox"
-                  id="skirt"
+                  id={`${gender} + skirt`}
                   className="w-[14px] h-[14px]"
                 />
               </div>
@@ -24,45 +31,72 @@ const Classification = (props) => {
           )}
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="short" className="text-textColor">
+            <label htmlFor={`${gender} + short`} className="text-textColor">
               شورت
             </label>
-            <input type="checkbox" id="short" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + short`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="bijama" className="text-textColor">
+            <label htmlFor={`${gender} + bijama`} className="text-textColor">
               بجامة
             </label>
-            <input type="checkbox" id="bijama" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + bijama`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="hoody" className="text-textColor">
+            <label htmlFor={`${gender} + hoody`} className="text-textColor">
               هوديز
             </label>
-            <input type="checkbox" id="hoody" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + hoody`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="hat" className="text-textColor">
+            <label htmlFor={`${gender} + hat`} className="text-textColor">
               قبعة
             </label>
-            <input type="checkbox" id="hat" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + hat`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="scarve" className="text-textColor">
+            <label htmlFor={`${gender} + scarve`} className="text-textColor">
               وشاح
             </label>
-            <input type="checkbox" id="scarve" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + scarve`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="tie" className="text-textColor text-xs font-bold">
+            <label
+              htmlFor={`${gender} + tie`}
+              className="text-textColor text-end"
+            >
               ربطة عنق
             </label>
-            <input type="checkbox" id="tie" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + tie`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
         </div>
         {/* middle */}
@@ -73,12 +107,12 @@ const Classification = (props) => {
             <>
               {/* one label */}
               <div className="flex space-x-2 items-center">
-                <label htmlFor="dress" className="text-textColor">
+                <label htmlFor={`${gender} + dress`} className="text-textColor">
                   فستان
                 </label>
                 <input
                   type="checkbox"
-                  id="dress"
+                  id={`${gender} + dress`}
                   className="w-[14px] h-[14px]"
                 />
               </div>
@@ -86,57 +120,81 @@ const Classification = (props) => {
           )}
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="jacket" className="text-textColor">
+            <label htmlFor={`${gender} + jacket`} className="text-textColor">
               جاكيت
             </label>
-            <input type="checkbox" id="jacket" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + jacket`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="suit" className="text-textColor">
+            <label htmlFor={`${gender} + suit`} className="text-textColor">
               طقم
             </label>
-            <input type="checkbox" id="suit" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + suit`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="pant" className="text-textColor">
+            <label htmlFor={`${gender} + pant`} className="text-textColor">
               بنطال
             </label>
-            <input type="checkbox" id="pant" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + pant`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="shirt" className="text-textColor">
+            <label htmlFor={`${gender} + shirt`} className="text-textColor">
               قميص
             </label>
-            <input type="checkbox" id="shirt" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + shirt`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="tshirt" className="text-textColor">
+            <label htmlFor={`${gender} + tshirt`} className="text-textColor">
               كنزة
             </label>
-            <input type="checkbox" id="tshirt" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + tshirt`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor="belt" className="text-textColor">
+            <label htmlFor={`${gender} + belt`} className="text-textColor">
               حزام
             </label>
-            <input type="checkbox" id="belt" className="w-[14px] h-[14px]" />
+            <input
+              type="checkbox"
+              id={`${gender} + belt`}
+              className="w-[14px] h-[14px]"
+            />
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
             <label
-              htmlFor="swimwear"
-              className="text-textColor text-xs font-bold"
+              htmlFor={`${gender} + swimwear`}
+              className="text-textColor text-end"
             >
               ملابس سباحة
             </label>
             <input
               type="checkbox"
-              id="swimwear"
+              id={`${gender} + swimwear`}
               className="w-[14px] h-[14px]"
             />
           </div>

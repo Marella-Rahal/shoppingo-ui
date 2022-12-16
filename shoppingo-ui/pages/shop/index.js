@@ -25,51 +25,66 @@ const Index = () => {
           {/* Classification */}
           <div className="flex flex-col-reverse md:flex-row md:space-x-3 md:items-center">
             {/* woman */}
-            <button className="relative z-10 flex justify-between items-center py-2 px-3 hover:scale-[1.1] mt-5 md:mt-0 group">
-              <TiArrowSortedDown className="mr-1 w-5 h-5" /> نسائي
-              <TiArrowSortedDown className="hidden absolute top-7 md:right-7 text-effectColor w-7 h-7 group-hover:flex" />
+            <div className="relative z-10 flex flex-col group">
+              <button className="flex justify-between items-center py-2 px-3 group-hover:bg-effectColor/90 mt-5 md:mt-0">
+                <TiArrowSortedDown className="mr-1 w-5 h-5" /> نسائي
+              </button>
+
+              <TiArrowSortedDown className="hidden absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-effectColor/80 w-7 h-7 group-hover:flex" />
+
               <Classification woman={true} />
-            </button>
+            </div>
+
             {/* man */}
-            <button className="relative z-10 flex justify-between items-center py-2 px-3 hover:scale-[1.1] mt-5 md:mt-0 group">
-              <TiArrowSortedDown className="mr-1 w-5 h-5" />
-              رجالي
-              <TiArrowSortedDown className="hidden absolute top-7 md:right-7 text-effectColor w-7 h-7 group-hover:flex" />
+            <div className="relative z-10 flex flex-col group">
+              <button className="flex justify-between items-center py-2 px-3 group-hover:bg-effectColor/90 mt-5 md:mt-0">
+                <TiArrowSortedDown className="mr-1 w-5 h-5" />
+                رجالي
+              </button>
+
+              <TiArrowSortedDown className="hidden absolute  top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-effectColor/80 w-7 h-7 group-hover:flex" />
+
               <Classification woman={false} />
-            </button>
+            </div>
+
             {/* price */}
-            <button className="relative z-10 flex justify-between items-center py-2 px-3 hover:scale-[1.1] mt-3 md:mt-0 group">
-              <TiArrowSortedDown className="mr-1 w-5 h-5" />
-              السعر
-              <TiArrowSortedDown className="hidden absolute top-7 md:right-7 text-effectColor w-7 h-7 group-hover:flex" />
+            <div className="relative z-10 flex flex-col group">
+              <button className="flex justify-between items-center py-2 px-3 group-hover:bg-effectColor/90 mt-5 md:mt-0">
+                <TiArrowSortedDown className="mr-1 w-5 h-5" />
+                السعر
+              </button>
+
+              <TiArrowSortedDown className="hidden absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-effectColor/80 w-7 h-7 group-hover:flex" />
+
               {/* drop down */}
-              <div className="absolute top-12 md:-left-[43px] bg-white rounded-lg shadow-md shadow-shadowColor w-[175px] flex-col hidden group-hover:flex text-sm font-bold">
-                <div className="text-textColor rounded-t-lg border-b-2 border-shadowColor/20 hover:bg-textColor hover:text-white p-2">
+              <div className="absolute top-[70px] left-[1px] md:top-[50px] md:-left-[47px] bg-white rounded-lg shadow-md shadow-shadowColor w-[190px] flex-col hidden group-hover:flex text-sm font-bold">
+                <div className="text-textColor rounded-t-lg border-b-2 border-shadowColor/20 hover:bg-textColor hover:text-white p-2 text-center cursor-pointer">
                   من المنخفض إلى المرتفع
                 </div>
-                <div className="text-textColor border-b-2 border-shadowColor/20 hover:bg-textColor hover:text-white p-2">
+                <div className="text-textColor border-b-2 border-shadowColor/20 hover:bg-textColor hover:text-white p-2 text-center cursor-pointer">
                   من المرتفع إلى المنخفض
                 </div>
                 <div className="text-textColor hover:bg-textColor hover:text-white rounded-b-lg p-2 flex flex-col space-y-2">
-                  <div>من</div>
+                  <div className="text-center">من</div>
                   <input
                     type="number"
                     placeholder="20000"
-                    className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5"
+                    className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5 ring-2 ring-textColor/80"
                   />
-                  <div>إلى</div>
+                  <div className="text-center">إلى</div>
                   <input
                     type="number"
                     placeholder="100000"
-                    className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5"
+                    className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5 ring-2 ring-textColor/80"
                   />
-                  <div className="rounded-lg shadow-md shadow-shadowColor bg-white text-textColor border-2 border-textColor self-center px-5 py-1 hover:scale-[1.1]">
+                  <div className="rounded-lg shadow-md shadow-shadowColor bg-white text-textColor border-2 border-textColor self-center px-5 py-1 hover:scale-[1.1] cursor-pointer">
                     رتب
                   </div>
                 </div>
               </div>
               {/* the end of it */}
-            </button>
+            </div>
+
             <div className="self-center">: ترتيب حسب </div>
           </div>
         </div>
