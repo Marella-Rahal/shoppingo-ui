@@ -19,7 +19,7 @@ const Index = () => {
             </label>
             <input
               type="text"
-              className="w-full md:w-[230px] rounded-r-full shadow-sm shadow-shadowColor outline-textColor/50 px-3 py-[5px] text-textColor text-end"
+              className="w-full md:w-[230px] rounded-r-full shadow-sm shadow-shadowColor outline-none focus:border-2 border-textColor/30 px-3 py-[5px] text-textColor text-end"
             />
           </div>
           {/* Classification */}
@@ -69,13 +69,13 @@ const Index = () => {
                   <input
                     type="number"
                     placeholder="20000"
-                    className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5 ring-2 ring-textColor/80"
+                    className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5 border-2 border-textColor/80"
                   />
                   <div className="text-center">إلى</div>
                   <input
                     type="number"
                     placeholder="100000"
-                    className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5 ring-2 ring-textColor/80"
+                    className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5 border-2 border-textColor/80"
                   />
                   <div className="rounded-lg shadow-md shadow-shadowColor bg-white text-textColor border-2 border-textColor self-center px-5 py-1 hover:scale-[1.1] cursor-pointer">
                     رتب
