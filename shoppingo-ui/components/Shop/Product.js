@@ -35,7 +35,7 @@ const Product = () => {
           <BsStarFill className="text-yellow-400 text-2xl drop-shadow-lg hover:scale-[1.1]" />
           <BsStarFill className="text-yellow-400 text-2xl drop-shadow-lg hover:scale-[1.1]" />
           <BsStarHalf className="text-yellow-400 text-2xl drop-shadow-lg hover:scale-[1.1]" />
-          <BsStar className="text-2xl drop-shadow-lg hover:scale-[1.1]" />
+          <BsStar className="text-yellow-400 text-2xl drop-shadow-lg hover:scale-[1.1]" />
         </div>
         <span className="font-bold">3.5</span>
       </div>
