@@ -76,8 +76,8 @@ const Navbar = () => {
         style={{ background: `${navBackground}` }}
         className={
           shadow
-            ? "fixed z-10 w-full h-24 py-4 px-4 md:px-8 flex justify-between shadow-md shadow-shadowColor"
-            : "fixed z-10 w-full h-24 py-4 px-4 md:px-8 flex justify-between"
+            ? "fixed z-50 w-full h-24 py-4 px-4 md:px-8 flex justify-between shadow-md shadow-shadowColor"
+            : "fixed z-50 w-full h-24 py-4 px-4 md:px-8 flex justify-between"
         }
       >
         <div className="self-center md:hidden" onClick={handleSideNav}>
@@ -147,14 +147,14 @@ const Navbar = () => {
 
       <div
         className={
-          sideNav ? "fixed z-10 w-full h-full bg-black/50 md:hidden" : ""
+          sideNav ? "fixed z-50 w-full h-full bg-black/50 md:hidden" : ""
         }
       >
         <div
           className={
             sideNav
-              ? "fixed z-10 top-0 right-0 h-full w-full xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-300"
-              : "fixed z-10 top-0 right-[-100%] h-full w-full xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-100"
+              ? "fixed z-50 top-0 right-0 h-full w-full xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-300"
+              : "fixed z-50 top-0 right-[-100%] h-full w-full xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-100"
           }
         >
           {/* //todo */}
