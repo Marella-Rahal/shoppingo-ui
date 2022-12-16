@@ -4,7 +4,7 @@ const Classification = (props) => {
   return (
     <>
       {/* drop down */}
-      <div className="absolute top-10 md:-right-9 bg-white rounded-lg shadow-md shadow-shadowColor hidden group-hover:flex">
+      <div className="absolute top-12 md:-right-10 bg-white rounded-lg shadow-md shadow-shadowColor hidden group-hover:flex text-sm font-bold">
         {/* left section */}
         <div className="flex flex-col items-end p-2 space-y-2">
           {props.woman && (
