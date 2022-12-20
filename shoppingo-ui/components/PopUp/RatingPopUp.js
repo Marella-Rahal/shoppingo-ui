@@ -6,8 +6,8 @@ const RatingPopUp = (props) => {
       <div
         className={
           props.ratingPopUp
-            ? "absolute top-[35%] opacity-100 duration-300 ease-linear w-[250px] p-5 px-[17px] bg-bgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
-            : "absolute top-[52%] opacity-0 duration-300 ease-linear w-[250px] p-5 px-[17px] bg-bgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
+            ? "absolute top-[35%] opacity-100 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
+            : "absolute top-[52%] opacity-0 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
         }
       >
         <input
