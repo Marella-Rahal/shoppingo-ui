@@ -159,15 +159,15 @@ const Navbar = () => {
         >
           {/* //todo */}
 
-          <div className="flex justify-between p-0 border-4 border-red-700">
+          <div className="flex justify-between border-4 border-blue-700">
             <div
-              className="self-center rounded-full p-2 shadow-md shadow-shadowColor hover:scale-[1.1]"
+              className="my-0 self-center rounded-full p-2 shadow-md shadow-shadowColor hover:scale-[1.1]"
               onClick={handleSideNav}
             >
               <AiOutlineClose className="text-effectColor text-[25px] xs:text-[30px] hover:cursor-pointer " />
             </div>
 
-            <img src={logoUrl} alt="Logo" className="w-24 xs:w-28" />
+            <img src={logoUrl} alt="Logo" className="my-0 w-24 xs:w-28" />
           </div>
 
           {/* //todo */}
