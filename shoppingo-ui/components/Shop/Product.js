@@ -71,16 +71,16 @@ const Product = (props) => {
             تقييم
           </button>
           <div className="flex flex-col ">
-            <div className="flex text-[14px] self-end text-textColor">
-              <div className="mr-1">ل.س</div>
-              <div className="font-bold">{props.nPrice}</div>
-            </div>
             {props.offer && (
               <div className="flex text-[10px] text-textColor2 line-through self-end">
                 <div className="mr-1">ل.س</div>
                 <div className="font-bold">{props.oPrice}</div>
               </div>
             )}
+            <div className="flex text-[15px] self-end text-textColor">
+              <div className="mr-1">ل.س</div>
+              <div className="font-bold">{props.nPrice}</div>
+            </div>
           </div>
         </div>
         {/* section 3 */}

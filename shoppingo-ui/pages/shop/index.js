@@ -14,7 +14,7 @@ const Index = () => {
         <div className="flex flex-col-reverse md:items-center md:flex-row md:justify-between md:px-0 px-7">
           {/* Search */}
           <div className="flex mt-5 md:mt-0">
-            <label className="bg-white rounded-l-full shadow-sm shadow-shadowColor cursor-pointer px-2 py-[5px] text-textColor flex justify-center items-center border-y-2 border-effectColor/50">
+            <label className="bg-white rounded-l-full shadow-sm shadow-shadowColor cursor-pointer px-2 py-[5px] text-textColor flex justify-center items-center">
               <BiSearchAlt2 className="w-[20px] h-[20px] hover:scale-[1.1]" />
             </label>
             <input
