@@ -172,7 +172,7 @@ const Navbar = () => {
 
           {/* //todo */}
 
-          <ul className="flex flex-col items-center space-y-7 min-h-fit border-2 border-red-600">
+          <ul className="flex flex-col items-center space-y-7 min-h-fit">
             <li
               className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
               onClick={handleSideNav}
