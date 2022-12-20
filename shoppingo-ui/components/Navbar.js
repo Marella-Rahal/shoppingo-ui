@@ -153,8 +153,8 @@ const Navbar = () => {
         <div
           className={
             sideNav
-              ? "fixed z-50 top-0 right-0 h-full w-full xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-300"
-              : "fixed z-50 top-0 right-[-100%] h-full w-full xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-100"
+              ? "fixed z-50 top-0 right-0 h-full w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-300"
+              : "fixed z-50 top-0 right-[-100%] h-full w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-100"
           }
         >
           {/* //todo */}
@@ -164,10 +164,10 @@ const Navbar = () => {
               className="self-center rounded-full p-2 shadow-md shadow-shadowColor hover:scale-[1.1]"
               onClick={handleSideNav}
             >
-              <AiOutlineClose className="text-effectColor text-[30px] hover:cursor-pointer " />
+              <AiOutlineClose className="text-effectColor text-[25px] xs:text-[30px] hover:cursor-pointer " />
             </div>
 
-            <img src={logoUrl} alt="Logo" className="w-36 md:w-55" />
+            <img src={logoUrl} alt="Logo" className="w-24 xs:w-28" />
           </div>
 
           {/* //todo */}
@@ -178,7 +178,7 @@ const Navbar = () => {
               onClick={handleSideNav}
             >
               <Link href="/">
-                <AiFillHome className="text-effectColor group-hover:text-textColor text-[30px]" />
+                <AiFillHome className="text-effectColor group-hover:text-textColor text-[25px] xs:text-[30px]" />
               </Link>
             </li>
 
@@ -187,7 +187,7 @@ const Navbar = () => {
               onClick={handleSideNav}
             >
               <Link href="/shop">
-                <AiFillShop className="text-effectColor group-hover:text-textColor text-[30px]" />
+                <AiFillShop className="text-effectColor group-hover:text-textColor text-[25px] xs:text-[30px]" />
               </Link>
             </li>
 
@@ -196,7 +196,7 @@ const Navbar = () => {
               onClick={handleSideNav}
             >
               <Link href="/shop">
-                <MdLocalOffer className="text-effectColor group-hover:text-textColor text-[30px]" />
+                <MdLocalOffer className="text-effectColor group-hover:text-textColor text-[25px] xs:text-[30px]" />
               </Link>
             </li>
 
@@ -211,7 +211,7 @@ const Navbar = () => {
               onClick={handleSideNav}
             >
               <Link href="/favourite">
-                <AiFillHeart className="text-effectColor group-hover:text-textColor text-[30px]" />
+                <AiFillHeart className="text-effectColor group-hover:text-textColor text-[25px] xs:text-[30px]" />
               </Link>
             </li>
 
@@ -220,13 +220,13 @@ const Navbar = () => {
               onClick={handleSideNav}
             >
               <Link href="/shoppingCard">
-                <MdOutlineAddShoppingCart className="text-effectColor group-hover:text-textColor text-[30px]" />
+                <MdOutlineAddShoppingCart className="text-effectColor group-hover:text-textColor text-[25px] xs:text-[30px]" />
               </Link>
             </li>
 
             <li>
               <button
-                className="bg-gradient-to-l from-gradientFrom to-gradientTo p-2 hover:scale-[1.1]"
+                className="bg-gradient-to-l from-gradientFrom to-gradientTo px-2 py-[6px] xs:p-2 hover:scale-[1.1]"
                 onClick={() => router.push("/login")}
               >
                 تسجيل دخول
@@ -235,7 +235,7 @@ const Navbar = () => {
 
             <li>
               <button
-                className="bg-gradient-to-l from-gradientFrom to-gradientTo p-2 hover:scale-[1.1]"
+                className="bg-gradient-to-l from-gradientFrom to-gradientTo  px-2 py-[6px] xs:p-2 hover:scale-[1.1]"
                 onClick={() => router.push("/signup")}
               >
                 إنشاء حساب

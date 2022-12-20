@@ -26,7 +26,7 @@ const Index = () => {
         >
           <Link
             href="/signup"
-            className="self-center text-textColor hover:scale-[1.1] hover:underline"
+            className="text-center self-center text-textColor hover:scale-[1.1] hover:underline"
           >
             إنشاء حساب جديد
           </Link>
