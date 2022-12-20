@@ -159,7 +159,7 @@ const Navbar = () => {
         >
           {/* //todo */}
 
-          <div className="flex justify-between border-4 border-red-700">
+          <div className="flex justify-between p-0 border-4 border-red-700">
             <div
               className="self-center rounded-full p-2 shadow-md shadow-shadowColor hover:scale-[1.1]"
               onClick={handleSideNav}
