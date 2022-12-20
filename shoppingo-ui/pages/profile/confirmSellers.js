@@ -6,7 +6,7 @@ const ConfirmSellers = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-40 pb-10 w-full min-h-screen flex flex-col space-y-5">
+      <div className="pt-28 md:pt-32 pb-10 w-full min-h-screen flex flex-col space-y-5">
         <ConfirmSeller />
         <ConfirmSeller />
         <ConfirmSeller />
