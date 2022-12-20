@@ -147,19 +147,19 @@ const Navbar = () => {
 
       <div
         className={
-          sideNav ? "fixed z-50 w-full h-full bg-black/50 md:hidden" : ""
+          sideNav ? "fixed z-50 w-full min-h-screen bg-black/50 md:hidden" : ""
         }
       >
         <div
           className={
             sideNav
-              ? "fixed z-50 top-0 right-0 h-full w-[80%] xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-10 overflow-y-auto ease-linear duration-300"
-              : "fixed z-50 top-0 right-[-100%] h-full w-[80%] xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-10 overflow-y-auto ease-linear duration-100"
+              ? "fixed z-50 top-0 right-0 h-full w-[80%] xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-300"
+              : "fixed z-50 top-0 right-[-100%] h-full w-[80%] xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-100"
           }
         >
           {/* //todo */}
 
-          <div className="flex justify-between min-h-[50px] max-h-[50px]  xs:max-h-[55px] border-4 border-red-600">
+          <div className="flex justify-between min-h-[50px] max-h-[50px] xs:max-h-[55px] xs:min-h-[55px]">
             <div
               className="self-center rounded-full p-2 shadow-md shadow-shadowColor hover:scale-[1.1]"
               onClick={handleSideNav}
@@ -172,7 +172,7 @@ const Navbar = () => {
 
           {/* //todo */}
 
-          <ul className="flex flex-col items-center space-y-7 pb-5 border-2 border-red-600">
+          <ul className="flex flex-col items-center space-y-7 border-2 border-red-600">
             <li
               className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
               onClick={handleSideNav}
