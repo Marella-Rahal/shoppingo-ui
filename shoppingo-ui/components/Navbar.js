@@ -87,7 +87,7 @@ const Navbar = () => {
         <ul className="hidden md:flex items-center space-x-4">
           <li>
             <button
-              className="bg-gradient-to-l from-gradientFrom to-gradientTo p-2 hover:scale-[1.1]"
+              className="bg-gradient-to-l from-gradientFrom to-gradientTo w-[100px] py-2 hover:scale-[1.1]"
               onClick={() => router.push("/signup")}
             >
               إنشاء حساب
@@ -96,7 +96,7 @@ const Navbar = () => {
 
           <li>
             <button
-              className="bg-gradient-to-l from-gradientFrom to-gradientTo p-2 hover:scale-[1.1]"
+              className="bg-gradient-to-l from-gradientFrom to-gradientTo w-[100px] py-2 hover:scale-[1.1]"
               onClick={() => router.push("/login")}
             >
               تسجيل دخول
@@ -226,7 +226,7 @@ const Navbar = () => {
 
             <li>
               <button
-                className="bg-gradient-to-l from-gradientFrom to-gradientTo px-2 py-[6px] xs:p-2 hover:scale-[1.1]"
+                className="bg-gradient-to-l from-gradientFrom to-gradientTo w-[100px] py-2 hover:scale-[1.1]"
                 onClick={() => router.push("/login")}
               >
                 تسجيل دخول
@@ -235,7 +235,7 @@ const Navbar = () => {
 
             <li>
               <button
-                className="bg-gradient-to-l from-gradientFrom to-gradientTo  px-2 py-[6px] xs:p-2 hover:scale-[1.1]"
+                className="bg-gradient-to-l from-gradientFrom to-gradientTo  w-[100px] py-2 hover:scale-[1.1]"
                 onClick={() => router.push("/signup")}
               >
                 إنشاء حساب

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Product from "../../components/Shop/Product";
 import { BiSearchAlt2 } from "react-icons/bi";
