@@ -147,7 +147,7 @@ const Navbar = () => {
 
       <div
         className={
-          sideNav ? "fixed z-50 w-full min-h-screen bg-black/50 md:hidden" : ""
+          sideNav ? "fixed z-50 w-full h-full bg-black/50 md:hidden" : ""
         }
       >
         <div
@@ -172,7 +172,7 @@ const Navbar = () => {
 
           {/* //todo */}
 
-          <ul className="flex flex-col items-center space-y-7 border-2 border-red-600">
+          <ul className="flex flex-col items-center space-y-7 min-h-fit border-2 border-red-600">
             <li
               className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
               onClick={handleSideNav}
