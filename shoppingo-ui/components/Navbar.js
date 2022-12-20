@@ -81,7 +81,7 @@ const Navbar = () => {
         }
       >
         <div className="self-center md:hidden" onClick={handleSideNav}>
-          <GiHamburgerMenu className="text-effectColor text-[40px] hover:cursor-pointer hover:scale-[1.1]" />
+          <GiHamburgerMenu className="text-effectColor text-[30px] xs:text-[40px] hover:cursor-pointer hover:scale-[1.1]" />
         </div>
 
         <ul className="hidden md:flex items-center space-x-4">
@@ -140,7 +140,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <img src={logoUrl} alt="Logo" className="w-36 md:w-55" />
+        <img src={logoUrl} alt="Logo" className="w-28 xs:w-36" />
       </div>
 
       {/* //todo side navbar */}
@@ -153,8 +153,8 @@ const Navbar = () => {
         <div
           className={
             sideNav
-              ? "fixed z-50 top-0 right-0 h-full w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-300"
-              : "fixed z-50 top-0 right-[-100%] h-full w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-100"
+              ? "fixed z-50 top-0 right-0 h-full w-[80%] xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-300"
+              : "fixed z-50 top-0 right-[-100%] h-full w-[80%] xs:w-[75%] bg-bgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-100"
           }
         >
           {/* //todo */}
