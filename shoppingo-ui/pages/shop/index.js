@@ -15,11 +15,11 @@ const Index = () => {
           {/* Search */}
           <div className="flex mt-5 md:mt-0 ">
             <label className="bg-white rounded-l-full shadow-sm shadow-shadowColor cursor-pointer px-2 py-[5px] text-textColor flex justify-center items-center">
-              <BiSearchAlt2 className="w-[20px] h-[20px]" />
+              <BiSearchAlt2 className="w-[20px] h-[20px] hover:scale-[1.1]" />
             </label>
             <input
               type="text"
-              className="w-full md:w-[230px] rounded-r-full shadow-sm shadow-shadowColor outline-none focus:border-2 border-textColor/30 px-3 py-[5px] text-textColor text-end"
+              className="w-full md:w-[230px] rounded-r-full shadow-sm shadow-shadowColor outline-none focus:border-2 border-effectColor px-3 py-[5px] text-textColor text-end"
             />
           </div>
           {/* Classification */}
@@ -90,13 +90,54 @@ const Index = () => {
         </div>
 
         <div className="flex justify-evenly flex-wrap">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          <Product
+            img="product.jpg"
+            fav={true}
+            offer={true}
+            oPrice="100000"
+            nPrice="50000"
+            rating="4.5"
+          />
+          <Product
+            img="product.jpg"
+            fav={false}
+            offer={false}
+            oPrice=""
+            nPrice="200000"
+            rating="5"
+          />
+          <Product
+            img="product.jpg"
+            fav={false}
+            offer={true}
+            oPrice="75000"
+            nPrice="40000"
+            rating="3"
+          />
+          <Product
+            img="product.jpg"
+            fav={true}
+            offer={false}
+            oPrice=""
+            nPrice="500000"
+            rating="2.5"
+          />
+          <Product
+            img="product.jpg"
+            fav={true}
+            offer={true}
+            oPrice="500000"
+            nPrice="400000"
+            rating="2"
+          />
+          <Product
+            img="product.jpg"
+            fav={false}
+            offer={false}
+            oPrice=""
+            nPrice="50000"
+            rating="3.9"
+          />
         </div>
       </div>
     </>

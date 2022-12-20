@@ -51,7 +51,7 @@ const Navbar = () => {
   //handle navbar's shadow
   useEffect(() => {
     const handleShadow = () => {
-      if (window.scrollY >= 90) {
+      if (window.scrollY >= 25) {
         setShadow(true);
       } else {
         setShadow(false);
@@ -76,8 +76,8 @@ const Navbar = () => {
         style={{ background: `${navBackground}` }}
         className={
           shadow
-            ? "fixed z-50 w-full h-24 py-4 px-4 md:px-8 flex justify-between shadow-md shadow-shadowColor"
-            : "fixed z-50 w-full h-24 py-4 px-4 md:px-8 flex justify-between"
+            ? "fixed z-50 w-full h-[75px] py-4 px-4 md:px-8 flex justify-between shadow-md shadow-shadowColor"
+            : "fixed z-50 w-full h-[75px] py-4 px-4 md:px-8 flex justify-between"
         }
       >
         <div className="self-center md:hidden" onClick={handleSideNav}>
@@ -172,7 +172,7 @@ const Navbar = () => {
 
           {/* //todo */}
 
-          <ul className="flex flex-col items-center space-y-7 min-h-fit">
+          <ul className="flex flex-col items-center space-y-6 min-h-fit">
             <li
               className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
               onClick={handleSideNav}

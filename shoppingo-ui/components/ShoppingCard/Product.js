@@ -11,7 +11,7 @@ const Product = () => {
       </div>
       {/* Product Image */}
       <img
-        src="logo.svg"
+        src="product.jpg"
         className="w-full h-[200px] rounded-t-md border-b-2 border-shadowColor/20"
       />
 
