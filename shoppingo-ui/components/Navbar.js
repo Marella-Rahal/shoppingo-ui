@@ -159,7 +159,7 @@ const Navbar = () => {
         >
           {/* //todo */}
 
-          <div className="flex justify-between min-h-[50px] xs:min-h-[55px] border-4 border-blue-600">
+          <div className="flex justify-between min-h-[50px] max-h-[50px]  xs:max-h-[55px] border-4 border-red-600">
             <div
               className="self-center rounded-full p-2 shadow-md shadow-shadowColor hover:scale-[1.1]"
               onClick={handleSideNav}
@@ -172,7 +172,7 @@ const Navbar = () => {
 
           {/* //todo */}
 
-          <ul className="flex flex-col items-center space-y-7 pb-5">
+          <ul className="flex flex-col items-center space-y-7 pb-5 border-2 border-red-600">
             <li
               className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
               onClick={handleSideNav}
