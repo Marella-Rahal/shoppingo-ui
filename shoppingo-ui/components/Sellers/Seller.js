@@ -4,7 +4,7 @@ import React from "react";
 const Seller = (props) => {
   const router = useRouter();
   return (
-    <div className="flex justify-end items-center pl-3 py-3 space-x-3 rounded-lg  mt-6 lg:mr-5 w-full lg:w-[425px] h-[200px] border-2 border-effectColor">
+    <div className="flex justify-end items-center pl-3 py-3 space-x-3 rounded-lg  mt-6 lg:mr-5 w-full lg:w-[425px] h-[200px] border-2 border-y-effectColor border-x-textColor shadow-sm shadow-shadowColor">
       <div className="flex flex-col text-end space-y-2 ">
         <h6
           className="cursor-pointer hover:underline"
