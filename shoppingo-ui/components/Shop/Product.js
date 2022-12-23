@@ -55,7 +55,7 @@ const Product = (props) => {
         {/* offer */}
         {props.offer && (
           <img
-            src="offer.svg"
+            src={props.oimg}
             className="absolute w-20 h-20 -top-[29px] -right-[17px]"
           />
         )}

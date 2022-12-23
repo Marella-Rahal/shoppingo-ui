@@ -92,6 +92,7 @@ const Index = () => {
         <div className="flex justify-evenly flex-wrap">
           <Product
             img="product.jpg"
+            oimg="offer.svg"
             fav={true}
             offer={true}
             oPrice="100000"
@@ -100,6 +101,7 @@ const Index = () => {
           />
           <Product
             img="product.jpg"
+            oimg="offer.svg"
             fav={false}
             offer={false}
             oPrice=""
@@ -108,6 +110,7 @@ const Index = () => {
           />
           <Product
             img="product.jpg"
+            oimg="offer.svg"
             fav={false}
             offer={true}
             oPrice="75000"
@@ -116,6 +119,7 @@ const Index = () => {
           />
           <Product
             img="product.jpg"
+            oimg="offer.svg"
             fav={true}
             offer={false}
             oPrice=""
@@ -124,6 +128,7 @@ const Index = () => {
           />
           <Product
             img="product.jpg"
+            oimg="offer.svg"
             fav={true}
             offer={true}
             oPrice="500000"
@@ -132,6 +137,7 @@ const Index = () => {
           />
           <Product
             img="product.jpg"
+            oimg="offer.svg"
             fav={false}
             offer={false}
             oPrice=""
@@ -140,6 +146,7 @@ const Index = () => {
           />
           <Product
             img="product.jpg"
+            oimg="offer.svg"
             fav={true}
             offer={false}
             oPrice=""
@@ -148,6 +155,7 @@ const Index = () => {
           />
           <Product
             img="product.jpg"
+            oimg="offer.svg"
             fav={false}
             offer={false}
             oPrice=""
