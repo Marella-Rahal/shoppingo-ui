@@ -7,7 +7,7 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 import { MdLocalOffer, MdOutlineAddShoppingCart } from "react-icons/md";
-import { BsFillBriefcaseFill } from "react-icons/bs";
+import { IoIosPeople } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useRouter } from "next/router";
 
@@ -84,7 +84,7 @@ const Navbar = () => {
           <GiHamburgerMenu className="text-effectColor text-[30px] xs:text-[40px] hover:cursor-pointer hover:scale-[1.1]" />
         </div>
 
-        <ul className="hidden md:flex items-center space-x-4">
+        <ul className="hidden md:flex items-center space-x-2 lg:space-x-4">
           <li>
             <button
               className="bg-gradient-to-l from-gradientFrom to-gradientTo w-[100px] py-2 hover:scale-[1.1]"
@@ -115,11 +115,11 @@ const Navbar = () => {
             </Link>
           </li>
 
-          {/* <li className='p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]'>
-                    <Link href='/'>
-                        <BsFillBriefcaseFill className="text-effectColor group-hover:text-textColor text-[30px]"/>
-                    </Link>
-                </li>  */}
+          <li className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]">
+            <Link href="/sellers">
+              <IoIosPeople className="text-effectColor group-hover:text-textColor text-[30px]" />
+            </Link>
+          </li>
 
           <li className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]">
             <Link href="/shop">
@@ -200,11 +200,14 @@ const Navbar = () => {
               </Link>
             </li>
 
-            {/* <li className='p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]' onClick={handleSideNav}>
-                            <Link href='/'>
-                                <BsFillBriefcaseFill className="text-effectColor group-hover:text-textColor text-[30px]"/>
-                            </Link>
-                        </li>  */}
+            <li
+              className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
+              onClick={handleSideNav}
+            >
+              <Link href="/sellers">
+                <IoIosPeople className="text-effectColor group-hover:text-textColor text-[25px] xs:text-[30px]" />
+              </Link>
+            </li>
 
             <li
               className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
