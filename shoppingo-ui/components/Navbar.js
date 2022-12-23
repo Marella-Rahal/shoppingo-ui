@@ -33,14 +33,15 @@ const Navbar = () => {
       setNavBackground("#fff8f0");
     }
 
+    console.log(router);
+
     //logo path
     if (
       router.asPath == "/login" ||
       router.asPath == "/login/forgetPassword" ||
       router.asPath == "/profile/upgrade" ||
       router.asPath == "/profile/confirmSellers" ||
-      //! ***********************************************
-      router.asPath == "/sellers/[ShopName]"
+      router.asPath == `/sellers/${router.query.shopId}`
     ) {
       setLogoUrl("../logo.svg");
     } else {
