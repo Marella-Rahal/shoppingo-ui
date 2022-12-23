@@ -10,7 +10,7 @@ const Index = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full min-h-screen pt-28 px-4 md:px-8 pb-14 flex flex-col space-y-5">
+      <div className="w-full min-h-screen pt-28 px-4 md:px-8 pb-14 flex flex-col">
         {/* Search and classification */}
         <div className="flex flex-col-reverse md:items-center md:flex-row md:justify-between md:px-0 px-7">
           {/* Search */}
@@ -58,9 +58,9 @@ const Index = () => {
         </div>
 
         {/* line */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 mt-7">
           <div className="w-1/2 h-[1px] bg-effectColor" />
-          <img src="../logo.svg" className="w-20 sm:w-28 h-10" />
+          <img src="../logo.svg" className="w-20 xs:w-28 h-10" />
           <div className="w-1/2 h-[1px] bg-effectColor" />
         </div>
 

@@ -10,9 +10,9 @@ const ShopProduct = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-28 px-4 md:px-8 min-h-screen w-full flex flex-col space-y-7">
+      <div className="pt-28 px-4 md:px-8 min-h-screen w-full flex flex-col">
         {/* store name */}
-        <h3 className="text-center drop-shadow-lg shadow-shadowColor">
+        <h3 className="text-center drop-shadow-lg shadow-shadowColor mb-7">
           For_you
         </h3>
 
@@ -62,9 +62,9 @@ const ShopProduct = () => {
         </div>
 
         {/* line */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 mt-7">
           <div className="w-1/2 h-[1px] bg-effectColor" />
-          <img src="../logo.svg" className="w-20 sm:w-28 h-10" />
+          <img src="../logo.svg" className="w-20 xs:w-28 h-10" />
           <div className="w-1/2 h-[1px] bg-effectColor" />
         </div>
 
