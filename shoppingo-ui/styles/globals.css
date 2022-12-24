@@ -42,4 +42,21 @@
   button {
     @apply shadow-md shadow-shadowColor rounded-xl uppercase bg-effectColor opacity-[0.9] text-white outline-none
   }
+
+  /* Marker tweaks */
+  .mapboxgl-popup {
+    padding-bottom: 35px;
+    @apply shadow-shadowColor drop-shadow-lg
+  }
+
+  .mapboxgl-popup .mapboxgl-popup-close-button {
+    display: none;
+  }
+
+  .mapboxgl-popup .mapboxgl-popup-content {
+    padding: 0;
+    width: fit-content;
+    border-radius: 17px;
+  }
+
 }
