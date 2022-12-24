@@ -7,7 +7,7 @@ const ShoppingCard = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-32 px-4 md:px-8 min-h-screen flex flex-col justify-between">
+      <div className="pt-28 px-4 md:px-8 min-h-screen flex flex-col justify-between">
         <div className="flex flex-col">
           {/* Delete */}
           <div className="flex space-x-2 justify-end items-center cursor-pointer group">
