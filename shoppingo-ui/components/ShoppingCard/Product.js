@@ -2,8 +2,10 @@ import Link from "next/link";
 import React from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
+import { useRouter } from "next/router";
 
-const Product = () => {
+const Product = (props) => {
+  const router = useRouter();
   return (
     <div className="relative flex flex-col w-[275px] rounded-md shadow-md shadow-shadowColor mt-14 mr-2 sm:mr-5">
       <div className="absolute -top-5 -right-4 w-9 h-9 rounded-full bg-textColor border-[3px] border-white shadow-md shadow-shadowColor flex justify-center items-center hover:scale-[1.1] cursor-pointer">
@@ -11,13 +13,18 @@ const Product = () => {
       </div>
       {/* Product Image */}
       <img
-        src="product.jpg"
+        src={props.img}
         className="w-full h-[250px] rounded-t-md border-b-2 border-shadowColor/20"
       />
 
       {/* Store Name - view on map */}
       <div className="flex flex-col justify-center w-full h-[60px] border-b-2 border-shadowColor/20">
-        <p className="text-center font-bold">For_you</p>
+        <p
+          className="text-center font-bold cursor-pointer hover:underline"
+          onClick={() => router.push(`/sellers/${props.shopId}`)}
+        >
+          {props.shopName}
+        </p>
         <Link
           href="/"
           className="text-center underline text-textColor2 hover:scale-[1.1]"
@@ -30,11 +37,14 @@ const Product = () => {
 
       <div className="flex w-full h-[60px] border-b-2 border-shadowColor/20">
         <div className="w-1/2 px-3 flex justify-between items-center border-r-2 border-shadowColor/20">
-          <span className="font-bold uppercase">xxl</span>
+          <span className="font-bold uppercase">{props.size}</span>
           <p>: القياس</p>
         </div>
         <div className="w-1/2 px-3 flex justify-between items-center">
-          <div className="w-6 h-6 rounded-full bg-red-700 shadow-md shadow-shadowColor" />
+          <div
+            style={{ backgroundColor: `${props.color}` }}
+            className="w-6 h-6 rounded-full shadow-md shadow-shadowColor"
+          />
           <p>: اللون</p>
         </div>
       </div>
@@ -50,7 +60,7 @@ const Product = () => {
               <FaMinus className="text-white" />
             </div>
 
-            <div className="font-bold">10000</div>
+            <div className="font-bold">{props.qty}</div>
 
             <div className="w-6 h-6 rounded-full shadow-md flex items-center justify-center shadow-shadowColor bg-textColor2 border-[3px] border-white cursor-pointer hover:scale-[1.1]">
               <FaPlus className="text-white" />
@@ -64,7 +74,7 @@ const Product = () => {
 
           <div className="flex justify-center px-2">
             <div className="text-sm mr-1">ل.س</div>
-            <div className="font-bold text-sm">400000</div>
+            <div className="font-bold text-sm">{props.price}</div>
           </div>
         </div>
       </div>

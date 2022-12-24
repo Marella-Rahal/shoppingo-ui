@@ -20,12 +20,60 @@ const ShoppingCard = () => {
           {/* Product */}
 
           <div className="flex justify-evenly flex-wrap">
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
-            <Product />
+            <Product
+              img="product.jpg"
+              shopName="For_you"
+              shopId="1"
+              color="red"
+              size="XXL"
+              price="500000"
+              qty="10000"
+            />
+            <Product
+              img="product.jpg"
+              shopName="For_you"
+              shopId="2"
+              color="red"
+              size="XXL"
+              price="500000"
+              qty="10000"
+            />
+            <Product
+              img="product.jpg"
+              shopName="For_you"
+              shopId="3"
+              color="red"
+              size="XXL"
+              price="500000"
+              qty="10000"
+            />
+            <Product
+              img="product.jpg"
+              shopName="For_you"
+              shopId="4"
+              color="red"
+              size="XXL"
+              price="500000"
+              qty="10000"
+            />
+            <Product
+              img="product.jpg"
+              shopName="For_you"
+              shopId="5"
+              color="red"
+              size="XXL"
+              price="500000"
+              qty="10000"
+            />
+            <Product
+              img="product.jpg"
+              shopName="For_you"
+              shopId="6"
+              color="red"
+              size="XXL"
+              price="500000"
+              qty="10000"
+            />
           </div>
         </div>
 
