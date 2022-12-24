@@ -67,7 +67,7 @@ const Sellers = () => {
         {/* locater second div */}
         <div className="flex space-x-2 self-center">
           <Link
-            href="/"
+            href="/sellers/locations"
             className="underline hover:scale-[1.1] text-effectColor"
           >
             هنا

@@ -11,7 +11,7 @@ const Seller = (props) => {
       <div className="flex flex-col text-end space-y-2 ">
         <h6
           className="cursor-pointer hover:underline"
-          onClick={() => router.push(`/sellers/${props.id}`)}
+          onClick={() => router.push(`/shop/${props.id}`)}
         >
           {props.name}
         </h6>

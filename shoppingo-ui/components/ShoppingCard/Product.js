@@ -21,7 +21,7 @@ const Product = (props) => {
       <div className="flex flex-col justify-center w-full h-[60px] border-b-2 border-shadowColor/20">
         <p
           className="text-center font-bold cursor-pointer hover:underline"
-          onClick={() => router.push(`/sellers/${props.shopId}`)}
+          onClick={() => router.push(`/shop/${props.shopId}`)}
         >
           {props.shopName}
         </p>

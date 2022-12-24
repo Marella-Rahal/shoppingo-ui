@@ -37,11 +37,10 @@ const Navbar = () => {
 
     //logo path
     if (
-      router.asPath == "/login" ||
       router.asPath == "/login/forgetPassword" ||
       router.asPath == "/profile/upgrade" ||
       router.asPath == "/profile/confirmSellers" ||
-      router.asPath == `/sellers/${router.query.shopId}`
+      router.asPath == `/shop/${router.query.shopId}`
     ) {
       setLogoUrl("../logo.svg");
     } else {
