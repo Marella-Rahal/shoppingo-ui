@@ -33,8 +33,6 @@ const Navbar = () => {
       setNavBackground("#fff8f0");
     }
 
-    console.log(router);
-
     //logo path
     if (
       router.asPath == "/login/forgetPassword" ||

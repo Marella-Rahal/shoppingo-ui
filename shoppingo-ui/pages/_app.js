@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Shoppingo</title>
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta
           name="description"
           content="Personal Assistant for Shopping and Budget Management"
