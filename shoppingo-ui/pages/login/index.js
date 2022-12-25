@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Link from "next/link";
 
-const Index = () => {
+const LogIn = () => {
   return (
     <>
       <Navbar />
@@ -103,4 +103,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default LogIn;

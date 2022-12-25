@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar";
 import { BsCamera } from "react-icons/bs";
 import { useRouter } from "next/router";
 
-const Index = () => {
+const Profile = () => {
   const router = useRouter();
 
   //*** to know if the user is a normal user or a seller or an admin : (0) user , (1) seller , (2) admin
@@ -219,4 +219,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Profile;

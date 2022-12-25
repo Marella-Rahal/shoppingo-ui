@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Map from "../../components/Map";
 
-const locations = () => {
+const Locations = () => {
   // the location of the user
   const [coords, setCoords] = useState([]);
   console.log(coords);
@@ -26,4 +26,4 @@ const locations = () => {
   );
 };
 
-export default locations;
+export default Locations;

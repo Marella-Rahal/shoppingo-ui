@@ -6,7 +6,7 @@ import Classification from "../../components/Shop/Classification";
 import PriceClassification from "../../components/Shop/PriceClassification";
 import Search from "../../components/Shop/Search";
 
-const Index = () => {
+const Shop = () => {
   return (
     <>
       <Navbar />
@@ -143,4 +143,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Shop;
