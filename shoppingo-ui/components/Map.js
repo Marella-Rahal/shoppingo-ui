@@ -218,7 +218,7 @@ const Map = ({ coords, sellerRoute }) => {
               backgroundColor: "white",
               color: markerColor,
               minWidth: "125px",
-              minHeight: "40px",
+              minHeight: "37px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",

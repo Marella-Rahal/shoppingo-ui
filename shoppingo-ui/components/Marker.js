@@ -5,7 +5,7 @@ const Marker = ({ image, color }) => {
     <>
       <button
         type="button"
-        className="marker-btn after:top-[85%] sm:after:top-[91%]"
+        className="marker-btn"
         style={{ backgroundColor: color, borderColor: color }}
       >
         <img src={image} alt="product image" className="marker-img" />
@@ -24,8 +24,8 @@ const Marker = ({ image, color }) => {
           .marker-btn {
             border: solid 3px;
             border-radius: 100%;
-            width: 35px;
-            height: 38px;
+            width: 30px;
+            height: 33px;
             padding: 0px;
           }
 
@@ -34,6 +34,7 @@ const Marker = ({ image, color }) => {
             content: " ";
             position: absolute;
             left: 50%;
+            top: 84%;
             margin-left: -10px;
             border-width: 10px;
             border-style: solid;
@@ -45,8 +46,8 @@ const Marker = ({ image, color }) => {
 
           // the image
           .marker-img {
-            width: 26px;
-            height: 28px;
+            width: 21px;
+            height: 23px;
             border-radius: 100%;
             margin: auto;
           }

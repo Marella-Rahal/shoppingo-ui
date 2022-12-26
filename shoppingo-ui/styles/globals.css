@@ -53,6 +53,10 @@
     display: none;
   }
 
+  .mapboxgl-popup .mapboxgl-popup-tip{
+    margin-inline: -1px;
+  }
+
   .mapboxgl-popup .mapboxgl-popup-content {
     padding: 0;
     width: fit-content;
