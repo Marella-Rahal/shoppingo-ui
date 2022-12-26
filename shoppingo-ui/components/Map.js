@@ -7,11 +7,11 @@ import axios from "axios";
 
 mapboxgl.accessToken = process.env.mapbox_key;
 
-// mapboxgl.setRTLTextPlugin(
-//   "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js",
-//   null,
-//   true // Lazy load the plugin
-// );
+mapboxgl.setRTLTextPlugin(
+  "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js",
+  null,
+  true // Lazy load the plugin
+);
 
 const stores = [
   {

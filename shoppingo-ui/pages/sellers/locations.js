@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Map from "../../components/Map";
 import NotePopUp, { showPopUpNote } from "../../components/PopUp/NotePopUp";
+import Loading from "../../components/Loading";
+// to stop server side rendering because ( the rtl plugin does not work with it )
+import dynamic from "next/dynamic";
+const Map = dynamic(() => import("../../components/Map"), {
+  loading: () => <Loading />,
+  ssr: false,
+});
 
 const Locations = () => {
   //todo *********** the massage for the popUp
