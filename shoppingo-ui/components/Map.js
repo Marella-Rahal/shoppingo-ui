@@ -405,23 +405,23 @@ const Map = ({ coords, sellerRoute }) => {
     <div ref={mapContainerRef} className="relative z-0 w-full h-full">
       {/* location's color */}
       {!sellerRoute && (
-        <div className="absolute top-2 left-2 z-10 p-2 w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-[5px] text-[10px] sm:text-[12px] font-bold">
+        <div className="absolute top-2 left-2 z-10 p-2 w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-[5px] text-[10px] md:text-[12px] font-bold">
           <div className="self-center">ألوان المواقع</div>
           <div className=" flex justify-end items-center">
             الأقرب
-            <div className="w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] rounded-full bg-[orange] ml-2" />
+            <div className="w-[16px] md:w-[18px] h-[16px] md:h-[18px] rounded-full bg-[orange] ml-2" />
           </div>
           <div className=" flex justify-end items-center">
             الأرخص
-            <div className="w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] rounded-full bg-[green] ml-2" />
+            <div className="w-[16px] md:w-[18px] h-[16px] md:h-[18px] rounded-full bg-[green] ml-2" />
           </div>
           <div className=" flex justify-end items-center">
             مع عرض
-            <div className="w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] rounded-full bg-[red] ml-2" />
+            <div className="w-[16px] md:w-[18px] h-[16px] md:h-[18px] rounded-full bg-[red] ml-2" />
           </div>
           <div className=" flex justify-end items-center">
             الباقي
-            <div className="w-[16px] sm:w-[18px] h-[16px] sm:h-[18px] rounded-full bg-[blue] ml-2" />
+            <div className="w-[16px] md:w-[18px] h-[16px] md:h-[18px] rounded-full bg-[blue] ml-2" />
           </div>
         </div>
       )}
@@ -429,8 +429,8 @@ const Map = ({ coords, sellerRoute }) => {
         id="dist-time"
         className={
           sellerRoute
-            ? "absolute left-2 top-2 z-10 text-[blue] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[10px] sm:text-[12px] font-bold text-center space-y-[3px]"
-            : "absolute left-2 bottom-2 z-10 text-[#9E4200] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[10px] sm:text-[12px] font-bold text-center space-y-[3px]"
+            ? "absolute left-2 top-2 z-10 text-[blue] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[10px] md:text-[12px] font-bold text-center space-y-[3px]"
+            : "absolute left-2 bottom-2 z-10 text-[#9E4200] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[10px] md:text-[12px] font-bold text-center space-y-[3px]"
         }
       ></div>
     </div>
