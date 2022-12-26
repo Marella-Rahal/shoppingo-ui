@@ -5,7 +5,7 @@ const Marker = ({ image, color }) => {
     <>
       <button
         type="button"
-        className="marker-btn"
+        className="marker-btn after:top-[89%] sm:after:top-[91%]"
         style={{ backgroundColor: color, borderColor: color }}
       >
         <img src={image} alt="product image" className="marker-img" />
@@ -33,7 +33,6 @@ const Marker = ({ image, color }) => {
           .marker-btn::after {
             content: " ";
             position: absolute;
-            top: 91%; /* At the bottom of the tooltip */
             left: 50%;
             margin-left: -10px;
             border-width: 10px;

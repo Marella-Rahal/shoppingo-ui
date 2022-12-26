@@ -146,7 +146,7 @@ const Map = ({ coords, sellerRoute }) => {
         const el = document.createElement("div");
         el.className = "marker";
         const root = ReactDOM.createRoot(el);
-        root.render(<Marker image="../../default.jpg" color={"black"} />);
+        root.render(<Marker image="../../default.jpg" color={"grey"} />);
         new mapboxgl.Marker(el, { offset: [0, -10] })
           .setLngLat(coords)
           .addTo(map);
@@ -219,13 +219,14 @@ const Map = ({ coords, sellerRoute }) => {
               backgroundColor: "white",
               color: markerColor,
               minWidth: "125px",
-              minHeight: "50px",
+              minHeight: "40px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               borderRadius: "17px",
-              borderInline: `solid 4px ${markerColor}`,
+              borderColor: `${markerColor}`,
             }}
+            className="border-x-4"
           >
             {marker.name}
           </h4>
