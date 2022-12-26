@@ -5,7 +5,7 @@ const Marker = ({ image, color }) => {
     <>
       <button
         type="button"
-        className="marker-btn after:top-[80%] sm:after:top-[83%]"
+        className="marker-btn after:top-[80%] md:after:top-[85%]"
         style={{ backgroundColor: color, borderColor: color }}
       >
         <img src={image} alt="product image" className="marker-img" />
@@ -49,12 +49,6 @@ const Marker = ({ image, color }) => {
             height: 23px;
             border-radius: 100%;
             margin: auto;
-          }
-
-          // @media (orientation: landscape) {
-          //   .marker-btn::after {
-          //     top: 80%;
-          //   }
           }
         `}
       </style>
