@@ -51,7 +51,7 @@ const Marker = ({ image, color }) => {
             margin: auto;
           }
 
-          @media (orientation: landscape) and (max-width: 767px) {
+          @media (orientation: landscape) and (max-width: 976px) and (max-height: 500px) {
             .marker-btn::after {
               top: 80%;
             }
