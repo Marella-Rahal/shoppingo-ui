@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Marker from "./Marker";
+import axios from "axios";
 
 mapboxgl.accessToken = process.env.mapbox_key;
 
@@ -121,7 +122,7 @@ const Map = ({ coords, sellerRoute }) => {
     //***********initialize the map*************/
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/streets-v12",
       center: [lng, lat],
       zoom: zoom,
       scrollZoom: true,
@@ -139,20 +140,7 @@ const Map = ({ coords, sellerRoute }) => {
     // Add navigation control (the +/- zoom buttons)
     map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 
-    //*****personal marker*********
-    if (coords.length > 0) {
-      map.on("load", () => {
-        const el = document.createElement("div");
-        el.className = "marker";
-        const root = ReactDOM.createRoot(el);
-        root.render(<Marker image="../../default.jpg" color={"grey"} />);
-        new mapboxgl.Marker(el, { offset: [0, -10] })
-          .setLngLat(coords)
-          .addTo(map);
-      });
-    }
-
-    // markers
+    //* calling Markers
     map.on("load", () => {
       if (sellerRoute) {
         addMarkers(stores, "#111D4A");
@@ -164,7 +152,25 @@ const Map = ({ coords, sellerRoute }) => {
       }
     });
 
-    //************** Markers *******************
+    //*****personal marker*********
+    if (coords.length > 0) {
+      map.on("load", () => {
+        const el = document.createElement("div");
+        el.className = "marker";
+        const root = ReactDOM.createRoot(el);
+        root.render(
+          <Marker
+            image="../../default.jpg"
+            color={sellerRoute ? "blue" : "#9E4200"}
+          />
+        );
+        new mapboxgl.Marker(el, { offset: [0, -10] })
+          .setLngLat(coords)
+          .addTo(map);
+      });
+    }
+
+    //**************adding Markers *******************
     function addMarkers(marker, markerColor) {
       for (const x of marker) {
         const el = document.createElement("div");
@@ -186,6 +192,11 @@ const Map = ({ coords, sellerRoute }) => {
           .addTo(map);
 
         el.addEventListener("click", (e) => {
+          /* make thw direction */
+          if (coords.length > 0) {
+            const routeColor = sellerRoute ? "blue" : "#9E4200";
+            getRoute(coords, x.coo, routeColor);
+          }
           /* Fly to the point */
           flyToStore(x.coo);
           /* Close all other popups and display popup for clicked store */
@@ -193,13 +204,92 @@ const Map = ({ coords, sellerRoute }) => {
         });
       }
     }
+    // ************ Directions ********************
+
+    async function getRoute(start, end, routeColor) {
+      const res = await axios.get(
+        `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`
+      );
+
+      //res.data contains an object with three values( code , waypoints , routes)
+
+      //routes contains an array of every single route in our condition we have just one route
+
+      const data = res.data.routes[0];
+      //every single route is an ((object)) contains
+
+      //an ((object)) ((legs)) for the ((instructions)),
+      //weight_name,
+      //weight
+      //distance
+      //duration
+      //an ((object)) ((geometry)) which contains an ((array)) for the ((coordinates)) all the route
+
+      const route = data.geometry.coordinates;
+
+      //putting the array of coordinates in geojson object
+      const geojson = {
+        type: "Feature",
+        properties: {},
+        geometry: {
+          type: "LineString",
+          coordinates: route,
+        },
+      };
+
+      //if the route already exists on the map , we will reset it using setData
+
+      if (map.getSource("route")) {
+        map.getSource("route").setData(geojson);
+      }
+      //otherwise we will make a new request
+      else {
+        map.addLayer({
+          id: "route",
+          type: "line",
+          source: {
+            type: "geojson",
+            data: geojson,
+          },
+          layout: {
+            "line-join": "round",
+            "line-cap": "round",
+          },
+          paint: {
+            "line-color": `${routeColor}`,
+            "line-width": 4,
+            "line-opacity": 1,
+          },
+        });
+      }
+
+      //putting the time and the distance on the map
+      const dT = document.getElementById("dist-time");
+
+      dT.innerHTML = `
+      <h4> 
+       : المسافة المقدرة للوصول 
+      </h4>
+      <h5>
+        كيلو متر ${Math.floor(data.distance / 1000)} 
+      <h5/>
+
+      <h4>
+      : الوقت المقدر للوصول  
+      </h4>
+      <h5>
+      دقيقة ${Math.floor(data.duration / 60)} 
+      </h5>
+
+      `;
+    }
 
     // ************ fly to store ******************
 
     function flyToStore(coords) {
       map.flyTo({
         center: coords,
-        zoom: 19,
+        zoom: 12,
       });
     }
 
@@ -319,22 +409,30 @@ const Map = ({ coords, sellerRoute }) => {
           <div className="self-center">ألوان المواقع</div>
           <div className=" flex justify-end items-center">
             الأقرب
-            <div className="w-[18px] h-[18px] rounded-full bg-orange-400 ml-2" />
+            <div className="w-[18px] h-[18px] rounded-full bg-[orange] ml-2" />
           </div>
           <div className=" flex justify-end items-center">
             الأرخص
-            <div className="w-[18px] h-[18px] rounded-full bg-green-700 ml-2" />
+            <div className="w-[18px] h-[18px] rounded-full bg-[green] ml-2" />
           </div>
           <div className=" flex justify-end items-center">
             مع عرض
-            <div className="w-[18px] h-[18px] rounded-full bg-red-600 ml-2" />
+            <div className="w-[18px] h-[18px] rounded-full bg-[red] ml-2" />
           </div>
           <div className=" flex justify-end items-center">
             الباقي
-            <div className="w-[18px] h-[18px] rounded-full bg-blue-700 ml-2" />
+            <div className="w-[18px] h-[18px] rounded-full bg-[blue] ml-2" />
           </div>
         </div>
       )}
+      <div
+        id="dist-time"
+        className={
+          sellerRoute
+            ? "absolute left-2 top-2 z-10 text-[blue] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[12px] font-bold text-center space-y-[3px]"
+            : "absolute left-2 bottom-2 z-10 text-[#9E4200] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[12px] font-bold text-center space-y-[3px]"
+        }
+      ></div>
     </div>
   );
 };
