@@ -218,13 +218,14 @@ const Map = ({ coords, sellerRoute }) => {
               backgroundColor: "white",
               color: markerColor,
               minWidth: "125px",
-              minHeight: "37px",
+              minHeight: "40px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              borderRadius: "17px",
-              borderInline: `solid 4px ${markerColor}`,
+              borderRadius: "10px",
+              borderColor: `${markerColor}`,
             }}
+            className="border-x-4"
           >
             {marker.name}
           </h4>

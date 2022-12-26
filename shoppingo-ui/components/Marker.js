@@ -34,7 +34,7 @@ const Marker = ({ image, color }) => {
             content: " ";
             position: absolute;
             left: 50%;
-            top: 84%;
+            top: 83%;
             margin-left: -10px;
             border-width: 10px;
             border-style: solid;
@@ -50,6 +50,12 @@ const Marker = ({ image, color }) => {
             height: 23px;
             border-radius: 100%;
             margin: auto;
+          }
+
+          @media (orientation: landscape) {
+            .marker-btn::after {
+              top: 80%;
+            }
           }
         `}
       </style>
