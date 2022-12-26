@@ -271,14 +271,14 @@ const Map = ({ coords, sellerRoute }) => {
        : المسافة المقدرة للوصول 
       </h4>
       <h5>
-        كيلو متر ${Math.floor(data.distance / 1000)} 
+        ${Math.floor(data.distance / 1000)} K.m
       <h5/>
 
       <h4>
       : الوقت المقدر للوصول  
       </h4>
       <h5>
-      دقيقة ${Math.floor(data.duration / 60)} 
+        ${Math.floor(data.duration / 60)} M
       </h5>
 
       `;
