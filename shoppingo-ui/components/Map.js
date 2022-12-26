@@ -429,8 +429,8 @@ const Map = ({ coords, sellerRoute }) => {
         id="dist-time"
         className={
           sellerRoute
-            ? "absolute left-2 top-2 z-10 text-[blue] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[12px] font-bold text-center space-y-[3px]"
-            : "absolute left-2 bottom-2 z-10 text-[#9E4200] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[12px] font-bold text-center space-y-[3px]"
+            ? "absolute left-2 top-2 z-10 text-[blue] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[10px] xs:text-[12px] font-bold text-center space-y-[3px]"
+            : "absolute left-2 bottom-2 z-10 text-[#9E4200] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[10px] xs:text-[12px] font-bold text-center space-y-[3px]"
         }
       ></div>
     </div>
