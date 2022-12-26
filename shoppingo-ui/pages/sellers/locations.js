@@ -21,7 +21,7 @@ const Locations = () => {
 
   return (
     <div className="w-full h-screen">
-      {coords.length > 0 && <Map coords={coords} sellerRoute={false} />}
+      {coords.length > 0 && <Map coords={coords} sellerRoute={true} />}
     </div>
   );
 };
