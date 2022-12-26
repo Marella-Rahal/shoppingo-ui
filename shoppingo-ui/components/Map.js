@@ -192,6 +192,8 @@ const Map = ({ coords, sellerRoute }) => {
           .addTo(map);
 
         el.addEventListener("click", (e) => {
+          //! important i put it so i can create a popup when clicking on the marker despite setting the closeOnClick to true in popup
+          e.stopPropagation();
           /* make thw direction */
           if (coords.length > 0) {
             const routeColor = sellerRoute ? "blue" : "#9E4200";
@@ -388,7 +390,7 @@ const Map = ({ coords, sellerRoute }) => {
         root.render(product_popup);
       }
 
-      const popup = new mapboxgl.Popup({ closeOnClick: false })
+      const popup = new mapboxgl.Popup({ closeOnClick: true }) //! ***** the close on click
         .setLngLat(marker.coo)
         .setDOMContent(my_popup_container)
         .addTo(map);
