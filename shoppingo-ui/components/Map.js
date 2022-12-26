@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Marker from "./Marker";
-import { useRouter } from "next/router";
 
 mapboxgl.accessToken = process.env.mapbox_key;
 
@@ -224,9 +223,8 @@ const Map = ({ coords, sellerRoute }) => {
               justifyContent: "center",
               alignItems: "center",
               borderRadius: "17px",
-              borderColor: `${markerColor}`,
+              borderInline: `solid 4px ${markerColor}`,
             }}
-            className="border-x-4"
           >
             {marker.name}
           </h4>
