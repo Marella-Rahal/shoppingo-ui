@@ -5,7 +5,7 @@ const Marker = ({ image, color }) => {
     <>
       <button
         type="button"
-        className="marker-btn after:top-[81%] sm:after:top-[84%]"
+        className="marker-btn after:top-[80%] sm:after:top-[83%]"
         style={{ backgroundColor: color, borderColor: color }}
       >
         <img src={image} alt="product image" className="marker-img" />
