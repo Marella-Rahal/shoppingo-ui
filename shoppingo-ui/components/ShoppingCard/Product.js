@@ -14,23 +14,24 @@ const Product = (props) => {
       {/* Product Image */}
       <img
         src={props.img}
-        className="w-full h-[250px] rounded-t-md border-b-2 border-shadowColor/20"
+        className="w-full h-[250px] rounded-t-md border-b-2 border-shadowColor/20 cursor-pointer"
+        onClick={() => router.push(`/productDetail/${props.id}`)}
       />
 
       {/* Store Name - view on map */}
-      <div className="flex flex-col justify-center w-full h-[60px] border-b-2 border-shadowColor/20">
+      <div className="flex flex-col justify-center w-full h-[50px] border-b-2 border-shadowColor/20">
         <p
           className="text-center font-bold cursor-pointer hover:underline"
           onClick={() => router.push(`/shop/${props.shopId}`)}
         >
           {props.shopName}
         </p>
-        <Link
-          href="/"
+        {/* <Link
+          href={`/productDetail/${props.id}`}
           className="text-center underline text-textColor2 hover:scale-[1.1]"
         >
           اذهب إلى الخريطة
-        </Link>
+        </Link> */}
       </div>
 
       {/* Size and Color */}

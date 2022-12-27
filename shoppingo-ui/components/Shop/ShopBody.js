@@ -69,6 +69,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
 
       <div className="flex justify-evenly flex-wrap">
         <Product
+          id="1"
           img="../product.jpg"
           oimg="../offer.svg"
           fav={true}
@@ -78,6 +79,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
           rating="4.5"
         />
         <Product
+          id="2"
           img="../product.jpg"
           oimg="../offer.svg"
           fav={false}
@@ -87,6 +89,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
           rating="5.0"
         />
         <Product
+          id="3"
           img="../product.jpg"
           oimg="../offer.svg"
           fav={false}
@@ -96,6 +99,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
           rating="3.0"
         />
         <Product
+          id="4"
           img="../product.jpg"
           oimg="../offer.svg"
           fav={true}
@@ -105,6 +109,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
           rating="2.5"
         />
         <Product
+          id="5"
           img="../product.jpg"
           oimg="../offer.svg"
           fav={true}
@@ -114,6 +119,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
           rating="2.2"
         />
         <Product
+          id="6"
           img="../product.jpg"
           oimg="../offer.svg"
           fav={false}
@@ -123,6 +129,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
           rating="3.9"
         />
         <Product
+          id="7"
           img="../product.jpg"
           oimg="../offer.svg"
           fav={true}
@@ -132,6 +139,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
           rating="1.5"
         />
         <Product
+          id="8"
           img="../product.jpg"
           oimg="../offer.svg"
           fav={false}

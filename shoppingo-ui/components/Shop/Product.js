@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { ImHeart } from "react-icons/im";
 import RatingPopUp from "../../components/PopUp/RatingPopUp";
+import { useRouter } from "next/router";
 
 const Product = (props) => {
+  const router = useRouter();
   // ****************** Stars ***********************
   const [ratingPopUp, setRatingPopUp] = useState(false);
   const [fullStars, setFullStars] = useState([]);
@@ -43,7 +45,8 @@ const Product = (props) => {
         {/* product image */}
         <img
           src={props.img}
-          className="w-full h-[270px] rounded-t-lg border-b-2 border-shadowColor/10"
+          className="w-full h-[270px] rounded-t-lg border-b-2 border-shadowColor/10 cursor-pointer"
+          onClick={() => router.push(`/productDetail/${props.id}`)}
         />
 
         {/* heart */}

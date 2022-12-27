@@ -21,6 +21,7 @@ const ShoppingCard = () => {
 
           <div className="flex justify-evenly flex-wrap">
             <Product
+              id="1"
               img="product.jpg"
               shopName="For_you"
               shopId="1"
@@ -30,6 +31,7 @@ const ShoppingCard = () => {
               qty="10000"
             />
             <Product
+              id="2"
               img="product.jpg"
               shopName="For_you"
               shopId="2"
@@ -39,6 +41,7 @@ const ShoppingCard = () => {
               qty="10000"
             />
             <Product
+              id="3"
               img="product.jpg"
               shopName="For_you"
               shopId="3"
@@ -48,6 +51,7 @@ const ShoppingCard = () => {
               qty="10000"
             />
             <Product
+              id="4"
               img="product.jpg"
               shopName="For_you"
               shopId="4"
@@ -57,6 +61,7 @@ const ShoppingCard = () => {
               qty="10000"
             />
             <Product
+              id="5"
               img="product.jpg"
               shopName="For_you"
               shopId="5"
@@ -66,6 +71,7 @@ const ShoppingCard = () => {
               qty="10000"
             />
             <Product
+              id="6"
               img="product.jpg"
               shopName="For_you"
               shopId="6"
