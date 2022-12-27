@@ -1,12 +1,132 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Seller from "../../components/Sellers/Seller";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import Link from "next/link";
+import NotePopUp, { showPopUpNote } from "../../components/PopUp/NotePopUp";
+import axios from "axios";
+import mapboxgl from "mapbox-gl";
+
+mapboxgl.accessToken = process.env.mapbox_key;
+
+const data = [
+  {
+    id: 1,
+    coo: [36.720798, 34.725587],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    id: 2,
+    coo: [36.720798, 34.7254],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    id: 3,
+    coo: [36.7206, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    id: 4,
+    coo: [36.6, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    id: 5,
+    coo: [36.7206, 34.725],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    id: 6,
+    coo: [36.55, 34.725587],
+    name: "For_you",
+    address:
+      " سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+];
+
 const Sellers = () => {
+  //todo My stores data
+  const [stores, setStores] = useState(data);
+  //todo *********** the massage for the popUp
+  const [noteMsg, setNoteMsg] = useState("");
+  //todo ********** the location of the user
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        //****************************/
+        //to change the data before i make it visible to the user
+        data.forEach((store) => {
+          getRoute([pos.coords.longitude, pos.coords.latitude], store.coo).then(
+            (value) => {
+              store.dist = `يبعد ${value[1]} كيلو متر عن موقعك`;
+              store.time = `${value[2]}  دقيقة عن طريق السيارة `;
+              setStores([...data]);
+            }
+          );
+        });
+      },
+      (err) => {
+        setNoteMsg(
+          <>
+            <h5 className="text-effectColor text-center">
+              فشلنا في الحصول على موقعك لذلك سيتم تعطيل بعض الميزات التي تتطلب
+              الموقع ضمن هذه الصفحة أو أعد تحميل الصفحة للمحاولة مرة أخرى
+            </h5>
+          </>
+        );
+        showPopUpNote();
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 30000,
+        maximumAge: 15000,
+      }
+    );
+
+    //*function to calculate the distance and the time between the user location and the store location
+    const getRoute = async (start, end) => {
+      const res = await axios.get(
+        `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`
+      );
+
+      const data = res.data.routes[0];
+
+      //the route if needed
+      const route = data.geometry.coordinates;
+      //the distance
+      const dist = Math.floor(data.distance / 1000);
+      //the time
+      const time = Math.floor(data.duration / 60);
+
+      return [route, dist, time];
+    };
+    //******************************************************/
+  }, []);
+
   return (
     <>
+      <NotePopUp noteMsg={noteMsg} />
       <Navbar />
       <div className="pt-28 pb-10 w-full min-h-screen px-4 md:px-8 flex flex-col justify-between">
         {/* first div */}
@@ -25,42 +145,19 @@ const Sellers = () => {
 
           {/* stores */}
           <div className="flex justify-evenly flex-wrap pb-10">
-            <Seller
-              id="1"
-              name="For_you"
-              address=" سوريا حمص شارع الحضارة مقابل الإطفائية   "
-              dist="يبعد 1000 كيلو متر من موقعك "
-            />
-            <Seller
-              id="2"
-              name="For_you"
-              address="سوريا حمص شارع العشاق مقابل كافيه bordo"
-              dist="يبعد 1000 متر من موقعك "
-            />
-            <Seller
-              id="3"
-              name="For_you"
-              address="سوريا حمص شارع العشاق مقابل كافيه bordo"
-              dist="يبعد 1000 متر من موقعك "
-            />
-            <Seller
-              id="4"
-              name="For_you"
-              address="سوريا حمص شارع العشاق مقابل كافيه bordo"
-              dist="يبعد 1000 متر من موقعك "
-            />
-            <Seller
-              id="5"
-              name="For_you"
-              address="سوريا حمص شارع العشاق مقابل كافيه bordo"
-              dist="يبعد 1000 متر من موقعك "
-            />
-            <Seller
-              id="6"
-              name="For_you"
-              address=" سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية  سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية  سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية   "
-              dist="يبعد 1000 كيلو متر من موقعك "
-            />
+            {stores.map((store, index) => {
+              return (
+                <Seller
+                  key={index}
+                  id={store.id}
+                  name={store.name}
+                  address={store.address}
+                  coo={store.coo}
+                  dist={store.dist}
+                  time={store.time}
+                />
+              );
+            })}
           </div>
         </div>
 

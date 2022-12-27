@@ -19,7 +19,7 @@ const Seller = (props) => {
           {props.address}
         </span>
         <span className="text-[10px] sm:text-[13px] font-semibold text-effectColor ">
-          {props.dist}
+          {props.dist} - {props.time}
         </span>
       </div>
 
