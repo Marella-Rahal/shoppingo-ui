@@ -3,7 +3,7 @@ import NotePopUp, { showPopUpNote } from "../../components/PopUp/NotePopUp";
 import Loading from "../../components/Loading";
 // to stop server side rendering because ( the rtl plugin does not work with it )
 import dynamic from "next/dynamic";
-const Map = dynamic(() => import("../../components/Map"), {
+const Map = dynamic(() => import("../../components/Map/Map"), {
   loading: () => <Loading />,
   ssr: false,
 });
