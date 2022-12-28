@@ -80,7 +80,7 @@ const Sellers = () => {
           getRoute([pos.coords.longitude, pos.coords.latitude], store.coo).then(
             (value) => {
               store.dist = `يبعد ${value[1]} كيلو متر عن موقعك`;
-              store.time = `${value[2]}  دقيقة عن طريق السيارة `;
+              store.time = `${value[2]}  دقيقة سيراً   `;
               setStores([...data]);
             }
           );
@@ -107,7 +107,7 @@ const Sellers = () => {
     //*function to calculate the distance and the time between the user location and the store location
     const getRoute = async (start, end) => {
       const res = await axios.get(
-        `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`
+        `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`
       );
 
       const data = res.data.routes[0];

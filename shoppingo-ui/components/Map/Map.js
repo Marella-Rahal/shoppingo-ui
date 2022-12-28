@@ -210,7 +210,7 @@ const Map = ({ coords, sellerRoute }) => {
 
     async function getRoute(start, end, routeColor) {
       const res = await axios.get(
-        `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`
+        `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`
       );
 
       //res.data contains an object with three values( code , waypoints , routes)
@@ -404,7 +404,14 @@ const Map = ({ coords, sellerRoute }) => {
   }, []);
 
   return (
-    <div ref={mapContainerRef} className="relative z-0 w-full h-full">
+    <div
+      ref={mapContainerRef}
+      className={
+        sellerRoute
+          ? "relative z-0 w-full h-full"
+          : "relative z-0 w-full h-full rounded-lg"
+      }
+    >
       {/* location's color */}
       {!sellerRoute && (
         <div className="absolute top-2 left-2 z-10 p-2 w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-[5px] text-[10px] md:text-[12px] font-bold">
