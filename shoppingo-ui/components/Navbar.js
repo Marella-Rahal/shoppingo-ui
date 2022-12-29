@@ -9,6 +9,7 @@ import {
 import { MdLocalOffer, MdOutlineAddShoppingCart } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
@@ -86,6 +87,19 @@ const Navbar = () => {
         </div>
 
         <ul className="hidden md:flex items-center space-x-2 lg:space-x-4">
+          {/* //*user image and log out */}
+          {/* <li
+            className="w-fit h-fit rounded-full shadow-md shadow-shadowColor cursor-pointer mr-2"
+            onClick={() => router.push("/profile")}
+          >
+            <img src="default.jpg" className="w-[55px] h-[55px] rounded-full" />
+          </li>
+          <li className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]">
+            <Link href="/">
+              <RiLogoutCircleRLine className="text-effectColor group-hover:text-textColor text-[30px]" />
+            </Link>
+          </li> */}
+          {/* //******log in and sign up****** */}
           <li>
             <button
               className="bg-gradient-to-l from-gradientFrom to-gradientTo w-[100px] py-2 hover:scale-[1.1]"
@@ -103,7 +117,7 @@ const Navbar = () => {
               تسجيل دخول
             </button>
           </li>
-
+          {/* //**************** */}
           <li className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]">
             <Link href="/shoppingCard">
               <MdOutlineAddShoppingCart className="text-effectColor group-hover:text-textColor text-[30px]" />
@@ -174,6 +188,17 @@ const Navbar = () => {
           {/* //todo */}
 
           <ul className="flex flex-col items-center space-y-6 min-h-fit">
+            {/* //*user image */}
+            {/* <li
+              className="w-fit h-fit rounded-full shadow-md shadow-shadowColor cursor-pointer"
+              onClick={() => router.push("/profile")}
+            >
+              <img
+                src="default.jpg"
+                className="w-[70px] h-[70px] xs:w-[90px] xs:h-[90px] rounded-full"
+              />
+            </li> */}
+            {/* //****************** */}
             <li
               className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
               onClick={handleSideNav}
@@ -228,6 +253,18 @@ const Navbar = () => {
               </Link>
             </li>
 
+            {/* //*log out */}
+            {/* <li
+              className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
+              onClick={handleSideNav}
+            >
+              <Link href="/">
+                <RiLogoutCircleRLine className="text-effectColor group-hover:text-textColor text-[25px] xs:text-[30px]" />
+              </Link>
+            </li> */}
+            {/* //************* */}
+
+            {/* //*sign in and log in */}
             <li>
               <button
                 className="bg-gradient-to-l from-gradientFrom to-gradientTo w-[100px] py-2 hover:scale-[1.1]"
@@ -245,6 +282,7 @@ const Navbar = () => {
                 إنشاء حساب
               </button>
             </li>
+            {/* //************ */}
           </ul>
         </div>
       </div>
