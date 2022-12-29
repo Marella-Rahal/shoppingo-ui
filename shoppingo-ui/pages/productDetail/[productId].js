@@ -19,7 +19,19 @@ const Map = dynamic(() => import("../../components/Map/Map"), {
   ssr: false,
 });
 
+//***********The product images****************/
+const images = ["../../product.jpg", "../../product1.jpg"];
+//*********************************************/
+
 const ProductId = () => {
+  //* for the foreground and background image
+  const [imgUrl, setImgUrl] = useState(images[0]);
+  //* to display and hidden detail
+  const [showDescription, setShowDescription] = useState(true);
+  const [showSizes, setShowSizes] = useState(true);
+  const [showQty, setShowQty] = useState(true);
+  const [showColors, setShowColors] = useState(true);
+  const [showPrice, setShowPrice] = useState(true);
   //! to set constraint on how much i can drag the slider to the left
   const [width, setWidth] = useState(0);
   const slider = useRef();
@@ -81,103 +93,176 @@ const ProductId = () => {
 
               {/* img */}
               <div
-                style={{ backgroundImage: 'url("../../product.jpg")' }}
+                style={{ backgroundImage: `url(${imgUrl})` }}
                 className="relative self-center w-[240px] h-[260px] bg-center bg-cover rounded-xl shadow-md shadow-shadowColor"
               >
                 <MdOutlineArrowBackIos
                   style={{ boxShadow: "0px 0px 5px 3px rgba(255,255,255,1)" }}
                   className="absolute top-[45%] cursor-pointer hover:scale-[1.1] text-xl bg-bgColor/70 text-effectColor"
+                  onClick={() => setImgUrl(images[0])}
                 />
                 <MdOutlineArrowForwardIos
                   style={{ boxShadow: "0px 0px 5px 3px rgba(255,255,255,1)" }}
                   className="absolute top-[45%] right-0  cursor-pointer hover:scale-[1.1] text-xl bg-bgColor/70 text-effectColor"
+                  onClick={() => setImgUrl(images[1])}
                 />
               </div>
             </div>
 
             {/* description */}
             <div className="border-b-[1px] border-textColor flex justify-between">
-              <MdOutlineKeyboardArrowDown className="text-2xl cursor-pointer hover:scale-[1.1]" />
+              {!showDescription && (
+                <MdOutlineKeyboardArrowDown
+                  className="text-2xl cursor-pointer hover:scale-[1.1]"
+                  onClick={() => setShowDescription(true)}
+                />
+              )}
+
+              {showDescription && (
+                <MdOutlineKeyboardArrowUp
+                  className="text-2xl cursor-pointer hover:scale-[1.1]"
+                  onClick={() => setShowDescription(false)}
+                />
+              )}
               <span className="font-semibold">الوصف</span>
             </div>
-            <div className="text-end text-textColor2">
-              Adipisicing eiusmod et consequat tempor magna. Quis dolor aute ut
-              fugiat dolore ipsum incididunt dolore ea est. Labore excepteur do
-              ut sit anim laboris velit voluptate sit dolor magna elit tempor.
-            </div>
+            {showDescription && (
+              <div className="text-end text-textColor2">
+                Adipisicing eiusmod et consequat tempor magna. Quis dolor aute
+                ut fugiat dolore ipsum incididunt dolore ea est. Labore
+                excepteur do ut sit anim laboris velit voluptate sit dolor magna
+                elit tempor.
+              </div>
+            )}
 
             {/* sizes */}
             <div className="border-b-[1px] border-textColor flex justify-between">
-              <MdOutlineKeyboardArrowDown className="text-2xl cursor-pointer hover:scale-[1.1]" />
+              {!showSizes && (
+                <MdOutlineKeyboardArrowDown
+                  className="text-2xl cursor-pointer hover:scale-[1.1]"
+                  onClick={() => setShowSizes(true)}
+                />
+              )}
+
+              {showSizes && (
+                <MdOutlineKeyboardArrowUp
+                  className="text-2xl cursor-pointer hover:scale-[1.1]"
+                  onClick={() => setShowSizes(false)}
+                />
+              )}
               <span className="font-semibold">القياسات</span>
             </div>
-            <div className="flex space-x-4 flex-wrap justify-end">
-              <Sizes size="s" />
-              <Sizes size="m" />
-              <Sizes size="l" />
-              <Sizes size="xl" />
-              <Sizes size="2xl" />
-              <Sizes size="3xl" />
-              <Sizes size="4xl" />
-              <Sizes size="5xl" />
-              <Sizes size="6xl" />
-            </div>
+            {showSizes && (
+              <div className="flex space-x-4 flex-wrap justify-end">
+                <Sizes size="s" />
+                <Sizes size="m" />
+                <Sizes size="l" />
+                <Sizes size="xl" />
+                <Sizes size="2xl" />
+                <Sizes size="3xl" />
+                <Sizes size="4xl" />
+                <Sizes size="5xl" />
+                <Sizes size="6xl" />
+              </div>
+            )}
+
             {/* Quantity */}
             <div className="border-b-[1px] border-textColor flex justify-between">
-              <MdOutlineKeyboardArrowDown className="text-2xl cursor-pointer hover:scale-[1.1]" />
+              {!showQty && (
+                <MdOutlineKeyboardArrowDown
+                  className="text-2xl cursor-pointer hover:scale-[1.1]"
+                  onClick={() => setShowQty(true)}
+                />
+              )}
+
+              {showQty && (
+                <MdOutlineKeyboardArrowUp
+                  className="text-2xl cursor-pointer hover:scale-[1.1]"
+                  onClick={() => setShowQty(false)}
+                />
+              )}
+
               <span className="font-semibold">الكمية</span>
             </div>
-            <div className="text-end text-textColor2">1000</div>
+            {showQty && <div className="text-end text-textColor2">1000</div>}
 
             {/* colors */}
             <div className="border-b-[1px] border-textColor flex justify-between">
-              <MdOutlineKeyboardArrowDown className="text-2xl cursor-pointer hover:scale-[1.1]" />
+              {!showColors && (
+                <MdOutlineKeyboardArrowDown
+                  className="text-2xl cursor-pointer hover:scale-[1.1]"
+                  onClick={() => setShowColors(true)}
+                />
+              )}
+
+              {showColors && (
+                <MdOutlineKeyboardArrowUp
+                  className="text-2xl cursor-pointer hover:scale-[1.1]"
+                  onClick={() => setShowColors(false)}
+                />
+              )}
               <span className="font-semibold">الألوان</span>
             </div>
-            <div className="flex space-x-3 flex-wrap justify-end">
-              <Colors color="red" />
-              <Colors color="blue" />
-              <Colors color="yellow" />
-              <Colors color="green" />
-              <Colors color="white" />
-              <Colors color="grey" />
-              <Colors color="#fff8f0" />
-              <Colors color="black" />
-              <Colors color="#111d4a" />
-              <Colors color="#d7271a" />
-              <Colors color="red" />
-              <Colors color="blue" />
-              <Colors color="yellow" />
-              <Colors color="green" />
-              <Colors color="white" />
-            </div>
+            {showColors && (
+              <div className="flex space-x-3 flex-wrap justify-end">
+                <Colors color="red" />
+                <Colors color="blue" />
+                <Colors color="yellow" />
+                <Colors color="green" />
+                <Colors color="white" />
+                <Colors color="grey" />
+                <Colors color="#fff8f0" />
+                <Colors color="black" />
+                <Colors color="#111d4a" />
+                <Colors color="#d7271a" />
+                <Colors color="red" />
+                <Colors color="blue" />
+                <Colors color="yellow" />
+                <Colors color="green" />
+                <Colors color="white" />
+              </div>
+            )}
 
             {/* price and location */}
             <div className="border-b-[1px] border-textColor flex justify-between">
-              <MdOutlineKeyboardArrowDown className="text-2xl cursor-pointer hover:scale-[1.1]" />
+              {!showPrice && (
+                <MdOutlineKeyboardArrowDown
+                  className="text-2xl cursor-pointer hover:scale-[1.1]"
+                  onClick={() => setShowPrice(true)}
+                />
+              )}
+
+              {showPrice && (
+                <MdOutlineKeyboardArrowUp
+                  className="text-2xl cursor-pointer hover:scale-[1.1]"
+                  onClick={() => setShowPrice(false)}
+                />
+              )}
               <span className="font-semibold">السعر والعنوان</span>
             </div>
 
-            <div className="flex flex-col space-y-2">
-              {/* new price and old price */}
-              <div className="flex space-x-3 flex-wrap justify-end">
-                <span className="mt-2 flex">
-                  <span className="mr-2">ل.س</span>
-                  500000
-                </span>
-                <span className="mt-2 flex line-through text-textColor2 ">
-                  <span className="mr-2">ل.س</span>
-                  700000
-                </span>
-              </div>
-              {/* Shop Name */}
-              <div className="text-textColor2 text-end">For_you</div>
+            {showPrice && (
+              <div className="flex flex-col space-y-2">
+                {/* new price and old price */}
+                <div className="flex space-x-3 flex-wrap justify-end">
+                  <span className="mt-2 flex">
+                    <span className="mr-2">ل.س</span>
+                    500000
+                  </span>
+                  <span className="mt-2 flex line-through text-textColor2 ">
+                    <span className="mr-2">ل.س</span>
+                    700000
+                  </span>
+                </div>
+                {/* Shop Name */}
+                <div className="text-textColor2 text-end">For_you</div>
 
-              {/* Address */}
-              <div className="text-textColor2 text-end">
-                حمص-شارع الحضارة-مقابل الإطفائية
+                {/* Address */}
+                <div className="text-textColor2 text-end">
+                  حمص-شارع الحضارة-مقابل الإطفائية
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
         {/* line */}

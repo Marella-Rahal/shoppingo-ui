@@ -10,7 +10,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
     <div
       className={
         shopIdRoute
-          ? "w-full min-h-screen pt-7 px-4 md:px-8 pb-14 flex flex-col"
+          ? "flex flex-col"
           : "w-full min-h-screen pt-28 px-4 md:px-8 pb-14 flex flex-col"
       }
     >

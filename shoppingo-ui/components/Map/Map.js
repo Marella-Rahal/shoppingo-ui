@@ -330,8 +330,8 @@ const Map = ({ coords, sellerRoute }) => {
             style={{
               backgroundColor: markerColor,
               color: "white",
-              minWidth: "145px",
-              minHeight: "50px",
+              minWidth: "125px",
+              minHeight: "35px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -345,8 +345,8 @@ const Map = ({ coords, sellerRoute }) => {
           <h5
             style={{
               color: markerColor,
-              minWidth: "145px",
-              minHeight: "50px",
+              minWidth: "125px",
+              minHeight: "45px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -414,7 +414,7 @@ const Map = ({ coords, sellerRoute }) => {
     >
       {/* location's color */}
       {!sellerRoute && (
-        <div className="absolute top-2 left-2 z-10 p-2 w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-[5px] text-[10px] md:text-[12px] font-bold">
+        <div className="absolute top-2 left-2 z-10 p-2 w-[90px] bg-white rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-[5px] text-[10px] md:text-[12px] font-bold">
           <div className="self-center">ألوان المواقع</div>
           <div className=" flex justify-end items-center">
             الأقرب
