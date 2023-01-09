@@ -3,7 +3,25 @@
 @tailwind utilities;
 
 @layer base {
+
+  /***scrollbar***/
   
+  /* width */
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow:inset 0 0 3px grey;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-effectColor;
+  }
+
+  /***end of scrollbar***/
 
   * {
     box-sizing: border-box;
@@ -13,13 +31,18 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
-  } 
-  
+  }
+
   body {
     @apply bg-bgColor text-textColor tracking-wide
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold
   }
 
@@ -34,7 +57,7 @@
   h3 {
     @apply text-xl sm:text-2xl
   }
-  
+
   li {
     @apply cursor-pointer
   }
@@ -53,7 +76,7 @@
     display: none;
   }
 
-  .mapboxgl-popup .mapboxgl-popup-tip{
+  .mapboxgl-popup .mapboxgl-popup-tip {
     margin-inline: -1px;
   }
 

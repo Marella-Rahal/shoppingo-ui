@@ -40,7 +40,8 @@ const Navbar = () => {
       router.asPath == "/profile/upgrade" ||
       router.asPath == "/profile/confirmSellers" ||
       router.asPath == `/shop/${router.query.shopId}` ||
-      router.asPath == `/productDetail/${router.query.productId}`
+      router.asPath == `/productDetail/${router.query.productId}` ||
+      router.asPath == `/shoppingCard/checkout`
     ) {
       setLogoUrl("../logo.svg");
     } else {

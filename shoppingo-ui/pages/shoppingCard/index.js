@@ -1,9 +1,11 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 import { MdDelete } from "react-icons/md";
-import Product from "../components/ShoppingCard/Product";
+import Product from "../../components/ShoppingCard/Product";
+import { useRouter } from "next/router";
 
 const ShoppingCard = () => {
+  const router = useRouter();
   return (
     <>
       <Navbar />
@@ -87,7 +89,7 @@ const ShoppingCard = () => {
           <div className="py-2 px-4 rounded-lg shadow-md shadow-shadowColor text-end">
             السعر الكلي : 999999999999 ل.س
           </div>
-          <button className="py-2 px-6 hover:scale-[1.1] bg-gradient-to-l from-gradientFrom to-gradientTo">
+          <button className="py-2 px-6 hover:scale-[1.1] bg-gradient-to-l from-gradientFrom to-gradientTo" onClick={() => router.push('/shoppingCard/checkout')}>
             شراء
           </button>
         </div>

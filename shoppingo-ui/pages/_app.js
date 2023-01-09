@@ -32,15 +32,16 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Shoppingo</title>
+        <title>shoppingo</title>
         <meta charSet="UTF-8" />
         <meta
           name="description"
-          content="Personal Assistant for Shopping and Budget Management"
+          content="Personal Assistant for Shopping"
         />
-        <meta name="keywords" content="Shoppingo" />
-        <meta name="author" content="Marella Rahal" />
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1.0"/> */}
+        <meta name="keywords" content="shoppingo-shopping-shop-personal-assistant-nextjs-reactjs-javascript-tailwind-mapboxgl" />
+        <meta name="author" content="Marella Rahal - Ghaith Othman" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="logo.svg" />
       </Head>
 
       <AnimatePresence mode="wait">
