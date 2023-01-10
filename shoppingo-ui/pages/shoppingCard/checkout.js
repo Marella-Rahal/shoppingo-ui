@@ -17,22 +17,22 @@ const Checkout = () => {
             <form className='pt-28 pb-14 px-4 md:px-8 w-full flex flex-col space-y-10 md:flex-row md:space-y-0 md:space-x-10' onSubmit={(e) => e.preventDefault()}>
 
                 {/* the info */}
-                <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col justify-between space-y-5'>
+                <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col space-y-5'>
 
                     <div className='flex flex-col items-end space-y-5 text-textColor2 font-semibold text-end'>
 
                         {/* transport price */}
                         <div>
-                            ملاحظة : أجرة الشحن من أجل كل منتج  5000 ل.س
+                            تنبيه : أجرة الشحن من أجل كل منتج  5000 ل.س
                         </div>
 
                         {/* price clarification */}
                         <div>
-                            ملاحظة : السعر الكلي  لكل قسم يتضمن سعر المنتجات في هذا القسم إضافة إلى أجور شحنها
+                            تنبيه : السعر الكلي  لكل قسم يتضمن سعر المنتجات في هذا القسم إضافة إلى أجور شحنها
                         </div>
 
                         {/* payment methodes */}
-                        <div className='flex flex-col space-y-5'>
+                        <div className='flex flex-col space-y-3'>
                             <div>
                                 : طرق الدفع للمنتجات
                             </div>
@@ -57,14 +57,14 @@ const Checkout = () => {
 
                     {/* //! total Price */}
 
-                    <div className='flex flex-col space-y-5 text-center font-semibold text-textColor'>
-                        <div>: السعر الكلي </div>
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor p-2 flex justify-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                    <div className='flex flex-col space-y-3 text-center font-semibold text-textColor py-7'>
+                        <div className='text-[15px]'>: السعر الكلي </div>
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor p-2 flex justify-center text-[14px]'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
                         
                     </div>
 
 
-                    <div className='flex space-x-3 pt-5 md:pt-0'>
+                    <div className='flex space-x-3'>
                         <input type="text" placeholder='الاسم الأخير' className='text-end outline-none py-1 px-2 w-1/3 rounded-md border-2 border-textColor  focus:border-effectColor ' required />
                         <input type="text" placeholder='الاسم الأوسط' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor  w-1/3' required />
                         <input type="text" placeholder='الاسم الأول' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/3' required />
@@ -94,8 +94,8 @@ const Checkout = () => {
                     {/* total Price */}
 
                     <div className='flex flex-col-reverse md:flex-row justify-between items-center font-semibold'>
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-textColor p-2 flex mt-3 md:mt-0'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
-                        <div>: السعر الكلي </div>
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-textColor p-2 flex mt-3 md:mt-0 text-[13px]'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='text-[15px]'>: السعر الكلي </div>
                     </div>
 
 
@@ -104,14 +104,14 @@ const Checkout = () => {
                     <motion.div
                         ref={slider}
                         style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                        className="overflow-hidden cursor-grab p-5 pt-10 rounded-lg border-x-4 border-textColor"
+                        className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor"
                     >
                         <motion.div
                             drag="x"
                             dragConstraints={{ right: 0, left: -width }}
                             className="flex  space-x-5"
                         >
-                            <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand"/>
+                            <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000000' type="onHand"/>
                             <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand"/>
                             <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand"/>
                             <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand"/>
@@ -126,15 +126,15 @@ const Checkout = () => {
                     {/* total Price */}
 
                     <div className='flex flex-col-reverse md:flex-row justify-between items-center font-semibold'>
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-[green] p-2 flex mt-3 md:mt-0'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
-                        <div>: السعر الكلي </div>
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-[green] p-2 flex mt-3 md:mt-0 text-[13px]'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='text-[15px]'>: السعر الكلي </div>
                     </div>
 
                     {/* //! slider with framer motion */}
                     <motion.div
                         ref={slider}
                         style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                        className="overflow-hidden cursor-grab p-5 pt-10 rounded-lg border-x-4 border-[green]"
+                        className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-[green]"
                     >
                         <motion.div
                             drag="x"
@@ -157,15 +157,15 @@ const Checkout = () => {
                     {/* total Price */}
 
                     <div className='flex flex-col-reverse md:flex-row justify-between items-center font-semibold'>
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-l-textColor border-r-[green] p-2 flex mt-3 md:mt-0'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
-                        <div>: السعر الكلي </div>
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-l-textColor border-r-[green] p-2 flex mt-3 md:mt-0 text-[13px]'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='text-[15px]'>: السعر الكلي </div>
                     </div>
 
                     {/* //! slider with framer motion */}
                     <motion.div
                         ref={slider}
                         style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                        className="overflow-hidden cursor-grab p-5 pt-10 rounded-lg border-x-4 border-l-textColor border-r-[green]"
+                        className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor border-r-[green]"
                     >
                         <motion.div
                             drag="x"
