@@ -1,33 +1,76 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import {AiOutlineClose} from 'react-icons/ai'
+import { MdDelete } from 'react-icons/md';
 
-const Product =() =>{
+const Product =(props) =>{
     const router=useRouter();
     return (
-        <div
-         
-         className="relative rounded-md shadow-lg shadow-shadowColor flex flex-col space-y-3">
 
-            <img src='../../product.jpg' alt="product img" className="absolute top-[-27px] self-center w-[50px] h-[50px] rounded-full ring-1 ring-white shadow-md shadow-shadowColor cursor-pointer" onClick={()=>{router.push('/productDetail/1')}}/>
+        <div className='relative flex flex-col rounded-md shadow-lg shadow-shadowColor min-w-[275px] font-semibold'>
 
-            <div className="absolute -top-6 -right-[10px] w-5 h-5 rounded-full bg-textColor border-[2px] border-white shadow-md shadow-shadowColor flex justify-center items-center hover:scale-[1.1] cursor-pointer">
-                <AiOutlineClose className="text-white w-4 h-4" />
+            {/* image */}
+            <img src={props.img} alt='product image' className='absolute top-[-30px] self-center  w-14 h-14 rounded-xl shadow-lg shadow-shadowColor cursor-pointer' onClick={()=>router.push(`/productDetail/${props.id}`)}/>
+
+            {/* shop name and delete button */}
+            <div className='mt-10 p-2 pt-0 flex space-x-2 justify-between items-center h-16 border-y-2 border-shadowColor'>
+
+                <div className='flex justify-center items-center hover:scale-[1.1] cursor-pointer'>
+                    <MdDelete className='text-[30px]'/>
+                </div>    
+                <div className='flex items-center text-center h-full text-clip overflow-y-auto cursor-pointer hover:underline' onClick={()=>router.push(`/shop/${props.shopId}`)}>{props.shopName}</div>
             </div>
 
-            
-            <div className='font-semibold text-center text-md md:text-lg cursor-pointer p-3 pt-5 border-b-[1px] border-[grey] hover:underline' onClick={()=>{router.push('/shop/1')}}>For_You</div>
+            {/* size and color and qty */}
+            <div className='p-2 flex space-x-2 justify-between items-center h-12 border-b-2 border-shadowColor'>
 
-            <div className='flex space-x-2 items-center justify-between px-3'>
-                <div className='font-semibold text-md md:text-lg uppercase'>7xL</div>
-                <div className='w-5 h-5 rounded-full bg-red-500 shadow-md shadow-shadowColor'></div>
+                <div className='lowercase'>{props.size}</div>
+
+                <div className='flex justify-center items-center w-[180px] text-clip overflow-x-auto'>
+                   <span className='mr-2'>قطعة</span>
+                    {props.qty}
+                </div>
+
+                <div
+                 style={{backgroundColor:`${props.color}`}}
+                 className='w-5 h-5 rounded-full shadow-md shadow-shadowColor'/>
+
             </div>
 
-            <div className='flex space-x-2 items-center justify-between p-3 border-t-[1px] border-[grey]'>
-                <div className='font-semibold text-[13px] text-center'> 1 قطعة </div>
-                <div className='font-semibold text-[12px] text-center'>10000 ل.س</div>
+            {/* price */}
+            <div className='p-2 flex justify-center items-center h-12 text-clip overflow-x-auto'>
+                <span className='mr-2'> ل.س</span>
+                {props.price}
             </div>
+
+            {/* payment methode */}
+            {
+                props.type==='both' && (
+                    <div className='p-2 flex space-x-2 justify-between items-center h-12 border-t-2 border-shadowColor text-end text-[15px]'>
+
+                        <div className='flex space-x-2'>
+
+                            <label htmlFor={`hand${props.id}`}>عند الاستلام</label>
+
+                            <input type="radio" name={`paymentMethode${props.id}`} id={`hand${props.id}`} required/>
+
+                        </div>
+
+                        <div className='flex space-x-2'>
+
+                            <label htmlFor={`line${props.id}`}>
+                                WePay عن طريق  
+                            </label>
+
+                            <input type="radio" name={`paymentMethode${props.id}`} id={`line${props.id}`} required/>
+
+                        </div>
+
+                    </div>
+                )
+            }
+
         </div>
+
     )
 }
 
