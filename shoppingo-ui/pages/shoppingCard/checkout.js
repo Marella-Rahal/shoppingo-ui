@@ -14,7 +14,7 @@ const Checkout = () => {
     return (
         <>
             <Navbar />
-            <form className='pt-28 pb-14 px-4 md:px-8 w-full min-h-screen flex flex-col space-y-10 md:flex-row md:space-y-0 md:space-x-10' onSubmit={(e) => e.preventDefault()}>
+            <form className='pt-28 pb-14 px-4 md:px-8 w-full flex flex-col space-y-10 md:flex-row md:space-y-0 md:space-x-10' onSubmit={(e) => e.preventDefault()}>
 
                 {/* the info */}
                 <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col justify-between space-y-5'>

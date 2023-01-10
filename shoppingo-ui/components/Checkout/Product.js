@@ -9,10 +9,10 @@ const Product =(props) =>{
         <div className='relative flex flex-col rounded-md shadow-lg shadow-shadowColor min-w-[275px] font-semibold'>
 
             {/* image */}
-            <img src={props.img} alt='product image' className='absolute top-[-30px] self-center  w-14 h-14 rounded-xl shadow-lg shadow-shadowColor cursor-pointer' onClick={()=>router.push(`/productDetail/${props.id}`)}/>
+            <img src={props.img} alt='product image' className='absolute top-[-30px] self-center  w-14 h-14 rounded-xl shadow-lg shadow-shadowColor cursor-pointer ring-[1px] ring-shadowColor' onClick={()=>router.push(`/productDetail/${props.id}`)}/>
 
             {/* shop name and delete button */}
-            <div className='mt-10 p-2 pt-0 flex space-x-2 justify-between items-center h-16 border-y-2 border-shadowColor'>
+            <div className='mt-10 p-2 pt-0 flex space-x-2 justify-between items-center h-16 border-y-[1px] border-shadowColor'>
 
                 <div className='flex justify-center items-center hover:scale-[1.1] cursor-pointer'>
                     <MdDelete className='text-[30px]'/>
@@ -21,7 +21,7 @@ const Product =(props) =>{
             </div>
 
             {/* size and color and qty */}
-            <div className='p-2 flex space-x-2 justify-between items-center h-12 border-b-2 border-shadowColor'>
+            <div className='p-2 flex space-x-2 justify-between items-center h-12 border-b-[1px] border-shadowColor'>
 
                 <div className='lowercase'>{props.size}</div>
 
@@ -45,7 +45,7 @@ const Product =(props) =>{
             {/* payment methode */}
             {
                 props.type==='both' && (
-                    <div className='p-2 flex space-x-2 justify-between items-center h-12 border-t-2 border-shadowColor text-end text-[15px]'>
+                    <div className='p-2 flex space-x-2 justify-between items-center h-12 border-t-[1px] border-shadowColor text-end text-[15px]'>
 
                         <div className='flex space-x-2'>
 
