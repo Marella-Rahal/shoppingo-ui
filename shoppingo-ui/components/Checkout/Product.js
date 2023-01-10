@@ -47,7 +47,7 @@ const Product =(props) =>{
                 props.type==='both' && (
                     <div className='p-2 flex space-x-2 justify-between items-center h-12 border-t-[1px] border-shadowColor text-end text-[15px]'>
 
-                        <div className='flex space-x-2'>
+                        <div className='flex items-center space-x-2'>
 
                             <label htmlFor={`hand${props.id}`}>عند الاستلام</label>
 
@@ -55,7 +55,7 @@ const Product =(props) =>{
 
                         </div>
 
-                        <div className='flex space-x-2'>
+                        <div className='flex items-center space-x-2'>
 
                             <label htmlFor={`line${props.id}`}>
                                 WePay عن طريق  
