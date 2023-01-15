@@ -7,19 +7,19 @@
   /***scrollbar***/
   
   /* width */
-  ::-webkit-scrollbar {
+  body::-webkit-scrollbar {
     width: 7px;
     height:7px
   }
 
   /* Track */
-  ::-webkit-scrollbar-track {
+  body::-webkit-scrollbar-track {
     box-shadow:inset 0 0 3px grey;
   }
 
   /* Handle */
-  ::-webkit-scrollbar-thumb {
-    @apply bg-effectColor;
+  body::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-gradientFrom to-gradientTo;
   }
 
   /***end of scrollbar***/
