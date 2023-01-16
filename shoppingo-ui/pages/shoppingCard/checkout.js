@@ -14,12 +14,13 @@ const Checkout = () => {
     return (
         <>
             <Navbar />
-            <form className='pt-28 pb-14 px-4 md:px-8 w-full flex flex-col space-y-10 md:flex-row md:space-y-0 md:space-x-10' onSubmit={(e) => e.preventDefault()}>
+            <form className='pt-28 pb-14 px-4 md:px-8 w-full flex flex-col md:flex-row md:space-x-10' onSubmit={(e) => e.preventDefault()}>
 
-                {/* the info */}
-                <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col space-y-5'>
+                {/* //todo the info */}
+                <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col space-y-10'>
 
-                    <div className='flex flex-col items-end space-y-5 text-textColor2 font-semibold text-end'>
+                    {/* notes */}
+                    <div className='flex flex-col items-end space-y-7 text-textColor2 font-semibold text-end'>
 
                         {/* transport price */}
                         <div>
@@ -32,7 +33,7 @@ const Checkout = () => {
                         </div>
 
                         {/* payment methodes */}
-                        <div className='flex flex-col space-y-3'>
+                        <div className='flex flex-col space-y-5'>
                             <div>
                                 : طرق الدفع للمنتجات
                             </div>
@@ -55,150 +56,193 @@ const Checkout = () => {
                         </div>
                     </div>
 
-                    {/* //! total Price */}
+                    {/* form */}
+                    <div className='hidden md:flex flex-col space-y-7'>
+                        <div className='flex space-x-3'>
+                            <input type="text" placeholder='الاسم الأخير' className='text-end outline-none py-1 px-2 w-1/3 rounded-md border-2 border-textColor  focus:border-effectColor ' required />
+                            <input type="text" placeholder='الاسم الأوسط' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor  w-1/3' required />
+                            <input type="text" placeholder='الاسم الأول' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/3' required />
+                        </div>
 
-                    <div className='flex flex-col space-y-3 text-center font-semibold text-textColor py-7'>
-                        <div className='text-[15px]'>: السعر الكلي </div>
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor p-2 flex justify-center text-[14px]'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <input type="email" placeholder='الإيميل' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor' required />
 
+                        <input type="number" placeholder='+963' className='outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor' required />
+
+                        <div className='flex space-x-3'>
+
+                            <input type="text" placeholder='المحافظة' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/2' required />
+
+                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor w-1/2' disabled={true} />
+
+                        </div>
+
+                        <input type="text" placeholder='العنوان' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor' required />
+
+                        {/* //! total Price */}
+
+                        <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+
+                        <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-r'>شراء</button>
                     </div>
 
-
-                    <div className='flex space-x-3'>
-                        <input type="text" placeholder='الاسم الأخير' className='text-end outline-none py-1 px-2 w-1/3 rounded-md border-2 border-textColor  focus:border-effectColor ' required />
-                        <input type="text" placeholder='الاسم الأوسط' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor  w-1/3' required />
-                        <input type="text" placeholder='الاسم الأول' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/3' required />
-                    </div>
-
-                    <input type="email" placeholder='الإيميل' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor' required />
-
-                    <input type="number" placeholder='+963' className='outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor' required />
-
-                    <div className='flex space-x-3'>
-
-                        <input type="text" placeholder='المحافظة' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/2' required />
-
-                        <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor w-1/2' disabled={true} />
-
-                    </div>
-
-                    <input type="text" placeholder='العنوان' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor' required />
-
-                    <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-r'>شراء</button>
 
                 </div>
 
                 {/* //todo The Products */}
-                <div className='w-full md:w-1/2 lg:w-2/3 flex flex-col space-y-5'>
-
-                    {/* total Price */}
-
-                    <div className='flex flex-col-reverse md:flex-row justify-between items-center font-semibold'>
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-textColor p-2 flex mt-3 md:mt-0 text-[13px]'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
-                        <div className='text-[15px]'>: السعر الكلي </div>
-                    </div>
-
-
-
-                    {/* //! slider with framer motion */}
-                    <motion.div
-                        ref={slider}
-                        style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                        className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor"
-                    >
-                        <motion.div
-                            drag="x"
-                            dragConstraints={{ right: 0, left: -width }}
-                            className="flex  space-x-5"
-                        >
-                            <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000000' type="onHand" />
-                            <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                            <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                            <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                            <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                            <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                            <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                            <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-
-                        </motion.div>
-                    </motion.div>
-
+                <div className='w-full md:w-1/2 lg:w-2/3 flex flex-col'>
 
                     {/* line */}
-                    <div className="flex items-center space-x-3 py-3">
+                    <div className="md:hidden flex items-center space-x-3 my-7">
                         <div className="w-1/2 h-[1px] bg-effectColor" />
                         <img src="../logo.svg" className="w-20 xs:w-28 h-7" />
                         <div className="w-1/2 h-[1px] bg-effectColor" />
                     </div>
 
-                    {/* total Price */}
+                    {/* //* one section */}
+                    <div className='flex flex-col space-y-5'>
 
-                    <div className='flex flex-col-reverse md:flex-row justify-between items-center font-semibold'>
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-[green] p-2 flex mt-3 md:mt-0 text-[13px]'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
-                        <div className='text-[15px]'>: السعر الكلي </div>
+
+                        {/* total Price */}
+
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-textColor p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+
+                        {/* //! slider with framer motion */}
+                        <motion.div
+                            ref={slider}
+                            style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor"
+                        >
+                            <motion.div
+                                drag="x"
+                                dragConstraints={{ right: 0, left: -width }}
+                                className="flex  space-x-5"
+                            >
+                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000000' type="onHand" />
+                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+
+                            </motion.div>
+                        </motion.div>
+
                     </div>
 
-                    {/* //! slider with framer motion */}
-                    <motion.div
-                        ref={slider}
-                        style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                        className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-[green]"
-                    >
-                        <motion.div
-                            drag="x"
-                            dragConstraints={{ right: 0, left: -width }}
-                            className="flex space-x-5"
-                        >
-                            <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                            <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                            <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                            <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                            <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                            <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                            <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                            <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-
-                        </motion.div>
-                    </motion.div>
-
-
                     {/* line */}
-                    <div className="flex items-center space-x-3 py-3">
+                    <div className="flex items-center space-x-3 my-7">
                         <div className="w-1/2 h-[1px] bg-effectColor" />
                         <img src="../logo.svg" className="w-20 xs:w-28 h-7" />
                         <div className="w-1/2 h-[1px] bg-effectColor" />
                     </div>
 
+                    {/* //* second section */}
+                    <div className='flex flex-col space-y-5'>
 
-                    {/* total Price */}
+                        {/* total Price */}
 
-                    <div className='flex flex-col-reverse md:flex-row justify-between items-center font-semibold'>
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-l-textColor border-r-[green] p-2 flex mt-3 md:mt-0 text-[13px]'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
-                        <div className='text-[15px]'>: السعر الكلي </div>
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-[green] p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+
+                        {/* //! slider with framer motion */}
+                        <motion.div
+                            ref={slider}
+                            style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-[green]"
+                        >
+                            <motion.div
+                                drag="x"
+                                dragConstraints={{ right: 0, left: -width }}
+                                className="flex space-x-5"
+                            >
+                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+
+                            </motion.div>
+                        </motion.div>
+
                     </div>
 
-                    {/* //! slider with framer motion */}
-                    <motion.div
-                        ref={slider}
-                        style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                        className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor border-r-[green]"
-                    >
-                        <motion.div
-                            drag="x"
-                            dragConstraints={{ right: 0, left: -width }}
-                            className="flex space-x-5"
-                        >
-                            <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                            <Product id='2' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                            <Product id='3' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                            <Product id='4' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                            <Product id='5' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                            <Product id='6' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                            <Product id='7' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                            <Product id='8' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
+                    {/* line */}
+                    <div className="flex items-center space-x-3 my-7">
+                        <div className="w-1/2 h-[1px] bg-effectColor" />
+                        <img src="../logo.svg" className="w-20 xs:w-28 h-7" />
+                        <div className="w-1/2 h-[1px] bg-effectColor" />
+                    </div>
 
+                    {/* //* third section */}
+
+                    <div className='flex flex-col space-y-5'>
+                        {/* total Price */}
+
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-l-textColor border-r-[green] p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+
+                        {/* //! slider with framer motion */}
+                        <motion.div
+                            ref={slider}
+                            style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor border-r-[green]"
+                        >
+                            <motion.div
+                                drag="x"
+                                dragConstraints={{ right: 0, left: -width }}
+                                className="flex space-x-5"
+                            >
+                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
+                                <Product id='2' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
+                                <Product id='3' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
+                                <Product id='4' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
+                                <Product id='5' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
+                                <Product id='6' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
+                                <Product id='7' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
+                                <Product id='8' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
+
+                            </motion.div>
                         </motion.div>
-                    </motion.div>
+                    </div>
+
+                    {/* line */}
+                    <div className="md:hidden flex items-center space-x-3 my-7">
+                        <div className="w-1/2 h-[1px] bg-effectColor" />
+                        <img src="../logo.svg" className="w-20 xs:w-28 h-7" />
+                        <div className="w-1/2 h-[1px] bg-effectColor" />
+                    </div>
+
+                    {/* form */}
+                    <div className='md:hidden flex flex-col space-y-7'>
+                        <div className='flex space-x-3'>
+                            <input type="text" placeholder='الاسم الأخير' className='text-end outline-none py-1 px-2 w-1/3 rounded-md border-2 border-textColor  focus:border-effectColor ' required />
+                            <input type="text" placeholder='الاسم الأوسط' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor  w-1/3' required />
+                            <input type="text" placeholder='الاسم الأول' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/3' required />
+                        </div>
+
+                        <input type="email" placeholder='الإيميل' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor' required />
+
+                        <input type="number" placeholder='+963' className='outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor' required />
+
+                        <div className='flex space-x-3'>
+
+                            <input type="text" placeholder='المحافظة' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/2' required />
+
+                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor w-1/2' disabled={true} />
+
+                        </div>
+
+                        <input type="text" placeholder='العنوان' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor' required />
+
+                        {/* //! total Price */}
+
+                        <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+
+                        <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-r'>شراء</button>
+                    </div>
 
                 </div>
 
