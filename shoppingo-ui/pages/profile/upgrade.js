@@ -8,7 +8,7 @@ const Upgrade = () => {
       <Navbar />
       <div
         id="coloredDiv"
-        className="relative w-full min-h-screen md:h-screen flex bg-gradient-to-tr from-gradientTo to-bgColor md:from-bgColor md:to-bgColor"
+        className="md:relative w-full min-h-screen md:h-screen flex items-center justify-center bg-gradient-to-tr from-gradientTo to-bgColor md:from-bgColor md:to-bgColor pt-28 pb-20 md:py-0"
       >
         <div
           id="imageDiv"
@@ -22,7 +22,7 @@ const Upgrade = () => {
 
         <form
           id="form"
-          className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-bgColor rounded-xl shadow-md shadow-shadowColor p-7 w-[80%] md:w-[300px] flex flex-col space-y-5"
+          className="md:absolute md:top-[50%] md:left-[50%] md:translate-x-[-50%] md:translate-y-[-50%] bg-bgColor rounded-xl shadow-md shadow-shadowColor p-7 w-[90%] md:w-[300px] flex flex-col space-y-5"
         >
           <GiTeamUpgrade className="text-effectColor text-[30px] self-center" />
 
@@ -33,7 +33,7 @@ const Upgrade = () => {
             className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor"
           />
           <input
-            type="number"
+            type="text"
             placeholder="ادخل رقم الهاتف"
             required
             className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor"
@@ -84,6 +84,7 @@ const Upgrade = () => {
             ترقية الحساب
           </button>
         </form>
+
       </div>
 
       <style jsx>
@@ -92,36 +93,59 @@ const Upgrade = () => {
             background-image: url("../authentication.svg");
           }
 
-          @media (orientation: landscape) and (max-width: 767px) and (max-height: 673px) {
-            #coloredDiv {
-              padding: 336px;
-            }
-          }
-          @media (orientation: landscape) and (min-width: 767px) and (max-height: 600px) {
+          @media (orientation: landscape) and (min-width: 767px) and (max-height: 711px) {
             #form {
               margin-block: 50px;
             }
 
             #imageDiv {
-              padding-block: 350px;
+              padding-block: 400px;
             }
 
             #gradientDiv {
-              padding-block: 350px;
+              padding-block: 400px;
             }
           }
 
-          @media (orientation: landscape) and (min-width: 767px) and (max-height: 599px) {
+          @media (orientation: landscape) and (min-width: 767px) and (max-height: 611px) {
             #form {
-              margin-block: 140px;
+              margin-block: 100px;
             }
 
             #imageDiv {
-              padding-block: 350px;
+              padding-block: 450px;
             }
 
             #gradientDiv {
-              padding-block: 350px;
+              padding-block: 450px;
+            }
+          }
+
+          @media (orientation: landscape) and (min-width: 767px) and (max-height: 511px) {
+            #form {
+              margin-block: 150px;
+            }
+
+            #imageDiv {
+              padding-block: 500px;
+            }
+
+            #gradientDiv {
+              padding-block: 500px;
+            }
+          }
+
+          @media (orientation: landscape) and (min-width: 767px) and (max-height: 411px) {
+            #form {
+              margin-block: 200px;
+            }
+
+            #imageDiv {
+              padding-block: 550px;
+            }
+
+            #gradientDiv {
+              padding-block: 550px;
             }
           }
         `}

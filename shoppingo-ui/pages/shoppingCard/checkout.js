@@ -101,11 +101,6 @@ const Checkout = () => {
                     {/* //* one section */}
                     <div className='flex flex-col space-y-5'>
 
-
-                        {/* total Price */}
-
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-textColor p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
-
                         {/* //! slider with framer motion */}
                         <motion.div
                             ref={slider}
@@ -129,6 +124,10 @@ const Checkout = () => {
                             </motion.div>
                         </motion.div>
 
+                        {/* total Price */}
+
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-textColor p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+
                     </div>
 
                     {/* line */}
@@ -140,10 +139,6 @@ const Checkout = () => {
 
                     {/* //* second section */}
                     <div className='flex flex-col space-y-5'>
-
-                        {/* total Price */}
-
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-[green] p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                         {/* //! slider with framer motion */}
                         <motion.div
@@ -168,6 +163,10 @@ const Checkout = () => {
                             </motion.div>
                         </motion.div>
 
+                        {/* total Price */}
+
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-[green] p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+
                     </div>
 
                     {/* line */}
@@ -180,9 +179,6 @@ const Checkout = () => {
                     {/* //* third section */}
 
                     <div className='flex flex-col space-y-5'>
-                        {/* total Price */}
-
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-l-textColor border-r-[green] p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                         {/* //! slider with framer motion */}
                         <motion.div
@@ -206,6 +202,11 @@ const Checkout = () => {
 
                             </motion.div>
                         </motion.div>
+
+                        {/* total Price */}
+
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-l-textColor border-r-[green] p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+
                     </div>
 
                     {/* line */}
