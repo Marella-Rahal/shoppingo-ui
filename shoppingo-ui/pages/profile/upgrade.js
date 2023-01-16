@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import { GiTeamUpgrade } from "react-icons/gi";
 const Upgrade = () => {
+  const [wepayCode, setWepayCode] = useState(false);
   return (
     <>
       <Navbar />
       <div
         id="coloredDiv"
-        className="relative w-full min-h-screen md:h-screen flex bg-gradient-to-tr from-gradientTo to-bgColor md:bg-gradient-to-tr md:from-bgColor md:to-bgColor"
+        className="relative w-full min-h-screen md:h-screen flex bg-gradient-to-tr from-gradientTo to-bgColor md:from-bgColor md:to-bgColor"
       >
         <div
           id="imageDiv"
@@ -32,7 +33,7 @@ const Upgrade = () => {
             className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor"
           />
           <input
-            type="text"
+            type="number"
             placeholder="ادخل رقم الهاتف"
             required
             className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor"
@@ -49,22 +50,35 @@ const Upgrade = () => {
             required
             className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor"
           />
-          <div className="space-y-2">
+          <div className="space-y-3">
+
             <h4 className="text-end text-textColor">: الدفع </h4>
+
             <div className="flex justify-between">
+
               <div className="flex items-center space-x-1">
                 <label htmlFor="onHand" className="text-xs font-bold text-end">
                   عند التسليم
                 </label>
-                <input type="checkbox" id="onHand" />
+                <input type="checkbox" id="onHand"/>
               </div>
+
               <div className="flex items-center space-x-1">
                 <label htmlFor="wepay" className="text-xs font-bold text-end">
-                  wepay عن طريق{" "}
+                  wepay عن طريق
                 </label>
-                <input type="checkbox" id="wepay" />
+                <input type="checkbox" id="wepay" onChange={() => setWepayCode(prev => !prev)} />
               </div>
+
             </div>
+
+            {wepayCode && (
+              <input
+                type="text"
+                placeholder="wepay ادخل كود"
+                className="w-full p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor"
+              />
+            )}
           </div>
           <button className="self-center p-2 hover:scale-[1.1]">
             ترقية الحساب
