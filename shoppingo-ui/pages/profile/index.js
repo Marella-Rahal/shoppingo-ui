@@ -14,18 +14,23 @@ const Profile = () => {
   const [enableEmail, setEnableEmail] = useState(true);
   const [enableStore, setEnableStore] = useState(true);
   const [enableAddress, setEnableAddress] = useState(true);
+  const [enableWepayCode, setEnableWepayCode] = useState(true);
 
   //! **********************
-  //*** the values which will be sent to the backend
-  //*** the default values for both inputs and these variables from redux
+  
+  //*** the default values for inputs (meaning the deafault values as defaultchecked ...) from redux
   //! if the user does not have a profile photo then we put default.jpg but if he has we put his photo
+
+  //*** the values which will be sent to the backend
   const [img, setImg] = useState("default.jpg");
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [store, setStore] = useState();
   const [address, setAddress] = useState();
-  const [online, setOnline] = useState();
-  const [onhand, setOnhand] = useState();
+  const [online, setOnline] = useState(true);
+  const [onhand, setOnhand] = useState(false);
+  const [wepayCode, setWepayCode] = useState();
+
 
   //************************************************ */
 
@@ -182,10 +187,10 @@ const Profile = () => {
                     عند التسليم
                   </label>
                   <input
-                    defaultChecked={true}
+                    defaultChecked={false}
                     type="checkbox"
                     id="onHand"
-                    onChange={(e) => setOnhand(e.target.value)}
+                    onChange={() => setOnhand(prev => !prev)}
                     className="w-4 h-4"
                   />
                 </div>
@@ -197,14 +202,36 @@ const Profile = () => {
                     wepay عن طريق
                   </label>
                   <input
-                    defaultChecked={false}
+                    defaultChecked={true}
                     type="checkbox"
                     id="wepay"
-                    onChange={(e) => setOnline(e.target.value)}
+                    onChange={() => setOnline(prev => !prev)}
                     className="w-4 h-4"
                   />
                 </div>
               </div>
+              {
+                online && (
+                  <>
+                    <label className="text-textColor text-end">: wepay كود حسابي على </label>
+                    <div className="flex justify-end h-10 space-x-5">
+                      <span
+                        onClick={() => setEnableWepayCode((prev) => !prev)}
+                        className="text-gray-500 underline hover:text-textColor cursor-pointer self-center"
+                      >
+                        تعديل
+                      </span>
+                      <input
+                        type="text"
+                        defaultValue="1234567890"
+                        disabled={enableWepayCode}
+                        onChange={(e) => setWepayCode(e.target.value)}
+                        className="w-[70%] rounded-md outline-none text-end text-textColor pr-2 shadow-sm shadow-shadowColor"
+                      />
+                    </div>
+                  </>
+                )
+              }
             </>
           ) : (
             <></>

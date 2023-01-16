@@ -8,10 +8,9 @@ const Upgrade = () => {
     <>
       <Navbar />
       <AuthenticationBody>
-        <form
-          id="form"
-          className="md:absolute md:top-[50%] md:left-[50%] md:translate-x-[-50%] md:translate-y-[-50%] bg-bgColor rounded-xl shadow-md shadow-shadowColor p-7 w-[90%] md:w-[300px] flex flex-col space-y-5"
-        >
+
+        <form className="flex flex-col space-y-5" onSubmit={(e) => e.preventDefault()}>
+
           <GiTeamUpgrade className="text-effectColor text-[30px] self-center" />
 
           <input

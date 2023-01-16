@@ -126,7 +126,7 @@ const Checkout = () => {
 
                         {/* total Price */}
 
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-textColor p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-textColor p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                     </div>
 
@@ -165,7 +165,7 @@ const Checkout = () => {
 
                         {/* total Price */}
 
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-[green] p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-[green] p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                     </div>
 
@@ -205,7 +205,7 @@ const Checkout = () => {
 
                         {/* total Price */}
 
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-l-textColor border-r-[green] p-2 flex text-[13px] font-semibold self-start'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-l-textColor border-r-[green] p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                     </div>
 
