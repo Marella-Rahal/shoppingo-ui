@@ -161,7 +161,7 @@ const Map = ({ coords, sellerRoute }) => {
         root.render(
           <Marker
             image="../../default.jpg"
-            color={sellerRoute ? "blue" : "#9E4200"}
+            color={sellerRoute ? "blue" : "#111d4a"}
           />
         );
         new mapboxgl.Marker(el, { offset: [0, -10] })
@@ -196,7 +196,7 @@ const Map = ({ coords, sellerRoute }) => {
           e.stopPropagation();
           /* make thw direction */
           if (coords.length > 0) {
-            const routeColor = sellerRoute ? "blue" : "#9E4200";
+            const routeColor = sellerRoute ? "blue" : "#111d4a";
             getRoute(coords, x.coo, routeColor);
           }
           /* Fly to the point */
@@ -439,7 +439,7 @@ const Map = ({ coords, sellerRoute }) => {
         className={
           sellerRoute
             ? "absolute left-2 top-2 z-10 text-[blue] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[10px] md:text-[12px] font-bold text-center space-y-[3px]"
-            : "absolute left-2 bottom-2 z-10 text-[#9E4200] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[10px] md:text-[12px] font-bold text-center space-y-[3px]"
+            : "absolute left-2 bottom-2 z-10 text-[#111d4a] w-[120px] bg-white rounded-lg shadow-md shadow-shadowColor text-[10px] md:text-[12px] font-bold text-center space-y-[3px]"
         }
       ></div>
     </div>

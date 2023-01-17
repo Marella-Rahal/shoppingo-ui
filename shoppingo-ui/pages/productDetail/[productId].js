@@ -14,6 +14,7 @@ import Loading from "../../components/Loading";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import NotePopUp, { showPopUpNote } from "../../components/PopUp/NotePopUp";
+import usePosition from "../../hooks/usePosition";
 const Map = dynamic(() => import("../../components/Map/Map"), {
   loading: () => <Loading />,
   ssr: false,
@@ -39,16 +40,13 @@ const ProductId = () => {
     setWidth(slider.current.scrollWidth - slider.current.offsetWidth);
   }, []);
   //! **************************************************
+
   //todo *********** the massage for the popUp
   const [noteMsg, setNoteMsg] = useState("");
   //todo ********** the location of the user
-  const [coords, setCoords] = useState([]);
+  const [coords, error] = usePosition();
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setCoords([pos.coords.longitude, pos.coords.latitude]);
-      },
-      (err) => {
+      if (error) {
         setNoteMsg(
           <>
             <h5 className="text-effectColor text-center">
@@ -58,14 +56,8 @@ const ProductId = () => {
           </>
         );
         showPopUpNote();
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 30000,
-        maximumAge: 15000,
       }
-    );
-  }, []);
+  }, [error])
   return (
     <>
       <NotePopUp noteMsg={noteMsg} />

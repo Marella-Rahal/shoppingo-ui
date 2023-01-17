@@ -7,6 +7,7 @@ import Link from "next/link";
 import NotePopUp, { showPopUpNote } from "../../components/PopUp/NotePopUp";
 import axios from "axios";
 import mapboxgl from "mapbox-gl";
+import usePosition from "../../hooks/usePosition";
 
 mapboxgl.accessToken = process.env.mapbox_key;
 
@@ -71,58 +72,57 @@ const Sellers = () => {
   //todo *********** the massage for the popUp
   const [noteMsg, setNoteMsg] = useState("");
   //todo ********** the location of the user
+  const [coords, error] = usePosition();
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        //****************************/
-        //to change the data before i make it visible to the user
-        data.forEach((store) => {
-          getRoute([pos.coords.longitude, pos.coords.latitude], store.coo).then(
-            (value) => {
-              store.dist = `يبعد ${value[1]} كيلو متر عن موقعك`;
-              store.time = `${value[2]}  دقيقة سيراً   `;
-              setStores([...data]);
-            }
-          );
-        });
-      },
-      (err) => {
-        setNoteMsg(
-          <>
-            <h5 className="text-effectColor text-center">
-              فشلنا في الحصول على موقعك لذلك سيتم تعطيل بعض الميزات التي تتطلب
-              الموقع ضمن هذه الصفحة أو أعد تحميل الصفحة للمحاولة مرة أخرى
-            </h5>
-          </>
+    
+    //todo *********************  in case of error
+    if (error) {
+      setNoteMsg(
+        <>
+          <h5 className="text-effectColor text-center">
+            فشلنا في الحصول على موقعك لذلك سيتم تعطيل بعض الميزات التي تتطلب
+            الموقع ضمن هذه الصفحة أو أعد تحميل الصفحة للمحاولة مرة أخرى
+          </h5>
+        </>
+      );
+      showPopUpNote();
+    }
+
+    //todo ******************** in case of succes 
+    if (coords.length > 0) {
+      //to change the data before i make it visible to the user
+      data.forEach((store) => {
+        getRoute(coords, store.coo).then(
+          (value) => {
+            store.dist = `يبعد ${value[1]} كيلو متر عن موقعك`;
+            store.time = `${value[2]}  دقيقة سيراً   `;
+            setStores([...data]);
+          }
         );
-        showPopUpNote();
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 30000,
-        maximumAge: 15000,
-      }
+      });
+    }
+
+  }, [coords, error]);
+
+  //*function to calculate the distance and the time between the user location and the store location
+  const getRoute = async (start, end) => {
+    const res = await axios.get(
+      `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`
     );
 
-    //*function to calculate the distance and the time between the user location and the store location
-    const getRoute = async (start, end) => {
-      const res = await axios.get(
-        `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`
-      );
+    const data = res.data.routes[0];
 
-      const data = res.data.routes[0];
+    //the route if needed
+    const route = data.geometry.coordinates;
+    //the distance
+    const dist = Math.floor(data.distance / 1000);
+    //the time
+    const time = Math.floor(data.duration / 60);
 
-      //the route if needed
-      const route = data.geometry.coordinates;
-      //the distance
-      const dist = Math.floor(data.distance / 1000);
-      //the time
-      const time = Math.floor(data.duration / 60);
+    return [route, dist, time];
+  };
+  //******************************************************/
 
-      return [route, dist, time];
-    };
-    //******************************************************/
-  }, []);
 
   return (
     <>
