@@ -68,7 +68,7 @@ const ProductId = () => {
           {/* Map */}
           <div
             style={{ boxShadow: "5px 5px 20px 7px rgba(0,0,0,0.15)" }}
-            className="w-full md:w-1/2 lg:w-2/3 h-[400px] md:h-auto rounded-lg mt-10 md:mt-0"
+            className="w-full md:w-1/2 lg:w-2/3 h-[500px] md:h-auto rounded-lg mt-10 md:mt-0"
           >
             {coords.length > 0 && <Map coords={coords} sellerRoute={false} />}
           </div>
