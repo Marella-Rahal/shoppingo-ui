@@ -9,7 +9,7 @@ const Search = () => {
       </label>
       <input
         type="text"
-        className="w-full md:w-[230px] rounded-r-full shadow-sm shadow-shadowColor outline-none focus:border-2 border-effectColor/50  px-3 py-[5px] text-textColor text-end"
+        className="w-full md:w-[230px] rounded-r-full shadow-sm shadow-shadowColor outline-none focus:border-2 border-effectColor  px-3 py-[5px] text-textColor text-end"
       />
     </div>
   );
