@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       {/* //todo for dark mode  */}
-      <ThemeProvider attribute="class">
+      <ThemeProvider attribute="class" enableSystem={false}>
 
         {/* //todo animation for the whole page */}
         <AnimatePresence mode="wait">

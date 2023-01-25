@@ -26,7 +26,12 @@ module.exports = {
         darkBgColor:'#000000',
         darkTextColor:"white",
         darkTextColor2:'#d7271a',
+        
       },
+      boxShadow: {
+       'mapShadow': "0px 0px 20px 7px rgba(0,0,0,0.20)",
+       'darkMapShadow' : "0px 0px 20px 7px rgba(255,255,255,0.20)",
+      }
     },
   },
   plugins: [],

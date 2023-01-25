@@ -67,8 +67,8 @@ const ProductId = () => {
         <div className="flex flex-col-reverse md:flex-row md:space-x-7">
           {/* Map */}
           <div
-            style={{ boxShadow: "5px 5px 20px 7px rgba(0,0,0,0.15)" }}
-            className="w-full md:w-1/2 lg:w-2/3 h-[500px] md:h-auto rounded-lg mt-10 md:mt-0"
+            // style={{ boxShadow: "5px 5px 20px 7px rgba(0,0,0,0.15)" }}
+            className="w-full md:w-1/2 lg:w-2/3 h-[500px] md:h-auto rounded-lg mt-10 md:mt-0 shadow-mapShadow dark:shadow-darkMapShadow"
           >
             {coords.length > 0 && <Map coords={coords} sellerRoute={false} />}
           </div>
@@ -269,8 +269,8 @@ const ProductId = () => {
         {/* //! slider with framer motion */}
         <motion.div
           ref={slider}
-          style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-          className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor2"
+          // style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
+          className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor2 shadow-mapShadow dark:shadow-darkMapShadow"
         >
           <motion.div
             drag="x"
