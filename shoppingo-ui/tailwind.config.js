@@ -23,7 +23,7 @@ module.exports = {
         shadowColor:'#9ca3af',
         gradientFrom:'rgb(17,29,74)',
         gradientTo:'rgb(187,43,43)',
-        darkBgColor:'#000000',
+        darkBgColor:'#161616',
         darkTextColor:"white",
         darkTextColor2:'#d7271a',
         

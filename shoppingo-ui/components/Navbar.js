@@ -45,7 +45,7 @@ const Navbar = () => {
       router.asPath != "/login" &&
       router.asPath != "/login/forgetPassword" &&
       router.asPath != "/profile/upgrade") && theme == "dark") {
-      setNavBackground("#000000");
+      setNavBackground("#161616");
     } else if ((router.asPath != "/signup" &&
       router.asPath != "/login" &&
       router.asPath != "/login/forgetPassword" &&
