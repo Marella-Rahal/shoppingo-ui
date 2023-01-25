@@ -270,7 +270,7 @@ const ProductId = () => {
         <motion.div
           ref={slider}
           style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-          className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-none"
+          className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor2"
         >
           <motion.div
             drag="x"

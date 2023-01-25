@@ -20,7 +20,7 @@ const Checkout = () => {
                 <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col space-y-10'>
 
                     {/* notes */}
-                    <div className='flex flex-col items-end space-y-7 text-textColor2 dark:text-darkTextColor2 font-semibold text-end'>
+                    <div className='flex flex-col items-end space-y-7 text-textColor2 dark:text-darkTextColor font-semibold text-end'>
 
                         {/* transport price */}
                         <div>
@@ -126,7 +126,7 @@ const Checkout = () => {
 
                         {/* total Price */}
 
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-textColor p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-textColor dark:border-darkTextColor2 p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                     </div>
 
@@ -205,7 +205,7 @@ const Checkout = () => {
 
                         {/* total Price */}
 
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-l-textColor border-r-[green] p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-l-textColor dark:border-l-darkTextColor2 border-r-[green] p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                     </div>
 
