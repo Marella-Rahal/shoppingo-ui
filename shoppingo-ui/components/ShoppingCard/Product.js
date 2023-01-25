@@ -53,7 +53,7 @@ const Product = (props) => {
       <div className="flex w-full h-[65px] rounded-b-md ">
         {/* Quantity */}
         <div className="w-1/2 border-r-2 border-shadowColor/20 flex flex-col justify-center space-y-1 pb-2">
-          <p className="text-textColor2 text-center">: الكمية</p>
+          <p className="text-textColor2 dark:text-darkTextColor2 text-center">: الكمية</p>
 
           <div className="flex justify-between px-2">
             <div className="w-6 h-6 rounded-full shadow-md flex items-center justify-center shadow-shadowColor bg-textColor2 border-[3px] border-white cursor-pointer hover:scale-[1.1]">
@@ -70,7 +70,7 @@ const Product = (props) => {
 
         {/* Price */}
         <div className="w-1/2 flex flex-col justify-center space-y-2 pb-2">
-          <p className="text-textColor2 text-center">: السعر</p>
+          <p className="text-textColor2 dark:text-darkTextColor2 text-center">: السعر</p>
 
           <div className="flex justify-center px-2">
             <div className="text-sm mr-1">ل.س</div>
