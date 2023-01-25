@@ -7,7 +7,7 @@ const AuthenticationBody = ({ children }) => {
         <>
             <div
                 id="coloredDiv"
-                className="md:relative w-full min-h-screen md:h-screen flex items-center justify-center bg-gradient-to-tr from-gradientTo to-bgColor md:from-bgColor md:to-bgColor dark:from-gradientTo md:dark:from-gradientFrom pt-28 pb-20 md:py-0"
+                className="md:relative w-full min-h-screen md:h-screen flex items-center justify-center bg-gradient-to-tr from-gradientTo to-bgColor md:from-bgColor md:to-bgColor dark:from-gradientTo md:dark:from-darkBgColor pt-28 pb-20 md:py-0"
             >
                 <div
                     id="imageDiv"
