@@ -40,7 +40,7 @@ const Checkout = () => {
 
                             <div className='flex self-end items-center space-x-3'>
                                 <div>الدفع عند الاستلام</div>
-                                <div className='w-5 h-5 rounded-md border-x-[3px] border-textColor shadow-md shadow-shadowColor' />
+                                <div className='w-5 h-5 rounded-md border-x-[3px] border-textColor dark:border-darkTextColor shadow-md shadow-shadowColor' />
                             </div>
 
                             <div className='flex self-end items-center space-x-3'>
@@ -50,7 +50,7 @@ const Checkout = () => {
 
                             <div className='flex self-end items-center space-x-3'>
                                 <div>يرجى تحديد طريقة الدفع قبل تأكيد الشراء</div>
-                                <div className='w-5 h-5 rounded-md border-x-[3px] border-l-textColor border-r-[green] shadow-md shadow-shadowColor' />
+                                <div className='w-5 h-5 rounded-md border-x-[3px] border-l-textColor dark:border-l-darkTextColor border-r-[green] shadow-md shadow-shadowColor' />
                             </div>
 
                         </div>
@@ -105,7 +105,7 @@ const Checkout = () => {
                         <motion.div
                             ref={slider}
                             style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor"
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor"
                         >
                             <motion.div
                                 drag="x"
@@ -184,7 +184,7 @@ const Checkout = () => {
                         <motion.div
                             ref={slider}
                             style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor border-r-[green]"
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[green]"
                         >
                             <motion.div
                                 drag="x"
