@@ -40,7 +40,7 @@ const Checkout = () => {
 
                             <div className='flex self-end items-center space-x-3'>
                                 <div>الدفع عند الاستلام</div>
-                                <div className='w-5 h-5 rounded-md border-x-[3px] border-textColor dark:border-darkTextColor shadow-md shadow-shadowColor' />
+                                <div className='w-5 h-5 rounded-md border-x-[3px] border-textColor dark:border-darkTextColor2 shadow-md shadow-shadowColor' />
                             </div>
 
                             <div className='flex self-end items-center space-x-3'>
@@ -50,7 +50,7 @@ const Checkout = () => {
 
                             <div className='flex self-end items-center space-x-3'>
                                 <div>يرجى تحديد طريقة الدفع قبل تأكيد الشراء</div>
-                                <div className='w-5 h-5 rounded-md border-x-[3px] border-l-textColor dark:border-l-darkTextColor border-r-[green] shadow-md shadow-shadowColor' />
+                                <div className='w-5 h-5 rounded-md border-x-[3px] border-l-textColor dark:border-l-darkTextColor2 border-r-[green] shadow-md shadow-shadowColor' />
                             </div>
 
                         </div>
@@ -80,7 +80,7 @@ const Checkout = () => {
 
                         {/* //! total Price */}
 
-                        <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor dark:border-darkTextColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                         <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-r'>شراء</button>
                     </div>
@@ -105,7 +105,7 @@ const Checkout = () => {
                         <motion.div
                             ref={slider}
                             style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor"
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor2"
                         >
                             <motion.div
                                 drag="x"
@@ -184,7 +184,7 @@ const Checkout = () => {
                         <motion.div
                             ref={slider}
                             style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[green]"
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor2 border-r-[green]"
                         >
                             <motion.div
                                 drag="x"
@@ -240,7 +240,7 @@ const Checkout = () => {
 
                         {/* //! total Price */}
 
-                        <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor dark:border-darkTextColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                         <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-r'>شراء</button>
                     </div>
