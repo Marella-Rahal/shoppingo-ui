@@ -7,7 +7,7 @@ const Product = (props) => {
   const router = useRouter();
   return (
     <div className="relative flex flex-col w-[275px] rounded-md shadow-md shadow-shadowColor mt-14 mr-2 sm:mr-5">
-      <div className="absolute -top-5 -right-4 w-9 h-9 rounded-full bg-textColor border-[3px] border-white shadow-md shadow-shadowColor flex justify-center items-center hover:scale-[1.1] cursor-pointer">
+      <div className="absolute -top-5 -right-4 w-9 h-9 rounded-full bg-textColor dark:bg-darkTextColor2 border-[3px] border-white shadow-md shadow-shadowColor flex justify-center items-center hover:scale-[1.1] cursor-pointer">
         <AiOutlineClose className="text-white w-6 h-6" />
       </div>
       {/* Product Image */}
@@ -56,13 +56,13 @@ const Product = (props) => {
           <p className="text-textColor2 dark:text-darkTextColor2 text-center">: الكمية</p>
 
           <div className="flex justify-between px-2">
-            <div className="w-6 h-6 rounded-full shadow-md flex items-center justify-center shadow-shadowColor bg-textColor2 border-[3px] border-white cursor-pointer hover:scale-[1.1]">
+            <div className="w-6 h-6 rounded-full shadow-md flex items-center justify-center shadow-shadowColor bg-textColor2 dark:bg-darkTextColor2 border-[3px] border-white cursor-pointer hover:scale-[1.1]">
               <FaMinus className="text-white" />
             </div>
 
             <div className="font-bold">{props.qty}</div>
 
-            <div className="w-6 h-6 rounded-full shadow-md flex items-center justify-center shadow-shadowColor bg-textColor2 border-[3px] border-white cursor-pointer hover:scale-[1.1]">
+            <div className="w-6 h-6 rounded-full shadow-md flex items-center justify-center shadow-shadowColor bg-textColor2 dark:bg-darkTextColor2 border-[3px] border-white cursor-pointer hover:scale-[1.1]">
               <FaPlus className="text-white" />
             </div>
           </div>
