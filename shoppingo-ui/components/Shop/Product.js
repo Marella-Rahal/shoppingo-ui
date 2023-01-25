@@ -72,7 +72,7 @@ const Product = (props) => {
         {/* section 2 */}
         <div className="flex justify-between items-center px-3 h-[40px]">
           <button
-            className="rounded-md bg-textColor py-[3px] px-[17px] hover:scale-[1.1]"
+            className="rounded-md bg-textColor dark:bg-gradient-to-l dark:from-gradientFrom dark:to-gradientTo py-[3px] px-[17px] hover:scale-[1.1]"
             onClick={() => {
               setRatingPopUp(true);
             }}
