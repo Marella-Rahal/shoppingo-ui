@@ -1,7 +1,7 @@
-import Navbar from "../../components/Navbar";
 import React, { useState } from "react";
 import { RiLockPasswordLine } from "react-icons/ri";
 import AuthenticationBody from "../../components/AuthenticationBody";
+import Navbar from "../../components/Navbar";
 
 const ForgetPassword = () => {
   const [displayCode, setDisplayCode] = useState(false);
@@ -19,8 +19,8 @@ const ForgetPassword = () => {
 
   return (
     <>
-      <Navbar />
 
+      <Navbar/>
       <AuthenticationBody>
 
         <div className="flex flex-col space-y-5">

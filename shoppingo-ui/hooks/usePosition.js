@@ -23,7 +23,7 @@ const usePosition = (props) => {
     {
         enableHighAccuracy: true,
         timeout: 15000,
-        maximumAge: 15000,
+        // maximumAge: 15000,
     });
 
     return () => geo.clearWatch(watcher);

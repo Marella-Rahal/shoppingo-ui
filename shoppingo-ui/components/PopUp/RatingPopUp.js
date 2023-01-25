@@ -12,8 +12,8 @@ const RatingPopUp = (props) => {
       <form
         className={
           props.ratingPopUp
-            ? "absolute top-[35%] opacity-100 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
-            : "absolute top-[52%] opacity-0 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
+            ? "absolute top-[35%] opacity-100 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
+            : "absolute top-[52%] opacity-0 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
         }
         onSubmit={sendRating}
       >

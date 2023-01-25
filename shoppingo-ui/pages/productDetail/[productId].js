@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import Navbar from "../../components/Navbar";
 import { HiShoppingCart } from "react-icons/hi";
 import {
   MdOutlineArrowBackIos,
@@ -15,6 +14,7 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import NotePopUp, { showPopUpNote } from "../../components/PopUp/NotePopUp";
 import usePosition from "../../hooks/usePosition";
+import Navbar from "../../components/Navbar";
 const Map = dynamic(() => import("../../components/Map/Map"), {
   loading: () => <Loading />,
   ssr: false,
@@ -61,7 +61,7 @@ const ProductId = () => {
   return (
     <>
       <NotePopUp noteMsg={noteMsg} />
-      <Navbar />
+      <Navbar/>
       <div className="w-full min-h-screen pt-24 pb-10 px-4 md:px-8 flex flex-col space-y-5">
         {/* section 1 */}
         <div className="flex flex-col-reverse md:flex-row md:space-x-7">
@@ -102,7 +102,7 @@ const ProductId = () => {
             </div>
 
             {/* description */}
-            <div className="border-b-[1px] border-textColor flex justify-between">
+            <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
               {!showDescription && (
                 <MdOutlineKeyboardArrowDown
                   className="text-2xl cursor-pointer hover:scale-[1.1]"
@@ -119,7 +119,7 @@ const ProductId = () => {
               <span className="font-semibold">الوصف</span>
             </div>
             {showDescription && (
-              <div className="text-end text-textColor2">
+              <div className="text-end text-textColor2 dark:text-darkTextColor2">
                 Adipisicing eiusmod et consequat tempor magna. Quis dolor aute
                 ut fugiat dolore ipsum incididunt dolore ea est. Labore
                 excepteur do ut sit anim laboris velit voluptate sit dolor magna
@@ -128,7 +128,7 @@ const ProductId = () => {
             )}
 
             {/* sizes */}
-            <div className="border-b-[1px] border-textColor flex justify-between">
+            <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
               {!showSizes && (
                 <MdOutlineKeyboardArrowDown
                   className="text-2xl cursor-pointer hover:scale-[1.1]"
@@ -159,7 +159,7 @@ const ProductId = () => {
             )}
 
             {/* Quantity */}
-            <div className="border-b-[1px] border-textColor flex justify-between">
+            <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
               {!showQty && (
                 <MdOutlineKeyboardArrowDown
                   className="text-2xl cursor-pointer hover:scale-[1.1]"
@@ -176,10 +176,10 @@ const ProductId = () => {
 
               <span className="font-semibold">الكمية</span>
             </div>
-            {showQty && <div className="text-end text-textColor2">1000</div>}
+            {showQty && <div className="text-end text-textColor2 dark:text-darkTextColor2">1000</div>}
 
             {/* colors */}
-            <div className="border-b-[1px] border-textColor flex justify-between">
+            <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
               {!showColors && (
                 <MdOutlineKeyboardArrowDown
                   className="text-2xl cursor-pointer hover:scale-[1.1]"
@@ -216,7 +216,7 @@ const ProductId = () => {
             )}
 
             {/* price and location */}
-            <div className="border-b-[1px] border-textColor flex justify-between">
+            <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
               {!showPrice && (
                 <MdOutlineKeyboardArrowDown
                   className="text-2xl cursor-pointer hover:scale-[1.1]"
@@ -241,16 +241,16 @@ const ProductId = () => {
                     <span className="mr-2">ل.س</span>
                     500000
                   </span>
-                  <span className="mt-2 flex line-through text-textColor2 ">
+                  <span className="mt-2 flex line-through text-textColor2 dark:text-darkTextColor2">
                     <span className="mr-2">ل.س</span>
                     700000
                   </span>
                 </div>
                 {/* Shop Name */}
-                <div className="text-textColor2 text-end">For_you</div>
+                <div className="text-textColor2 dark:text-darkTextColor2 text-end">For_you</div>
 
                 {/* Address */}
-                <div className="text-textColor2 text-end">
+                <div className="text-textColor2 dark:text-darkTextColor2 text-end">
                   حمص-شارع الحضارة-مقابل الإطفائية
                 </div>
               </div>
@@ -259,18 +259,18 @@ const ProductId = () => {
         </div>
         {/* line */}
         <div className="flex items-center space-x-3 mt-7">
-          <div className="w-1/2 h-[1px] bg-textColor" />
+          <div className="w-1/2 h-[1px] bg-textColor dark:bg-darkTextColor" />
           <div className="w-20 xs:w-28 h-10 text-sm font-semibold flex justify-center items-center text-center">
             منتجات مشابهة
           </div>
-          <div className="w-1/2 h-[1px] bg-textColor" />
+          <div className="w-1/2 h-[1px] bg-textColor dark:bg-darkTextColor" />
         </div>
         {/* other Product */}
         {/* //! slider with framer motion */}
         <motion.div
           ref={slider}
           style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-          className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor"
+          className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-none"
         >
           <motion.div
             drag="x"

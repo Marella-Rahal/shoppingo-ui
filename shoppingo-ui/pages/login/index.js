@@ -1,13 +1,12 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
 import Link from "next/link";
 import AuthenticationBody from "../../components/AuthenticationBody";
+import Navbar from "../../components/Navbar";
 
 const LogIn = () => {
   return (
     <>
-      <Navbar />
-
+      <Navbar/>
       <AuthenticationBody>
 
         <form className="flex flex-col space-y-5" onSubmit={(e) => e.preventDefault()}>

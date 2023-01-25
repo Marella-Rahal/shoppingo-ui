@@ -1,19 +1,19 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
 import { MdDelete } from "react-icons/md";
 import Product from "../../components/ShoppingCard/Product";
 import { useRouter } from "next/router";
+import Navbar from "../../components/Navbar";
 
 const ShoppingCard = () => {
   const router = useRouter();
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <div className="pt-28 px-4 md:px-8 min-h-screen flex flex-col justify-between">
         <div className="flex flex-col">
           {/* Delete */}
           <div className="flex space-x-2 self-end items-center cursor-pointer group">
-            <span className="text-textColor underline group-hover:scale-[1.1]">
+            <span className="text-textColor dark:text-darkTextColor underline group-hover:scale-[1.1]">
               حذف الكل
             </span>
             <MdDelete className="w-7 h-7 group-hover:scale-[1.1]" />

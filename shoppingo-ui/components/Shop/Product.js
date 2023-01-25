@@ -81,12 +81,12 @@ const Product = (props) => {
           </button>
           <div className="flex flex-col ">
             {props.offer && (
-              <div className="flex text-[10px] text-textColor2 line-through self-end">
+              <div className="flex text-[10px] text-textColor2 dark:text-darkTextColor2 line-through self-end">
                 <div className="mr-1">ل.س</div>
                 <div className="font-bold">{props.oPrice}</div>
               </div>
             )}
-            <div className="flex text-[15px] self-end text-textColor">
+            <div className="flex text-[15px] self-end text-textColor dark:text-darkTextColor">
               <div className="mr-1">ل.س</div>
               <div className="font-bold">{props.nPrice}</div>
             </div>
@@ -116,7 +116,7 @@ const Product = (props) => {
               />
             ))}
           </div>
-          <span className="font-bold">{props.rating}</span>
+          <span className="font-bold dark:text-darkTextColor">{props.rating}</span>
         </div>
       </div>
       <RatingPopUp ratingPopUp={ratingPopUp} setRatingPopUp={setRatingPopUp} />

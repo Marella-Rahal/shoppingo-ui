@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
 import Seller from "../../components/Sellers/Seller";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { FaMapMarkerAlt } from "react-icons/fa";
@@ -8,6 +7,7 @@ import NotePopUp, { showPopUpNote } from "../../components/PopUp/NotePopUp";
 import axios from "axios";
 import mapboxgl from "mapbox-gl";
 import usePosition from "../../hooks/usePosition";
+import Navbar from "../../components/Navbar";
 
 mapboxgl.accessToken = process.env.mapbox_key;
 
@@ -127,7 +127,7 @@ const Sellers = () => {
   return (
     <>
       <NotePopUp noteMsg={noteMsg} />
-      <Navbar />
+      <Navbar/>
       <div className="pt-28 pb-10 w-full min-h-screen px-4 md:px-8 flex flex-col justify-between">
         {/* first div */}
         <div className="flex flex-col space-y-3">
@@ -169,7 +169,7 @@ const Sellers = () => {
           >
             هنا
           </Link>
-          <span>لرؤية موقع المتاجر اضغط </span>
+          <span className="dark:text-darkTextColor">لرؤية موقع المتاجر اضغط </span>
 
           <FaMapMarkerAlt className="text-effectColor self-center" />
         </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
 import { BsCamera } from "react-icons/bs";
 import { useRouter } from "next/router";
+import Navbar from "../../components/Navbar";
 
 const Profile = () => {
   const router = useRouter();
@@ -42,12 +42,12 @@ const Profile = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <div
         className={
           userStatus == 1
-            ? "pt-28 px-4 md:px-8 w-full min-h-screen flex flex-col md:flex-row"
-            : "pt-40 pb-10 px-4 md:px-8 w-full min-h-screen flex flex-col md:flex-row"
+            ? "pt-28 px-4 md:px-8 w-full min-h-screen flex flex-col md:flex-row text-textColor dark:text-darkTextColor"
+            : "pt-40 pb-10 px-4 md:px-8 w-full min-h-screen flex flex-col md:flex-row text-textColor dark:text-darkTextColor"
         }
       >
         {/* Left */}
@@ -105,13 +105,13 @@ const Profile = () => {
 
         {/* Right */}
         <div className="py-14 md:pt-0 md:pb-7 w-full md:w-1/2 flex flex-col space-y-5">
-          <h3 className="text-end text-textColor">معلوماتي الشخصية</h3>
+          <h3 className="text-end">معلوماتي الشخصية</h3>
 
-          <label className="text-textColor text-end">اسمي</label>
+          <label className="text-end">اسمي</label>
           <div className="flex h-10 justify-end space-x-5">
             <span
               onClick={() => setEnableName((prev) => !prev)}
-              className="text-gray-500 underline hover:text-textColor cursor-pointer self-center"
+              className="text-gray-500 underline hover:text-textColor dark:hover:text-darkTextColor cursor-pointer self-center"
             >
               تعديل
             </span>
@@ -124,11 +124,11 @@ const Profile = () => {
             />
           </div>
 
-          <label className="text-textColor text-end">إيميلي</label>
+          <label className="text-end">إيميلي</label>
           <div className="flex h-10 justify-end space-x-5">
             <span
               onClick={() => setEnableEmail((prev) => !prev)}
-              className="text-gray-500 underline hover:text-textColor cursor-pointer self-center"
+              className="text-gray-500 underline hover:text-textColor dark:hover:text-darkTextColor cursor-pointer self-center"
             >
               تعديل
             </span>
@@ -143,11 +143,11 @@ const Profile = () => {
 
           {userStatus == 1 ? (
             <>
-              <label className="text-textColor text-end">اسم متجري</label>
+              <label className="text-end">اسم متجري</label>
               <div className="flex justify-end h-10 space-x-5">
                 <span
                   onClick={() => setEnableStore((prev) => !prev)}
-                  className="text-gray-500 underline hover:text-textColor cursor-pointer self-center"
+                  className="text-gray-500 underline hover:text-textColor dark:hover:text-darkTextColor cursor-pointer self-center"
                 >
                   تعديل
                 </span>
@@ -160,11 +160,11 @@ const Profile = () => {
                 />
               </div>
 
-              <label className="text-textColor text-end">عنوان متجري</label>
+              <label className="text-end">عنوان متجري</label>
               <div className="flex justify-end h-10 space-x-5">
                 <span
                   onClick={() => setEnableAddress((prev) => !prev)}
-                  className="text-gray-500 underline hover:text-textColor cursor-pointer self-center"
+                  className="text-gray-500 underline hover:text-textColor dark:hover:text-darkTextColor cursor-pointer self-center"
                 >
                   تعديل
                 </span>
@@ -177,7 +177,7 @@ const Profile = () => {
                 />
               </div>
 
-              <label className="text-textColor text-end">: الدفع</label>
+              <label className="text-end">: الدفع</label>
               <div className="flex justify-end space-x-14">
                 <div className="flex items-center space-x-2">
                   <label
@@ -213,11 +213,11 @@ const Profile = () => {
               {
                 online && (
                   <>
-                    <label className="text-textColor text-end">: wepay كود حسابي على </label>
+                    <label className="text-end">: wepay كود حسابي على </label>
                     <div className="flex justify-end h-10 space-x-5">
                       <span
                         onClick={() => setEnableWepayCode((prev) => !prev)}
-                        className="text-gray-500 underline hover:text-textColor cursor-pointer self-center"
+                        className="text-gray-500 underline hover:text-textColor dark:hover:text-darkTextColor cursor-pointer self-center"
                       >
                         تعديل
                       </span>

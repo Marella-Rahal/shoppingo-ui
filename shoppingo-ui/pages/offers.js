@@ -5,7 +5,7 @@ import ShopBody from "../components/Shop/ShopBody";
 const Offers = () => {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <ShopBody shopRoute={false} offersRoute={true} shopIdRoute={false} />
     </>
   );

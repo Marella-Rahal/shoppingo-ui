@@ -7,7 +7,7 @@ const AuthenticationBody = ({ children }) => {
         <>
             <div
                 id="coloredDiv"
-                className="md:relative w-full min-h-screen md:h-screen flex items-center justify-center bg-gradient-to-tr from-gradientTo to-bgColor md:from-bgColor md:to-bgColor pt-28 pb-20 md:py-0"
+                className="md:relative w-full min-h-screen md:h-screen flex items-center justify-center bg-gradient-to-tr from-gradientTo to-bgColor md:from-bgColor md:to-bgColor dark:from-gradientTo md:dark:from-gradientFrom pt-28 pb-20 md:py-0"
             >
                 <div
                     id="imageDiv"
@@ -16,7 +16,7 @@ const AuthenticationBody = ({ children }) => {
 
                 <div
                     id="gradientDiv"
-                    className="hidden md:block bg-gradient-to-l from-gradientTo to-bgColor w-[50%] h-full opacity-60"
+                    className="hidden md:block bg-gradient-to-l from-gradientTo  w-[50%] h-full opacity-60"
                 />
                 <div
                     id="form"

@@ -414,7 +414,7 @@ const Map = ({ coords, sellerRoute }) => {
     >
       {/* location's color */}
       {!sellerRoute && (
-        <div className="absolute top-2 left-2 z-10 p-2 w-[90px] bg-white rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-[5px] text-[10px] md:text-[12px] font-bold">
+        <div className="absolute top-2 left-2 z-10 p-2 w-[90px] bg-white rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-[5px] text-[10px] md:text-[12px] font-bold text-textColor">
           <div className="self-center">ألوان المواقع</div>
           <div className=" flex justify-end items-center">
             الأقرب

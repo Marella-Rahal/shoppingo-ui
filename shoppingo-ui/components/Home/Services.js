@@ -13,10 +13,10 @@ const Services = () => {
           <img
             src="feature3.svg"
             alt="feature3"
-            className="h-[200px] md:h-[300px] w-[350px] border-b-4"
+            className="h-[200px] md:h-[300px] w-[350px] border-b-4 dark:border-b-2"
           />
           <h3> مقارنة الأسعار</h3>
-          <div className="text-textColor2 text-md text-center h-[110px]">
+          <div className="text-textColor2 dark:text-darkTextColor2 text-md text-center h-[110px]">
             يسمح موقعنا بمقارنة الأسعار لنفس المنتج في عدة متاجر لمعرفة الأرخص
             بينها
           </div>
@@ -29,10 +29,10 @@ const Services = () => {
           <img
             src="feature1.svg"
             alt="feature1"
-            className="h-[200px] md:h-[300px] w-[350px] border-b-4"
+            className="h-[200px] md:h-[300px] w-[350px] border-b-4 dark:border-b-2"
           />
           <h3>الموقع الأقرب</h3>
-          <div className="text-textColor2 text-md text-center h-[110px]">
+          <div className="text-textColor2 dark:text-darkTextColor2 text-md text-center h-[110px]">
             يحوي موقعنا على خريطة من أجل تحديد الموقع الأقرب للمنتج المطلوب
           </div>
         </div>
@@ -44,10 +44,10 @@ const Services = () => {
           <img
             src="feature2.svg"
             alt="feature2"
-            className="h-[200px] md:h-[300px] w-[350px] border-b-4"
+            className="h-[200px] md:h-[300px] w-[350px] border-b-4 dark:border-b-2"
           />
           <h3> الدفع الإلكتروني</h3>
-          <div className="text-textColor2 text-md text-center h-[110px]">
+          <div className="text-textColor2 dark:text-darkTextColor2 text-md text-center h-[110px]">
             <div>يتيح موقعنا الدفع الإلكتروني عن طريق موقع</div>
             <div>WePay</div>
           </div>

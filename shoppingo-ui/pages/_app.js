@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { ThemeProvider } from 'next-themes';
 
 const pageVariants = {
   hidden: {
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }) {
       delay: 400,
       duration: 900,
     });
+
   }, []);
 
   return (
@@ -44,17 +46,25 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="logo.svg" />
       </Head>
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={router.route}
-          variants={pageVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-        >
-          <Component {...pageProps} />
-        </motion.div>
-      </AnimatePresence>
+      {/* //todo for dark mode  */}
+      <ThemeProvider attribute="class">
+
+        {/* //todo animation for the whole page */}
+        <AnimatePresence mode="wait">
+
+          <motion.div
+            key={router.route}
+            variants={pageVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <Component {...pageProps} />
+          </motion.div>
+        </AnimatePresence>
+
+      </ThemeProvider>
+
     </>
   );
 }

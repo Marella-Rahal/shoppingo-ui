@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
 import { GiTeamUpgrade } from "react-icons/gi";
 import AuthenticationBody from "../../components/AuthenticationBody";
+import Navbar from "../../components/Navbar";
 const Upgrade = () => {
   const [wepayCode, setWepayCode] = useState(false);
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <AuthenticationBody>
 
         <form className="flex flex-col space-y-5" onSubmit={(e) => e.preventDefault()}>
@@ -44,14 +44,14 @@ const Upgrade = () => {
             <div className="flex justify-between">
 
               <div className="flex items-center space-x-1">
-                <label htmlFor="onHand" className="text-xs font-bold text-end">
+                <label htmlFor="onHand" className="text-xs font-bold text-end dark:text-textColor">
                   عند التسليم
                 </label>
                 <input type="checkbox" id="onHand" />
               </div>
 
               <div className="flex items-center space-x-1">
-                <label htmlFor="wepay" className="text-xs font-bold text-end">
+                <label htmlFor="wepay" className="text-xs font-bold text-end dark:text-textColor">
                   wepay عن طريق
                 </label>
                 <input type="checkbox" id="wepay" onChange={() => setWepayCode(prev => !prev)} />

@@ -34,8 +34,9 @@
   }
 
   body {
-    @apply bg-bgColor text-textColor tracking-wide
+    @apply bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor tracking-wide
   }
+
 
   h1,
   h2,
@@ -64,6 +65,10 @@
 
   button {
     @apply shadow-md shadow-shadowColor rounded-xl uppercase bg-effectColor opacity-[0.9] text-white outline-none
+  }
+
+  input{
+    @apply bg-white text-textColor
   }
 
   /* Marker tweaks */

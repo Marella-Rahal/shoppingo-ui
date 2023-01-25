@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
-import Navbar from '../../components/Navbar'
 import { motion } from 'framer-motion';
 import Product from '../../components/Checkout/Product'
+import Navbar from '../../components/Navbar';
 
 const Checkout = () => {
     // ! to set constraint on how much i can drag the slider to the left
@@ -13,14 +13,14 @@ const Checkout = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar/>
             <form className='pt-28 pb-14 px-4 md:px-8 w-full flex flex-col md:flex-row md:space-x-10' onSubmit={(e) => e.preventDefault()}>
 
                 {/* //todo the info */}
                 <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col space-y-10'>
 
                     {/* notes */}
-                    <div className='flex flex-col items-end space-y-7 text-textColor2 font-semibold text-end'>
+                    <div className='flex flex-col items-end space-y-7 text-textColor2 dark:text-darkTextColor2 font-semibold text-end'>
 
                         {/* transport price */}
                         <div>
@@ -72,7 +72,7 @@ const Checkout = () => {
 
                             <input type="text" placeholder='المحافظة' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/2' required />
 
-                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor w-1/2' disabled={true} />
+                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor text-textColor w-1/2' disabled={true} />
 
                         </div>
 

@@ -17,7 +17,7 @@ const Main = () => {
           <h2>Shoppingo</h2>
         </div>
 
-        <div className="max-w-xs text-center text-lg text-textColor2">
+        <div className="max-w-xs text-center text-lg text-textColor2 dark:text-darkTextColor2">
           يسمح لك موقعنا بالتسوق من منزلك وكذلك يتيح لك إمكانية الدفع الإلكتروني
           و إدارة نفقاتك
         </div>

@@ -1,11 +1,10 @@
 import Main from "../components/Home/Main";
 import Services from "../components/Home/Services";
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
     <>
-
       <Navbar/>
       <Main/>
       <Services/>

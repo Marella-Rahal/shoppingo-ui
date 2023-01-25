@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../../components/Navbar";
 
 import ShopBody from "../../components/Shop/ShopBody";
@@ -6,7 +6,7 @@ import ShopBody from "../../components/Shop/ShopBody";
 const Shop = () => {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <ShopBody shopRoute={true} offersRoute={false} shopIdRoute={false} />
     </>
   );

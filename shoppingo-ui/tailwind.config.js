@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -22,6 +23,9 @@ module.exports = {
         shadowColor:'#9ca3af',
         gradientFrom:'rgb(17,29,74)',
         gradientTo:'rgb(187,43,43)',
+        darkBgColor:'#000000',
+        darkTextColor:"white",
+        darkTextColor2:'#d7271a',
       },
     },
   },
