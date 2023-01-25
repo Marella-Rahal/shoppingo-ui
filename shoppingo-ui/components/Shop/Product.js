@@ -116,7 +116,7 @@ const Product = (props) => {
               />
             ))}
           </div>
-          <span className="font-bold dark:text-darkTextColor">{props.rating}</span>
+          <span className="font-bold dark:text-yellow-400">{props.rating}</span>
         </div>
       </div>
       <RatingPopUp ratingPopUp={ratingPopUp} setRatingPopUp={setRatingPopUp} />
