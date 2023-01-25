@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from 'next-themes';
 
 const pageVariants = {
@@ -60,6 +61,7 @@ function MyApp({ Component, pageProps }) {
             exit="exit"
           >
             <Component {...pageProps} />
+            <Analytics />
           </motion.div>
         </AnimatePresence>
 
