@@ -72,7 +72,7 @@ const Checkout = () => {
 
                             <input type="text" placeholder='المحافظة' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/2' required />
 
-                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md text-textColor w-1/2 disabled:bg-textColor/80 dark:disabled:bg-[#655d5d]' disabled={true} />
+                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md w-1/2 border-2 border-textColor disabled:bg-white disabled:text-textColor' disabled={true} />
 
                         </div>
 
@@ -229,7 +229,7 @@ const Checkout = () => {
 
                             <input type="text" placeholder='المحافظة' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/2' required />
 
-                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md w-1/2 disabled:bg-textColor/80 dark:disabled:bg-[#655d5d]' disabled={true} />
+                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md w-1/2 border-2 border-textColor disabled:bg-white disabled:text-textColor' disabled={true} />
 
                         </div>
 

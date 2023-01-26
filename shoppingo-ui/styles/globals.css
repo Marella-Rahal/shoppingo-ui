@@ -68,7 +68,7 @@
   }
 
   input{
-    @apply bg-white text-textColor disabled:bg-[#655d5d] disabled:text-white
+    @apply bg-white text-textColor disabled:bg-[#828282] disabled:text-darkTextColor
   }
 
   /* Marker tweaks */
