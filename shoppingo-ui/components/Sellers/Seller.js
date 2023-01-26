@@ -8,9 +8,9 @@ const Seller = (props) => {
       style={{ boxShadow: "0px 0px 5px 5px rgba(0,0,0,0.15)" }}
       className="flex justify-end items-center pl-3 py-3 space-x-3 rounded-lg  mt-7 lg:mr-5 lg:h-[190px] w-full lg:w-[425px]"
     >
-      <div className="flex flex-col text-end space-y-2 dark:text-darkTextColor">
+      <div className="flex flex-col text-end space-y-2 ">
         <h6
-          className="cursor-pointer hover:underline dark:text-darkTextColor2"
+          className="cursor-pointer hover:underline"
           onClick={() => router.push(`/shop/${props.id}`)}
         >
           {props.name}
@@ -18,7 +18,7 @@ const Seller = (props) => {
         <span className="text-[10px] sm:text-[13px] font-semibold">
           {props.address}
         </span>
-        <span className="text-[10px] sm:text-[13px] font-semibold">
+        <span className="text-[10px] sm:text-[13px] font-semibold text-effectColor">
           {props.dist} - {props.time}
         </span>
       </div>

@@ -86,7 +86,7 @@ const Product = (props) => {
     <div className="relative flex flex-col min-w-[200px] rounded-md shadow-md shadow-shadowColor font-bold text-[13px]">
 
       {/* delete button */}
-      <div className="absolute -top-[11px] -right-[11px] w-6 h-6 rounded-full bg-textColor border-[3px] border-white shadow-md shadow-shadowColor flex justify-center items-center hover:scale-[1.1] cursor-pointer">
+      <div className="absolute -top-[11px] -right-[11px] w-6 h-6 rounded-full bg-textColor dark:bg-darkTextColor2 border-[3px] border-white shadow-md shadow-shadowColor flex justify-center items-center hover:scale-[1.1] cursor-pointer">
         <AiOutlineClose className="text-white w-5 h-5" />
       </div>
 

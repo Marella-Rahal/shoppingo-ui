@@ -104,8 +104,7 @@ const Checkout = () => {
                         {/* //! slider with framer motion */}
                         <motion.div
                             ref={slider}
-                            style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor2"
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor2 shadow-mapShadow dark:shadow-darkMapShadow"
                         >
                             <motion.div
                                 drag="x"
@@ -143,8 +142,7 @@ const Checkout = () => {
                         {/* //! slider with framer motion */}
                         <motion.div
                             ref={slider}
-                            style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-[green]"
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-[green] shadow-mapShadow dark:shadow-darkMapShadow"
                         >
                             <motion.div
                                 drag="x"
@@ -183,8 +181,7 @@ const Checkout = () => {
                         {/* //! slider with framer motion */}
                         <motion.div
                             ref={slider}
-                            style={{ boxShadow: "0px 0px 15px 7px rgba(0,0,0,0.1)" }}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor2 border-r-[green]"
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor2 border-r-[green] shadow-mapShadow dark:shadow-darkMapShadow"
                         >
                             <motion.div
                                 drag="x"

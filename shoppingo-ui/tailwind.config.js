@@ -25,12 +25,12 @@ module.exports = {
         gradientTo:'rgb(187,43,43)',
         darkBgColor:'#161616',
         darkTextColor:"white",
-        darkTextColor2:'#d7271a',
+        darkTextColor2:'gray',
         
       },
       boxShadow: {
-       'mapShadow': "0px 0px 20px 7px rgba(0,0,0,0.20)",
-       'darkMapShadow' : "0px 0px 20px 7px rgba(255,255,255,0.20)",
+       'mapShadow': "inset 0px 0px 16px 6px rgba(0,0,0,0.10)",
+       'darkMapShadow' : "inset 0px 0px 16px 6px rgba(255,255,255,0.10)",
       }
     },
   },
