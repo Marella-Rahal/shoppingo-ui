@@ -120,7 +120,7 @@ const Profile = () => {
               defaultValue="ماريلا"
               disabled={enableName}
               onChange={(e) => setName(e.target.value)}
-              className="w-[70%] rounded-md outline-none text-end text-textColor pr-2 shadow-sm shadow-shadowColor"
+              className="w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
             />
           </div>
 
@@ -137,7 +137,7 @@ const Profile = () => {
               defaultValue="marellarahhal@gmail.com"
               disabled={enableEmail}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-[70%] rounded-md outline-none text-end text-textColor pr-2 shadow-sm shadow-shadowColor"
+              className="w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
             />
           </div>
 
@@ -156,7 +156,7 @@ const Profile = () => {
                   defaultValue="For_you"
                   disabled={enableStore}
                   onChange={(e) => setStore(e.target.value)}
-                  className="w-[70%] rounded-md outline-none text-end text-textColor pr-2 shadow-sm shadow-shadowColor"
+                  className="w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
                 />
               </div>
 
@@ -173,7 +173,7 @@ const Profile = () => {
                   defaultValue="حمص شارع الحضارة"
                   disabled={enableAddress}
                   onChange={(e) => setAddress(e.target.value)}
-                  className="w-[70%] rounded-md outline-none text-end text-textColor pr-2 shadow-sm shadow-shadowColor"
+                  className="w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
                 />
               </div>
 
@@ -226,7 +226,7 @@ const Profile = () => {
                         defaultValue="1234567890"
                         disabled={enableWepayCode}
                         onChange={(e) => setWepayCode(e.target.value)}
-                        className="w-[70%] rounded-md outline-none text-end text-textColor pr-2 shadow-sm shadow-shadowColor"
+                        className="w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
                       />
                     </div>
                   </>
