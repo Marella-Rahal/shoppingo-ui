@@ -20,7 +20,7 @@ const Checkout = () => {
                 <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col space-y-10'>
 
                     {/* notes */}
-                    <div className='flex flex-col items-end space-y-7 text-textColor2 dark:text-darkTextColor font-semibold text-end'>
+                    <div className='flex flex-col items-end space-y-7 text-textColor2 dark:text-darkTextColor2 font-semibold text-end'>
 
                         {/* transport price */}
                         <div>
@@ -40,17 +40,17 @@ const Checkout = () => {
 
                             <div className='flex self-end items-center space-x-3'>
                                 <div>الدفع عند الاستلام</div>
-                                <div className='w-5 h-5 rounded-md border-x-[3px] border-textColor dark:border-darkTextColor2 shadow-md shadow-shadowColor' />
+                                <div className='w-5 h-5 rounded-md border-x-[3px] border-textColor dark:border-darkTextColor' />
                             </div>
 
                             <div className='flex self-end items-center space-x-3'>
                                 <div>WePay الدفع عن طريق موقع</div>
-                                <div className='w-5 h-5 rounded-md border-x-[3px] border-[green] shadow-md shadow-shadowColor' />
+                                <div className='w-5 h-5 rounded-md border-x-[3px] border-[green]' />
                             </div>
 
                             <div className='flex self-end items-center space-x-3'>
                                 <div>يرجى تحديد طريقة الدفع قبل تأكيد الشراء</div>
-                                <div className='w-5 h-5 rounded-md border-x-[3px] border-l-textColor dark:border-l-darkTextColor2 border-r-[green] shadow-md shadow-shadowColor' />
+                                <div className='w-5 h-5 rounded-md border-x-[3px] border-l-textColor dark:border-l-darkTextColor border-r-[green]' />
                             </div>
 
                         </div>
@@ -72,7 +72,7 @@ const Checkout = () => {
 
                             <input type="text" placeholder='المحافظة' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/2' required />
 
-                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md text-textColor w-1/2 disabled:bg-textColor dark:disabled:bg-darkTextColor2' disabled={true} />
+                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md text-textColor w-1/2 disabled:bg-textColor/80 dark:disabled:bg-[#655d5d]' disabled={true} />
 
                         </div>
 
@@ -80,7 +80,7 @@ const Checkout = () => {
 
                         {/* //! total Price */}
 
-                        <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor dark:border-darkTextColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor bg-white text-textColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                         <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-r'>شراء</button>
                     </div>
@@ -104,7 +104,7 @@ const Checkout = () => {
                         {/* //! slider with framer motion */}
                         <motion.div
                             ref={slider}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor2 shadow-mapShadow dark:shadow-darkMapShadow"
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
                         >
                             <motion.div
                                 drag="x"
@@ -125,7 +125,7 @@ const Checkout = () => {
 
                         {/* total Price */}
 
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-textColor dark:border-darkTextColor2 p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='shadow-inner shadow-shadowColor rounded-md border-x-4 border-textColor dark:border-darkTextColor p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                     </div>
 
@@ -163,7 +163,7 @@ const Checkout = () => {
 
                         {/* total Price */}
 
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-[green] p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='shadow-inner shadow-shadowColor rounded-md border-x-4 border-[green] p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                     </div>
 
@@ -181,7 +181,7 @@ const Checkout = () => {
                         {/* //! slider with framer motion */}
                         <motion.div
                             ref={slider}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor2 border-r-[green] shadow-mapShadow dark:shadow-darkMapShadow"
+                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[green] shadow-mapShadow dark:shadow-darkMapShadow"
                         >
                             <motion.div
                                 drag="x"
@@ -202,7 +202,7 @@ const Checkout = () => {
 
                         {/* total Price */}
 
-                        <div className='shadow-md shadow-shadowColor rounded-md border-x-4 border-l-textColor dark:border-l-darkTextColor2 border-r-[green] p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='shadow-inner shadow-shadowColor rounded-md border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[green] p-2 flex text-[13px] font-semibold self-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                     </div>
 
@@ -229,7 +229,7 @@ const Checkout = () => {
 
                             <input type="text" placeholder='المحافظة' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor w-1/2' required />
 
-                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md w-1/2 disabled:bg-textColor dark:disabled:bg-darkTextColor2' disabled={true} />
+                            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md w-1/2 disabled:bg-textColor/80 dark:disabled:bg-[#655d5d]' disabled={true} />
 
                         </div>
 
@@ -237,7 +237,7 @@ const Checkout = () => {
 
                         {/* //! total Price */}
 
-                        <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor dark:border-darkTextColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor bg-white text-textColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                         <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-r'>شراء</button>
                     </div>

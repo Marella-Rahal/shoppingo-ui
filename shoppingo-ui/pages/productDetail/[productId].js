@@ -211,6 +211,7 @@ const ProductId = () => {
                 <Colors color="yellow" />
                 <Colors color="green" />
                 <Colors color="white" />
+                <Colors color="#161616" />
               </div>
             )}
 

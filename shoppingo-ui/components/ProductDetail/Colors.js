@@ -17,17 +17,13 @@ const Colors = ({ color }) => {
             border-radius: 100%;
             position: absolute;
             background-color: ${color};
-            box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 2px 1px rgba(128, 128, 128, 0.5);
           }
           .colors:checked::after {
-            content: "";
-            width: 20px;
-            height: 20px;
-            border-radius: 100%;
-            position: absolute;
-            background-color: white;
-            box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
-            border: solid 6px #111d4a;
+            width: 27px;
+            height: 27px;
+            top:-4px;
+            left:-4px;
           }
         `}
       </style>

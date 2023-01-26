@@ -64,11 +64,11 @@
   }
 
   button {
-    @apply shadow-md shadow-shadowColor rounded-xl uppercase bg-effectColor opacity-[0.9] text-white outline-none
+    @apply shadow-md shadow-shadowColor dark:shadow-none rounded-lg uppercase bg-effectColor opacity-[0.9] text-white outline-none
   }
 
   input{
-    @apply bg-white text-textColor disabled:bg-darkTextColor2 disabled:text-white
+    @apply bg-white text-textColor disabled:bg-[#655d5d] disabled:text-white
   }
 
   /* Marker tweaks */

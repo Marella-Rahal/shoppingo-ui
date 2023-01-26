@@ -27,13 +27,7 @@ const Sizes = ({ size }) => {
             border: solid 1px #111d4a;
           }
           .sizes:checked::after {
-            content: "";
-            width: 16px;
-            height: 16px;
-            border-radius: 100%;
-            position: absolute;
-            background-color: white;
-            border: solid 5px #111d4a;
+            border: solid 5px #d7271a;
           }
         `}
       </style>
