@@ -28,7 +28,7 @@ const usePosition = (props) => {
 
     return () => geo.clearWatch(watcher);
 
-  });
+  },[]);
 
   return [ coords , error ];
 };
