@@ -15,6 +15,7 @@ import dynamic from "next/dynamic";
 import NotePopUp, { showPopUpNote } from "../../components/PopUp/NotePopUp";
 import usePosition from "../../hooks/usePosition";
 import Navbar from "../../components/Navbar";
+import { useRouter } from "next/router";
 const Map = dynamic(() => import("../../components/Map/Map"), {
   loading: () => <Loading />,
   ssr: false,
@@ -25,6 +26,7 @@ const images = ["../../product.jpg", "../../product1.jpg"];
 //*********************************************/
 
 const ProductId = () => {
+  const router=useRouter();
   //* for the foreground and background image
   const [imgUrl, setImgUrl] = useState(images[0]);
   //* to display and hidden detail
@@ -237,7 +239,7 @@ const ProductId = () => {
               <div className="flex flex-col space-y-2">
                 {/* new price and old price */}
                 <div className="flex space-x-3 flex-wrap justify-end">
-                  <span className="mt-2 flex">
+                  <span className="mt-2 flex font-semibold text-textColor dark:text-darkTextColor">
                     <span className="mr-2">ل.س</span>
                     500000
                   </span>
@@ -247,7 +249,7 @@ const ProductId = () => {
                   </span>
                 </div>
                 {/* Shop Name */}
-                <div className="text-textColor2 dark:text-darkTextColor2 text-end">For_you</div>
+                <div className="font-semibold cursor-pointer hover:underline text-textColor dark:text-darkTextColor text-end" onClick={() => router.push('/shop/1')}>For_you</div>
 
                 {/* Address */}
                 <div className="text-textColor2 dark:text-darkTextColor2 text-end">

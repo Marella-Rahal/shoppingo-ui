@@ -22,13 +22,13 @@ const usePosition = (props) => {
      (err) => setError(true),
     {
         enableHighAccuracy: true,
-        timeout: 15000,
-        // maximumAge: 15000,
+        timeout: 5000,
+        maximumAge: 10000,
     });
 
     return () => geo.clearWatch(watcher);
 
-  }, []);
+  });
 
   return [ coords , error ];
 };
