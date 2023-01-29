@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="keywords" content="shoppingo-shopping-shop-personal-assistant-nextjs-reactjs-javascript-tailwind-mapboxgl" />
         <meta name="author" content="Marella Rahal - Ghaith Othman" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#111d4a"/>
+        <meta name="theme-color" content="gray"/>
         <link rel="icon" href="logo.svg" />
       </Head>
 
