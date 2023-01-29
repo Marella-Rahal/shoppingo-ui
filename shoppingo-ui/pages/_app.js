@@ -43,13 +43,12 @@ function MyApp({ Component, pageProps }) {
         <meta name="keywords" content="shoppingo-shopping-shop-personal-assistant-nextjs-reactjs-javascript-tailwind-mapboxgl" />
         <meta name="author" content="Marella Rahal - Ghaith Othman" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#161616" media="(prefers-color-scheme:dark)"/>
-        <meta name="theme-color" content="#fff8f0" media="(prefers-color-scheme:light)"/>
+        <meta name="theme-color" content="#161616"/>
         <link rel="icon" href="logo.svg" />
       </Head>
 
       {/* //todo for dark mode  */}
-      <ThemeProvider attribute="class" enableSystem={false} enableColorScheme={false}>
+      <ThemeProvider attribute="class" enableSystem={false}>
 
         {/* //todo animation for the whole page */}
         <AnimatePresence mode="wait">
