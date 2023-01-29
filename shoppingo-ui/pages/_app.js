@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider, useTheme } from 'next-themes';
 
 const pageVariants = {
   hidden: {
@@ -21,6 +21,7 @@ const pageVariants = {
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const {theme}=useTheme();
 
   useEffect(() => {
     AOS.init({
@@ -43,7 +44,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="keywords" content="shoppingo-shopping-shop-personal-assistant-nextjs-reactjs-javascript-tailwind-mapboxgl" />
         <meta name="author" content="Marella Rahal - Ghaith Othman" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="gray"/>
+        <meta name="theme-color" content={theme=='light'?'#d7271a':'white'}/>
         <link rel="icon" href="logo.svg" />
       </Head>
 
