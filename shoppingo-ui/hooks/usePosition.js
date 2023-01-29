@@ -22,11 +22,12 @@ const usePosition = (props) => {
      (err) => setError(true),
     {
         enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 10000,
+        timeout: 10000,
+        maximumAge: 20000,
     });
 
-    return () => geo.clearWatch(watcher);
+    //! this line to make watch position stop from getting updates about the user location meaning if i want to use the watch position as same as get current position 
+    // return () => geo.clearWatch(watcher);
 
   },[]);
 
