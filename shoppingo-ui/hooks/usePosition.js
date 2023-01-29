@@ -23,7 +23,7 @@ const usePosition = (props) => {
     {
         enableHighAccuracy: true,
         timeout: 10000,
-        maximumAge: 20000,
+        maximumAge: 30000,
     });
 
     //! this line to make watch position stop from getting updates about the user location meaning if i want to use the watch position as same as get current position 
