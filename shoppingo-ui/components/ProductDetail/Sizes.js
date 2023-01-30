@@ -24,7 +24,7 @@ const Sizes = ({ size }) => {
             border-radius: 100%;
             position: absolute;
             background-color: white;
-            border: solid 1px #111d4a;
+            box-shadow: 0px 0px 2px 1px rgba(128, 128, 128, 0.5);
           }
           .sizes:checked::after {
             border: solid 5px #d7271a;
