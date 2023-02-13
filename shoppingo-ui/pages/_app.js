@@ -25,8 +25,8 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     AOS.init({
       offset: 120,
-      delay: 400,
-      duration: 900,
+      delay: 300,
+      duration: 700,
     });
 
   }, []);
