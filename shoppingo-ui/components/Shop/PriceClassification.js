@@ -14,13 +14,13 @@ const PriceClassification = () => {
         <input
           type="number"
           placeholder="20000"
-          className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5 border-2 border-textColor/80"
+          className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5 border-2 border-textColor/80 dark:border-none"
         />
         <div className="text-center">إلى</div>
         <input
           type="number"
           placeholder="100000"
-          className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5 border-2 border-textColor/80"
+          className="rounded-full text-textColor shadow-md shadow-shadowColor outline-none py-1 px-5 border-2 border-textColor/80 dark:border-none"
         />
         <div className="rounded-lg shadow-md shadow-shadowColor bg-white text-textColor border-2 border-textColor self-center px-5 py-1 hover:scale-[1.1] cursor-pointer">
           رتب
