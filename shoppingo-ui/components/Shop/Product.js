@@ -38,12 +38,12 @@ const Product = (props) => {
   // ****************** Stars ***********************
 
   return (
-    <div className="relative">
+    <div dir="ltr" className="relative">
       <div
         className={
           router.asPath == `/productDetail/${router.query.productId}`
-            ? "relative flex flex-col space-y-3 mr-5 pb-3 w-[250px] h-fit rounded-lg shadow-md shadow-shadowColor"
-            : "relative flex flex-col space-y-3 my-5 sm:mx-3 pb-3 w-[250px] h-fit rounded-lg shadow-md shadow-shadowColor"
+            ? "relative flex flex-col space-y-3 ml-5 pb-3 w-[250px] h-fit rounded-lg shadow-md shadow-shadowColor"
+            : "relative flex flex-col space-y-3 my-5 sm:mx-5 pb-3 w-[250px] h-fit rounded-lg shadow-md shadow-shadowColor"
         }
       >
         {/* section 1 */}

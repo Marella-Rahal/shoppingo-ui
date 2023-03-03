@@ -270,6 +270,7 @@ const ProductId = () => {
         {/* other Product */}
         {/* //! slider with framer motion */}
         <motion.div
+          dir="rtl"
           // ref={slider}
           // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
           className="overflow-auto sliderScroll p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
@@ -327,7 +328,7 @@ const ProductId = () => {
               offer={true}
               oPrice="500000"
               nPrice="400000"
-              rating="2.2"
+              rating="2.0"
             />
             <Product
               id="6"
@@ -337,7 +338,7 @@ const ProductId = () => {
               offer={false}
               oPrice=""
               nPrice="50000"
-              rating="3.9"
+              rating="3.0"
             />
             <Product
               id="7"

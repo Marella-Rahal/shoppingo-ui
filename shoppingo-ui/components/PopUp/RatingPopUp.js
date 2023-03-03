@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 const RatingPopUp = (props) => {
+  const router=useRouter();
   //*************** */
   const sendRating = (e) => {
     e.preventDefault();
@@ -11,9 +13,16 @@ const RatingPopUp = (props) => {
     <>
       <form
         className={
-          props.ratingPopUp
-            ? "absolute top-[35%] sm:left-3 opacity-100 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
-            : "absolute top-[52%] sm:left-3 opacity-0 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
+          props.ratingPopUp && router.asPath != `/productDetail/${router.query.productId}` 
+            ? "absolute top-[35%] sm:left-5 opacity-100 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
+            : ( 
+              props.ratingPopUp && router.asPath == `/productDetail/${router.query.productId}`
+              ? "absolute top-[35%] left-5 opacity-100 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center" 
+              : (
+                !props.rating  && router.asPath != `/productDetail/${router.query.productId}` ? 
+                "absolute top-[52%] sm:left-5 opacity-0 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
+                :"absolute top-[52%] left-5 opacity-0 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center") 
+            )
         }
         onSubmit={sendRating}
       >
