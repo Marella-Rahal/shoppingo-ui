@@ -22,7 +22,7 @@ const Favourite = () => {
           offer={false}
           oPrice=""
           nPrice="200000"
-          rating="5"
+          rating="5.0"
         />
         <Product
           img="product.jpg"
@@ -31,7 +31,7 @@ const Favourite = () => {
           offer={true}
           oPrice="75000"
           nPrice="40000"
-          rating="3"
+          rating="3.0"
         />
         <Product
           img="product.jpg"
@@ -49,7 +49,7 @@ const Favourite = () => {
           offer={true}
           oPrice="500000"
           nPrice="400000"
-          rating="2"
+          rating="2.0"
         />
         <Product
           img="product.jpg"
@@ -58,7 +58,7 @@ const Favourite = () => {
           offer={false}
           oPrice=""
           nPrice="50000"
-          rating="3.9"
+          rating="1.5"
         />
       </div>
     </>

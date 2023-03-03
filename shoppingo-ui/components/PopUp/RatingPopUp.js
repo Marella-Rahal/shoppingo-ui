@@ -21,7 +21,7 @@ const RatingPopUp = (props) => {
           type="number"
           min="0"
           max="5"
-          step="0.1"
+          step="0.5"
           disabled={!props.ratingPopUp ? true : false}
           required
           placeholder="3.5"

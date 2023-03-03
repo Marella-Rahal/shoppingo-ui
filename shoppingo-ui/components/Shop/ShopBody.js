@@ -61,7 +61,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
       </div>
 
       {/* line */}
-      <div className="flex items-center space-x-3 mt-7">
+      <div className="flex items-center space-x-3 my-5">
         <div className="w-1/2 h-[1px] bg-effectColor" />
         <img src="../logo.svg" className="w-20 xs:w-28 h-10" />
         <div className="w-1/2 h-[1px] bg-effectColor" />
@@ -116,7 +116,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
           offer={true}
           oPrice="500000"
           nPrice="400000"
-          rating="2.2"
+          rating="2.0"
         />
         <Product
           id="6"
@@ -126,7 +126,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
           offer={false}
           oPrice=""
           nPrice="50000"
-          rating="3.9"
+          rating="3.0"
         />
         <Product
           id="7"
