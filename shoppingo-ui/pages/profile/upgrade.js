@@ -67,7 +67,7 @@ const Upgrade = () => {
               />
             )}
           </div>
-          <button className="self-center p-2 hover:scale-[1.1]">
+          <button className="self-center p-2">
             ترقية الحساب
           </button>
         </form>

@@ -24,7 +24,7 @@ const Main = () => {
 
         <button
           onClick={() => router.push("/shop")}
-          className="p-2 hover:scale-[1.1]"
+          className="p-2"
         >
           ابدأ بالتسوق الآن
         </button>

@@ -22,35 +22,35 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
         <div className="flex flex-col-reverse md:flex-row md:space-x-3 md:items-center">
           {/* woman */}
           <div className="relative z-10 flex flex-col group">
-            <button className="flex justify-between items-center py-2 px-3 group-hover:bg-effectColor/90 mt-5 md:mt-0">
+            <button className="flex justify-between items-center py-2 px-3 group-hover:bg-[#bb0202] mt-5 md:mt-0">
               <TiArrowSortedDown className="mr-1 w-5 h-5" /> نسائي
             </button>
 
-            <TiArrowSortedDown className="hidden absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-effectColor/80 w-7 h-7 group-hover:flex" />
+            <TiArrowSortedDown className="hidden absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] w-7 h-7 group-hover:flex" />
 
             <Classification woman={true} />
           </div>
 
           {/* man */}
           <div className="relative z-10 flex flex-col group">
-            <button className="flex justify-between items-center py-2 px-3 group-hover:bg-effectColor/90 mt-5 md:mt-0">
+            <button className="flex justify-between items-center py-2 px-3 group-hover:bg-[#bb0202] mt-5 md:mt-0">
               <TiArrowSortedDown className="mr-1 w-5 h-5" />
               رجالي
             </button>
 
-            <TiArrowSortedDown className="hidden absolute  top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-effectColor/80 w-7 h-7 group-hover:flex" />
+            <TiArrowSortedDown className="hidden absolute  top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] w-7 h-7 group-hover:flex" />
 
             <Classification woman={false} />
           </div>
 
           {/* price */}
           <div className="relative z-10 flex flex-col group">
-            <button className="flex justify-between items-center py-2 px-3 group-hover:bg-effectColor/90 mt-5 md:mt-0">
+            <button className="flex justify-between items-center py-2 px-3 group-hover:bg-[#bb0202] mt-5 md:mt-0">
               <TiArrowSortedDown className="mr-1 w-5 h-5" />
               السعر
             </button>
 
-            <TiArrowSortedDown className="hidden absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-effectColor/80 w-7 h-7 group-hover:flex" />
+            <TiArrowSortedDown className="hidden absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] w-7 h-7 group-hover:flex" />
 
             {/* drop down */}
             <PriceClassification />

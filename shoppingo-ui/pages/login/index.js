@@ -39,7 +39,7 @@ const LogIn = () => {
                 هل نسيت كلمة السر؟
               </Link>
 
-              <button className="text-sm p-2 hover:scale-[1.1]">
+              <button className="text-sm p-2">
                 تسجيل الدخول
               </button>
             </div>

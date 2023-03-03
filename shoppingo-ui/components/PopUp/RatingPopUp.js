@@ -29,14 +29,14 @@ const RatingPopUp = (props) => {
         />
         <div className="flex space-x-3">
           <button
-            className="bg-yellow-400 w-[75px] hover:bg-yellow-300 hover:scale-[1.1]"
+            className="bg-yellow-400 hover:bg-yellow-600 w-[75px]"
             disabled={!props.ratingPopUp ? true : false}
             onClick={() => props.setRatingPopUp(false)}
           >
             إغلاق
           </button>
           <button
-            className="bg-yellow-400 w-[75px] hover:bg-yellow-300 hover:scale-[1.1] "
+            className="bg-yellow-400 hover:bg-yellow-600 w-[75px]"
             disabled={!props.ratingPopUp ? true : false}
           >
             تقييم

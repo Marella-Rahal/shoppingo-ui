@@ -82,21 +82,21 @@ const Profile = () => {
           {userStatus == 2 ? (
             <button
               onClick={() => router.push("/profile/confirmSellers")}
-              className="p-2 px-4 bg-gradient-to-l from-gradientFrom to-gradientTo hover:scale-[1.1] "
+              className="p-2 px-4 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b"
             >
               ترقية التجار
             </button>
           ) : userStatus == 1 ? (
             <button
               onClick={() => router.push("/profile/sellerDashboard")}
-              className="p-2 px-4 bg-gradient-to-l from-gradientFrom to-gradientTo hover:scale-[1.1] "
+              className="p-2 px-4 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b"
             >
               إحصائياتي
             </button>
           ) : (
             <button
               onClick={() => router.push("/profile/upgrade")}
-              className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:scale-[1.1] "
+              className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b"
             >
               ترقية الحساب
             </button>
@@ -237,7 +237,7 @@ const Profile = () => {
             <></>
           )}
 
-          <button className="self-end py-1 px-5 hover:scale-[1.1]">
+          <button className="self-end py-1 px-5">
             إرسال
           </button>
         </div>

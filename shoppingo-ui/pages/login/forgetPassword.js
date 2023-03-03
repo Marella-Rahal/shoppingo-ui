@@ -34,7 +34,7 @@ const ForgetPassword = () => {
               required
               className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor border-effectColor focus:border-2"
             />
-            <button className="mt-3 p-2 w-[120px] text-sm self-center  hover:scale-[1.1]">
+            <button className="mt-3 p-2 w-[120px] text-sm self-center">
               ارسل الكود
             </button>
           </form>
@@ -49,7 +49,7 @@ const ForgetPassword = () => {
                 required
                 className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor border-effectColor focus:border-2"
               />
-              <button className="mt-3 p-2 w-[120px] text-sm self-center hover:scale-[1.1]">
+              <button className="mt-3 p-2 w-[120px] text-sm self-center">
                 تحقق من الكود
               </button>
             </form>
@@ -71,7 +71,7 @@ const ForgetPassword = () => {
                 required
                 className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor border-effectColor focus:border-2"
               />
-              <button className="text-sm self-center p-2 w-[120px] hover:scale-[1.1]">
+              <button className="text-sm self-center p-2 w-[120px]">
                 تحديث كلمة السر
               </button>
             </form>

@@ -45,7 +45,7 @@ const Navbar = () => {
       router.asPath != "/login" &&
       router.asPath != "/login/forgetPassword" &&
       router.asPath != "/profile/upgrade") && theme == "dark") {
-      setNavBackground("#161616");
+      setNavBackground("#1E1E1E");
     } else if ((router.asPath != "/signup" &&
       router.asPath != "/login" &&
       router.asPath != "/login/forgetPassword" &&
@@ -156,7 +156,7 @@ const Navbar = () => {
           {/* //******log in and sign up****** */}
           <li>
             <button
-              className="bg-gradient-to-l from-gradientFrom to-gradientTo w-[100px] py-2 hover:scale-[1.1]"
+              className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b w-[100px] py-2"
               onClick={() => router.push("/signup")}
             >
               إنشاء حساب
@@ -165,7 +165,7 @@ const Navbar = () => {
 
           <li>
             <button
-              className="bg-gradient-to-l from-gradientFrom to-gradientTo w-[100px] py-2 hover:scale-[1.1]"
+              className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b w-[100px] py-2"
               onClick={() => router.push("/login")}
             >
               تسجيل دخول
@@ -349,7 +349,7 @@ const Navbar = () => {
             {/* //*sign in and log in */}
             {/* <li>
               <button
-                className="bg-gradient-to-l from-gradientFrom to-gradientTo w-[100px] py-2 hover:scale-[1.1]"
+                className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b w-[100px] py-2"
                 onClick={() => {router.push("/login");handleSideNav();}}
               >
                 تسجيل دخول
@@ -358,7 +358,7 @@ const Navbar = () => {
 
             <li>
               <button
-                className="bg-gradient-to-l from-gradientFrom to-gradientTo  w-[100px] py-2 hover:scale-[1.1]"
+                className="w-[100px] py-2"
                 onClick={() => {router.push("/signup");handleSideNav();}}
               >
                 إنشاء حساب

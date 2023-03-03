@@ -40,7 +40,7 @@ const Signup = () => {
             required
             className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor border-effectColor focus:border-2"
           />
-          <button className="p-2 self-center hover:scale-[1.1]">
+          <button className="p-2 self-center">
             إنشاء الحساب
           </button>
         </form>

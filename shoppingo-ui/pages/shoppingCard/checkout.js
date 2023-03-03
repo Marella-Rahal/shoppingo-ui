@@ -5,11 +5,11 @@ import Navbar from '../../components/Navbar';
 
 const Checkout = () => {
     // ! to set constraint on how much i can drag the slider to the left
-    const [width, setWidth] = useState(0);
-    const slider = useRef();
-    useEffect(() => {
-        setWidth(slider.current.scrollWidth - slider.current.offsetWidth);
-    }, []);
+    // const [width, setWidth] = useState(0);
+    // const slider = useRef();
+    // useEffect(() => {
+    //     setWidth(slider.current.scrollWidth - slider.current.offsetWidth);
+    // }, []);
 
     return (
         <>
@@ -24,12 +24,12 @@ const Checkout = () => {
 
                         {/* transport price */}
                         <div>
-                            تنبيه : أجرة الشحن من أجل كل منتج  5000 ل.س
+                            ملاحظة : أجرة الشحن من أجل كل منتج  5000 ل.س
                         </div>
 
                         {/* price clarification */}
                         <div>
-                            تنبيه : السعر الكلي  لكل قسم يتضمن سعر المنتجات في هذا القسم إضافة إلى أجور شحنها
+                            ملاحظة : السعر الكلي  لكل قسم يتضمن سعر المنتجات في هذا القسم إضافة إلى أجور شحنها
                         </div>
 
                         {/* payment methodes */}
@@ -82,7 +82,7 @@ const Checkout = () => {
 
                         <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor bg-white text-textColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
-                        <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-r'>شراء</button>
+                        <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b'>شراء</button>
                     </div>
 
 
@@ -103,12 +103,13 @@ const Checkout = () => {
 
                         {/* //! slider with framer motion */}
                         <motion.div
-                            ref={slider}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
+                            // ref={slider}
+                            // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
+                            className="overflow-auto sliderScroll p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
                         >
                             <motion.div
-                                drag="x"
-                                dragConstraints={{ right: 0, left: -width }}
+                                // drag="x"
+                                // dragConstraints={{ right: 0, left: -width }}
                                 className="flex  space-x-5"
                             >
                                 <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000000' type="onHand" />
@@ -141,12 +142,13 @@ const Checkout = () => {
 
                         {/* //! slider with framer motion */}
                         <motion.div
-                            ref={slider}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-[green] shadow-mapShadow dark:shadow-darkMapShadow"
+                            // ref={slider}
+                            // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-[green] shadow-mapShadow dark:shadow-darkMapShadow"
+                            className="overflow-auto sliderScroll p-5 rounded-lg border-x-4 border-[green] shadow-mapShadow dark:shadow-darkMapShadow"
                         >
                             <motion.div
-                                drag="x"
-                                dragConstraints={{ right: 0, left: -width }}
+                                // drag="x"
+                                // dragConstraints={{ right: 0, left: -width }}
                                 className="flex space-x-5"
                             >
                                 <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
@@ -180,12 +182,13 @@ const Checkout = () => {
 
                         {/* //! slider with framer motion */}
                         <motion.div
-                            ref={slider}
-                            className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[green] shadow-mapShadow dark:shadow-darkMapShadow"
+                            // ref={slider}
+                            // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[green] shadow-mapShadow dark:shadow-darkMapShadow"
+                            className="overflow-auto sliderScroll p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[green] shadow-mapShadow dark:shadow-darkMapShadow"
                         >
                             <motion.div
-                                drag="x"
-                                dragConstraints={{ right: 0, left: -width }}
+                                // drag="x"
+                                // dragConstraints={{ right: 0, left: -width }}
                                 className="flex space-x-5"
                             >
                                 <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
@@ -239,7 +242,7 @@ const Checkout = () => {
 
                         <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor bg-white text-textColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
-                        <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-r'>شراء</button>
+                        <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b'>شراء</button>
                     </div>
 
                 </div>

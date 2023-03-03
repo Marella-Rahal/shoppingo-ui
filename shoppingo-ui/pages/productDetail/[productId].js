@@ -36,11 +36,11 @@ const ProductId = () => {
   const [showColors, setShowColors] = useState(true);
   const [showPrice, setShowPrice] = useState(true);
   //! to set constraint on how much i can drag the slider to the left
-  const [width, setWidth] = useState(0);
-  const slider = useRef();
-  useEffect(() => {
-    setWidth(slider.current.scrollWidth - slider.current.offsetWidth);
-  }, []);
+  // const [width, setWidth] = useState(0);
+  // const slider = useRef();
+  // useEffect(() => {
+  //   setWidth(slider.current.scrollWidth - slider.current.offsetWidth);
+  // }, []);
   //! **************************************************
 
   //todo *********** the massage for the popUp
@@ -79,7 +79,7 @@ const ProductId = () => {
             {/* product image */}
             <div className="flex flex-col-reverse md:flex-row  md:justify-around">
               {/* Add to cart  */}
-              <button className="self-center flex items-center justify-center flex-wrap-reverse rounded-md hover:scale-[1.1] mt-5 md:mt-0 mr-0 md:mr-3 p-2">
+              <button className="self-center flex items-center justify-center flex-wrap-reverse rounded-md mt-5 md:mt-0 mr-0 md:mr-3 p-2">
                 <HiShoppingCart className="mr-2" />
                 أضف إلى
               </button>
@@ -270,12 +270,13 @@ const ProductId = () => {
         {/* other Product */}
         {/* //! slider with framer motion */}
         <motion.div
-          ref={slider}
-          className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
+          // ref={slider}
+          // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
+          className="overflow-auto sliderScroll p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
         >
           <motion.div
-            drag="x"
-            dragConstraints={{ right: 0, left: -width }}
+            // drag="x"
+            // dragConstraints={{ right: 0, left: -width }}
             className="flex "
           >
             <Product
