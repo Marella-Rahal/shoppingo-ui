@@ -15,10 +15,10 @@ const Checkout = () => {
     return (
         <>
             <Navbar/>
-            <form className='pt-28 pb-14 px-4 md:px-8 w-full flex flex-col md:flex-row md:space-x-10' onSubmit={(e) => e.preventDefault()}>
+            <form className='pt-28 pb-14 px-4 md:px-8 w-full flex flex-col lg:flex-row lg:space-x-10' onSubmit={(e) => e.preventDefault()}>
 
                 {/* //todo the info */}
-                <div className='w-full md:w-1/2 lg:w-1/3 flex flex-col space-y-10'>
+                <div className='w-full lg:w-1/2 xl:w-1/3 flex flex-col space-y-10'>
 
                     {/* notes */}
                     <div className='flex flex-col items-end space-y-7 text-textColor2 dark:text-darkTextColor2 font-semibold text-end'>
@@ -64,10 +64,10 @@ const Checkout = () => {
                 </div>
 
                 {/* //todo The Products */}
-                <div className='w-full md:w-1/2 lg:w-2/3 flex flex-col'>
+                <div className='w-full lg:w-1/2 xl:w-2/3 flex flex-col'>
 
                     {/* line */}
-                    <div className="md:hidden flex items-center space-x-3 my-10">
+                    <div className="lg:hidden flex items-center space-x-3 my-10">
                         <div className="w-1/2 h-[1px] bg-effectColor" />
                         <img src="../logo.svg" className="w-20 xs:w-28 h-7" />
                         <div className="w-1/2 h-[1px] bg-effectColor" />
@@ -180,7 +180,7 @@ const Checkout = () => {
                     </div>
 
                     {/* line */}
-                    <div className="md:hidden flex items-center space-x-3 my-10">
+                    <div className="lg:hidden flex items-center space-x-3 my-10">
                         <div className="w-1/2 h-[1px] bg-effectColor" />
                         <img src="../logo.svg" className="w-20 xs:w-28 h-7" />
                         <div className="w-1/2 h-[1px] bg-effectColor" />

@@ -2,7 +2,7 @@ import React from 'react'
 
 const CheckoutForm = (props) => {
   return (
-    <div className={props.pos?'hidden md:flex flex-col space-y-7':'flex md:hidden flex-col space-y-7'}>
+    <div className={props.pos?'hidden lg:flex flex-col space-y-7':'flex lg:hidden flex-col space-y-7'}>
         <div className='flex space-x-3'>
             <input type="text" placeholder='الاسم الأخير' className='text-end outline-none py-1 px-2 w-1/3 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-effectColor' required />
             <input type="text" placeholder='الاسم الأوسط' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-effectColor  w-1/3' required />
