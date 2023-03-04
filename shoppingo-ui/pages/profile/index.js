@@ -19,10 +19,7 @@ const Profile = () => {
   //! **********************
   
   //*** the default values for inputs (meaning the deafault values as defaultchecked ...) from redux
-  //! if the user does not have a profile photo then we put default.jpg but if he has we put his photo
-
   //*** the values which will be sent to the backend
-  const [img, setImg] = useState("default.jpg");
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [store, setStore] = useState();
@@ -34,10 +31,16 @@ const Profile = () => {
 
   //************************************************ */
 
+  //! if the user does not have a profile photo then we put default.jpg but if he has we put his photo
   //! change the image and send it to backend then change it in redux
+  const [img, setImg] = useState("default.jpg");
   const updateImage = (e) => {
-    console.log(e.target.files[0]);
-    console.log(e.target.files[0].name);
+
+      //! for preview
+      if(e.target.files[0]){
+          document.getElementById('imgProfile').src=URL.createObjectURL(e.target.files[0])
+      }
+
   };
 
   return (
@@ -47,7 +50,7 @@ const Profile = () => {
         className={
           userStatus == 1
             ? "pt-28 px-4 md:px-8 w-full min-h-screen flex flex-col md:flex-row text-textColor dark:text-darkTextColor"
-            : "pt-40 pb-10 px-4 md:px-8 w-full min-h-screen flex flex-col md:flex-row text-textColor dark:text-darkTextColor"
+            : "pt-28 md:pt-40 pb-10 px-4 md:px-8 w-full min-h-screen flex flex-col md:flex-row text-textColor dark:text-darkTextColor"
         }
       >
         {/* Left */}
@@ -55,24 +58,26 @@ const Profile = () => {
           className={
             userStatus == 1
               ? "md:pt-20 w-full md:w-1/2 flex flex-col space-y-10  items-center"
-              : "w-full md:w-1/2 flex flex-col space-y-5  items-center"
+              : "w-full md:w-1/2 flex flex-col space-y-10  items-center"
           }
         >
           <div className="relative">
             <img
               src={img}
-              className="w-60 h-60 md:w-72 md:h-72 rounded-full shadow-md shadow-shadowColor"
+              id="imgProfile"
+              className="w-48 h-48 md:w-72 md:h-72 rounded-full shadow-md shadow-shadowColor"
             />
 
             <label
               htmlFor="profilePhoto"
-              className="absolute bottom-1 right-9 md:bottom-2 md:right-10 w-10 h-10 md:w-12 md:h-12 flex justify-center items-center rounded-full bg-bgColor shadow-md shadow-shadowColor hover:scale-[1.1] cursor-pointer"
+              className="absolute bottom-0 right-7 md:bottom-1 md:right-10 w-10 h-10 md:w-14 md:h-14 flex justify-center items-center rounded-full bg-bgColor shadow-md shadow-shadowColor hover:scale-[1.1] cursor-pointer"
             >
-              <BsCamera className="w-6 h-6 md:w-7 md:h-7 text-textColor" />
+              <BsCamera className="w-6 h-6 md:w-10 md:h-10 text-textColor" />
             </label>
 
             <input
               type="file"
+              accept="image/*"
               id="profilePhoto"
               className="hidden"
               onChange={updateImage}
@@ -82,14 +87,14 @@ const Profile = () => {
           {userStatus == 2 ? (
             <button
               onClick={() => router.push("/profile/confirmSellers")}
-              className="p-2 px-4 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b"
+              className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b"
             >
               ترقية التجار
             </button>
           ) : userStatus == 1 ? (
             <button
               onClick={() => router.push("/profile/sellerDashboard")}
-              className="p-2 px-4 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b"
+              className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b"
             >
               إحصائياتي
             </button>
