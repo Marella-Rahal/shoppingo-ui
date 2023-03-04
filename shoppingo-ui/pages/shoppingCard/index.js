@@ -10,7 +10,7 @@ const ShoppingCard = () => {
     <>
       <Navbar/>
       <div className="pt-28 px-4 md:px-8 min-h-screen flex flex-col justify-between">
-        <div className="flex flex-col">
+        <div className="flex flex-col space-y-16">
           {/* Delete */}
           <div className="flex space-x-2 self-end items-center cursor-pointer group">
             <span className="text-textColor dark:text-darkTextColor underline group-hover:scale-[1.1]">
@@ -21,7 +21,7 @@ const ShoppingCard = () => {
 
           {/* Product */}
 
-          <div className="flex justify-evenly flex-wrap">
+          <div className="flex justify-evenly flex-wrap gap-x-7 gap-y-14 pr-1">
             <Product
               id="1"
               img="product.jpg"

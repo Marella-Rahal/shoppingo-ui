@@ -1,58 +1,56 @@
-import { useRouter } from "next/router";
 import React from "react";
+import {AnimatePresence, motion} from 'framer-motion';
 
 const RatingPopUp = (props) => {
-  const router=useRouter();
+
   //*************** */
   const sendRating = (e) => {
     e.preventDefault();
     props.setRatingPopUp(false);
   };
   //*************** */
+
   return (
-    <>
-      <form
-        className={
-          props.ratingPopUp && router.asPath != `/productDetail/${router.query.productId}` 
-            ? "absolute top-[35%] sm:left-5 opacity-100 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
-            : ( 
-              props.ratingPopUp && router.asPath == `/productDetail/${router.query.productId}`
-              ? "absolute top-[35%] left-5 opacity-100 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center" 
-              : (
-                !props.rating  && router.asPath != `/productDetail/${router.query.productId}` ? 
-                "absolute top-[52%] sm:left-5 opacity-0 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
-                :"absolute top-[52%] left-5 opacity-0 duration-500 ease-linear w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center") 
-            )
-        }
-        onSubmit={sendRating}
-      >
-        <input
-          type="number"
-          min="0"
-          max="5"
-          step="0.5"
-          disabled={!props.ratingPopUp ? true : false}
-          required
-          placeholder="3.5"
-          className="px-2 rounded-md shadow-md shadow-shadowColor w-full outline-none border-yellow-400 focus:border-2"
-        />
-        <div className="flex space-x-3">
-          <button
-            className="bg-yellow-400 hover:bg-yellow-600 w-[75px]"
-            disabled={!props.ratingPopUp ? true : false}
-            onClick={() => props.setRatingPopUp(false)}
-          >
-            إغلاق
-          </button>
-          <button
-            className="bg-yellow-400 hover:bg-yellow-600 w-[75px]"
-            disabled={!props.ratingPopUp ? true : false}
-          >
-            تقييم
-          </button>
-        </div>
-      </form>
-    </>
+    <AnimatePresence>
+        {
+          props.ratingPopUp && (
+            
+              <motion.form
+              initial={{opacity:0,y:'230%'}} animate={{opacity:1,y:'105%'}} exit={{opacity:0,y:'230%'}}
+              transition={{ ease: "easeInOut", duration: 0.7 }}
+              className="absolute w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
+              onSubmit={sendRating}
+              >
+                  <input
+                    type="number"
+                    min="0"
+                    max="5"
+                    step="0.5"
+                    required
+                    placeholder="3.5"
+                    className="px-2 rounded-md shadow-md shadow-shadowColor w-full outline-none ring-yellow-400 focus:ring-2"
+                  />
+
+                  <div className="flex space-x-3">
+                      <button
+                        type="button"
+                        className="bg-yellow-400 hover:bg-yellow-600 w-[75px]"
+                        onClick={() => props.setRatingPopUp(false)}
+                      >
+                        إغلاق
+                      </button>
+                      <button
+                        className="bg-yellow-400 hover:bg-yellow-600 w-[75px]"
+                      >
+                        تقييم
+                      </button>
+                  </div>
+
+              </motion.form>
+            
+        )}
+
+    </AnimatePresence>
   );
 };
 
