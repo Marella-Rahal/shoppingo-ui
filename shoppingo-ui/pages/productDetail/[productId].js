@@ -278,7 +278,7 @@ const ProductId = () => {
           <motion.div
             // drag="x"
             // dragConstraints={{ right: 0, left: -width }}
-            className="flex justify-between gap-x-5 [&>*:nth-child(7)]:pl-5 [&>*:nth-child(1)]:pr-5"
+            className="flex justify-between gap-x-5 [&>*:nth-child(10)]:pl-5 [&>*:nth-child(1)]:pr-5"
           >
             <Product
               id="1"
@@ -349,6 +349,36 @@ const ProductId = () => {
               oPrice=""
               nPrice="50000"
               rating="1.5"
+            />
+            <Product
+              id="8"
+              img="../product.jpg"
+              oimg="../offer.svg"
+              fav={true}
+              offer={false}
+              oPrice=""
+              nPrice="50000"
+              rating="3.5"
+            />
+            <Product
+              id="9"
+              img="../product.jpg"
+              oimg="../offer.svg"
+              fav={true}
+              offer={false}
+              oPrice=""
+              nPrice="50000"
+              rating="2.5"
+            />
+            <Product
+              id="10"
+              img="../product.jpg"
+              oimg="../offer.svg"
+              fav={true}
+              offer={false}
+              oPrice=""
+              nPrice="50000"
+              rating="1.0"
             />
           </motion.div>
         </motion.div>
