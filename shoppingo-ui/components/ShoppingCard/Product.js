@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 const Product = (props) => {
   const router = useRouter();
   return (
-    <div className="relative flex flex-col w-[275px] rounded-md shadow-md shadow-shadowColor">
+    <div className="relative flex flex-col w-[275px] rounded-md shadow-md shadow-shadowColor mt-14 mr-1 xs:mx-3">
       <div className="absolute -top-5 -right-4 w-9 h-9 rounded-full bg-textColor dark:bg-darkTextColor2 border-[3px] border-white shadow-md shadow-shadowColor flex justify-center items-center hover:scale-[1.1] cursor-pointer">
         <AiOutlineClose className="text-white w-6 h-6" />
       </div>

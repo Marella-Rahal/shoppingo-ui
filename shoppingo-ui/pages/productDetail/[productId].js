@@ -273,12 +273,12 @@ const ProductId = () => {
           dir="rtl"
           // ref={slider}
           // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
-          className="overflow-auto sliderScroll py-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
+          className="overflow-auto sliderScroll rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
         >
           <motion.div
             // drag="x"
             // dragConstraints={{ right: 0, left: -width }}
-            className="flex justify-between gap-x-5 [&>*:nth-child(10)]:pl-5 [&>*:nth-child(1)]:pr-5"
+            className="flex"
           >
             <Product
               id="1"

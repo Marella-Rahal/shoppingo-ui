@@ -61,13 +61,13 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
       </div>
 
       {/* line */}
-      <div className="flex items-center space-x-3 mt-10 mb-14">
+      <div className="flex items-center space-x-3 my-10">
         <div className="w-1/2 h-[1px] bg-effectColor" />
         <img src="../logo.svg" className="w-20 xs:w-28 h-10" />
         <div className="w-1/2 h-[1px] bg-effectColor" />
       </div>
 
-      <div className="flex justify-evenly flex-wrap gap-x-5 gap-y-10">
+      <div className="flex justify-evenly flex-wrap">
         <Product
           id="1"
           img="../product.jpg"
