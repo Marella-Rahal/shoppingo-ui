@@ -273,12 +273,12 @@ const ProductId = () => {
           dir="rtl"
           // ref={slider}
           // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
-          className="overflow-auto sliderScroll p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
+          className="overflow-auto sliderScroll py-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
         >
           <motion.div
             // drag="x"
             // dragConstraints={{ right: 0, left: -width }}
-            className="flex "
+            className="flex justify-between gap-x-5 [&>*:nth-child(7)]:pl-5 [&>*:nth-child(1)]:pr-5"
           >
             <Product
               id="1"
@@ -349,16 +349,6 @@ const ProductId = () => {
               oPrice=""
               nPrice="50000"
               rating="1.5"
-            />
-            <Product
-              id="8"
-              img="../product.jpg"
-              oimg="../offer.svg"
-              fav={false}
-              offer={false}
-              oPrice=""
-              nPrice="50000"
-              rating="0.5"
             />
           </motion.div>
         </motion.div>

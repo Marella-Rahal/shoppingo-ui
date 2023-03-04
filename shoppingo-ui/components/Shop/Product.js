@@ -42,11 +42,7 @@ const Product = (props) => {
 
           {/* //! **********************************************/}
           <div
-            className={
-              router.asPath == `/productDetail/${router.query.productId}`
-                ? "relative flex flex-col space-y-3 ml-5 pb-3 w-[250px] h-fit rounded-lg shadow-md shadow-shadowColor"
-                : "relative flex flex-col space-y-3 pb-3 w-[250px] h-fit rounded-lg shadow-md shadow-shadowColor"
-            }
+            className="relative flex flex-col space-y-3 pb-3 w-[250px] h-fit rounded-lg shadow-md shadow-shadowColor"
           >
                 {/* section 1 */}
 
