@@ -85,11 +85,11 @@ const ShoppingCard = () => {
           </div>
         </div>
 
-        <div className="mt-14 mb-10 flex justify-between space-x-5">
-          <div className="py-2 px-4 rounded-lg shadow-md shadow-shadowColor text-end">
+        <div className="mt-14 mb-10 flex flex-col space-y-7 md:space-y-0 md:flex-row md:justify-between md:space-x-7">
+          <div className="py-2 px-4 w-full md:w-fit rounded-lg shadow-md shadow-shadowColor text-center">
             السعر الكلي : 999999999999 ل.س
           </div>
-          <button className="py-2 px-6 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b" onClick={() => router.push('/shoppingCard/checkout')}>
+          <button className="py-2 w-full md:w-[200px] bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b" onClick={() => router.push('/shoppingCard/checkout')}>
             شراء
           </button>
         </div>
