@@ -41,7 +41,7 @@ const Index = () => {
 
 
         {/* ​‌‍‌Barchar section​ */}
-        <div className='px-4 md:px-8 flex flex-col space-y-10'>
+        <div className='px-4 md:px-8 flex flex-col space-y-10 h-[500px]'>
           <Chart />
         </div>
 

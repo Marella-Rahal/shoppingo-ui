@@ -426,7 +426,7 @@ const Chart = () => {
           </div>
     </div>
     
-    <ResponsiveContainer width="100%" height={500}>
+    <ResponsiveContainer width="100%" height='100%'>
       <BarChart
         data={data}
        
