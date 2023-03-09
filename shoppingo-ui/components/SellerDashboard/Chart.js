@@ -439,7 +439,7 @@ const Chart = () => {
         <Bar dataKey="earn"  >
         {
                   data.map((entry, index) => (
-                    <Cell fill={ theme == "light" ? index%2 == 1  ? 'rgb(17 29 74 / 0.9)' : '#D7271A': index%2 == 1  ? 'black' : 'white'   }/>
+                    <Cell key={index} fill={ theme == "light" ? index%2 == 1  ? 'rgb(17 29 74 / 0.9)' : '#D7271A': index%2 == 1  ? 'black' : 'white'   }/>
                   ))
                 }
            
