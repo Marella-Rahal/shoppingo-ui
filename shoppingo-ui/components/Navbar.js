@@ -70,6 +70,13 @@ const Navbar = () => {
     ) {
       setLogoUrl("../logo.svg");
       setDefaultImg('../default.jpg');
+    }
+    else if(
+      router.asPath == "/profile/sellerDashboard"  ||
+      router.asPath == "/profile/sellerDashboard/addProduct"
+    ){
+      setLogoUrl("../../logo.svg");
+      setDefaultImg('../../default.jpg');
     } else {
       setLogoUrl("logo.svg");
       setDefaultImg('default.jpg')
