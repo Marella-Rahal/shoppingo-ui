@@ -21,15 +21,14 @@
     @apply bg-gradient-to-b from-gradientFrom to-gradientTo;
   }
 
-  /***end of scrollbar***/
-
   /*** slider scrollbar ***/
 
   .sliderScroll::-webkit-scrollbar {
     height: 0px;
+    width:0px;
   }
 
-  /*** end ***/
+  /***end of scrollbar***/
 
   * {
     box-sizing: border-box;

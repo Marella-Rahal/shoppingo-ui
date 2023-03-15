@@ -2,8 +2,12 @@ import React from 'react'
 import Chart from '../../../components/SellerDashboard/Chart'
 import Navbar from '../../../components/Navbar'
 import Product from '../../../components/SellerDashboard/Product'
+import { useRouter } from "next/router";
+
 
 const Index = () => {
+  const router = useRouter();
+
   return (
     <div>
       <Navbar />
@@ -56,7 +60,7 @@ const Index = () => {
              طلباتي
           </button>
 
-          <button className='w-[100px] py-1'>
+          <button className='w-[100px] py-1' onClick={() => router.push("/profile/sellerDashboard/addProduct")}>
             إضافة منتج
           </button>
 
