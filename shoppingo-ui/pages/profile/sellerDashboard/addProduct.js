@@ -328,7 +328,7 @@ const updateImage2 = (e) => {
                   <img
                     src={img}
                     id="imgProfile"
-                    className="w-[250px] h-[300px]  rounded-md "
+                    className="w-[250px] h-[300px] rounded-md shadow-shadowColor shadow-md"
                   />
 
                   <label
@@ -362,7 +362,7 @@ const updateImage2 = (e) => {
                     <img
                       src={img2}
                       id="imgProfile2"
-                      className="w-[250px] h-[300px] rounded-md "
+                      className="w-[250px] h-[300px] rounded-md shadow-shadowColor shadow-md"
                     />
 
                     <label

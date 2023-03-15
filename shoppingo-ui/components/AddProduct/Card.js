@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ColorCircle from './ColorCircle';
 import { SketchPicker } from 'react-color';
+import {HiPlusSm,HiMinusSm} from 'react-icons/hi'
 
 
 function Card(props) {
@@ -19,8 +20,15 @@ function Card(props) {
       {/* first row for quntity */}
       <div className='w-full flex justify-between'>
         <div className='flex space-x-1'>
-          <button onClick={()=>{setnumberofitems(numberofitems-1)}} className='dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl w-5 h-5 rounded-full flex justify-center bg-textColor/90 hover:bg-[#050531] border-2 border-white shadow-md shadow-shadowColor dark:shadow-md dark:shadow-shadowColor text-white  items-center font-bold pb-1'>-</button>
-          <button onClick={()=>{setnumberofitems(numberofitems+1)}} className='dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl w-5 h-5 rounded-full flex justify-center bg-textColor/90 hover:bg-[#050531] border-2 border-white shadow-md shadow-shadowColor dark:shadow-md dark:shadow-shadowColor text-white items-center font-bold pb-1'>+</button>
+
+          <button onClick={()=>{setnumberofitems(numberofitems-1)}} className='bg-textColor/90 hover:bg-[#050531] dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl w-5 h-5 rounded-full flex justify-center items-center border-2 border-white shadow-md shadow-shadowColor dark:shadow-md dark:shadow-shadowColor text-white font-bold'>
+            <HiMinusSm className='w-5 h-5'/>
+          </button>
+
+          <button onClick={()=>{setnumberofitems(numberofitems+1)}} className='bg-textColor/90 hover:bg-[#050531] dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl w-5 h-5 rounded-full flex justify-center items-center border-2 border-white shadow-md shadow-shadowColor dark:shadow-md dark:shadow-shadowColor text-white font-bold'>
+            <HiPlusSm className='w-5 h-5'/>
+          </button>
+
         </div>
         
         <div className='font-bold px-1 dark:text-black'>
