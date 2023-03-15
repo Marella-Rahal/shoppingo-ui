@@ -139,7 +139,7 @@ const updateImage2 = (e) => {
               </div>
 
           </div>
-          <select className='w-full text-end mt-5 focus:outline-none rounded-xl h-10 shadow-xl dark:bg-white dark:text-black pr-2'>
+          <select className='w-full text-end mt-5 focus:outline-none rounded-xl h-10 shadow-xl bg-white dark:text-black pr-2 pb-1'>
             {TypeOfClothes.map((value,index)=>(   
                          <option key={index} value={value}>{value}</option>
             ))}             
@@ -149,7 +149,7 @@ const updateImage2 = (e) => {
            </div>
           
            <div>
-           <select className='w-full text-end mt-5 focus:outline-none rounded-xl h-10 shadow-xl dark:bg-white dark:text-black pr-2'>
+           <select className='w-full text-end mt-5 focus:outline-none rounded-xl h-10 shadow-xl bg-white dark:text-black pr-2 pb-1'>
             {TypeOfClothes2.map((value,index)=>(   
                          <option key={index} value={value}>{value}</option>
             ))}             
@@ -160,7 +160,7 @@ const updateImage2 = (e) => {
               <label className='text-md md:text-xl mr-2'>
                 : الوصف
               </label>
-             <textarea className='mt-5 focus:outline-0 text-end rounded-xl px-3 shadow-xl w-full h-[117px] dark:bg-white dark:text-black sliderScroll mb-7 md:mb-0' /> 
+             <textarea className='mt-5 focus:outline-0 text-end rounded-xl p-2 shadow-xl w-full h-[117px] dark:bg-white dark:text-black sliderScroll mb-7 md:mb-0' /> 
            </div>  
 
         </div>
