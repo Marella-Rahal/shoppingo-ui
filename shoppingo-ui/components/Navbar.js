@@ -164,7 +164,7 @@ const Navbar = () => {
           {/* //******log in and sign up****** */}
           {/* <li>
             <button
-              className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b w-[100px] py-2"
+              className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl w-[100px] py-2"
               onClick={() => router.push('/signup')}
             >
               إنشاء حساب
@@ -173,7 +173,7 @@ const Navbar = () => {
 
           <li>
             <button
-              className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b w-[100px] py-2"
+              className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl w-[100px] py-2"
               onClick={() => router.push('/login')}
             >
               تسجيل دخول
@@ -367,7 +367,7 @@ const Navbar = () => {
             {/* //*sign in and log in */}
             {/* <li>
               <button
-                className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b w-[100px] py-2"
+                className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl w-[100px] py-2"
                 onClick={() => {router.push("/login");handleSideNav();}}
               >
                 تسجيل دخول
@@ -376,7 +376,7 @@ const Navbar = () => {
 
             <li>
               <button
-                className="w-[100px] py-2"
+                className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl w-[100px] py-2"
                 onClick={() => {router.push("/signup");handleSideNav();}}
               >
                 إنشاء حساب

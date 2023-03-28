@@ -85,28 +85,28 @@ const Profile = () => {
           <div className="flex  space-x-5">
             <button
               onClick={() => router.push('/profile/myPurchases')}
-              className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b"
+              className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
             >
               مشترياتي
             </button>
             {userStatus == 2 ? (
               <button
                 onClick={() => router.push('/profile/confirmSellers')}
-                className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b"
+                className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
               >
                 ترقية التجار
               </button>
             ) : userStatus == 1 ? (
               <button
                 onClick={() => router.push('/profile/sellerDashboard')}
-                className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b"
+                className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
               >
                 إحصائياتي
               </button>
             ) : (
               <button
                 onClick={() => router.push('/profile/upgrade')}
-                className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b"
+                className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
               >
                 ترقية الحساب
               </button>

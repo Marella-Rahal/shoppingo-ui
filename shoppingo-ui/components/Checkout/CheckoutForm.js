@@ -27,7 +27,7 @@ const CheckoutForm = (props) => {
 
         <div className='flex shadow-md shadow-shadowColor rounded-md border-x-4 border-effectColor bg-white text-textColor p-2 justify-center text-[14px] font-semibold'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
-        <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b'>شراء</button>
+        <button className='py-2 rounded-md bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl'>شراء</button>
     </div>
   )
 }

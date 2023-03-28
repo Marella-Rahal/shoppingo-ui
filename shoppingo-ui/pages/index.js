@@ -9,7 +9,7 @@ export default function Home() {
       <Main/>
       <Services/>
 
-      <div className="mt-16 py-5 px-4 md:px-8 bg-gradient-to-l from-gradientFrom to-gradientTo text-center text-white text-lg">
+      <div className="mt-16 py-5 px-4 md:px-8 bg-gradient-to-l from-gradientFrom to-gradientTo dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 text-center text-white text-lg">
 
         تواصل معنا عن طريق الإيميل<br/>
         ShoppingoTeam@gmail.com

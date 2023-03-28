@@ -89,7 +89,7 @@ const ShoppingCard = () => {
           <div className="py-2 px-4 w-full md:w-fit rounded-lg shadow-md shadow-shadowColor text-center">
             السعر الكلي : 999999999999 ل.س
           </div>
-          <button className="py-2 w-full md:w-[200px] bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b" onClick={() => router.push('/shoppingCard/checkout')}>
+          <button className="py-2 w-full md:w-[200px] bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl" onClick={() => router.push('/shoppingCard/checkout')}>
             شراء
           </button>
         </div>
