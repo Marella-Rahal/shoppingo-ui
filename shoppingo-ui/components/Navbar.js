@@ -47,7 +47,7 @@ const Navbar = () => {
       router.asPath != '/profile/upgrade' &&
       theme == 'dark'
     ) {
-      setNavBackground('#1E1E1E');
+      setNavBackground('#121212');
     } else if (
       router.asPath != '/signup' &&
       router.asPath != '/login' &&
@@ -128,7 +128,7 @@ const Navbar = () => {
         <ul className="hidden md:flex items-center space-x-[10px] lg:space-x-4">
           {/* //*user image and log out and dark mode*/}
 
-          {/* <li
+          <li
             className="w-fit h-fit rounded-full shadow-md shadow-shadowColor cursor-pointer mr-4"
             onClick={() => router.push("/profile")}
           >
@@ -159,10 +159,10 @@ const Navbar = () => {
                 </div>
               </li>
             )
-          } */}
+          }
 
           {/* //******log in and sign up****** */}
-          <li>
+          {/* <li>
             <button
               className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b w-[100px] py-2"
               onClick={() => router.push('/signup')}
@@ -178,7 +178,7 @@ const Navbar = () => {
             >
               تسجيل دخول
             </button>
-          </li>
+          </li> */}
 
           {/* //**************** */}
 

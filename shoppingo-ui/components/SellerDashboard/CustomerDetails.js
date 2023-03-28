@@ -9,7 +9,7 @@ function CustomerDetails(props) {
         <button
           className={`${
             props.value.page1 ? 'px-2 mb-5 md:mb-0' : 'px-6'
-          }  py-3 md:mx-2 my-2 md:my-0`}
+          }  py-3 md:mr-2 my-2 md:my-0`}
         >
           {' '}
           {props.value.page1 && 'معلومات المستخدم'}
@@ -24,10 +24,10 @@ function CustomerDetails(props) {
           <div className="fixed z-10 top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-col justify-between shadow-2xl rounded-lg bg-gray-50 w-[90%] md:w-[600px] p-3 md:p-5">
             <div className="flex flex-col w-full">
               {/* first row */}
-              <div className="flex md:flex-row flex-col w-full justify-between md:pb-5">
+              <div className="flex md:flex-row flex-col-reverse w-full justify-between md:pb-5">
                 {/* email */}
-                <div className="flex flex-col space-y-2  text-right w-full md:w-1/2 pb-2">
-                  <div className="font-bold text-lg text-textColor dark:text-darkBgColor">الايميل</div>
+                <div className="flex flex-col space-y-2 text-right w-full md:w-1/2 pb-2">
+                  <div className="font-bold text-lg text-textColor dark:text-darkBgColor">الإيميل</div>
                   <input
                     disabled={change}
                     type="Text"
@@ -46,7 +46,7 @@ function CustomerDetails(props) {
                   />
                 </div>
               </div>
-              <div className="flex md:flex-row flex-col w-full justify-between md:pb-5">
+              <div className="flex md:flex-row flex-col-reverse w-full justify-between md:pb-5">
                 {/* city */}
                 <div className="flex flex-col space-y-2 text-right w-full md:w-1/2  pb-2">
                   <div className="font-bold text-lg text-textColor dark:text-darkBgColor">المدينة</div>
@@ -82,7 +82,7 @@ function CustomerDetails(props) {
 
             <div className="flex w-full justify-between mt-5">
               <button
-                className="px-4 py-3 self-center"
+                className="px-4 py-3"
                 onClick={() => close()}
               >
                 إغلاق
@@ -92,7 +92,7 @@ function CustomerDetails(props) {
                   onClick={() => {
                     setChange(!change);
                   }}
-                  className="px-4 py-3 self-center"
+                  className="px-4 py-3"
                 >
                   {change ? 'تعديل' : 'تم'}
                 </button>

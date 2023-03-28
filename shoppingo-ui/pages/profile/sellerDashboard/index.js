@@ -77,36 +77,43 @@ const Index = () => {
             id="1" 
             img="../product.jpg"
             price="5000000000000000000"
+            withOffer={false}
             />
             <Product
             id="2" 
             img="../product.jpg"
             price="50000"
+            withOffer={true}
             />
             <Product
             id="3" 
             img="../product.jpg"
             price="50000"
+            withOffer={false}
             />
             <Product
             id="4" 
             img="../product.jpg"
             price="50000"
+            withOffer={true}
             />
             <Product
             id="5" 
             img="../product.jpg"
             price="50000"
+            withOffer={false}
             />
             <Product
             id="6" 
             img="../product.jpg"
             price="50000"
+            withOffer={true}
             />
             <Product
             id="7" 
             img="../product.jpg"
             price="50000"
+            withOffer={false}
             />
           
         </div>

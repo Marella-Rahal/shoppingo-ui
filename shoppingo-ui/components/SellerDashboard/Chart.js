@@ -225,120 +225,121 @@ const Chart = () => {
 
   const [day, setDay] = useState( [
     {
-      name: '1',
+      name: '12 AM',
       earn: 2400,
       fill:' rgb(17 29 74 / 0.9)',
     
     },
     {
-      name: '2',
+      name: '1 AM',
+      earn: 2400,
+      fill:' rgb(17 29 74 / 0.9)',
+    
+    },
+    {
+      name: '2 AM',
       earn: 1398,
 
       
     },
     {
-      name: '3',
+      name: '3 AM',
       earn: 9800,
     
     },
     {
-      name: '4',
+      name: '4 AM',
       earn: 3908,
       },
     {
-      name: '5',
+      name: '5 AM',
       earn: 4800,
       },
     {
-      name: '6',
+      name: '6 AM',
       earn: 3800,
       },
     {
-      name: '7',
+      name: '7 AM',
       earn: 4300,
       },
     {
-      name: '8',
+      name: '8 AM',
       earn: 2400,
     
     },
     {
-      name: '9',
+      name: '9 AM',
       earn: 2400,
     
     },
     {
-      name: '10',
+      name: '10 AM',
       earn: 1950,
     
     },
     {
-      name: '11',
+      name: '11 AM',
       earn: 4000,
     
     },
     {
-      name: '12',
+      name: '12 PM',
       earn: 2500,
     
     },
     {
-      name: '13',
+      name: '1 PM',
       earn: 4000,
     
     },
     {
-      name: '14',
+      name: '2 PM',
       earn: 2500,
     
     },
     {
-      name: '15',
+      name: '3 PM',
       earn: 4000,    
     },
     {
-      name: '16',
+      name: '4 PM',
       earn: 2500,
     
     },
     {
-      name: '17',
+      name: '5 PM',
       earn: 4000,
     
     },
     {
-      name: '18',
+      name: '6 PM',
       earn: 2500,
     
     },
     {
-      name: '19',
+      name: '7 PM',
       earn: 4000,
     
     },
     {
-      name: '20',
+      name: '8 PM',
       earn: 25000,
     
     },
     {
-      name: '21',
+      name: '9 PM',
       earn: 4000,
     
     },
     {
-      name: '22',
+      name: '10 PM',
       earn: 2500,
     
     },
     {
-      name: '23',
+      name: '11 PM',
       earn: 4000,
-    
-    },
-    {
-      name: '24',
-      earn: 2500,
     
     },
   ]);

@@ -8,7 +8,7 @@ function OneOrder(props) {
       <div className="flex md:flex-row md:space-x-3 flex-col-reverse md:justify-between w-full md:w-3/4 border my-5 px-5 py-5 md:py-7 mx-auto shadow-md rounded-lg dark:border-0 dark:shadow-white dark:shadow-sm text-center">
         <div className="py-2 md:py-0 justify-between w-full md:w-auto flex flex-col-reverse md:flex-row ">
           {props.page2 && (
-            <button className="p-3">
+            <button className="p-3 md:mr-2">
               إلغاء الطلبية
             </button>
           )}

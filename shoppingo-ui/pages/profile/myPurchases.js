@@ -6239,7 +6239,7 @@ function MyPurchases() {
   return (
     <>
       <Navbar />
-      <div className="pt-24  flex flex-col w-full  ">
+      <div className="pt-[86px] flex flex-col w-full  ">
         <div className=" py-3 mb-3 w-full font-bold flex justify-center bg-gradient-to-l from-gradientFrom to-gradientTo dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 text-white text-xl">
           مشترياتي
         </div>

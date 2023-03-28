@@ -4,12 +4,19 @@ import React from 'react'
 const Product = (props) => {
   const router=useRouter();
   return (
-    <div className="flex flex-col space-y-5 pb-3 w-[200px] h-fit rounded-lg shadow-md shadow-shadowColor m-5" >
+    <div className="relative flex flex-col space-y-5 pb-3 w-[200px] h-fit rounded-lg shadow-md shadow-shadowColor m-5" >
+        
         <img
         src={props.img}
         className="w-full h-[200px] rounded-t-lg border-b-2 border-shadowColor/10 cursor-pointer"
         onClick={()=>router.push(`/productDetail/${props.id}`)}
         />
+
+        {
+          props.withOffer && (
+            <img src="../offer.svg" className='absolute w-20 h-20 -top-[37px] -right-[17px]'/>
+          )
+        }
 
         <div className='flex justify-center items-center text-sm text-center'>
         <span className='mr-1'>ل.س</span>

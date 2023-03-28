@@ -78,7 +78,7 @@ function ProductDetails(props) {
                 </div>
             </div>
               
-            <div className="flex w-full justify-center md:justify-start">
+            <div className="flex w-full">
               <button
                 className="px-4 py-3"
                 onClick={() => close()}
