@@ -56,7 +56,7 @@ const Index = () => {
         {/* PRODUCT SECTION */}
         <div className='px-4 md:px-8 flex space-x-3 justify-between items-center'>
 
-          <button className='w-[100px] py-1'>
+          <button className='w-[100px] py-1' onClick={() => router.push("/profile/sellerDashboard/order")}>
              طلباتي
           </button>
 

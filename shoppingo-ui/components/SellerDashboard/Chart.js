@@ -71,148 +71,123 @@ const Chart = () => {
     {
       name: '1',
       earn: 2400,
-      fill:' rgb(17 29 74 / 0.9)',
     
     },
     {
       name: '2',
       earn: 1398,
-      fill:'#D7271A',
 
       
     },
     {
       name: '3',
       earn: 9800,
-      fill:' rgb(17 29 74 / 0.9)',
     
     },
     {
       name: '4',
       earn: 3908,
-      fill:'#D7271A',
       },
     {
       name: '5',
       earn: 4800,
-      fill:' rgb(17 29 74 / 0.9)'
       },
     {
       name: '6',
       earn: 3800,
-      fill:'#D7271A'
       },
     {
       name: '7',
       earn: 4300,
-      fill:' rgb(17 29 74 / 0.9)'
       },
     {
       name: '8',
       earn: 2400,
-      fill:'#D7271A'
     
     },
     {
       name: '9',
       earn: 2400,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '10',
       earn: 1950,
-      fill:'#D7271A'
     
     },
     {
       name: '11',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '12',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '13',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '14',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '15',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '16',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '17',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '18',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '19',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '20',
       earn: 25000,
-      fill:'#D7271A'
     
     },
     {
       name: '21',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '22',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '23',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '24',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '25',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
@@ -224,31 +199,26 @@ const Chart = () => {
     {
       name: '27',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '28',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '29',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '30',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '31',
       earn: 2500,
-      fill:'rgb(17 29 74 / 0.9)'
     
     },
   ]);
@@ -263,136 +233,112 @@ const Chart = () => {
     {
       name: '2',
       earn: 1398,
-      fill:'#D7271A',
 
       
     },
     {
       name: '3',
       earn: 9800,
-      fill:' rgb(17 29 74 / 0.9)',
     
     },
     {
       name: '4',
       earn: 3908,
-      fill:'#D7271A',
       },
     {
       name: '5',
       earn: 4800,
-      fill:' rgb(17 29 74 / 0.9)'
       },
     {
       name: '6',
       earn: 3800,
-      fill:'#D7271A'
       },
     {
       name: '7',
       earn: 4300,
-      fill:' rgb(17 29 74 / 0.9)'
       },
     {
       name: '8',
       earn: 2400,
-      fill:'#D7271A'
     
     },
     {
       name: '9',
       earn: 2400,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '10',
       earn: 1950,
-      fill:'#D7271A'
     
     },
     {
       name: '11',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '12',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '13',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '14',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '15',
-      earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
-    
+      earn: 4000,    
     },
     {
       name: '16',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '17',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '18',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '19',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '20',
       earn: 25000,
-      fill:'#D7271A'
     
     },
     {
       name: '21',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '22',
       earn: 2500,
-      fill:'#D7271A'
     
     },
     {
       name: '23',
       earn: 4000,
-      fill:' rgb(17 29 74 / 0.9)'
     
     },
     {
       name: '24',
       earn: 2500,
-      fill:'#D7271A'
     
     },
   ]);
@@ -434,12 +380,12 @@ const Chart = () => {
         {/* <CartesianGrid  /> */}
         <XAxis dataKey="name" />
         <YAxis />
-        <Tooltip cursor={{fill: 'transparent'}}/>
+        <Tooltip cursor={{fill: 'transparent' }} labelStyle={{color:"black"}} />
         
-        <Bar dataKey="earn"  >
+        <Bar dataKey="earn"   >
         {
                   data.map((entry, index) => (
-                    <Cell key={index} fill={ theme == "light" ? index%2 == 1  ? 'rgb(17 29 74 / 0.9)' : '#D7271A': index%2 == 1  ? 'gray' : 'white'   }/>
+                    <Cell key={index} fill={ theme == "light" ? index%2 == 1  ? 'rgb(17 29 74 / 0.9)' : '#D7271A': index%2 == 1  ? 'gray' : 'white'   } />
                   ))
                 }
            

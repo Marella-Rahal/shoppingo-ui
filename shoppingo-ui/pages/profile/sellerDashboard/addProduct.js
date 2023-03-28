@@ -34,15 +34,16 @@ const AddProduct = () => {
       if(Check)
       {
         setArrayForSizes(ArrayForSizes => [...ArrayForSizes, value])
-        // console.log(ArrayForSizes,"yes");
+        console.log(ArrayForSizes,"yes");
       }
       else{
         // console.log(ArrayForSizes,"not");
+        ArrayForSizes.forEach(function(item, i) { if (item == value)  ArrayForSizes[i] = value+2; });
 
-        setArrayForSizes (ArrayForSizes.filter(function(item) {
-          return item !== value;
-      }))
-      // console.log(ArrayForSizes,"not");
+      //   setArrayForSizes (ArrayForSizes.filter(function(item) {
+      //     return item !== value;
+      // }))
+      console.log(ArrayForSizes,"not");
 
       }
       // console.log(ArrayForSizes,"sss");
@@ -193,6 +194,7 @@ const updateImage2 = (e) => {
                           XXL
                           </label>
                           <input type={'checkbox'}  
+                          checked={CheckXXL? "":"checked" }
                           id="XXL"
                           onClick={()=>{checkIfSizeExsise(CheckXXL,"XXL");setCheckXXL(!CheckXXL)}}
                         ></input>
@@ -203,6 +205,7 @@ const updateImage2 = (e) => {
                           3XL
                           </label>
                           <input type={'checkbox'}
+                          checked={Check3XL? "":"checked" }
                           id="3XL"
                           onClick={()=>{checkIfSizeExsise(Check3XL,"3XL");setCheck3XL(!Check3XL)}}
                           ></input>
@@ -211,7 +214,8 @@ const updateImage2 = (e) => {
                           <label className='dark:text-black pr-1' htmlFor='4XL'>
                           4XL
                           </label>
-                          <input type={'checkbox'} 
+                          <input type={'checkbox'}
+                          checked={Check4XL? "":"checked" } 
                           id="4XL"
                           onClick={()=>{checkIfSizeExsise(Check4XL,"4XL");setCheck4XL(!Check4XL)}}
 
@@ -222,6 +226,7 @@ const updateImage2 = (e) => {
                           5XL
                           </label>
                           <input type={'checkbox'}
+                          checked={Check5XL? "":"checked" }
                           id="5XL"
                           onClick={()=>{checkIfSizeExsise(Check5XL,"5XL");setCheck5XL(!Check5XL)}}
 
@@ -232,6 +237,7 @@ const updateImage2 = (e) => {
                         6XL
                         </label>
                         <input type={'checkbox'}
+                        checked={Check6XL? "":"checked" }
                         id="6XL"
                         onClick={()=>{checkIfSizeExsise(Check6XL,"6XL");setCheck6XL(!Check6XL)}}
 
@@ -248,7 +254,8 @@ const updateImage2 = (e) => {
                           <label className='dark:text-black pr-1' htmlFor='XS'>
                           XS
                           </label>
-                          <input type={'checkbox'} 
+                          <input type={'checkbox'}
+                          checked={CheckXS? "":"checked" } 
                           id="XS"
                           onClick={()=>{checkIfSizeExsise(CheckXS,"XS");setCheckXS(!CheckXS)}}
                           
@@ -260,6 +267,7 @@ const updateImage2 = (e) => {
                           S
                           </label>
                           <input type={'checkbox'}
+                          checked={CheckS? "":"checked" }
                           id="S"
                           onClick={()=>{checkIfSizeExsise(CheckS,"S");setCheckS(!CheckS)}}
                           ></input>
@@ -269,6 +277,7 @@ const updateImage2 = (e) => {
                           M
                           </label>
                           <input type={'checkbox'}
+                          checked={CheckM? "":"checked" }
                           id="M"
                           onClick={()=>{checkIfSizeExsise(CheckM,"M");setCheckM(!CheckM)}}
                           ></input>
@@ -278,6 +287,7 @@ const updateImage2 = (e) => {
                           L
                           </label>
                           <input type={'checkbox'}
+                          checked={CheckL? "":"checked" }
                           id="L"
                           onClick={()=>{checkIfSizeExsise(CheckL,"L");setCheckL(!CheckL)}}
       
@@ -288,6 +298,7 @@ const updateImage2 = (e) => {
                         XL
                         </label>
                         <input type={'checkbox'}
+                        checked={CheckXL? "":"checked" }
                         id="XL"
                           onClick={()=>{checkIfSizeExsise(CheckXL,"XL");setCheckXL(!CheckXL)}}
 

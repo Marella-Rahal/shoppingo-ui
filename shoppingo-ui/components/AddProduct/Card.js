@@ -13,7 +13,7 @@ function Card(props) {
   const[AllColors,setAllColors]=useState([]);
 
   return (
-   <div className='w-[200px] h-[260px] shadow-lg rounded-2xl flex flex-col mt-14 mx-[15px] items-center relative'>
+   <div className={`${props.value.slice(-1)== '2'?"hidden":"flex" } w-[200px] h-[260px] shadow-lg rounded-2xl flex-col mt-14 mx-[15px] items-center relative`}>
     <div className='dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 w-[50px] h-[50px] top-[-20px] bg-textColor/90 shadow-md  shadow-shadowColor  text-white flex justify-center items-center rounded-full absolute border-2 border-white' >{props.value}</div>
 
     <div className='w-full h-full bg-white rounded-2xl  shadow-2xl  flex items-center flex-col pt-10 px-2' >

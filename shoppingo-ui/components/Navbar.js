@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import {
   AiFillHome,
   AiFillShop,
   AiFillHeart,
   AiOutlineClose,
-} from "react-icons/ai";
-import { MdLocalOffer, MdOutlineAddShoppingCart } from "react-icons/md";
+} from 'react-icons/ai';
+import { MdLocalOffer, MdOutlineAddShoppingCart } from 'react-icons/md';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
-import { IoIosPeople } from "react-icons/io";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs'
-import { useRouter } from "next/router";
-import { useTheme } from 'next-themes'
+import { IoIosPeople } from 'react-icons/io';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { BsFillSunFill, BsFillMoonStarsFill } from 'react-icons/bs';
+import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
 
 const Navbar = () => {
   const router = useRouter();
 
   const [shadow, setShadow] = useState(false);
   const [sideNav, setSideNav] = useState(false);
-  const [navBackground, setNavBackground] = useState("#fff8f0");
+  const [navBackground, setNavBackground] = useState('#fff8f0');
   const [logoUrl, setLogoUrl] = useState('logo.svg');
   const [defaultImg, setDefaultImg] = useState('default.jpg');
 
@@ -28,61 +28,64 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme();
   useEffect(() => {
     setMounted(true);
-  }, [])
+  }, []);
   //! *********************************************
 
   //handle navbar's color
   useEffect(() => {
-
     if (
-      router.asPath == "/signup" ||
-      router.asPath == "/login" ||
-      router.asPath == "/login/forgetPassword" ||
-      router.asPath == "/profile/upgrade"
+      router.asPath == '/signup' ||
+      router.asPath == '/login' ||
+      router.asPath == '/login/forgetPassword' ||
+      router.asPath == '/profile/upgrade'
     ) {
-      setNavBackground("transparent");
-    } else if ((router.asPath != "/signup" &&
-      router.asPath != "/login" &&
-      router.asPath != "/login/forgetPassword" &&
-      router.asPath != "/profile/upgrade") && theme == "dark") {
-      setNavBackground("#1E1E1E");
-    } else if ((router.asPath != "/signup" &&
-      router.asPath != "/login" &&
-      router.asPath != "/login/forgetPassword" &&
-      router.asPath != "/profile/upgrade") && theme == "light") {
-      setNavBackground("#fff8f0");
+      setNavBackground('transparent');
+    } else if (
+      router.asPath != '/signup' &&
+      router.asPath != '/login' &&
+      router.asPath != '/login/forgetPassword' &&
+      router.asPath != '/profile/upgrade' &&
+      theme == 'dark'
+    ) {
+      setNavBackground('#1E1E1E');
+    } else if (
+      router.asPath != '/signup' &&
+      router.asPath != '/login' &&
+      router.asPath != '/login/forgetPassword' &&
+      router.asPath != '/profile/upgrade' &&
+      theme == 'light'
+    ) {
+      setNavBackground('#fff8f0');
     }
-
   }, [router.asPath, theme]);
 
   //******************* */
 
   //logo path and default image path
   useEffect(() => {
-
     if (
-      router.asPath == "/login/forgetPassword" ||
-      router.asPath == "/profile/upgrade" ||
-      router.asPath == "/profile/confirmSellers" ||
+      router.asPath == '/login/forgetPassword' ||
+      router.asPath == '/profile/upgrade' ||
+      router.asPath == '/profile/confirmSellers' ||
+      router.asPath == '/profile/sellerDashboard' ||
+      router.asPath == '/profile/myPurchases' ||
       router.asPath == `/shop/${router.query.shopId}` ||
       router.asPath == `/productDetail/${router.query.productId}` ||
       router.asPath == `/shoppingCard/checkout`
     ) {
-      setLogoUrl("../logo.svg");
+      setLogoUrl('../logo.svg');
       setDefaultImg('../default.jpg');
-    }
-    else if(
-      router.asPath == "/profile/sellerDashboard"  ||
-      router.asPath == "/profile/sellerDashboard/addProduct"
-    ){
-      setLogoUrl("../../logo.svg");
+    } else if (
+      router.asPath == '/profile/sellerDashboard/addProduct' ||
+      router.asPath == '/profile/sellerDashboard/order'
+    ) {
+      setLogoUrl('../../logo.svg');
       setDefaultImg('../../default.jpg');
     } else {
-      setLogoUrl("logo.svg");
-      setDefaultImg('default.jpg')
+      setLogoUrl('logo.svg');
+      setDefaultImg('default.jpg');
     }
-
-  }, [router.asPath])
+  }, [router.asPath]);
 
   //******************* */
 
@@ -96,7 +99,7 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener("scroll", handleShadow);
+    window.addEventListener('scroll', handleShadow);
   }, []);
 
   //******************* */
@@ -114,8 +117,8 @@ const Navbar = () => {
         style={{ background: `${navBackground}` }}
         className={
           shadow
-            ? "fixed z-50 w-full h-[75px] py-4 px-4 md:px-8 flex justify-between shadow-md shadow-shadowColor"
-            : "fixed z-50 w-full h-[75px] py-4 px-4 md:px-8 flex justify-between"
+            ? 'fixed z-50 w-full h-[75px] py-4 px-4 md:px-8 flex justify-between shadow-md shadow-shadowColor'
+            : 'fixed z-50 w-full h-[75px] py-4 px-4 md:px-8 flex justify-between'
         }
       >
         <div className="self-center md:hidden" onClick={handleSideNav}>
@@ -123,7 +126,6 @@ const Navbar = () => {
         </div>
 
         <ul className="hidden md:flex items-center space-x-[10px] lg:space-x-4">
-
           {/* //*user image and log out and dark mode*/}
 
           {/* <li
@@ -159,12 +161,11 @@ const Navbar = () => {
             )
           } */}
 
-
           {/* //******log in and sign up****** */}
           <li>
             <button
               className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b w-[100px] py-2"
-              onClick={() => router.push("/signup")}
+              onClick={() => router.push('/signup')}
             >
               إنشاء حساب
             </button>
@@ -173,7 +174,7 @@ const Navbar = () => {
           <li>
             <button
               className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b w-[100px] py-2"
-              onClick={() => router.push("/login")}
+              onClick={() => router.push('/login')}
             >
               تسجيل دخول
             </button>
@@ -225,14 +226,14 @@ const Navbar = () => {
 
       <div
         className={
-          sideNav ? "fixed z-50 w-full h-full bg-black/50 md:hidden" : ""
+          sideNav ? 'fixed z-50 w-full h-full bg-black/50 md:hidden' : ''
         }
       >
         <div
           className={
             sideNav
-              ? "fixed z-50 top-0 right-0 h-full w-[80%] xs:w-[75%] bg-bgColor dark:bg-darkBgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-300"
-              : "fixed z-50 top-0 right-[-100%] h-full w-[80%] xs:w-[75%] bg-bgColor dark:bg-darkBgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-100"
+              ? 'fixed z-50 top-0 right-0 h-full w-[80%] xs:w-[75%] bg-bgColor dark:bg-darkBgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-300'
+              : 'fixed z-50 top-0 right-[-100%] h-full w-[80%] xs:w-[75%] bg-bgColor dark:bg-darkBgColor flex flex-col p-7 space-y-7 overflow-y-auto ease-linear duration-100'
           }
         >
           {/* //todo */}
@@ -255,14 +256,16 @@ const Navbar = () => {
 
             <li
               className="w-fit h-fit rounded-full shadow-md shadow-shadowColor cursor-pointer"
-              onClick={() => { router.push("/profile"); handleSideNav(); }}
+              onClick={() => {
+                router.push('/profile');
+                handleSideNav();
+              }}
             >
               <img
                 src={defaultImg}
                 className="w-[70px] h-[70px] xs:w-[90px] xs:h-[90px] rounded-full"
               />
             </li>
-
 
             {/* //****************** */}
 
@@ -322,25 +325,33 @@ const Navbar = () => {
 
             {/* //*log out and dark mode*/}
 
-            {
-              (mounted && theme == 'light') && (
-                <li className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]" onClick={() => { setTheme("dark"); handleSideNav(); }}>
-                  <div>
-                    <BsFillMoonStarsFill className="text-effectColor group-hover:text-textColor text-[25px] xs:text-[30px] dark:group-hover:text-darkTextColor" />
-                  </div>
-                </li>
-              )
-            }
+            {mounted && theme == 'light' && (
+              <li
+                className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
+                onClick={() => {
+                  setTheme('dark');
+                  handleSideNav();
+                }}
+              >
+                <div>
+                  <BsFillMoonStarsFill className="text-effectColor group-hover:text-textColor text-[25px] xs:text-[30px] dark:group-hover:text-darkTextColor" />
+                </div>
+              </li>
+            )}
 
-            {
-              (mounted && theme == 'dark') && (
-                <li className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]" onClick={() => { setTheme("light"); handleSideNav(); }}>
-                  <div>
-                    <BsFillSunFill className="text-effectColor group-hover:text-textColor text-[25px] xs:text-[30px] dark:group-hover:text-darkTextColor" />
-                  </div>
-                </li>
-              )
-            }
+            {mounted && theme == 'dark' && (
+              <li
+                className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
+                onClick={() => {
+                  setTheme('light');
+                  handleSideNav();
+                }}
+              >
+                <div>
+                  <BsFillSunFill className="text-effectColor group-hover:text-textColor text-[25px] xs:text-[30px] dark:group-hover:text-darkTextColor" />
+                </div>
+              </li>
+            )}
 
             <li
               className="p-2 rounded-full shadow-md shadow-shadowColor group hover:scale-[1.1]"
