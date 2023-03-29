@@ -2,9 +2,11 @@ import React from "react";
 import {motion} from 'framer-motion';
 const markerVariant={
   animate:{
-    y:5,
+    y:7,
     transition:{
-      yoyo:Infinity
+      duration: 0.5,
+      repeat: Infinity,
+      repeatType: "reverse"
     }
   }
 }
