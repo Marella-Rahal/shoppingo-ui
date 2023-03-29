@@ -2,7 +2,7 @@ import React from "react";
 import {motion} from 'framer-motion';
 const markerVariant={
   animate:{
-    y:10,
+    y:5,
     transition:{
       yoyo:Infinity
     }

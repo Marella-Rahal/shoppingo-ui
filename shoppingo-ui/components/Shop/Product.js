@@ -9,7 +9,7 @@ import { useTheme } from 'next-themes';
 const Product = (props) => {
   const router = useRouter();
   const { theme , setTheme }=useTheme();
-  const [oImg,setOImg]=useState('../offer.svg');
+  const [oImg,setOImg]=useState('');
   useEffect(()=>{
 
     if(theme == 'dark'){
