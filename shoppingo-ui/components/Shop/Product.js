@@ -55,8 +55,7 @@ const Product = (props) => {
 
                 {/* heart */}
                 <ImHeart
-                  style={props.fav ? { color: "red" } : { color: "#111D4A" }}
-                  className="absolute left-2 top-0 text-[21px] hover:scale-[1.2] cursor-pointer drop-shadow-lg "
+                  className={`absolute left-[8px] -top-[4px] text-[35px] shadow-mapShadow rounded-full px-[8px] hover:scale-[1.1] cursor-pointer ${props.fav ?'text-[red]':'text-bgColor'}`}
                 />
 
                 {/* offer */}
