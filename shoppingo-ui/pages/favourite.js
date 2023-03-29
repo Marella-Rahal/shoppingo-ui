@@ -1,14 +1,19 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Product from "../components/Shop/Product";
+import { useTheme } from 'next-themes';
+
 const Favourite = () => {
+  
+  const { theme , setTheme }=useTheme();
+
   return (
     <>
       <Navbar/>
       <div className="w-full min-h-screen pt-28 pb-14 px-4 md:px-8 flex justify-evenly flex-wrap">
         <Product
           img="product.jpg"
-          oimg="offer.svg"
+          oimg={theme=='dark'?'darkOffer.svg':'offer.svg'}
           fav={true}
           offer={true}
           oPrice="100000"
@@ -17,7 +22,7 @@ const Favourite = () => {
         />
         <Product
           img="product.jpg"
-          oimg="offer.svg"
+          oimg={theme=='dark'?'darkOffer.svg':'offer.svg'}
           fav={true}
           offer={false}
           oPrice=""
@@ -26,7 +31,7 @@ const Favourite = () => {
         />
         <Product
           img="product.jpg"
-          oimg="offer.svg"
+          oimg={theme=='dark'?'darkOffer.svg':'offer.svg'}
           fav={true}
           offer={true}
           oPrice="75000"
@@ -35,7 +40,7 @@ const Favourite = () => {
         />
         <Product
           img="product.jpg"
-          oimg="offer.svg"
+          oimg={theme=='dark'?'darkOffer.svg':'offer.svg'}
           fav={true}
           offer={false}
           oPrice=""
@@ -44,7 +49,7 @@ const Favourite = () => {
         />
         <Product
           img="product.jpg"
-          oimg="offer.svg"
+          oimg={theme=='dark'?'darkOffer.svg':'offer.svg'}
           fav={true}
           offer={true}
           oPrice="500000"
@@ -53,7 +58,7 @@ const Favourite = () => {
         />
         <Product
           img="product.jpg"
-          oimg="offer.svg"
+          oimg={theme=='dark'?'darkOffer.svg':'offer.svg'}
           fav={true}
           offer={false}
           oPrice=""

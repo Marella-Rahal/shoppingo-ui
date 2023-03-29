@@ -1,7 +1,9 @@
 import { useRouter } from 'next/router'
 import React from 'react'
+import { useTheme } from 'next-themes';
 
 const Product = (props) => {
+  const { theme , setTheme }=useTheme();
   const router=useRouter();
   return (
     <div className="relative flex flex-col space-y-5 pb-3 w-[200px] h-fit rounded-lg shadow-md shadow-shadowColor m-5" >
@@ -14,7 +16,7 @@ const Product = (props) => {
 
         {
           props.withOffer && (
-            <img src="../offer.svg" className='absolute w-20 h-20 -top-[37px] -right-[17px]'/>
+            <img src={theme=='dark'?'../darkOffer.svg':'../offer.svg'} className='absolute w-20 h-20 -top-[37px] -right-[17px]'/>
           )
         }
 
