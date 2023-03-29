@@ -118,9 +118,12 @@ const Map = ({ coords, sellerRoute }) => {
   });
   const [zoom, setZoom] = useState(12);
 
-  useEffect(() => {
-    //***********initialize the map*************/
-    const map = new mapboxgl.Map({
+  //! to make sure the map initialize just once
+  const [map,setMap]=useState();
+  useEffect(()=>{
+
+    //* initialize
+    const tempMap= new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/streets-v12",
       center: [lng, lat],
@@ -128,20 +131,61 @@ const Map = ({ coords, sellerRoute }) => {
       scrollZoom: true,
     });
 
-    map.on("move", () => {
-      setLng(map.getCenter().lng.toFixed(4));
-      setLat(map.getCenter().lat.toFixed(4));
-      setZoom(map.getZoom().toFixed(2));
+    //* movment on the map
+    tempMap.on("move", () => {
+      setLng(tempMap.getCenter().lng.toFixed(4));
+      setLat(tempMap.getCenter().lat.toFixed(4));
+      setZoom(tempMap.getZoom().toFixed(2));
     });
 
-    // Add FullScreen control
-    map.addControl(new mapboxgl.FullscreenControl(), "top-right");
+    //* Add FullScreen control
+    tempMap.addControl(new mapboxgl.FullscreenControl(), "top-right");
 
-    // Add navigation control (the +/- zoom buttons)
-    map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
+    //* Add navigation control (the +/- zoom buttons)
+    tempMap.addControl(new mapboxgl.NavigationControl(), "bottom-right");
 
-    //* calling Markers
-    map.on("load", () => {
+    setMap(tempMap);
+
+    return () => tempMap.remove();
+
+  },[])
+
+  //! execute when the person coordinates changes or when th map state changes
+  useEffect(() => {
+  
+    if ( ( map != undefined ) && ( coords.length > 0 ) ){
+        
+          //* change the position for the personal marker
+          const p=document.querySelector('.removablePerson');
+          if (p) p.remove()
+          
+          const el = document.createElement("div");
+          el.className = "marker";
+          el.className = "removablePerson"
+          const root = ReactDOM.createRoot(el);
+          root.render(
+            <Marker
+              image="../../default.jpg"
+              color={sellerRoute ? "blue" : "#111d4a"}
+            />
+          );
+          new mapboxgl.Marker(el, { offset: [0, -10] })
+            .setLngLat(coords)
+            .addTo(map);    
+
+    }
+
+  }, [map,coords]);
+
+  //! execute when the stores on map changes or when th map state changes
+  useEffect(() => {
+
+    if ( map != undefined ) {
+
+      //* removing existing marker and every thing related to except the personal one
+      removeMarkers();
+
+      //* calling the new Markers
       if (sellerRoute) {
         addMarkers(stores, "#111D4A");
       } else {
@@ -150,258 +194,258 @@ const Map = ({ coords, sellerRoute }) => {
         addMarkers(red, "red");
         addMarkers(green, "green");
       }
-    });
 
-    //*****personal marker*********
-    if (coords.length > 0) {
-      map.on("load", () => {
-        const el = document.createElement("div");
-        el.className = "marker";
-        const root = ReactDOM.createRoot(el);
+    }
+
+  }, [map,stores]);
+
+
+  //**************adding Markers *******************
+  function addMarkers(marker, markerColor) {
+
+    for (const x of marker) {
+      const el = document.createElement("div");
+      el.className = "marker";
+      el.className = "removableMarker";
+      const root = ReactDOM.createRoot(el);
+
+      if (sellerRoute) {
+        // sellers marker
         root.render(
-          <Marker
-            image="../../default.jpg"
-            color={sellerRoute ? "blue" : "#111d4a"}
-          />
+          <Marker image="../../storePhoto.webp" color={markerColor} />
         );
-        new mapboxgl.Marker(el, { offset: [0, -10] })
-          .setLngLat(coords)
-          .addTo(map);
-      });
-    }
+      } else {
+        // product marker
+        root.render(<Marker image={x.img} color={markerColor} />);
+      }
 
-    //**************adding Markers *******************
-    function addMarkers(marker, markerColor) {
-      for (const x of marker) {
-        const el = document.createElement("div");
-        el.className = "marker";
-        const root = ReactDOM.createRoot(el);
+      new mapboxgl.Marker(el, { offset: [0, -10] })
+        .setLngLat(x.coo)
+        .addTo(map);
 
-        if (sellerRoute) {
-          // sellers marker
-          root.render(
-            <Marker image="../../storePhoto.webp" color={markerColor} />
-          );
-        } else {
-          // product marker
-          root.render(<Marker image={x.img} color={markerColor} />);
+      el.addEventListener("click", (e) => {
+        //! important i put it so i can create a popup when clicking on the marker despite setting the closeOnClick to true in popup
+        e.stopPropagation();
+        /* make thw direction */
+        if (coords.length > 0) {
+          const routeColor = sellerRoute ? "blue" : "#111d4a";
+          getRoute(coords, x.coo, routeColor);
         }
-
-        new mapboxgl.Marker(el, { offset: [0, -10] })
-          .setLngLat(x.coo)
-          .addTo(map);
-
-        el.addEventListener("click", (e) => {
-          //! important i put it so i can create a popup when clicking on the marker despite setting the closeOnClick to true in popup
-          e.stopPropagation();
-          /* make thw direction */
-          if (coords.length > 0) {
-            const routeColor = sellerRoute ? "blue" : "#111d4a";
-            getRoute(coords, x.coo, routeColor);
-          }
-          /* Fly to the point */
-          flyToStore(x.coo);
-          /* Close all other popups and display popup for clicked store */
-          createPopUp(x, markerColor);
-        });
-      }
+        /* Fly to the point */
+        flyToStore(x.coo);
+        /* Close all other popups and display popup for clicked store */
+        createPopUp(x, markerColor);
+      });
     }
-    // ************ Directions ********************
+  }
 
-    async function getRoute(start, end, routeColor) {
-      const res = await axios.get(
-        `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`
-      );
+  //**************removing Markers **************
+  function removeMarkers(){
+    // to remove the markers
+    const m=document.querySelectorAll('.removableMarker');
+    m.forEach( i => i.remove() )
+    
+    // to remove the dist-time dialog when removing the markers 
+    document.getElementById('dist-time').innerHTML="";
 
-      //res.data contains an object with three values( code , waypoints , routes)
+    // to close opened popup
+    const popUps = document.getElementsByClassName("mapboxgl-popup");
+    if (popUps[0]) popUps[0].remove();
 
-      //routes contains an array of every single route in our condition we have just one route
+    // to remove the route when removing the marker 
+    if (map.getSource("route")) {
+      map.removeLayer("route");
+      map.removeSource("route");
+    }
+  }
 
-      const data = res.data.routes[0];
-      //every single route is an ((object)) contains
+  // ************ Directions ********************
+  async function getRoute(start, end, routeColor) {
+    const res = await axios.get(
+      `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`
+    );
 
-      //an ((object)) ((legs)) for the ((instructions)),
-      //weight_name,
-      //weight
-      //distance
-      //duration
-      //an ((object)) ((geometry)) which contains an ((array)) for the ((coordinates)) all the route
+    //res.data contains an object with three values( code , waypoints , routes)
 
-      const route = data.geometry.coordinates;
+    //routes contains an array of every single route in our condition we have just one route
 
-      //putting the array of coordinates in geojson object
-      const geojson = {
-        type: "Feature",
-        properties: {},
-        geometry: {
-          type: "LineString",
-          coordinates: route,
+    const data = res.data.routes[0];
+    //every single route is an ((object)) contains
+
+    //an ((object)) ((legs)) for the ((instructions)),
+    //weight_name,
+    //weight
+    //distance
+    //duration
+    //an ((object)) ((geometry)) which contains an ((array)) for the ((coordinates)) all the route
+
+    const route = data.geometry.coordinates;
+
+    //putting the array of coordinates in geojson object
+    const geojson = {
+      type: "Feature",
+      properties: {},
+      geometry: {
+        type: "LineString",
+        coordinates: route,
+      },
+    };
+
+    //if the route already exists on the map , we will reset it using setData
+
+    if (map.getSource("route")) {
+      map.getSource("route").setData(geojson);
+    }
+    //otherwise we will make a new request
+    else {
+      map.addLayer({
+        id: "route",
+        type: "line",
+        source: {
+          type: "geojson",
+          data: geojson,
         },
-      };
-
-      //if the route already exists on the map , we will reset it using setData
-
-      if (map.getSource("route")) {
-        map.getSource("route").setData(geojson);
-      }
-      //otherwise we will make a new request
-      else {
-        map.addLayer({
-          id: "route",
-          type: "line",
-          source: {
-            type: "geojson",
-            data: geojson,
-          },
-          layout: {
-            "line-join": "round",
-            "line-cap": "round",
-          },
-          paint: {
-            "line-color": `${routeColor}`,
-            "line-width": 4,
-            "line-opacity": 1,
-          },
-        });
-      }
-
-      //putting the time and the distance on the map
-      const dT = document.getElementById("dist-time");
-
-      dT.innerHTML = `
-      <h4> 
-       : المسافة المقدرة للوصول 
-      </h4>
-      <h5>
-        ${Math.floor(data.distance / 1000)} K.m
-      <h5/>
-
-      <h4>
-      : الوقت المقدر للوصول  
-      </h4>
-      <h5>
-        ${Math.floor(data.duration / 60)} M
-      </h5>
-
-      `;
-    }
-
-    // ************ fly to store ******************
-
-    function flyToStore(coords) {
-      map.flyTo({
-        center: coords,
-        zoom: 12,
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
+        paint: {
+          "line-color": `${routeColor}`,
+          "line-width": 4,
+          "line-opacity": 1,
+        },
       });
     }
 
-    // ************ popup ******************
-    function createPopUp(marker, markerColor) {
-      const popUps = document.getElementsByClassName("mapboxgl-popup");
+    //putting the time and the distance on the map
+    const dT = document.getElementById("dist-time");
 
-      // to close opened popup
-      if (popUps[0]) popUps[0].remove();
+    dT.innerHTML = `
+    <h4> 
+     : المسافة المقدرة للوصول 
+    </h4>
+    <h5>
+      ${Math.floor(data.distance / 1000)} K.m
+    <h5/>
 
-      //************** seller popup
-      const seller_popup = (
-        <>
-          <h4
-            style={{
-              backgroundColor: "white",
-              color: markerColor,
-              minWidth: "125px",
-              minHeight: "40px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: "10px",
-              borderColor: `${markerColor}`,
-            }}
-            className="border-x-4"
-          >
-            {marker.name}
-          </h4>
-        </>
-      );
-      //************* product popup
-      const product_popup = (
-        <>
-          <h4
-            style={{
-              backgroundColor: markerColor,
-              color: "white",
-              minWidth: "125px",
-              minHeight: "35px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              borderTopLeftRadius: "17px",
-              borderTopRightRadius: "17px",
-            }}
-          >
-            {marker.name}
-          </h4>
+    <h4>
+    : الوقت المقدر للوصول  
+    </h4>
+    <h5>
+      ${Math.floor(data.duration / 60)} M
+    </h5>
 
-          <h5
-            style={{
-              color: markerColor,
-              minWidth: "125px",
-              minHeight: "45px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              borderBottomLeftRadius: "17px",
-              borderBottomRightRadius: "17px",
-            }}
-          >
-            {marker.old != marker.new ? (
-              <div
-                style={{
-                  color: `${markerColor}`,
-                }}
-                className="flex flex-col items-center justify-center"
-              >
-                <div className="flex space-x-2 line-through">
-                  <span>ل.س</span>
-                  <span>{marker.old}</span>
-                </div>
-                <div className="flex space-x-2">
-                  <span>ل.س</span>
-                  <span>{marker.new}</span>
-                </div>
+    `;
+  }
+
+  // ************ fly to store ******************
+  function flyToStore(coords) {
+    map.flyTo({
+      center: coords,
+      zoom: 14,
+    });
+  }
+
+  // ************ popup ******************
+  function createPopUp(marker, markerColor) {
+    const popUps = document.getElementsByClassName("mapboxgl-popup");
+
+    // to close opened popup
+    if (popUps[0]) popUps[0].remove();
+
+    //************** seller popup
+    const seller_popup = (
+      <>
+        <h4
+          style={{
+            backgroundColor: "white",
+            color: markerColor,
+            minWidth: "125px",
+            minHeight: "40px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "10px",
+            borderColor: `${markerColor}`,
+          }}
+          className="border-x-4"
+        >
+          {marker.name}
+        </h4>
+      </>
+    );
+    //************* product popup
+    const product_popup = (
+      <>
+        <h4
+          style={{
+            backgroundColor: markerColor,
+            color: "white",
+            minWidth: "125px",
+            minHeight: "35px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderTopLeftRadius: "17px",
+            borderTopRightRadius: "17px",
+          }}
+        >
+          {marker.name}
+        </h4>
+
+        <h5
+          style={{
+            color: markerColor,
+            minWidth: "125px",
+            minHeight: "45px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderBottomLeftRadius: "17px",
+            borderBottomRightRadius: "17px",
+          }}
+        >
+          {marker.old != marker.new ? (
+            <div
+              style={{
+                color: `${markerColor}`,
+              }}
+              className="flex flex-col items-center justify-center"
+            >
+              <div className="flex space-x-2 line-through">
+                <span>ل.س</span>
+                <span>{marker.old}</span>
               </div>
-            ) : (
               <div className="flex space-x-2">
                 <span>ل.س</span>
                 <span>{marker.new}</span>
               </div>
-            )}
-          </h5>
-        </>
-      );
+            </div>
+          ) : (
+            <div className="flex space-x-2">
+              <span>ل.س</span>
+              <span>{marker.new}</span>
+            </div>
+          )}
+        </h5>
+      </>
+    );
 
-      //******************* rendering the popup
-      const my_popup_container = document.createElement("div");
-      const root = ReactDOM.createRoot(my_popup_container);
+    //******************* rendering the popup
+    const my_popup_container = document.createElement("div");
+    const root = ReactDOM.createRoot(my_popup_container);
 
-      if (sellerRoute) {
-        root.render(seller_popup);
-      } else {
-        root.render(product_popup);
-      }
-
-      const popup = new mapboxgl.Popup({ closeOnClick: true }) //! ***** the close on click
-        .setLngLat(marker.coo)
-        .setDOMContent(my_popup_container)
-        .addTo(map);
+    if (sellerRoute) {
+      root.render(seller_popup);
+    } else {
+      root.render(product_popup);
     }
 
-    // **************end of popup***********************
-
-    // Clean up on unmount
-    return () => map.remove();
-    //*********************************************/
-  }, []);
+    const popup = new mapboxgl.Popup({ closeOnClick: true }) //! ***** the close on click
+      .setLngLat(marker.coo)
+      .setDOMContent(my_popup_container)
+      .addTo(map);
+  }
 
   return (
     <div
