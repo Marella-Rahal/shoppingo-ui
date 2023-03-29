@@ -16,7 +16,6 @@ import NotePopUp, { showPopUpNote } from "../../components/PopUp/NotePopUp";
 import usePosition from "../../hooks/usePosition";
 import Navbar from "../../components/Navbar";
 import { useRouter } from "next/router";
-import { useTheme } from 'next-themes';
 const Map = dynamic(() => import("../../components/Map/Map"), {
   loading: () => <Loading />,
   ssr: false,
@@ -27,7 +26,6 @@ const images = ["../../product.jpg", "../../product1.jpg"];
 //*********************************************/
 
 const ProductId = () => {
-  const { theme , setTheme }=useTheme();
   const router=useRouter();
   //* for the foreground and background image
   const [imgUrl, setImgUrl] = useState(images[0]);
@@ -285,7 +283,6 @@ const ProductId = () => {
             <Product
               id="1"
               img="../product.jpg"
-              oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
               fav={true}
               offer={true}
               oPrice="100000"
@@ -295,7 +292,6 @@ const ProductId = () => {
             <Product
               id="2"
               img="../product.jpg"
-              oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
               fav={false}
               offer={false}
               oPrice=""
@@ -305,7 +301,6 @@ const ProductId = () => {
             <Product
               id="3"
               img="../product.jpg"
-              oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
               fav={false}
               offer={true}
               oPrice="75000"
@@ -315,7 +310,6 @@ const ProductId = () => {
             <Product
               id="4"
               img="../product.jpg"
-              oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
               fav={true}
               offer={false}
               oPrice=""
@@ -325,7 +319,6 @@ const ProductId = () => {
             <Product
               id="5"
               img="../product.jpg"
-              oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
               fav={true}
               offer={true}
               oPrice="500000"
@@ -335,7 +328,6 @@ const ProductId = () => {
             <Product
               id="6"
               img="../product.jpg"
-              oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
               fav={false}
               offer={false}
               oPrice=""
@@ -345,7 +337,6 @@ const ProductId = () => {
             <Product
               id="7"
               img="../product.jpg"
-              oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
               fav={true}
               offer={false}
               oPrice=""
@@ -355,7 +346,6 @@ const ProductId = () => {
             <Product
               id="8"
               img="../product.jpg"
-              oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
               fav={true}
               offer={false}
               oPrice=""
@@ -365,7 +355,6 @@ const ProductId = () => {
             <Product
               id="9"
               img="../product.jpg"
-              oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
               fav={true}
               offer={false}
               oPrice=""
@@ -375,7 +364,6 @@ const ProductId = () => {
             <Product
               id="10"
               img="../product.jpg"
-              oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
               fav={true}
               offer={false}
               oPrice=""

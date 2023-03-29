@@ -3,9 +3,22 @@ import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { ImHeart } from "react-icons/im";
 import RatingPopUp from "../../components/PopUp/RatingPopUp";
 import { useRouter } from "next/router";
+import { useTheme } from 'next-themes';
+
 
 const Product = (props) => {
   const router = useRouter();
+  const { theme , setTheme }=useTheme();
+  const [oImg,setOImg]=useState('../offer.svg');
+  useEffect(()=>{
+
+    if(theme == 'dark'){
+        setOImg('../darkOffer.svg')
+    }else{
+      setOImg('../offer.svg')
+    }
+
+  },[theme])
   // ****************** Stars ***********************
   const [ratingPopUp, setRatingPopUp] = useState(false);
   const [fullStars, setFullStars] = useState([]);
@@ -61,7 +74,7 @@ const Product = (props) => {
                 {/* offer */}
                 {props.offer && (
                   <img
-                    src={props.oimg}
+                    src={oImg}
                     className="absolute w-20 h-20 -top-[29px] -right-[17px]"
                   />
                 )}

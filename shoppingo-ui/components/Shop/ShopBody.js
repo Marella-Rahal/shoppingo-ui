@@ -4,12 +4,8 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import Classification from "./Classification";
 import PriceClassification from "./PriceClassification";
 import Search from "./Search";
-import { useTheme } from 'next-themes';
-
 
 const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
-
-  const { theme , setTheme }=useTheme();
   
   return (
     <div
@@ -76,7 +72,6 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
         <Product
           id="1"
           img="../product.jpg"
-          oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
           fav={true}
           offer={true}
           oPrice="100000"
@@ -86,7 +81,6 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
         <Product
           id="2"
           img="../product.jpg"
-          oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
           fav={false}
           offer={false}
           oPrice=""
@@ -96,7 +90,6 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
         <Product
           id="3"
           img="../product.jpg"
-          oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
           fav={false}
           offer={true}
           oPrice="75000"
@@ -106,7 +99,6 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
         <Product
           id="4"
           img="../product.jpg"
-          oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
           fav={true}
           offer={false}
           oPrice=""
@@ -116,7 +108,6 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
         <Product
           id="5"
           img="../product.jpg"
-          oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
           fav={true}
           offer={true}
           oPrice="500000"
@@ -126,7 +117,6 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
         <Product
           id="6"
           img="../product.jpg"
-          oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
           fav={false}
           offer={false}
           oPrice=""
@@ -136,7 +126,6 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
         <Product
           id="7"
           img="../product.jpg"
-          oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
           fav={true}
           offer={false}
           oPrice=""
@@ -146,7 +135,6 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
         <Product
           id="8"
           img="../product.jpg"
-          oimg={theme=='dark'?'../darkOffer.svg':'../offer.svg'}
           fav={false}
           offer={false}
           oPrice=""
