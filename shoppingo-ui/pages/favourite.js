@@ -9,6 +9,7 @@ const Favourite = () => {
       <Navbar/>
       <div className="w-full min-h-screen pt-28 pb-14 px-4 md:px-8 flex justify-evenly flex-wrap">
         <Product
+          id="1"
           img="product.jpg"
           fav={true}
           offer={true}
@@ -17,6 +18,7 @@ const Favourite = () => {
           rating="4.5"
         />
         <Product
+          id="2"
           img="product.jpg"
           fav={true}
           offer={false}
@@ -25,6 +27,7 @@ const Favourite = () => {
           rating="5.0"
         />
         <Product
+          id="3"
           img="product.jpg"
           fav={true}
           offer={true}
@@ -33,6 +36,7 @@ const Favourite = () => {
           rating="3.0"
         />
         <Product
+          id="4"
           img="product.jpg"
           fav={true}
           offer={false}
@@ -41,6 +45,7 @@ const Favourite = () => {
           rating="2.5"
         />
         <Product
+          id="5"
           img="product.jpg"
           fav={true}
           offer={true}
@@ -49,6 +54,7 @@ const Favourite = () => {
           rating="2.0"
         />
         <Product
+          id="6"
           img="product.jpg"
           fav={true}
           offer={false}

@@ -1,11 +1,20 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useRouter } from "next/router";
+import {AnimatePresence, motion} from 'framer-motion';
 
 const Product = (props) => {
   const router = useRouter();
   return (
-    <div dir="ltr">
+    <AnimatePresence>
+
+      <motion.div
+      key={props.id}
+      initial={{opacity:0,scale:0}} 
+      animate={{opacity:1,scale:1}} 
+      exit={{opacity:0,scale:0}}
+      transition={{ease:'easeInOut',duration:0.7}} 
+      dir="ltr">
 
         <div className="relative flex flex-col w-[200px] rounded-md shadow-md shadow-shadowColor font-bold text-[13px] ml-5">
 
@@ -97,7 +106,10 @@ const Product = (props) => {
 
         </div>
 
-    </div>
+      </motion.div>
+
+    </AnimatePresence>
+    
   );
 };
 

@@ -14,10 +14,10 @@ const Index = () => {
 
       <div className='pt-28 pb-10 flex flex-col space-y-10'>
 
-        {/* ​‌‍‌div for tow rectangles ​​ */}
+        {/* ​‌‍div for tow rectangles ​​ */}
         <div className='px-4 md:px-8 flex flex-col-reverse md:flex-row md:justify-between md:space-x-3'>
 
-            {/* ​‌‍‌first rectangle ​ */}
+            {/* ​‌‍first rectangle ​ */}
             <div className="bg-gradient-to-l from-gradientFrom to-gradientTo dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 shadow-md shadow-shadowColor dark:shadow-none w-full md:w-1/2 xl:w-1/3 md:h-[175px] rounded-xl flex flex-col space-y-5">
 
               <div className='text-center text-white text-lg font-bold px-2 py-5 h-1/2'> عدد المستخدمين الذين اشتروا منتجاتي
@@ -44,7 +44,7 @@ const Index = () => {
         </div>
 
 
-        {/* ​‌‍‌Barchar section​ */}
+        {/* ​‌‍Barchar section​ */}
         <div className='px-4 md:px-8 flex flex-col space-y-10 h-[500px]'>
           <Chart />
         </div>

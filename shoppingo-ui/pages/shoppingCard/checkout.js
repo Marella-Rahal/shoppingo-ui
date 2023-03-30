@@ -89,13 +89,13 @@ const Checkout = () => {
                                 className="flex"
                             >
                                 <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000000' type="onHand" />
-                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='2' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='3' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='4' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='5' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='6' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='7' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                <Product id='8' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
 
                             </motion.div>
                         </motion.div>
@@ -125,13 +125,13 @@ const Checkout = () => {
                                 className="flex"
                             >
                                 <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                {/* <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" /> */}
+                                <Product id='2' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                {/* <Product id='3' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='4' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='5' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='6' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='7' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
+                                <Product id='8' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" /> */}
 
                             </motion.div>
                         </motion.div>

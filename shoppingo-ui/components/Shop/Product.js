@@ -4,6 +4,7 @@ import { ImHeart } from "react-icons/im";
 import RatingPopUp from "../../components/PopUp/RatingPopUp";
 import { useRouter } from "next/router";
 import { useTheme } from 'next-themes';
+import {AnimatePresence, motion} from 'framer-motion';
 
 
 const Product = (props) => {
@@ -51,7 +52,15 @@ const Product = (props) => {
   // ****************** Stars ***********************
 
   return (
-    <div dir="ltr">
+    <AnimatePresence>
+
+        <motion.div 
+        key={props.id}
+        initial={{opacity:0,scale:0}} 
+        animate={{opacity:1,scale:1}} 
+        exit={{opacity:0,scale:0}}
+        transition={{ease:'easeInOut',duration:0.7}} 
+        dir="ltr">
 
           {/* //! **********************************************/}
           <div
@@ -133,7 +142,9 @@ const Product = (props) => {
           </div>
           {/* //! **********************************************/}
 
-    </div>
+        </motion.div>
+
+    </AnimatePresence>
   );
 };
 
