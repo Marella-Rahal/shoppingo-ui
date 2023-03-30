@@ -17,8 +17,8 @@ function ProductDetails(props) {
       {(close) => (
         <>
           <motion.div
-          initial={{opacity:0}} 
-          animate={{opacity:1}} 
+          initial={{opacity:0,y:'-200%',x:'-50%'}} 
+          animate={{opacity:1,y:'-50%',x:'-50%'}} 
           transition={{ease:'easeInOut',duration:0.7}} 
           className="fixed z-10 top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-col space-y-5 justify-between shadow-2xl rounded-lg bg-gray-50 w-[90%] md:w-[600px] p-3 md:p-5 text-textColor dark:text-darkBgColor">
 
