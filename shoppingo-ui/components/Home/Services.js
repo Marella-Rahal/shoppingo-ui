@@ -1,4 +1,5 @@
 import React from "react";
+import {motion} from 'framer-motion';
 
 const Services = () => {
   return (
@@ -6,8 +7,11 @@ const Services = () => {
       <h2 className="text-center">خدماتنا</h2>
 
       <div className="mt-16 flex flex-wrap justify-evenly">
-        <div
-          data-aos="zoom-in"
+        <motion.div
+          initial={{opacity:0,scale:0.5}}
+          whileInView={{opacity:1,scale:1}}
+          // viewport={{once:true}}
+          transition={{ease:'easeInOut',duration:0.7}}
           className="w-[350px] m-5 pb-2 flex flex-col items-center space-y-3  rounded-xl shadow-md shadow-shadowColor"
         >
           <img
@@ -20,10 +24,13 @@ const Services = () => {
             يسمح موقعنا بمقارنة الأسعار لنفس المنتج في عدة متاجر لمعرفة الأرخص
             بينها
           </div>
-        </div>
+        </motion.div>
 
-        <div
-          data-aos="zoom-in"
+        <motion.div
+          initial={{opacity:0,scale:0.5}}
+          whileInView={{opacity:1,scale:1}}
+          // viewport={{once:true}}
+          transition={{ease:'easeInOut',duration:0.7}}
           className="w-[350px] m-5 pb-2 flex flex-col items-center space-y-3  rounded-xl shadow-md shadow-shadowColor"
         >
           <img
@@ -35,10 +42,13 @@ const Services = () => {
           <div className="text-textColor2 dark:text-darkTextColor2 text-md text-center h-[110px]">
             يحوي موقعنا على خريطة من أجل تحديد الموقع الأقرب للمنتج المطلوب
           </div>
-        </div>
+        </motion.div>
 
-        <div
-          data-aos="zoom-in"
+        <motion.div
+          initial={{opacity:0,scale:0.5}}
+          whileInView={{opacity:1,scale:1}}
+          // viewport={{once:true}}
+          transition={{ease:'easeInOut',duration:0.7}}
           className="w-[350px] m-5 pb-2 flex flex-col items-center space-y-3  rounded-xl shadow-md shadow-shadowColor"
         >
           <img
@@ -51,7 +61,7 @@ const Services = () => {
             <div>يتيح موقعنا الدفع الإلكتروني عن طريق موقع</div>
             <div>WePay</div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

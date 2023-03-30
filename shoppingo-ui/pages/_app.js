@@ -2,9 +2,6 @@ import Head from "next/head";
 import "../styles/globals.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 import { ThemeProvider } from 'next-themes';
 
 const pageVariants = {
@@ -21,15 +18,6 @@ const pageVariants = {
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-
-  useEffect(() => {
-    AOS.init({
-      offset: 120,
-      delay: 300,
-      duration: 700,
-    });
-
-  }, []);
 
   return (
     <>
