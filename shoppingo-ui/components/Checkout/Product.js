@@ -6,7 +6,7 @@ import {AnimatePresence, motion} from 'framer-motion';
 const Product = (props) => {
   const router = useRouter();
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
 
       <motion.div
       key={props.id}

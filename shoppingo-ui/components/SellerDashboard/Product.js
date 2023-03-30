@@ -18,7 +18,7 @@ const Product = (props) => {
   },[theme])
   
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
 
       <motion.div
       key={props.id}

@@ -11,7 +11,7 @@ const RatingPopUp = (props) => {
   //*************** */
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
         {
           props.ratingPopUp && (
             

@@ -13,7 +13,7 @@ function Card(props) {
   const[AllColors,setAllColors]=useState([]);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
         <motion.div 
         key={props.value}
         initial={{opacity:0,scale:0}} 

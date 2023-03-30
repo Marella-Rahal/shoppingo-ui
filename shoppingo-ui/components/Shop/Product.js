@@ -52,7 +52,7 @@ const Product = (props) => {
   // ****************** Stars ***********************
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
 
         <motion.div 
         key={props.id}
