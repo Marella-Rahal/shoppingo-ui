@@ -18,7 +18,7 @@
 
   /* Handle */
   body::-webkit-scrollbar-thumb {
-    @apply bg-gradient-to-b from-gradientFrom to-gradientTo dark:from-darkTextColor2 dark:to-darkTextColor2;
+    @apply bg-gradient-to-b from-gradientFrom to-gradientTo dark:bg-gradient-to-bl dark:from-darkBgColor dark:to-darkTextColor2;
   }
 
   /*** slider scrollbar ***/
