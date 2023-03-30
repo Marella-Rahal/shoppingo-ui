@@ -10,8 +10,6 @@ function MyPurchases() {
   const [items, setItems] = useState([
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct:
-        'كنزة صوف قطن شتوية صيفية ربيعية خريفية موجودة في شارع الحضارة ',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -62,7 +60,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -107,7 +104,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -152,7 +148,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -197,7 +192,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -242,7 +236,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -287,7 +280,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -332,7 +324,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -377,7 +368,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -422,7 +412,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -467,7 +456,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -512,7 +500,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -557,7 +544,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -602,7 +588,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -647,7 +632,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -692,7 +676,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -737,7 +720,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -782,7 +764,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -827,7 +808,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -872,7 +852,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -917,7 +896,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -962,7 +940,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1007,7 +984,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1052,7 +1028,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1097,7 +1072,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1142,7 +1116,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1187,7 +1160,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1232,7 +1204,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1277,7 +1248,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1322,7 +1292,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1367,7 +1336,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1412,7 +1380,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1457,7 +1424,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1502,7 +1468,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1547,7 +1512,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1592,7 +1556,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1637,7 +1600,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1682,7 +1644,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1727,7 +1688,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1772,7 +1732,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1817,7 +1776,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1862,7 +1820,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1907,7 +1864,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1952,7 +1908,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -1997,7 +1952,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2042,7 +1996,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2087,7 +2040,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2132,7 +2084,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2177,7 +2128,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2222,7 +2172,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2267,7 +2216,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2312,7 +2260,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2357,7 +2304,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2402,7 +2348,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'حسن المحمود',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2447,7 +2392,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'أحمد أحمد',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2492,7 +2436,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علاء أحمد',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2537,7 +2480,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2582,7 +2524,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2627,7 +2568,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2672,7 +2612,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2717,7 +2656,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2762,7 +2700,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2807,7 +2744,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2852,7 +2788,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2897,7 +2832,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2942,7 +2876,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -2987,7 +2920,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3032,7 +2964,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3077,7 +3008,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3122,7 +3052,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3167,7 +3096,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3212,7 +3140,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3257,7 +3184,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3302,7 +3228,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3347,7 +3272,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'حسن المحمود',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3392,7 +3316,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'أحمد أحمد',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3437,7 +3360,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علاء أحمد',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3482,7 +3404,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3527,7 +3448,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3572,7 +3492,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3617,7 +3536,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3662,7 +3580,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3707,7 +3624,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3752,7 +3668,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3797,7 +3712,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3842,7 +3756,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3887,7 +3800,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3932,7 +3844,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -3977,7 +3888,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4022,7 +3932,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4067,7 +3976,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4112,7 +4020,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4157,7 +4064,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4202,7 +4108,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4247,7 +4152,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4292,7 +4196,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'حسن المحمود',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4337,7 +4240,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'أحمد أحمد',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4382,7 +4284,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علاء أحمد',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4427,7 +4328,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4472,7 +4372,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4517,7 +4416,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4562,7 +4460,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4607,7 +4504,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4652,7 +4548,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4697,7 +4592,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4742,7 +4636,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4787,7 +4680,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4832,7 +4724,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4877,7 +4768,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4922,7 +4812,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -4967,7 +4856,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5012,7 +4900,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5057,7 +4944,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5102,7 +4988,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5147,7 +5032,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5192,7 +5076,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5237,7 +5120,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'حسن المحمود',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5282,7 +5164,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'أحمد أحمد',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5327,7 +5208,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علاء أحمد',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5372,7 +5252,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5417,7 +5296,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5462,7 +5340,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5507,7 +5384,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5552,7 +5428,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5597,7 +5472,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5642,7 +5516,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5662,7 +5535,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5682,7 +5554,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5702,7 +5573,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5722,7 +5592,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5742,7 +5611,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5762,7 +5630,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5782,7 +5649,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5802,7 +5668,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5822,7 +5687,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5842,7 +5706,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5862,7 +5725,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5882,7 +5744,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'حسن المحمود',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5902,7 +5763,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'أحمد أحمد',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5922,7 +5782,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علاء أحمد',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5942,7 +5801,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5962,7 +5820,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -5982,7 +5839,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6002,7 +5858,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6022,7 +5877,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6042,7 +5896,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6062,7 +5915,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6082,7 +5934,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6102,7 +5953,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6122,7 +5972,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'غيث عثمان',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6142,7 +5991,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'رونيا عودة',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6162,7 +6010,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'علي الديوب',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6182,7 +6029,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6202,7 +6048,6 @@ function MyPurchases() {
     },
     {
       typeOfCustumer: 'ماريلا رحال',
-      TypeOfProduct: 'كنزة',
       TypeBuy: 'WePay',
       Date: '02:30 PM 14/1/2001',
       img: '../../defaultProduct.jfif',
@@ -6265,7 +6110,7 @@ function MyPurchases() {
         <div className='px-4 md:px-0'>
           {ItemsDisplayed.map((item, index) => {
             return (
-              <OneOrder value={item} key={index} page2={true} page1={false} />
+              <OneOrder key={index} id={index} page2={true} page1={false} value={item} />
             );
           })}
         </div>

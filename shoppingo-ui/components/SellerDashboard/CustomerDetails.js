@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
+import {motion} from 'framer-motion';
 
 function CustomerDetails(props) {
   const [change, setChange] = useState(true);
@@ -21,7 +22,11 @@ function CustomerDetails(props) {
     >
       {(close) => (
         <>
-          <div className="fixed z-10 top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-col justify-between shadow-2xl rounded-lg bg-gray-50 w-[90%] md:w-[600px] p-3 md:p-5">
+          <motion.div
+          initial={{opacity:0}} 
+          animate={{opacity:1}} 
+          transition={{ease:'easeInOut',duration:0.7}} 
+          className="fixed z-10 top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-col justify-between shadow-2xl rounded-lg bg-gray-50 w-[90%] md:w-[600px] p-3 md:p-5">
             <div className="flex flex-col w-full">
               {/* first row */}
               <div className="flex md:flex-row flex-col-reverse w-full justify-between md:pb-5">
@@ -98,7 +103,7 @@ function CustomerDetails(props) {
                 </button>
               )}
             </div>
-          </div>
+          </motion.div>
           <div className="z-0 relative w-screen h-screen bg-black opacity-50"></div>
         </>
       )}

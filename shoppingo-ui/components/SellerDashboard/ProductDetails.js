@@ -1,5 +1,6 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
+import {motion} from 'framer-motion';
 
 function ProductDetails(props) {
   // console.log(props.value.value);
@@ -15,7 +16,11 @@ function ProductDetails(props) {
     >
       {(close) => (
         <>
-          <div className="fixed z-10 top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-col space-y-5 justify-between shadow-2xl rounded-lg bg-gray-50 w-[90%] md:w-[600px] p-3 md:p-5 text-textColor dark:text-darkBgColor">
+          <motion.div
+          initial={{opacity:0}} 
+          animate={{opacity:1}} 
+          transition={{ease:'easeInOut',duration:0.7}} 
+          className="fixed z-10 top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-col space-y-5 justify-between shadow-2xl rounded-lg bg-gray-50 w-[90%] md:w-[600px] p-3 md:p-5 text-textColor dark:text-darkBgColor">
 
             
             <div className='flex flex-col space-y-5 md:space-y-0 md:flex-row md:justify-between md:items-center'>
@@ -86,7 +91,7 @@ function ProductDetails(props) {
                 إغلاق
               </button>
             </div>
-          </div>
+          </motion.div>
           <div className="z-0 relative w-screen h-screen bg-black opacity-50"></div>
         </>
       )}
