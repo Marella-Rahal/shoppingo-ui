@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   env: {
     mapbox_key:
-      "pk.eyJ1IjoibWFyZWxsYSIsImEiOiJjbGZ2Z2djODUwNzFlM2ZvNzVnYmx1aXRjIn0.STHXakMgCnQ_N-oi5zHO8g",
+      "pk.eyJ1IjoibWFyZWxsYSIsImEiOiJjbGZ2Z2djODUwNzFlM2ZvNzVnYmx1aXRjIn0.STHXakMgCnQ_N-oi5zHO8g;https://shoppingo-marella-rahal.vercel.app",
   },
 };
 
