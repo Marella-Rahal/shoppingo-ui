@@ -247,7 +247,7 @@ function Order() {
         <div className="py-3 mb-3 w-full font-bold flex justify-center bg-gradient-to-l from-gradientFrom to-gradientTo dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 text-white text-xl">
           طلباتي
         </div>
-        <div className="flex flex-col items-center md:flex-row w-full justify-between px-10 py-5">
+        <div className="flex flex-col items-center md:flex-row w-full justify-between px-4 md:px-8 py-5">
           <select className="mb-2 md:mb-0 rounded-lg text-textColor dark:text-darkBgColor text-end bg-darkTextColor shadow-md shadow-shadowColor  outline-none px-2 pb-1 w-[240px]">
             <option selected hidden>
               تصنيف حسب المعالجة
@@ -266,7 +266,7 @@ function Order() {
           </select>
         </div>
 
-        <div className='px-4 md:px-0'>
+        <div className='px-4 md:px-8'>
 
           
           {ItemsDisplayed.map((item, index) => {

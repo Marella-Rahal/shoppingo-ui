@@ -6088,7 +6088,7 @@ function MyPurchases() {
         <div className=" py-3 mb-3 w-full font-bold flex justify-center bg-gradient-to-l from-gradientFrom to-gradientTo dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 text-white text-xl">
           مشترياتي
         </div>
-        <div className="flex w-full flex-col items-center md:flex-row justify-between px-10 my-5">
+        <div className="flex w-full flex-col items-center md:flex-row justify-between px-4 md:px-8 my-5">
           <select className="mb-2 md:mb-0 w-[240px] text-end rounded-lg shadow-md shadow-shadowColor outline-none px-2 pb-1 bg-white text-textColor dark:text-darkBgColor">
             <option selected hidden>
               تصنيف حسب المعالجة
@@ -6107,7 +6107,7 @@ function MyPurchases() {
           </select>
         </div>
 
-        <div className='px-4 md:px-0'>
+        <div className='px-4 md:px-8'>
           {ItemsDisplayed.map((item, index) => {
             return (
               <OneOrder key={index} id={index} page2={true} page1={false} value={item} />

@@ -118,6 +118,9 @@ const Map = ({ coords, sellerRoute }) => {
   });
   const [zoom, setZoom] = useState(12);
 
+  //! to change the coordinates of the personal marker without the need to remove it
+  const [marker,setMarker]=useState(null);
+
   //! to make sure the map initialize just once
   const [map,setMap]=useState();
   useEffect(()=>{
@@ -155,23 +158,30 @@ const Map = ({ coords, sellerRoute }) => {
   
     if ( ( map != undefined ) && ( coords.length > 0 ) ){
         
-          //* change the position for the personal marker
-          const p=document.querySelector('.removablePerson');
-          if (p) p.remove()
-          
-          const el = document.createElement("div");
-          el.className = "marker";
-          el.className = "removablePerson"
-          const root = ReactDOM.createRoot(el);
-          root.render(
-            <Marker
-              image="../../default.jpg"
-              color={sellerRoute ? "blue" : "#111d4a"}
-            />
-          );
-          new mapboxgl.Marker(el, { offset: [0, -10] })
-            .setLngLat(coords)
-            .addTo(map);    
+          if(!marker){
+              
+              const el = document.createElement("div");
+              el.className = "marker";
+              el.className = "removablePerson"
+              const root = ReactDOM.createRoot(el);
+              root.render(
+                <Marker
+                  image="../../default.jpg"
+                  color={sellerRoute ? "blue" : "#111d4a"}
+                />
+              );
+              const newMarker=new mapboxgl.Marker(el, { offset: [0, -10] })
+                .setLngLat(coords)
+                .addTo(map);
+                
+              setMarker(newMarker);
+
+          }else{
+
+              // If marker is already set, update its position
+              marker.setLngLat(coords);
+
+          }  
 
     }
 
