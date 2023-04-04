@@ -248,7 +248,7 @@ function Order() {
           طلباتي
         </div>
         <div className="flex flex-col items-center md:flex-row w-full justify-between px-4 md:px-8 py-5">
-          <select className="mb-2 md:mb-0 rounded-lg text-textColor dark:text-darkBgColor text-end bg-darkTextColor shadow-md shadow-shadowColor  outline-none px-2 pb-1 w-[240px]">
+          <select className="mb-5 md:mb-0 rounded-lg text-textColor dark:text-darkBgColor text-end bg-darkTextColor shadow-md shadow-shadowColor  outline-none px-2 pb-1 w-[190px]">
             <option selected hidden>
               تصنيف حسب المعالجة
             </option>
@@ -257,7 +257,7 @@ function Order() {
             <option value="allOrders">كل الطلبات</option>
           </select>
 
-          <select className="rounded-lg text-textColor dark:text-darkBgColor text-end bg-darkTextColor shadow-md shadow-shadowColor  outline-none px-2 pb-1 w-[240px]">
+          <select className="rounded-lg text-textColor dark:text-darkBgColor text-end bg-darkTextColor shadow-md shadow-shadowColor  outline-none px-2 pb-1 w-[190px]">
             <option selected hidden>
               تصنيف حسب التاريخ
             </option>

@@ -6089,7 +6089,7 @@ function MyPurchases() {
           مشترياتي
         </div>
         <div className="flex w-full flex-col items-center md:flex-row justify-between px-4 md:px-8 my-5">
-          <select className="mb-2 md:mb-0 w-[240px] text-end rounded-lg shadow-md shadow-shadowColor outline-none px-2 pb-1 bg-white text-textColor dark:text-darkBgColor">
+          <select className="mb-5 md:mb-0 w-[190px] text-end rounded-lg shadow-md shadow-shadowColor outline-none px-2 pb-1 bg-white text-textColor dark:text-darkBgColor">
             <option selected hidden>
               تصنيف حسب المعالجة
             </option>
@@ -6097,7 +6097,7 @@ function MyPurchases() {
             <option value="NotYet">لم تتم المعالجة بعد</option>
             <option value="AllOrder">كل الطلبات</option>
           </select>
-          <select className="w-[240px] text-end rounded-lg shadow-md shadow-shadowColor outline-none px-2 pb-1 bg-white text-textColor dark:text-darkBgColor">
+          <select className="w-[190px] text-end rounded-lg shadow-md shadow-shadowColor outline-none px-2 pb-1 bg-white text-textColor dark:text-darkBgColor">
             <option selected hidden>
               تصنيف حسب التاريخ
             </option>
