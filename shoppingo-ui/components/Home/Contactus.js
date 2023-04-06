@@ -33,7 +33,7 @@ const Contactus = () => {
 
         </div>
 
-        <div className='mt-10 flex justify-center items-center'>
+        <div className='mt-16 flex justify-center items-center'>
 
             <button className='px-3 py-1'>إرسال</button>
 
@@ -44,6 +44,7 @@ const Contactus = () => {
             /* width */
             #textarea::-webkit-scrollbar {
                 width: 0px;
+                height:0px;
             }
 
         `}</style>
