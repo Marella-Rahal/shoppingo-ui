@@ -1,9 +1,56 @@
 import React from 'react'
 import Chart from '../../../components/SellerDashboard/Chart'
 import Navbar from '../../../components/Navbar'
-import Product from '../../../components/SellerDashboard/Product'
 import { useRouter } from "next/router";
+import Placeholder from "../../../components/SellerDashboard/Placeholder";
+import dynamic from 'next/dynamic';
+const DynamicProduct=dynamic(()=>import('../../../components/SellerDashboard/Product'),{
+  loading: () => <Placeholder/> ,
+  ssr: false,
+})
 
+const products=[
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  }
+]
 
 const Index = () => {
   const router = useRouter();
@@ -72,49 +119,16 @@ const Index = () => {
 
         {/* Products */}
         <div className="px-4 md:px-8 flex justify-evenly flex-wrap">
+
+          {
+            products.map((one,index)=>{
+              return <DynamicProduct key={index} id="1" 
+              img={one.img}
+              price={one.price}
+              withOffer={one.withOffer}/>
+            })
+          }
           
-            <Product
-            id="1" 
-            img="../product.jpg"
-            price="5000000000000000000"
-            withOffer={false}
-            />
-            <Product
-            id="2" 
-            img="../product.jpg"
-            price="50000"
-            withOffer={true}
-            />
-            <Product
-            id="3" 
-            img="../product.jpg"
-            price="50000"
-            withOffer={false}
-            />
-            <Product
-            id="4" 
-            img="../product.jpg"
-            price="50000"
-            withOffer={true}
-            />
-            <Product
-            id="5" 
-            img="../product.jpg"
-            price="50000"
-            withOffer={false}
-            />
-            <Product
-            id="6" 
-            img="../product.jpg"
-            price="50000"
-            withOffer={true}
-            />
-            <Product
-            id="7" 
-            img="../product.jpg"
-            price="50000"
-            withOffer={false}
-            />
           
         </div>
 

@@ -14,7 +14,7 @@ const Seller = (props) => {
         exit={{opacity:0,scale:0}}
         transition={{ease:'easeInOut',duration:0.7}}
         style={{ boxShadow: "0px 0px 5px 5px rgba(0,0,0,0.15)" }}
-        className="flex justify-end items-center pl-3 py-3 space-x-3 rounded-lg  mt-7 lg:mr-5 lg:h-[190px] w-full lg:w-[425px]"
+        className="flex justify-end items-center pl-3 py-3 space-x-3 rounded-lg  mt-7 lg:mx-3 lg:h-[190px] w-full lg:w-[425px]"
       >
         <div className="flex flex-col text-end space-y-2 ">
           <h6

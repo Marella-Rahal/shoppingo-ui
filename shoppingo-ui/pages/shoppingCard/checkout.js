@@ -1,8 +1,262 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion';
-import Product from '../../components/Checkout/Product'
 import Navbar from '../../components/Navbar';
 import CheckoutForm from '../../components/Checkout/CheckoutForm';
+import Placeholder from "../../components/Checkout/Placeholder";
+import dynamic from 'next/dynamic';
+const DynamicProduct=dynamic(()=>import('../../components/Checkout/Product'),{
+  loading: () => <Placeholder/> ,
+  ssr: false,
+})
+
+const productsOnLine=[
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onLine"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onLine"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onLine"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onLine"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onLine"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onLine"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onLine"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onLine"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onLine"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onLine"
+    },   
+]
+
+const productsOnHand=[
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onHand"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onHand"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onHand"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onHand"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onHand"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onHand"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"onHand"
+    },
+]
+
+const products=[
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"both"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"both"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"both"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"both"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"both"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"both"
+    },
+    {
+        shopId:'1',
+        img:'../product1.jpg',
+        shopName:"For_you",
+        color:'red',
+        qty:'1000000000',
+        size:'7xl',
+        price:'1000000000',
+        type:"both"
+    },
+]
 
 const Checkout = () => {
     // ! to set constraint on how much i can drag the slider to the left
@@ -88,14 +342,11 @@ const Checkout = () => {
                                 // dragConstraints={{ right: 0, left: -width }}
                                 className="flex"
                             >
-                                <Product id='1' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000000' type="onHand" />
-                                <Product id='2' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='3' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='4' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='5' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='6' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='7' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
-                                <Product id='8' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onHand" />
+                                {
+                                    productsOnHand.map((one,index)=>{
+                                        return <DynamicProduct key={index} id={index} shopId={one.shopId} img={one.img} shopName={one.shopName} color={one.color} qty={one.qty} size={one.size} price={one.price} type={one.type}/>
+                                    })
+                                }
 
                             </motion.div>
                         </motion.div>
@@ -124,14 +375,11 @@ const Checkout = () => {
                                 // dragConstraints={{ right: 0, left: -width }}
                                 className="flex"
                             >
-                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='2' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                {/* <Product id='3' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='4' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='5' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='6' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='7' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" />
-                                <Product id='8' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="onLine" /> */}
+                                {
+                                    productsOnLine.map((one,index)=>{
+                                        return <DynamicProduct key={index} id={index} shopId={one.shopId} img={one.img} shopName={one.shopName} color={one.color} qty={one.qty} size={one.size} price={one.price} type={one.type}/>
+                                    })
+                                }
 
                             </motion.div>
                         </motion.div>
@@ -161,14 +409,11 @@ const Checkout = () => {
                                 // dragConstraints={{ right: 0, left: -width }}
                                 className="flex"
                             >
-                                <Product id='1' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                                <Product id='2' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                                <Product id='3' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                                {/* <Product id='4' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                                <Product id='5' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                                <Product id='6' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                                <Product id='7' shopId='1' img='../product1.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" />
-                                <Product id='8' shopId='1' img='../product.jpg' shopName="For_you" color='red' qty='1000000000' size='7xl' price='1000000000' type="both" /> */}
+                                {
+                                    products.map((one,index)=>{
+                                        return <DynamicProduct key={index} id={index} shopId={one.shopId} img={one.img} shopName={one.shopName} color={one.color} qty={one.qty} size={one.size} price={one.price} type={one.type}/>
+                                    })
+                                }
 
                             </motion.div>
                         </motion.div>

@@ -1,8 +1,133 @@
 import React from "react";
 import { MdDelete } from "react-icons/md";
-import Product from "../../components/ShoppingCard/Product";
 import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar";
+import Placeholder from "../../components/ShoppingCard/Placeholder";
+import dynamic from 'next/dynamic';
+const DynamicProduct=dynamic(()=>import('../../components/ShoppingCard/Product'),{
+  loading: () => <Placeholder/> ,
+  ssr: false,
+})
+
+const products=[
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+  {
+    img:"product.jpg",
+    shopName:"For_you",
+    shopId:"6",
+    color:"red",
+    size:"XXL",
+    price:"500000",
+    qty:"10000",
+  },
+]
 
 const ShoppingCard = () => {
   const router = useRouter();
@@ -22,66 +147,18 @@ const ShoppingCard = () => {
           {/* Product */}
 
           <div className="flex justify-evenly flex-wrap">
-            <Product
-              id="1"
-              img="product.jpg"
-              shopName="For_you"
-              shopId="1"
-              color="red"
-              size="XXL"
-              price="500000"
-              qty="10000"
-            />
-            <Product
-              id="2"
-              img="product.jpg"
-              shopName="For_you"
-              shopId="2"
-              color="red"
-              size="XXL"
-              price="500000"
-              qty="10000"
-            />
-            <Product
-              id="3"
-              img="product.jpg"
-              shopName="For_you"
-              shopId="3"
-              color="red"
-              size="XXL"
-              price="500000"
-              qty="10000"
-            />
-            <Product
-              id="4"
-              img="product.jpg"
-              shopName="For_you"
-              shopId="4"
-              color="red"
-              size="XXL"
-              price="500000"
-              qty="10000"
-            />
-            <Product
-              id="5"
-              img="product.jpg"
-              shopName="For_you"
-              shopId="5"
-              color="red"
-              size="XXL"
-              price="500000"
-              qty="10000"
-            />
-            <Product
-              id="6"
-              img="product.jpg"
-              shopName="For_you"
-              shopId="6"
-              color="red"
-              size="XXL"
-              price="500000"
-              qty="10000"
-            />
+            {
+              products.map((one,index)=>{
+                return <DynamicProduct key={index} id={index}
+                img={one.img}
+                shopName={one.shopName}
+                shopId={one.shopId}
+                color={one.color}
+                size={one.size}
+                price={one.price}
+                qty={one.qty}/>
+              })
+            }
           </div>
         </div>
 

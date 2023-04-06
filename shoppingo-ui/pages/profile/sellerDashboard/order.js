@@ -3,7 +3,12 @@ import ReactPaginate from 'react-paginate';
 import Navbar from '../../../components/Navbar';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { useState } from 'react';
-import OneOrder from '../../../components/SellerDashboard/OneOrder';
+import Placeholder from "../../../components/SellerDashboard/OneOrderPlaceholder";
+import dynamic from 'next/dynamic';
+const DynamicOrder=dynamic(()=>import('../../../components/SellerDashboard/OneOrder'),{
+  loading: () => <Placeholder/> ,
+  ssr: false,
+})
 
 function Order() {
   // constants
@@ -271,7 +276,7 @@ function Order() {
           
           {ItemsDisplayed.map((item, index) => {
             return (
-              <OneOrder id={index} value={item} key={index} page1={true} page2={false} />
+              <DynamicOrder id={index} value={item} key={index} page1={true} page2={false} />
             );
           })}
 

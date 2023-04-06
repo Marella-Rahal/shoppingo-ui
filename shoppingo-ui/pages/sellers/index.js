@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Seller from "../../components/Sellers/Seller";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import Link from "next/link";
@@ -8,6 +7,12 @@ import axios from "axios";
 import mapboxgl from "mapbox-gl";
 import usePosition from "../../hooks/usePosition";
 import Navbar from "../../components/Navbar";
+import Placeholder from "../../components/Sellers/Placeholder";
+import dynamic from 'next/dynamic';
+const DynamicSeller=dynamic(()=>import('../../components/Sellers/Seller'),{
+  loading: () => <Placeholder/> ,
+  ssr: false,
+})
 
 mapboxgl.accessToken = process.env.mapbox_key;
 
@@ -147,7 +152,7 @@ const Sellers = () => {
           <div className="flex justify-evenly flex-wrap pb-10">
             {stores.map((store, index) => {
               return (
-                <Seller
+                <DynamicSeller
                   key={index}
                   id={store.id}
                   name={store.name}

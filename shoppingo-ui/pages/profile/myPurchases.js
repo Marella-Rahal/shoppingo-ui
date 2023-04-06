@@ -3,7 +3,12 @@ import ReactPaginate from 'react-paginate';
 import Navbar from '../../components/Navbar';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { useState } from 'react';
-import OneOrder from '../../components/SellerDashboard/OneOrder';
+import Placeholder from "../../components/SellerDashboard/OneOrderPlaceholder";
+import dynamic from 'next/dynamic';
+const DynamicOrder=dynamic(()=>import('../../components/SellerDashboard/OneOrder'),{
+  loading: () => <Placeholder/> ,
+  ssr: false,
+})
 
 function MyPurchases() {
   // constants
@@ -6110,7 +6115,7 @@ function MyPurchases() {
         <div className='px-4 md:px-8'>
           {ItemsDisplayed.map((item, index) => {
             return (
-              <OneOrder key={index} id={index} page2={true} page1={false} value={item} />
+              <DynamicOrder key={index} id={index} page2={true} page1={false} value={item} />
             );
           })}
         </div>

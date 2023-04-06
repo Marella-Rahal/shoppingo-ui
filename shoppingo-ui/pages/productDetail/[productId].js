@@ -8,18 +8,186 @@ import {
 } from "react-icons/md";
 import Sizes from "../../components/ProductDetail/Sizes";
 import Colors from "../../components/ProductDetail/Colors";
-import Product from "../../components/Shop/Product";
-import Loading from "../../components/Loading";
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
 import NotePopUp, { showPopUpNote } from "../../components/PopUp/NotePopUp";
 import usePosition from "../../hooks/usePosition";
 import Navbar from "../../components/Navbar";
 import { useRouter } from "next/router";
+
+import dynamic from "next/dynamic";
+import Loading from "../../components/Loading";
 const Map = dynamic(() => import("../../components/Map/Map"), {
   loading: () => <Loading />,
   ssr: false,
 });
+import Placeholder from "../../components/Shop/Placeholder";
+const DynamicProduct=dynamic(()=>import('../../components/Shop/Product'),{
+  loading: () => <Placeholder/> ,
+  ssr: false,
+})
+
+const products=[
+  {
+    img:'../product.jpg',
+    fav:true,
+    offer:true,
+    oPrice:100000,
+    nPrice:70000,
+    rating:"4.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:true,
+    offer:false,
+    oPrice:'',
+    nPrice:70000,
+    rating:"3.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:false,
+    offer:true,
+    oPrice:100000,
+    nPrice:70000,
+    rating:"0.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:false,
+    offer:false,
+    oPrice:'',
+    nPrice:70000,
+    rating:"4.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:true,
+    offer:true,
+    oPrice:100000,
+    nPrice:70000,
+    rating:"1.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:false,
+    offer:false,
+    oPrice:'',
+    nPrice:70000,
+    rating:"0"
+  },
+  {
+    img:'../product.jpg',
+    fav:true,
+    offer:true,
+    oPrice:100000,
+    nPrice:70000,
+    rating:"4.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:true,
+    offer:false,
+    oPrice:"",
+    nPrice:70000,
+    rating:"5.0"
+  },
+  {
+    img:'../product.jpg',
+    fav:false,
+    offer:true,
+    oPrice:200000,
+    nPrice:150000,
+    rating:"2.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:false,
+    offer:true,
+    oPrice:100000,
+    nPrice:70000,
+    rating:"3.0"
+  },
+  {
+    img:'../product.jpg',
+    fav:true,
+    offer:true,
+    oPrice:100000,
+    nPrice:70000,
+    rating:"4.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:true,
+    offer:false,
+    oPrice:'',
+    nPrice:70000,
+    rating:"3.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:false,
+    offer:true,
+    oPrice:100000,
+    nPrice:70000,
+    rating:"0.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:false,
+    offer:false,
+    oPrice:'',
+    nPrice:70000,
+    rating:"4.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:true,
+    offer:true,
+    oPrice:100000,
+    nPrice:70000,
+    rating:"1.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:false,
+    offer:false,
+    oPrice:'',
+    nPrice:70000,
+    rating:"0"
+  },
+  {
+    img:'../product.jpg',
+    fav:true,
+    offer:true,
+    oPrice:100000,
+    nPrice:70000,
+    rating:"4.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:true,
+    offer:false,
+    oPrice:"",
+    nPrice:70000,
+    rating:"5.0"
+  },
+  {
+    img:'../product.jpg',
+    fav:false,
+    offer:true,
+    oPrice:200000,
+    nPrice:150000,
+    rating:"2.5"
+  },
+  {
+    img:'../product.jpg',
+    fav:false,
+    offer:true,
+    oPrice:100000,
+    nPrice:70000,
+    rating:"3.0"
+  },
+]
 
 //***********The product images****************/
 const images = ["../../product.jpg", "../../product1.jpg"];
@@ -280,96 +448,11 @@ const ProductId = () => {
             // dragConstraints={{ right: 0, left: -width }}
             className="flex"
           >
-            <Product
-              id="1"
-              img="../product.jpg"
-              fav={true}
-              offer={true}
-              oPrice="100000"
-              nPrice="50000"
-              rating="4.5"
-            />
-            <Product
-              id="2"
-              img="../product.jpg"
-              fav={false}
-              offer={false}
-              oPrice=""
-              nPrice="200000"
-              rating="5.0"
-            />
-            <Product
-              id="3"
-              img="../product.jpg"
-              fav={false}
-              offer={true}
-              oPrice="75000"
-              nPrice="40000"
-              rating="3.0"
-            />
-            <Product
-              id="4"
-              img="../product.jpg"
-              fav={true}
-              offer={false}
-              oPrice=""
-              nPrice="500000"
-              rating="2.5"
-            />
-            <Product
-              id="5"
-              img="../product.jpg"
-              fav={true}
-              offer={true}
-              oPrice="500000"
-              nPrice="400000"
-              rating="2.0"
-            />
-            <Product
-              id="6"
-              img="../product.jpg"
-              fav={false}
-              offer={false}
-              oPrice=""
-              nPrice="50000"
-              rating="3.0"
-            />
-            <Product
-              id="7"
-              img="../product.jpg"
-              fav={true}
-              offer={false}
-              oPrice=""
-              nPrice="50000"
-              rating="1.5"
-            />
-            <Product
-              id="8"
-              img="../product.jpg"
-              fav={true}
-              offer={false}
-              oPrice=""
-              nPrice="50000"
-              rating="3.5"
-            />
-            <Product
-              id="9"
-              img="../product.jpg"
-              fav={true}
-              offer={false}
-              oPrice=""
-              nPrice="50000"
-              rating="2.5"
-            />
-            <Product
-              id="10"
-              img="../product.jpg"
-              fav={true}
-              offer={false}
-              oPrice=""
-              nPrice="50000"
-              rating="1.0"
-            />
+            {
+              products.map((one,index)=>{
+                return <DynamicProduct key={index} id={index} img={one.img} fav={one.fav} offer={one.offer} oPrice={one.oPrice} nPrice={one.nPrice} rating={one.rating}/>
+              })
+            }
           </motion.div>
         </motion.div>
       </div>
