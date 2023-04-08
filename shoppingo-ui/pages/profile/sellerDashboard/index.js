@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from "react";
 import Chart from '../../../components/SellerDashboard/Chart'
 import Navbar from '../../../components/Navbar'
 import { useRouter } from "next/router";
@@ -9,7 +9,90 @@ const DynamicProduct=dynamic(()=>import('../../../components/SellerDashboard/Pro
   ssr: false,
 })
 
+import InfiniteScroll from "react-infinite-scroll-component";
+import { ColorRing } from "react-loader-spinner";
+
 const products=[
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
   {
     img:"../product.jpg",
     price:"5000000000000000000",
@@ -55,8 +138,47 @@ const products=[
 const Index = () => {
   const router = useRouter();
 
+  //! this is tha data for InfiniteScrolling
+  const [productsPerPage,setProductsPerPage]=useState(12);
+  const [page,setPage]=useState(1);
+  const [displayProducts,setDisplayProducts] = useState(()=>{
+    return productsPerPage>=products.length ? products : products.slice(0,productsPerPage)
+  });
+  const [hasMore,setHasMore]=useState(()=>{
+    return productsPerPage>=products.length ? false : true
+  });
+
+  //*******************************************/
+  console.log('displayProducts :',displayProducts.length,'hasMore :',hasMore);
+  //*******************************************/
+
+  const displayNext=()=>{
+
+    if(products.length-displayProducts.length<=productsPerPage){
+
+      setTimeout(()=>{
+
+        setDisplayProducts(prev=> [...prev,...products.slice(page*productsPerPage,products.length)]);
+        setHasMore(false);
+
+      },1000)
+
+    }else{
+
+      setTimeout(()=>{
+
+        setDisplayProducts(prev => [...prev,...products.slice( (page*productsPerPage) , (page*productsPerPage)+productsPerPage )]);
+        setPage(prev=>prev+1)
+
+      },1000)
+
+    }
+
+  }
+  //! ****************************************
+
   return (
-    <div>
+    <>
       <Navbar />
 
       <div className='pt-28 pb-10 flex flex-col space-y-10'>
@@ -118,22 +240,45 @@ const Index = () => {
         </div>
 
         {/* Products */}
-        <div className="px-4 md:px-8 flex justify-evenly flex-wrap">
 
-          {
-            products.map((one,index)=>{
-              return <DynamicProduct key={index} id="1" 
-              img={one.img}
-              price={one.price}
-              withOffer={one.withOffer}/>
-            })
-          }
-          
-          
-        </div>
+        <InfiniteScroll
+            dataLength={displayProducts.length}
+            next={displayNext}
+            hasMore={hasMore}
+            loader={
+              <div className="flex justify-center items-center my-5">
+                <ColorRing
+                height="50"
+                width="50"
+                colors={['gray','gray','gray','gray','gray']}
+                />
+              </div>  
+            }
+            endMessage={
+              <div className="flex justify-center items-center my-5">
+                <b>تهانينا ! لقد رأيت كل المنتجات</b>
+              </div>
+            }
+        >
+  
+              <div className="px-4 md:px-8 flex justify-evenly flex-wrap">
+
+                  {
+                    displayProducts.map((one,index)=>{
+                      return <DynamicProduct key={index} id={index} 
+                      img={one.img}
+                      price={one.price}
+                      withOffer={one.withOffer}/>
+                    })
+                  }
+
+              </div>  
+
+        </InfiniteScroll>
 
       </div>
-    </div>
+
+    </>
   )
 }
 

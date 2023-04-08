@@ -14,11 +14,13 @@ const DynamicSeller=dynamic(()=>import('../../components/Sellers/Seller'),{
   ssr: false,
 })
 
+import InfiniteScroll from "react-infinite-scroll-component";
+import { ColorRing } from "react-loader-spinner";
+
 mapboxgl.accessToken = process.env.mapbox_key;
 
 const data = [
   {
-    id: 1,
     coo: [36.720798, 34.725587],
     name: "For_you",
     address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
@@ -26,7 +28,6 @@ const data = [
     time: "",
   },
   {
-    id: 2,
     coo: [36.720798, 34.7254],
     name: "For_you",
     address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
@@ -34,7 +35,6 @@ const data = [
     time: "",
   },
   {
-    id: 3,
     coo: [36.7206, 34.725587],
     name: "For_you",
     address:
@@ -43,7 +43,6 @@ const data = [
     time: "",
   },
   {
-    id: 4,
     coo: [36.6, 34.725587],
     name: "For_you",
     address:
@@ -52,7 +51,6 @@ const data = [
     time: "",
   },
   {
-    id: 5,
     coo: [36.7206, 34.725],
     name: "For_you",
     address:
@@ -61,7 +59,236 @@ const data = [
     time: "",
   },
   {
-    id: 6,
+    coo: [36.55, 34.725587],
+    name: "For_you",
+    address:
+      " سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.720798, 34.725587],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.720798, 34.7254],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.7206, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.6, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.7206, 34.725],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.55, 34.725587],
+    name: "For_you",
+    address:
+      " سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.720798, 34.725587],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.720798, 34.7254],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.7206, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.6, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.7206, 34.725],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.55, 34.725587],
+    name: "For_you",
+    address:
+      " سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.720798, 34.725587],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.720798, 34.7254],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.7206, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.6, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.7206, 34.725],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.55, 34.725587],
+    name: "For_you",
+    address:
+      " سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.720798, 34.725587],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.720798, 34.7254],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.7206, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.6, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.7206, 34.725],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.55, 34.725587],
+    name: "For_you",
+    address:
+      " سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.720798, 34.725587],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.720798, 34.7254],
+    name: "For_you",
+    address: "سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.7206, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.6, 34.725587],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
+    coo: [36.7206, 34.725],
+    name: "For_you",
+    address:
+      "سوريا حمص شارع الحضارة مقابل الإطفائية سوريا حمص شارع الحضارة مقابل الإطفائية ",
+    dist: "",
+    time: "",
+  },
+  {
     coo: [36.55, 34.725587],
     name: "For_you",
     address:
@@ -128,14 +355,52 @@ const Sellers = () => {
   };
   //******************************************************/
 
+  //! this is tha data for InfiniteScrolling
+  const [storesPerPage,setStoresPerPage]=useState(9);
+  const [page,setPage]=useState(1);
+  const [displayStores,setDisplayStores] = useState(()=>{
+    return storesPerPage>=stores.length ? stores : stores.slice(0,storesPerPage)
+  });
+  const [hasMore,setHasMore]=useState(()=>{
+    return storesPerPage>=stores.length ? false : true
+  });
+
+  //*******************************************/
+  console.log('displayStores :',displayStores.length,'hasMore :',hasMore);
+  //*******************************************/
+
+  const displayNext=()=>{
+
+    if(stores.length-displayStores.length<=storesPerPage){
+
+      setTimeout(()=>{
+
+        setDisplayStores(prev=> [...prev,...stores.slice(page*storesPerPage,stores.length)]);
+        setHasMore(false);
+
+      },1000)
+
+    }else{
+
+      setTimeout(()=>{
+
+        setDisplayStores(prev => [...prev,...stores.slice( (page*storesPerPage) , (page*storesPerPage)+storesPerPage )]);
+        setPage(prev=>prev+1)
+
+      },1000)
+
+    }
+
+  }
+  //! ****************************************
+
 
   return (
     <>
       <NotePopUp noteMsg={noteMsg} />
       <Navbar/>
-      <div className="pt-28 pb-10 w-full min-h-screen px-4 md:px-8 flex flex-col justify-between">
-        {/* first div */}
-        <div className="flex flex-col space-y-3">
+      <div className="pt-28 pb-14 w-full min-h-screen px-4 md:px-8 flex flex-col space-y-4">
+
           {/* Search */}
           <div className="flex self-center h-[37px]">
             <label className="bg-white rounded-l-full shadow-sm shadow-shadowColor cursor-pointer px-2 py-[5px] text-textColor flex justify-center items-center">
@@ -148,36 +413,63 @@ const Sellers = () => {
             />
           </div>
 
-          {/* stores */}
-          <div className="flex justify-evenly flex-wrap pb-10">
-            {stores.map((store, index) => {
-              return (
-                <DynamicSeller
-                  key={index}
-                  id={store.id}
-                  name={store.name}
-                  address={store.address}
-                  coo={store.coo}
-                  dist={store.dist}
-                  time={store.time}
-                />
-              );
-            })}
+          {/* locate stores on map */}
+          <div className="flex space-x-2 self-center text-[13px]">
+
+              <Link
+                href="/sellers/locations"
+                className="underline hover:scale-[1.1] text-effectColor"
+              >
+                هنا
+              </Link>
+              <span className="dark:text-darkTextColor">لرؤية موقع المتاجر اضغط </span>
+              <FaMapMarkerAlt className="text-effectColor self-center" />
+
           </div>
-        </div>
 
-        {/* locater second div */}
-        <div className="flex space-x-2 self-center">
-          <Link
-            href="/sellers/locations"
-            className="underline hover:scale-[1.1] text-effectColor"
+          {/* stores */}
+          <InfiniteScroll
+              dataLength={displayStores.length}
+              next={displayNext}
+              hasMore={hasMore}
+              loader={
+                <div className="flex justify-center items-center my-5">
+                  <ColorRing
+                  height="50"
+                  width="50"
+                  colors={['gray','gray','gray','gray','gray']}
+                  />
+                </div>  
+              }
+              endMessage={
+                <div className="flex justify-center items-center my-5">
+                  <b>تهانينا ! لقد رأيت كل المتاجر</b>
+                </div>
+              }
           >
-            هنا
-          </Link>
-          <span className="dark:text-darkTextColor">لرؤية موقع المتاجر اضغط </span>
+    
+              <div className="flex justify-evenly flex-wrap">
 
-          <FaMapMarkerAlt className="text-effectColor self-center" />
-        </div>
+              {
+                  displayStores.map((store, index) => {
+                    return (
+                      <DynamicSeller
+                        key={index}
+                        id={index}
+                        name={store.name}
+                        address={store.address}
+                        coo={store.coo}
+                        dist={store.dist}
+                        time={store.time}
+                      />
+                    );
+                  })
+              }
+
+              </div>  
+
+          </InfiniteScroll>
+        
       </div>
     </>
   );
