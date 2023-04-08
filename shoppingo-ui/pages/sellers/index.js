@@ -399,10 +399,10 @@ const Sellers = () => {
     <>
       <NotePopUp noteMsg={noteMsg} />
       <Navbar/>
-      <div className="pt-28 pb-14 w-full min-h-screen px-4 md:px-8 flex flex-col space-y-4">
+      <div className="pt-28 pb-14 w-full min-h-screen flex flex-col space-y-5">
 
           {/* Search */}
-          <div className="flex self-center h-[37px]">
+          <div className="mx-4 md:mx-8 flex self-center h-[37px]">
             <label className="bg-white rounded-l-full shadow-sm shadow-shadowColor cursor-pointer px-2 py-[5px] text-textColor flex justify-center items-center">
               <BiSearchAlt2 className="w-[20px] h-[20px] hover:scale-[1.1]" />
             </label>
@@ -414,7 +414,7 @@ const Sellers = () => {
           </div>
 
           {/* locate stores on map */}
-          <div className="flex space-x-2 self-center text-[13px]">
+          <div className="mx-4 md:mx-8 flex space-x-2 self-center text-[13px]">
 
               <Link
                 href="/sellers/locations"
@@ -448,7 +448,7 @@ const Sellers = () => {
               }
           >
     
-              <div className="flex justify-evenly flex-wrap">
+              <div className="px-4 md:px-8 flex justify-evenly flex-wrap">
 
               {
                   displayStores.map((store, index) => {
