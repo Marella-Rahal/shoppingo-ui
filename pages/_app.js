@@ -33,6 +33,12 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#121212"/>
         <link rel="icon" href="logo.svg" />
+
+        {/* 𝘀𝗲𝘁𝘁𝗶𝗻𝗴 𝘂𝗽 𝗰𝗮𝗶𝗿𝗼 𝗳𝗼𝗻𝘁 */}
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
+        <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet"/>
+
       </Head>
 
       {/* //todo for dark mode  */}

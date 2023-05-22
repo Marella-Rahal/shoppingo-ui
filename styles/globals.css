@@ -41,6 +41,8 @@
   }
 
   body {
+    /* 𝘀𝗲𝘁𝘁𝗶𝗻𝗴 𝘂𝗽 𝗰𝗮𝗶𝗿𝗼 𝗳𝗼𝗻𝘁 */
+    font-family: 'Cairo', sans-serif;
     @apply bg-bgColor dark:bg-darkBgColor text-textColor dark:text-darkTextColor tracking-wide
   }
 
