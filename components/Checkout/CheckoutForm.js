@@ -4,24 +4,24 @@ const CheckoutForm = (props) => {
   return (
     <div className={props.pos?'hidden lg:flex flex-col space-y-7':'flex lg:hidden flex-col space-y-7'}>
         <div className='flex space-x-3'>
-            <input type="text" placeholder='الاسم الأخير' className='text-end outline-none py-1 px-2 w-1/3 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-effectColor' required />
-            <input type="text" placeholder='الاسم الأوسط' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-effectColor  w-1/3' required />
-            <input type="text" placeholder='الاسم الأول' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-effectColor w-1/3' required />
+            <input type="text" placeholder='الاسم الأخير' className='text-end outline-none py-1 px-2 w-1/3 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-darkTextColor2' required />
+            <input type="text" placeholder='الاسم الأوسط' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-darkTextColor2  w-1/3' required />
+            <input type="text" placeholder='الاسم الأول' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-darkTextColor2 w-1/3' required />
         </div>
 
-        <input type="email" placeholder='الإيميل' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-effectColor' required />
+        <input type="email" placeholder='الإيميل' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-darkTextColor2' required />
 
-        <input type="number" placeholder='+963' className='outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-effectColor' required />
+        <input type="number" placeholder='+963' className='outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-darkTextColor2' required />
 
         <div className='flex space-x-3'>
 
-            <input type="text" placeholder='المحافظة' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-effectColor w-1/2' required />
+            <input type="text" placeholder='المحافظة' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-darkTextColor2 w-1/2' required />
 
-            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md w-1/2 border-2 border-textColor dark:border-transparent disabled:bg-white disabled:text-textColor' disabled={true} />
+            <input type="text" value='سوريا' className='text-end outline-none py-1 px-2 rounded-md w-1/2 border-2 border-textColor dark:border-transparent disabled:bg-white disabled:text-textColor dark:disabled:text-darkBgColor' disabled={true} />
 
         </div>
 
-        <input type="text" placeholder='العنوان' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-effectColor' required />
+        <input type="text" placeholder='العنوان' className='text-end outline-none py-1 px-2 rounded-md border-2 border-textColor  focus:border-effectColor dark:border-transparent dark:focus:border-darkTextColor2' required />
 
         {/* //! total Price */}
 

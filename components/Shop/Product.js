@@ -64,7 +64,7 @@ const Product = (props) => {
 
           {/* //! **********************************************/}
           <div
-            className="relative flex flex-col space-y-3 pb-3 w-[250px] h-fit rounded-lg shadow-md shadow-shadowColor m-5"
+            className="relative flex flex-col space-y-3 pb-3 w-[250px] h-fit rounded-lg shadow-sm shadow-shadowColor m-5"
           >
                 {/* section 1 */}
 

@@ -16,7 +16,7 @@ const Product = (props) => {
       transition={{ease:'easeInOut',duration:0.7}} 
       dir="ltr">
 
-        <div className="relative flex flex-col w-[200px] rounded-md shadow-md shadow-shadowColor font-bold text-[13px] ml-5">
+        <div className="relative flex flex-col w-[200px] rounded-md shadow-sm shadow-shadowColor font-bold text-[13px] ml-5">
 
               {/* delete button */}
               <div className="absolute -top-[11px] -right-[11px] w-6 h-6 rounded-full bg-textColor dark:bg-darkTextColor2 border-[3px] border-white shadow-md shadow-shadowColor flex justify-center items-center hover:scale-[1.1] cursor-pointer">

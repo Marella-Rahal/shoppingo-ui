@@ -18,27 +18,27 @@ const Signup = () => {
 
           <input
             type="text"
-            placeholder="ادخل الاسم"
+            placeholder="الاسم"
             required
-            className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor border-effectColor focus:border-2"
+            className="p-2 outline-none text-end bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
           />
           <input
             type="email"
-            placeholder="ادخل الإيميل"
+            placeholder="البريد الإلكتروني"
             required
-            className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor border-effectColor focus:border-2"
+            className="p-2 outline-none text-end bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
           />
           <input
             type="password"
-            placeholder="ادخل كلمة السر"
+            placeholder="ادخل كلمة المرور"
             required
-            className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor border-effectColor focus:border-2"
+            className="p-2 outline-none text-end bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
           />
           <input
             type="password"
-            placeholder=" أكد كلمة السر"
+            placeholder=" أكد كلمة المرور"
             required
-            className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor border-effectColor focus:border-2"
+            className="p-2 outline-none text-end bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
           />
           <button className="p-2 self-center">
             إنشاء الحساب

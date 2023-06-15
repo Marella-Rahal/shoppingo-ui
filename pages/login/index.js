@@ -13,30 +13,30 @@ const LogIn = () => {
 
             <Link
               href="/signup"
-              className="text-center self-center text-textColor hover:scale-[1.1] hover:underline"
+              className="text-center self-center text-textColor dark:text-darkBgColor hover:underline"
             >
               إنشاء حساب جديد
             </Link>
 
             <input
               type="email"
-              placeholder="ادخل الإيميل"
+              placeholder="البريد الإلكتروني"
               required
-              className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor border-effectColor focus:border-2"
+              className="p-2 outline-none text-end bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
             />
             <input
               type="password"
-              placeholder="ادخل كلمة السر"
+              placeholder="كلمة المرور"
               required
-              className="p-2 outline-none text-end rounded-lg shadow-md shadow-shadowColor border-effectColor focus:border-2"
+              className="p-2 outline-none text-end bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
             />
 
             <div className="flex justify-between space-x-2 md:space-x-0 ">
               <Link
                 href="/login/forgetPassword"
-                className="self-center text-center text-sm text-textColor hover:scale-[1.1] hover:underline"
+                className="self-center text-center text-sm text-textColor dark:text-darkBgColor hover:underline"
               >
-                هل نسيت كلمة السر؟
+                هل نسيت كلمة المرور؟
               </Link>
 
               <button className="text-sm p-2">

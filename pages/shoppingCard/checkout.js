@@ -348,7 +348,7 @@ const Checkout = () => {
                             dir='rtl'
                             // ref={slider}
                             // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
-                            className="overflow-auto sliderScroll p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
+                            className="overflow-auto sliderScroll p-5 border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
                         >
                             <motion.div
                                 // drag="x"
@@ -366,12 +366,12 @@ const Checkout = () => {
 
                         {/* total Price */}
 
-                        <div className='shadow-inner shadow-shadowColor rounded-md border-x-4 border-textColor dark:border-darkTextColor p-2 flex text-[13px] font-semibold items-center justify-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='border-x-4 border-textColor dark:border-darkTextColor p-2 flex text-[13px] font-semibold items-center justify-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                     </div>
 
                     {/* line */}
-                    <div className='w-full h-[1px] bg-effectColor dark:bg-darkTextColor2 my-10'/>
+                    <div className='w-full h-[1px] bg-textColor dark:bg-darkTextColor my-10'/>
 
                     {/* //* second section */}
                     <div className='flex flex-col space-y-5'>
@@ -381,7 +381,7 @@ const Checkout = () => {
                             dir='rtl'
                             // ref={slider}
                             // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-[#3fb37f] shadow-mapShadow dark:shadow-darkMapShadow"
-                            className="overflow-auto sliderScroll p-5 rounded-lg border-x-4 border-[#3fb37f] shadow-mapShadow dark:shadow-darkMapShadow"
+                            className="overflow-auto sliderScroll p-5 border-x-4 border-[#3fb37f] shadow-mapShadow dark:shadow-darkMapShadow"
                         >
                             <motion.div
                                 // drag="x"
@@ -399,12 +399,12 @@ const Checkout = () => {
 
                         {/* total Price */}
 
-                        <div className='shadow-inner shadow-shadowColor rounded-md border-x-4 border-[#3fb37f] p-2 flex text-[13px] font-semibold items-center justify-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='border-x-4 border-[#3fb37f] p-2 flex text-[13px] font-semibold items-center justify-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                     </div>
 
                     {/* line */}
-                    <div className='w-full h-[1px] bg-effectColor dark:bg-darkTextColor2 my-10'/>
+                    <div className='w-full h-[1px] bg-[#3fb37f] my-10'/>
 
                     {/* //* third section */}
 
@@ -415,7 +415,7 @@ const Checkout = () => {
                             dir='rtl'
                             // ref={slider}
                             // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[#3fb37f] shadow-mapShadow dark:shadow-darkMapShadow"
-                            className="overflow-auto sliderScroll p-5 rounded-lg border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[#3fb37f] shadow-mapShadow dark:shadow-darkMapShadow"
+                            className="overflow-auto sliderScroll p-5 border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[#3fb37f] shadow-mapShadow dark:shadow-darkMapShadow"
                         >
                             <motion.div
                                 // drag="x"
@@ -433,7 +433,7 @@ const Checkout = () => {
 
                         {/* total Price */}
 
-                        <div className='shadow-inner shadow-shadowColor rounded-md border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[#3fb37f] p-2 flex text-[13px] font-semibold items-center justify-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
+                        <div className='border-x-4 border-l-textColor dark:border-l-darkTextColor border-r-[#3fb37f] p-2 flex text-[13px] font-semibold items-center justify-center'><span className='mr-2'>ل.س</span> 100000000000000000 </div>
 
                     </div>
 
