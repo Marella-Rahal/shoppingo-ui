@@ -37,7 +37,7 @@ function CustomerDetails(props) {
                     disabled={change}
                     type="Text"
                     defaultValue={`${props.value.value.email}`}
-                    className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor"
+                    className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                   />
                 </div>
                 {/* full name */}
@@ -47,7 +47,7 @@ function CustomerDetails(props) {
                     disabled={change}
                     type="Text"
                     defaultValue={`${props.value.value.fullName}`}
-                    className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor"
+                    className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                   />
                 </div>
               </div>
@@ -59,7 +59,7 @@ function CustomerDetails(props) {
                     disabled={change}
                     type="Text"
                     defaultValue={`${props.value.value.city}`}
-                    className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor"
+                    className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                   />
                 </div>
                 {/* number */}
@@ -69,7 +69,7 @@ function CustomerDetails(props) {
                     disabled={change}
                     type="Text"
                     defaultValue={`${props.value.value.number}`}
-                    className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor"
+                    className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                   />
                 </div>
               </div>
@@ -80,7 +80,7 @@ function CustomerDetails(props) {
                   disabled={change}
                   type="Text"
                   defaultValue={`${props.value.value.Address}`}
-                  className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor"
+                  className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                 />
               </div>
             </div>

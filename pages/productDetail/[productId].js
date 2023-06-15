@@ -259,12 +259,12 @@ const ProductId = () => {
               >
                 <MdOutlineArrowBackIos
                   style={{ boxShadow: "0px 0px 5px 3px rgba(255,255,255,1)" }}
-                  className="absolute top-[45%] cursor-pointer hover:scale-[1.1] text-xl bg-bgColor/70 text-effectColor"
+                  className="absolute top-[45%] cursor-pointer hover:scale-[1.1] text-xl bg-bgColor/70 text-effectColor dark:text-darkBgColor"
                   onClick={() => setImgUrl(images[0])}
                 />
                 <MdOutlineArrowForwardIos
                   style={{ boxShadow: "0px 0px 5px 3px rgba(255,255,255,1)" }}
-                  className="absolute top-[45%] right-0  cursor-pointer hover:scale-[1.1] text-xl bg-bgColor/70 text-effectColor"
+                  className="absolute top-[45%] right-0  cursor-pointer hover:scale-[1.1] text-xl bg-bgColor/70 text-effectColor dark:text-darkBgColor"
                   onClick={() => setImgUrl(images[1])}
                 />
               </div>
