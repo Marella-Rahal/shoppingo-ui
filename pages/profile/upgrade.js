@@ -52,16 +52,16 @@ const Upgrade = () => {
 
             <h4 className="text-end dark:text-darkBgColor">: الدفع </h4>
 
-            <div className="flex justify-between">
+            <div className="flex space-x-3">
 
-              <div className="flex items-center space-x-1">
+              <div className="w-1/2 flex justify-center items-center space-x-1">
                 <label htmlFor="onHand" className="text-xs font-bold text-center dark:text-darkBgColor">
                   عند التسليم
                 </label>
                 <input type="checkbox" id="onHand" />
               </div>
 
-              <div className="flex items-center space-x-1">
+              <div className="w-1/2 flex justify-center items-center space-x-1">
                 <label htmlFor="wepay" className="text-xs font-bold text-center dark:text-darkBgColor">
                   wepay عن طريق
                 </label>
