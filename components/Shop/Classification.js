@@ -11,14 +11,14 @@ const Classification = (props) => {
   return (
     <>
       {/* drop down */}
-      <div className="absolute top-[70px] left-[1px] md:top-[50px] md:-left-[37px] bg-white rounded-lg shadow-md shadow-shadowColor hidden group-hover:flex text-sm font-bold">
+      <div className="absolute top-[70px] left-[1px] md:top-[50px] md:-left-[37px] bg-white text-textColor dark:text-darkBgColor rounded-lg shadow-md shadow-shadowColor hidden group-hover:flex text-sm font-bold">
         {/* left section */}
         <div className="flex flex-col items-end p-2 space-y-2">
           {props.woman && (
             <>
               {/* one label */}
               <div className="flex space-x-2 items-center">
-                <label htmlFor={`${gender} + skirt`} className="text-textColor">
+                <label htmlFor={`${gender} + skirt`}>
                   تنورة
                 </label>
                 <input
@@ -31,7 +31,7 @@ const Classification = (props) => {
           )}
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor={`${gender} + short`} className="text-textColor">
+            <label htmlFor={`${gender} + short`}>
               شورت
             </label>
             <input
@@ -42,7 +42,7 @@ const Classification = (props) => {
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor={`${gender} + bijama`} className="text-textColor">
+            <label htmlFor={`${gender} + bijama`}>
               بجامة
             </label>
             <input
@@ -53,7 +53,7 @@ const Classification = (props) => {
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor={`${gender} + hoody`} className="text-textColor">
+            <label htmlFor={`${gender} + hoody`}>
               هوديز
             </label>
             <input
@@ -64,7 +64,7 @@ const Classification = (props) => {
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor={`${gender} + hat`} className="text-textColor">
+            <label htmlFor={`${gender} + hat`}>
               قبعة
             </label>
             <input
@@ -75,7 +75,7 @@ const Classification = (props) => {
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor={`${gender} + scarve`} className="text-textColor">
+            <label htmlFor={`${gender} + scarve`}>
               وشاح
             </label>
             <input
@@ -88,7 +88,7 @@ const Classification = (props) => {
           <div className="flex space-x-2 items-center">
             <label
               htmlFor={`${gender} + tie`}
-              className="text-textColor text-end"
+              className="text-end"
             >
               ربطة عنق
             </label>
@@ -107,7 +107,7 @@ const Classification = (props) => {
             <>
               {/* one label */}
               <div className="flex space-x-2 items-center">
-                <label htmlFor={`${gender} + dress`} className="text-textColor">
+                <label htmlFor={`${gender} + dress`}>
                   فستان
                 </label>
                 <input
@@ -120,7 +120,7 @@ const Classification = (props) => {
           )}
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor={`${gender} + jacket`} className="text-textColor">
+            <label htmlFor={`${gender} + jacket`}>
               جاكيت
             </label>
             <input
@@ -131,7 +131,7 @@ const Classification = (props) => {
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor={`${gender} + suit`} className="text-textColor">
+            <label htmlFor={`${gender} + suit`}>
               طقم
             </label>
             <input
@@ -142,7 +142,7 @@ const Classification = (props) => {
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor={`${gender} + pant`} className="text-textColor">
+            <label htmlFor={`${gender} + pant`}>
               بنطال
             </label>
             <input
@@ -153,7 +153,7 @@ const Classification = (props) => {
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor={`${gender} + shirt`} className="text-textColor">
+            <label htmlFor={`${gender} + shirt`}>
               قميص
             </label>
             <input
@@ -164,7 +164,7 @@ const Classification = (props) => {
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor={`${gender} + tshirt`} className="text-textColor">
+            <label htmlFor={`${gender} + tshirt`}>
               كنزة
             </label>
             <input
@@ -175,7 +175,7 @@ const Classification = (props) => {
           </div>
           {/* one label */}
           <div className="flex space-x-2 items-center">
-            <label htmlFor={`${gender} + belt`} className="text-textColor">
+            <label htmlFor={`${gender} + belt`}>
               حزام
             </label>
             <input
@@ -188,7 +188,7 @@ const Classification = (props) => {
           <div className="flex space-x-2 items-center">
             <label
               htmlFor={`${gender} + swimwear`}
-              className="text-textColor text-end"
+              className="text-end"
             >
               ملابس سباحة
             </label>

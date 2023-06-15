@@ -11,7 +11,7 @@ const Signup = () => {
         <form className="flex flex-col space-y-5" onSubmit={(e) => e.preventDefault()}>
           <Link
             href="/login"
-            className="text-textColor self-center hover:scale-[1.1] hover:underline"
+            className="text-textColor dark:text-darkBgColor self-center hover:scale-[1.05 hover:underline"
           >
             لديك حساب؟
           </Link>

@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar';
 import CheckoutForm from '../../components/Checkout/CheckoutForm';
 import Placeholder from "../../components/Checkout/Placeholder";
 import dynamic from 'next/dynamic';
+import { useTheme } from 'next-themes';
 const DynamicProduct=dynamic(()=>import('../../components/Checkout/Product'),{
   loading: () => <Placeholder/> ,
   ssr: false,
@@ -266,6 +267,18 @@ const Checkout = () => {
     //     setWidth(slider.current.scrollWidth - slider.current.offsetWidth);
     // }, []);
 
+    const { theme ,setTheme } = useTheme();
+    const [logoUrl,setLogoUrl]=useState('');
+    useEffect(()=>{
+
+        if(theme == 'light'){
+            setLogoUrl('../logo.svg')
+        }else{
+            setLogoUrl('../darkLogo.svg');
+        }
+
+    },[theme])
+
     return (
         <>
             <Navbar/>
@@ -322,9 +335,9 @@ const Checkout = () => {
 
                     {/* line */}
                     <div className="lg:hidden flex items-center space-x-3 my-10">
-                        <div className="w-1/2 h-[1px] bg-effectColor" />
-                        <img src="../logo.svg" className="w-20 xs:w-28 h-7" />
-                        <div className="w-1/2 h-[1px] bg-effectColor" />
+                        <div className="w-1/2 h-[1px] bg-effectColor dark:bg-darkTextColor" />
+                        <img src={logoUrl} className="w-20 xs:w-28 h-7" />
+                        <div className="w-1/2 h-[1px] bg-effectColor dark:bg-darkTextColor" />
                     </div>
 
                     {/* //* one section */}
@@ -358,7 +371,7 @@ const Checkout = () => {
                     </div>
 
                     {/* line */}
-                    <div className='w-full h-[1px] bg-effectColor my-10'/>
+                    <div className='w-full h-[1px] bg-effectColor dark:bg-darkTextColor2 my-10'/>
 
                     {/* //* second section */}
                     <div className='flex flex-col space-y-5'>
@@ -391,7 +404,7 @@ const Checkout = () => {
                     </div>
 
                     {/* line */}
-                    <div className='w-full h-[1px] bg-effectColor my-10'/>
+                    <div className='w-full h-[1px] bg-effectColor dark:bg-darkTextColor2 my-10'/>
 
                     {/* //* third section */}
 
@@ -426,9 +439,9 @@ const Checkout = () => {
 
                     {/* line */}
                     <div className="lg:hidden flex items-center space-x-3 my-10">
-                        <div className="w-1/2 h-[1px] bg-effectColor" />
-                        <img src="../logo.svg" className="w-20 xs:w-28 h-7" />
-                        <div className="w-1/2 h-[1px] bg-effectColor" />
+                        <div className="w-1/2 h-[1px] bg-effectColor dark:bg-darkTextColor" />
+                        <img src={logoUrl} className="w-20 xs:w-28 h-7" />
+                        <div className="w-1/2 h-[1px] bg-effectColor dark:bg-darkTextColor" />
                     </div>
 
                     {/* form */}

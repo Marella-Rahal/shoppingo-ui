@@ -18,7 +18,7 @@ const NotePopUp = ({ noteMsg }) => {
         {noteMsg}
 
         <button
-          className="py-1 px-5 rounded-lg self-center bg-gradient-to-l from-red-900 to-red-500 hover:bg-gradient-to-b"
+          className="py-1 px-5 rounded-lg self-center bg-gradient-to-l from-red-900 to-red-500 hover:bg-gradient-to-b dark:bg-gradient-to-l dark:from-red-900 dark:to-red-500 dark:hover:bg-gradient-to-b"
           onClick={closePopUp}
         >
           إغلاق

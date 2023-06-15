@@ -103,7 +103,7 @@ const updateImage2 = (e) => {
             {/* fourth input */}
             <div className='flex space-x-3 items-center mb-5 mr-2'>
 
-              <div className='text-textColor2 text-xs'>
+              <div className='text-textColor2 dark:text-darkTextColor2 text-xs'>
                 ( غير ضروري ) 
               </div>
               <label className='flex justify-end text-md md:text-xl'>
@@ -185,12 +185,12 @@ const updateImage2 = (e) => {
               </button>
 
               {/* //! *********************************** */}
-              {ShowDivForOption && <div className='absolute top-[100%] w-40 h-36 rounded-xl  bg-white shadow-2xl flex p-3 '>
+              {ShowDivForOption && <div className='absolute top-[100%] w-40 h-36 rounded-xl bg-white shadow-2xl flex p-3 '>
                   {/* first col */}
                   <div className='flex flex-col'>
                     {/* div for one check */}
                       <div>
-                          <label className='dark:text-black pr-1   ' htmlFor='XXL'>
+                          <label className='dark:text-black pr-1' htmlFor='XXL'>
                           XXL
                           </label>
                           <input type={'checkbox'}  

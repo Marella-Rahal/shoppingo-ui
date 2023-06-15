@@ -20,7 +20,7 @@ const AuthenticationBody = ({ children }) => {
                 />
                 <div
                     id="form"
-                    className="md:absolute md:top-[50%] md:left-[50%] md:translate-x-[-50%] md:translate-y-[-50%] bg-bgColor rounded-xl shadow-md shadow-shadowColor px-4 py-7 md:p-7 w-[90%] md:w-[300px]"
+                    className="md:absolute md:top-[50%] md:left-[50%] md:translate-x-[-50%] md:translate-y-[-50%] bg-bgColor dark:bg-darkTextColor rounded-xl shadow-md shadow-shadowColor px-4 py-7 md:p-7 w-[90%] md:w-[300px]"
                 >
                     {children}
                 </div>

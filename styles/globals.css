@@ -73,11 +73,11 @@
   }
 
   button {
-    @apply shadow-md shadow-shadowColor dark:shadow-none rounded-lg uppercase bg-effectColor hover:bg-[#bb0202] text-white outline-none
+    @apply shadow-md shadow-shadowColor dark:shadow-none rounded-lg uppercase bg-effectColor hover:bg-[#bb0202] dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl text-white outline-none
   }
 
   input{
-    @apply bg-white text-textColor disabled:bg-[#828282] disabled:text-darkTextColor
+    @apply bg-white text-textColor dark:text-darkBgColor disabled:bg-[#828282] disabled:text-darkTextColor
   }
 
   /* Marker tweaks */

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TiArrowSortedDown } from "react-icons/ti";
 import Classification from "./Classification";
 import PriceClassification from "./PriceClassification";
@@ -12,6 +12,7 @@ const DynamicProduct=dynamic(()=>import('./Product'),{
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ColorRing } from "react-loader-spinner";
+import { useTheme } from "next-themes";
 
 const products=[
   {
@@ -362,6 +363,16 @@ const products=[
 
 const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
 
+  const { theme, setTheme } = useTheme();
+  const [logoUrl,setLogoUrl]=useState('');
+  useEffect(()=>{
+    if(theme == 'light'){
+      setLogoUrl('../logo.svg')
+    }else{
+      setLogoUrl('../darkLogo.svg')
+    }
+  },[theme])
+
   //! this is tha data for InfiniteScrolling
   const [productsPerPage,setProductsPerPage]=useState(12);
   const [page,setPage]=useState(1);
@@ -421,7 +432,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
               <TiArrowSortedDown className="mr-1 w-5 h-5" /> نسائي
             </button>
 
-            <TiArrowSortedDown className="hidden absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] w-7 h-7 group-hover:flex" />
+            <TiArrowSortedDown className="hidden absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] dark:text-darkTextColor w-7 h-7 group-hover:flex" />
 
             <Classification woman={true} />
           </div>
@@ -433,7 +444,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
               رجالي
             </button>
 
-            <TiArrowSortedDown className="hidden absolute  top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] w-7 h-7 group-hover:flex" />
+            <TiArrowSortedDown className="hidden absolute  top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] dark:text-darkTextColor w-7 h-7 group-hover:flex" />
 
             <Classification woman={false} />
           </div>
@@ -445,7 +456,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
               السعر
             </button>
 
-            <TiArrowSortedDown className="hidden absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] w-7 h-7 group-hover:flex" />
+            <TiArrowSortedDown className="hidden absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] dark:text-darkTextColor w-7 h-7 group-hover:flex" />
 
             {/* drop down */}
             <PriceClassification />
@@ -457,9 +468,9 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute }) => {
 
       {/* line */}
       <div className="flex items-center space-x-3 my-10">
-        <div className="w-1/2 h-[1px] bg-effectColor" />
-        <img src="../logo.svg" className="w-20 xs:w-28 h-10" />
-        <div className="w-1/2 h-[1px] bg-effectColor" />
+        <div className="w-1/2 h-[1px] bg-effectColor dark:bg-darkTextColor" />
+        <img src={logoUrl} className="w-20 xs:w-28 h-10" />
+        <div className="w-1/2 h-[1px] bg-effectColor dark:bg-darkTextColor" />
       </div>
 
       <InfiniteScroll
