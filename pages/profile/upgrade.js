@@ -19,13 +19,13 @@ const Upgrade = () => {
               type="number"
               placeholder="رقم الهاتف"
               required
-              className="w-1/2 p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
+              className="w-1/2 p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2 placeholder:text-sm"
             />
             <input
               type="email"
-              placeholder="الإيميل"
+              placeholder="البريد الإلكتروني"
               required
-              className="w-1/2 p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
+              className="w-1/2 p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2 placeholder:text-sm"
             />
 
           </div>
@@ -36,14 +36,14 @@ const Upgrade = () => {
               type="text"
               placeholder="عنوان المتجر "
               required
-              className="w-1/2 p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
+              className="w-1/2 p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2 placeholder:text-sm"
             />
 
             <input
               type="text"
               placeholder="اسم المتجر"
               required
-              className="w-1/2 p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
+              className="w-1/2 p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2 placeholder:text-sm"
             />
 
           </div>
@@ -74,7 +74,7 @@ const Upgrade = () => {
               <input
                 type="number"
                 placeholder="wepay كود"
-                className="w-full p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
+                className="w-full p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2 placeholder:text-sm"
               />
             )}
           </div>

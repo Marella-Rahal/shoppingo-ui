@@ -28,14 +28,14 @@ const ForgetPassword = () => {
 
           {/* //todo email */}
           <form className="flex space-x-5" onSubmit={sendCode}>
-            <button className="p-2 w-[120px] text-sm">
+            <button className="p-2 w-[150px] font-bold text-[10px] xl:text-sm xl:font-normal">
               ارسل الكود
             </button>
             <input
               type="email"
               placeholder="البريد الإلكتروني"
               required
-              className="w-full p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
+              className="w-full p-2 outline-none text-end bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
             />
           </form>
 
@@ -43,14 +43,14 @@ const ForgetPassword = () => {
 
           {displayCode && (
             <form className="flex space-x-5" onSubmit={checkCode}>
-              <button className="p-2 w-[120px] text-sm">
+              <button className="p-2 w-[150px] font-bold text-[10px] xl:text-sm xl:font-normal">
                 تحقق من الكود
               </button>
               <input
-                type="number"
-                placeholder="ادخل الكود الذي تم إرساله إليك"
+                type="text"
+                placeholder="ادخل الكود"
                 required
-                className="w-full p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
+                className="w-full p-2 outline-none text-end bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
               />
             </form>
           )}
@@ -71,8 +71,8 @@ const ForgetPassword = () => {
                 required
                 className="p-2 outline-none text-center bg-bgColor dark:bg-darkTextColor rounded-none border-b-[2px] focus:border-effectColor dark:focus:border-darkTextColor2"
               />
-              <button className="text-sm self-center p-2 w-[120px]">
-                تحديث كلمة السر
+              <button className="text-sm self-center p-2">
+                تحديث كلمة المرور
               </button>
             </form>
           )}
