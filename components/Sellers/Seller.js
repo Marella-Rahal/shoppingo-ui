@@ -26,7 +26,7 @@ const Seller = (props) => {
           <span className="text-[10px] sm:text-[13px] font-semibold">
             {props.address}
           </span>
-          <span className="text-[10px] sm:text-[13px] font-semibold text-effectColor">
+          <span className="text-[10px] sm:text-[13px] font-semibold text-effectColor dark:text-darkTextColor2">
             {props.dist} - {props.time}
           </span>
         </div>

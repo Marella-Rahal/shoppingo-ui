@@ -403,13 +403,13 @@ const Sellers = () => {
 
           {/* Search */}
           <div className="mx-4 md:mx-8 flex self-center h-[37px]">
-            <label className="bg-white rounded-l-full shadow-sm shadow-shadowColor cursor-pointer px-2 py-[5px] text-textColor flex justify-center items-center">
+            <label className="bg-white rounded-l-full shadow-sm shadow-shadowColor cursor-pointer px-2 py-[5px] text-textColor dark:text-darkBgColor flex justify-center items-center">
               <BiSearchAlt2 className="w-[20px] h-[20px] hover:scale-[1.1]" />
             </label>
             <input
               type="text"
               placeholder="اسم المحل"
-              className="w-full md:w-[230px] rounded-r-full shadow-sm shadow-shadowColor outline-none border-2 border-transparent focus:border-effectColor dark:focus:border-darkTextColor2  px-3 py-[5px] text-textColor text-end"
+              className="w-full md:w-[230px] rounded-r-full shadow-sm shadow-shadowColor outline-none border-2 border-transparent focus:border-effectColor dark:focus:border-darkTextColor2  px-3 py-[5px] text-textColor dark:text-darkBgColor text-end"
             />
           </div>
 
@@ -418,12 +418,12 @@ const Sellers = () => {
 
               <Link
                 href="/sellers/locations"
-                className="underline hover:scale-[1.1] text-effectColor"
+                className="underline hover:scale-[1.1] text-effectColor dark:text-darkTextColor2"
               >
                 هنا
               </Link>
               <span className="dark:text-darkTextColor">لرؤية موقع المتاجر اضغط </span>
-              <FaMapMarkerAlt className="text-effectColor self-center" />
+              <FaMapMarkerAlt className="text-effectColor dark:text-darkTextColor2 self-center" />
 
           </div>
 

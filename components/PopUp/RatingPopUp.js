@@ -23,12 +23,12 @@ const RatingPopUp = (props) => {
               >
                   <input
                     type="number"
-                    min="0"
+                    min="1"
                     max="5"
-                    step="0.5"
+                    step="1"
                     required
-                    placeholder="3.5"
-                    className="px-2 rounded-md shadow-md shadow-shadowColor w-full outline-none ring-yellow-400 focus:ring-2"
+                    placeholder="3"
+                    className="px-2 rounded-md shadow-md shadow-shadowColor w-full outline-none ring-yellow-400 dark:ring-darkTextColor2 focus:ring-2"
                   />
 
                   <div className="flex space-x-3">

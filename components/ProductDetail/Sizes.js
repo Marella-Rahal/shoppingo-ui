@@ -1,6 +1,14 @@
-import React from "react";
+import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
 
 const Sizes = ({ size }) => {
+
+  const { theme , setTheme } = useTheme();
+  const [radioColor , setRadioColor] = useState('');
+  useEffect(()=>{
+    setRadioColor(theme == 'light' ? '#d7271a' : 'gray')
+  },[theme])
+  
   return (
     <>
       <div className="flex space-x-2 mt-2">
@@ -27,7 +35,7 @@ const Sizes = ({ size }) => {
             box-shadow: 0px 0px 2px 1px rgba(128, 128, 128, 0.5);
           }
           .sizes:checked::after {
-            border: solid 5px #d7271a;
+            border: solid 5px ${radioColor};
           }
         `}
       </style>
