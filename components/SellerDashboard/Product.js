@@ -26,7 +26,7 @@ const Product = (props) => {
       animate={{opacity:1,scale:1}} 
       exit={{opacity:0,scale:0}}
       transition={{ease:'easeInOut',duration:0.7}} 
-      className="relative flex flex-col space-y-5 pb-3 w-[200px] h-fit rounded-lg shadow-md shadow-shadowColor m-5" >
+      className="relative flex flex-col space-y-5 pb-3 w-[200px] h-fit rounded-lg shadow-sm shadow-shadowColor m-5" >
           
           <img
           src={props.img}

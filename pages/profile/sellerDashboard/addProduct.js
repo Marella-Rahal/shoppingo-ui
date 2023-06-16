@@ -346,7 +346,7 @@ const updateImage2 = (e) => {
                     htmlFor="profilePhoto"
                     className="absolute top-[-13px] right-[-13px] w-10 h-10 flex justify-center items-center rounded-full shadow-md shadow-shadowColor hover:scale-[1.1] cursor-pointer bg-white"
                   >
-                    <BsCamera className="w-7 h-7 text-textColor" />
+                    <BsCamera className="w-7 h-7 text-textColor dark:text-darkBgColor" />
                   </label>
 
                   <input
@@ -380,7 +380,7 @@ const updateImage2 = (e) => {
                       htmlFor="profilePhoto2"
                       className="absolute top-[-13px] right-[-13px] w-10 h-10 flex justify-center items-center rounded-full shadow-md shadow-shadowColor hover:scale-[1.1] cursor-pointer bg-white"
                     >
-                      <BsCamera className="w-7 h-7 text-textColor" />
+                      <BsCamera className="w-7 h-7 text-textColor dark:text-darkBgColor" />
                     </label>
 
                     <input

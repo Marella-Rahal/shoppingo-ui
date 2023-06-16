@@ -16,7 +16,47 @@ const products=[
   {
     img:"../product.jpg",
     price:"5000000000000000000",
+    withOffer:true
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
     withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:true
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:true
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:false
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:true
   },
   {
     img:"../product.jpg",
@@ -76,7 +116,12 @@ const products=[
   {
     img:"../product.jpg",
     price:"5000000000000000000",
-    withOffer:false
+    withOffer:true
+  },
+  {
+    img:"../product.jpg",
+    price:"5000000000000000000",
+    withOffer:true
   },
   {
     img:"../product.jpg",
@@ -86,52 +131,7 @@ const products=[
   {
     img:"../product.jpg",
     price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
+    withOffer:true
   }
 ]
 

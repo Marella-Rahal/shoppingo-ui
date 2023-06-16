@@ -71,7 +71,7 @@ const Profile = () => {
               htmlFor="profilePhoto"
               className="absolute bottom-0 right-7 md:bottom-1 md:right-10 w-10 h-10 md:w-14 md:h-14 flex justify-center items-center rounded-full bg-bgColor shadow-md shadow-shadowColor hover:scale-[1.1] cursor-pointer"
             >
-              <BsCamera className="w-6 h-6 md:w-10 md:h-10 text-textColor" />
+              <BsCamera className="w-6 h-6 md:w-10 md:h-10 text-textColor dark:text-darkBgColor" />
             </label>
 
             <input

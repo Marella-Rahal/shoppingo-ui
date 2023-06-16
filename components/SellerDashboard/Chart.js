@@ -363,7 +363,7 @@ const Chart = () => {
   return (
     <>
     <div className='flex justify-end space-x-3'>
-          <select  className='rounded-lg bg-white text-textColor text-end shadow-md shadow-shadowColor px-2 outline-none'  onChange={handleChange}>
+          <select  className='rounded-lg bg-white text-textColor dark:text-darkBgColor text-end shadow-md shadow-shadowColor px-2 outline-none'  onChange={handleChange}>
             <option value="year">السنة الحالية</option>
             <option value="month" >الشهر الحالي</option>
             <option value="day">اليوم الحالي</option>
@@ -388,7 +388,7 @@ const Chart = () => {
                   data.map((entry, index) => (
                     <Cell key={index} fill={ theme == "light" ? index%2 == 1  ? 'rgb(17 29 74 / 0.9)' : '#D7271A': index%2 == 1  ? 'gray' : 'white'   } />
                   ))
-                }
+        }
            
         </Bar>
       </BarChart>
