@@ -18,7 +18,7 @@ const RatingPopUp = (props) => {
               <motion.form
               initial={{opacity:0,y:'230%'}} animate={{opacity:1,y:'105%'}} exit={{opacity:0,y:'230%'}}
               transition={{ ease: "easeInOut", duration: 0.7 }}
-              className="absolute w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-md shadow-shadowColor flex flex-col space-y-5 items-center"
+              className="absolute w-[250px] p-5 px-[17px] bg-bgColor dark:bg-darkBgColor rounded-lg shadow-sm shadow-shadowColor flex flex-col space-y-5 items-center"
               onSubmit={sendRating}
               >
                   <input

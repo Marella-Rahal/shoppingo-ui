@@ -308,17 +308,17 @@ const Checkout = () => {
 
                             <div className='flex self-end items-center space-x-3'>
                                 <div>الدفع عند الاستلام</div>
-                                <div className='w-5 h-5 rounded-md border-x-[3px] border-textColor dark:border-darkTextColor' />
+                                <div className='w-5 h-5 border-x-[3px] border-textColor dark:border-darkTextColor' />
                             </div>
 
                             <div className='flex self-end items-center space-x-3'>
                                 <div>WePay الدفع عن طريق موقع</div>
-                                <div className='w-5 h-5 rounded-md border-x-[3px] border-[#3fb37f]' />
+                                <div className='w-5 h-5 border-x-[3px] border-[#3fb37f]' />
                             </div>
 
                             <div className='flex self-end items-center space-x-3'>
                                 <div>يرجى تحديد طريقة الدفع قبل تأكيد الشراء</div>
-                                <div className='w-5 h-5 rounded-md border-x-[3px] border-l-textColor dark:border-l-darkTextColor border-r-[#3fb37f]' />
+                                <div className='w-5 h-5 border-x-[3px] border-l-textColor dark:border-l-darkTextColor border-r-[#3fb37f]' />
                             </div>
 
                         </div>

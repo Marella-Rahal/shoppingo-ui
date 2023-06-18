@@ -12,7 +12,7 @@ const Services = () => {
           whileInView={{opacity:1,scale:1}}
           // viewport={{once:true}}
           transition={{ease:'easeInOut',duration:0.7}}
-          className="w-[350px] m-5 pb-2 flex flex-col items-center space-y-3  rounded-xl shadow-md shadow-shadowColor"
+          className="w-[350px] m-5 pb-2 flex flex-col items-center space-y-3  rounded-xl shadow-sm shadow-shadowColor"
         >
           <img
             src="feature3.svg"
@@ -31,7 +31,7 @@ const Services = () => {
           whileInView={{opacity:1,scale:1}}
           // viewport={{once:true}}
           transition={{ease:'easeInOut',duration:0.7}}
-          className="w-[350px] m-5 pb-2 flex flex-col items-center space-y-3  rounded-xl shadow-md shadow-shadowColor"
+          className="w-[350px] m-5 pb-2 flex flex-col items-center space-y-3  rounded-xl shadow-sm shadow-shadowColor"
         >
           <img
             src="feature1.svg"
@@ -49,7 +49,7 @@ const Services = () => {
           whileInView={{opacity:1,scale:1}}
           // viewport={{once:true}}
           transition={{ease:'easeInOut',duration:0.7}}
-          className="w-[350px] m-5 pb-2 flex flex-col items-center space-y-3  rounded-xl shadow-md shadow-shadowColor"
+          className="w-[350px] m-5 pb-2 flex flex-col items-center space-y-3  rounded-xl shadow-sm shadow-shadowColor"
         >
           <img
             src="feature2.svg"
