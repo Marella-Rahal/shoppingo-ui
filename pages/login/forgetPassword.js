@@ -21,7 +21,7 @@ const ForgetPassword = () => {
     <>
 
       <Navbar/>
-      <AuthenticationBody>
+      <AuthenticationBody upgrade={false}>
 
         <div className="flex flex-col space-y-5">
           <RiLockPasswordLine className="text-[30px] text-effectColor dark:text-darkTextColor2 self-center" />

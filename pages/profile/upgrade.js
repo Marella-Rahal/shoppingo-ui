@@ -7,7 +7,7 @@ const Upgrade = () => {
   return (
     <>
       <Navbar/>
-      <AuthenticationBody>
+      <AuthenticationBody upgrade={true}>
 
         <form className="flex flex-col space-y-5" onSubmit={(e) => e.preventDefault()}>
 

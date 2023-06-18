@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AuthenticationBody = ({ children }) => {
+const AuthenticationBody = ({ children , upgrade }) => {
 
     return (
         <>

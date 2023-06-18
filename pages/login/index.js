@@ -85,7 +85,7 @@ const LogIn = () => {
     <>
       <NotePopUp noteMsg={noteMsg}/>
       <Navbar/>
-      <AuthenticationBody>
+      <AuthenticationBody upgrade={false}>
 
         <form className="flex flex-col space-y-5" onSubmit={sendInfo}>
 
