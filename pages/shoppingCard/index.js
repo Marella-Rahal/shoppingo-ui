@@ -774,8 +774,8 @@ const ShoppingCard = () => {
             </button>
 
             {/* price */}
-            <div className="py-2 px-4 w-full md:w-fit rounded-lg border-[1px] border-textColor shadow-sm shadow-shadowColor dark:shadow-none dark:border-darkTextColor text-center">
-                السعر الكلي : 999999999999 ل.س
+            <div className="py-2 px-4 w-full md:w-fit rounded-lg border-[1px] border-textColor dark:border-gray-500 shadow-sm shadow-shadowColor text-center">
+                السعر الكلي : 100000 ل.س
             </div>
 
             {/* buy */}
