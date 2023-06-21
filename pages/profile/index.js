@@ -8,6 +8,7 @@ import axios from 'axios';
 import { saveUser, selectUser } from '../../Redux/Slices/userSlice';
 import { useSelector } from 'react-redux';
 import FailToGet from '../../components/FailToGet'
+import Image from 'next/image';
 
 const Profile = (props) => {
 
@@ -31,18 +32,22 @@ const Profile = (props) => {
   const [onhand, setOnhand] = useState(false);
   const [wepayCode, setWepayCode] = useState( user?.wepayCode !== undefined ? user?.wepayCode : '');
 
-  //************************************************ */
+  const [imgURL, setImgURL] = useState('');
+  const [previewImgURL,setPreviewImgURL] =useState(user?.imgURL)
 
-  //! if the user does not have a profile photo then we put default.jpg but if he has we put his photo
-  //! change the image and send it to backend then change it in redux
-  const [img, setImg] = useState('default.jpg');
   const updateImage = (e) => {
-    //! for preview
+    
     if (e.target.files[0]) {
-      document.getElementById('imgProfile').src = URL.createObjectURL(
+
+      //! for preview
+      setPreviewImgURL(URL.createObjectURL(
         e.target.files[0]
-      );
+      ))
+      //! to store it for the backend
+      setImgURL(e.target.files[0]);
+
     }
+
   };
 
   return (
@@ -58,10 +63,13 @@ const Profile = (props) => {
                 <div
                   className='md:pt-16 w-full md:w-1/2 flex flex-col space-y-10  items-center'
                 >
-                  <div className="relative">
-                    <img
-                      src={img}
-                      id="imgProfile"
+                  <div className="relative select-none">
+                    <Image
+                      src={previewImgURL}
+                      placeholder='blur'
+                      blurDataURL={previewImgURL}
+                      width={288}
+                      height={288}
                       className="w-48 h-48 md:w-72 md:h-72 rounded-full shadow-md shadow-shadowColor dark:shadow-none dark:border-[1px] border-shadowColor/30"
                     />
 
@@ -83,28 +91,28 @@ const Profile = (props) => {
                   <div className="flex  space-x-5">
                     <button
                       onClick={() => router.push('/profile/myPurchases')}
-                      className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
+                      className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl py-2 w-[110px]"
                     >
                       مشترياتي
                     </button>
                     {user.role == 'admin' ? (
                       <button
                         onClick={() => router.push('/profile/confirmSellers')}
-                        className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
+                        className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl py-2 w-[110px]"
                       >
                         ترقية التجار
                       </button>
                     ) : user.role == 'seller' ? (
                       <button
                         onClick={() => router.push('/profile/sellerDashboard')}
-                        className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
+                        className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl py-2 w-[110px]"
                       >
                         إحصائياتي
                       </button>
                     ) : (
                       <button
                         onClick={() => router.push('/profile/upgrade')}
-                        className="p-2 bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
+                        className="bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl py-2 w-[110px]"
                       >
                         ترقية الحساب
                       </button>
@@ -140,7 +148,7 @@ const Profile = (props) => {
                               disabled={enableFullName}
                               value={fullName}
                               onChange={(e) => setFullName(e.target.value)}
-                              className="w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
+                              className="w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                             />
                           </div>
 
@@ -149,7 +157,7 @@ const Profile = (props) => {
                               type="email"
                               disabled={true}
                               value={user.email}
-                              className="self-end h-10 w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
+                              className="self-end h-10 w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                           />
 
                           <label className="text-end pr-2">أدخل كلمة المرور القديمة</label>
@@ -157,14 +165,14 @@ const Profile = (props) => {
                             type="password"
                             value={oldPassword}
                             onChange={(e)=>setOldPassword(e.target.value)}
-                            className="self-end h-10 w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
+                            className="self-end h-10 w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
                           />
                           <label className="text-end pr-2">أدخل كلمة المرور الجديدة</label>
                           <input
                             type="password"
                             value={newPassword}
                             onChange={(e)=>setNewPasswordd(e.target.value)}
-                            className="self-end h-10 w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
+                            className="self-end h-10 w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
                           />
                       </>
                     ) : (
@@ -182,7 +190,7 @@ const Profile = (props) => {
                               disabled={enableStoreName}
                               value={storeName}
                               onChange={(e) => setStoreName(e.target.value)}
-                              className="w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
+                              className="w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                             />
                           </div>
 
@@ -199,7 +207,7 @@ const Profile = (props) => {
                               disabled={enableLocation}
                               value={location}
                               onChange={(e) => setLocation(e.target.value)}
-                              className="w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
+                              className="w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                             />
                           </div>
 
@@ -252,7 +260,7 @@ const Profile = (props) => {
                                     disabled={enableWepayCode}
                                     value={wepayCode}
                                     onChange={(e) => setWepayCode(e.target.value)}
-                                    className="w-[70%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
+                                    className="w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                                   />
                                 </div>
                               </>
@@ -263,7 +271,7 @@ const Profile = (props) => {
                   }
 
 
-                  <div className='self-end w-[70%] flex justify-center'>
+                  <div className='self-end w-[80%] flex justify-center'>
                     <button className="mt-1 py-1 px-5">إرسال</button>
                   </div>
 
