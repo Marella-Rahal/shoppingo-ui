@@ -291,7 +291,7 @@ const Navbar = () => {
                 >
                   <img
                     src={imgURL}
-                    className="w-[70px] h-[70px] xs:w-[90px] xs:h-[90px] rounded-full"
+                    className="w-[90px] h-[90px] rounded-full"
                   />
                 </li>
               )

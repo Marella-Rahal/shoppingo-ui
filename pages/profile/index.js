@@ -8,7 +8,7 @@ import axios from 'axios';
 import { saveUser, selectUser } from '../../Redux/Slices/userSlice';
 import { useSelector } from 'react-redux';
 import FailToGet from '../../components/FailToGet'
-import Image from 'next/image';
+import { MdEdit } from 'react-icons/md';
 
 const Profile = (props) => {
 
@@ -16,7 +16,6 @@ const Profile = (props) => {
   const user = useSelector(selectUser);
   const [typeOfInfo, setTypeOfInfo]=useState('personal');
 
-  //***  to allow edit
   const [enableFullName, setEnableFullName] = useState(true);
   const [enableStoreName, setEnableStoreName] = useState(true);
   const [enableLocation, setEnableLocation] = useState(true);
@@ -25,16 +24,25 @@ const Profile = (props) => {
   const [fullName, setFullName] = useState(user?.fullName);
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPasswordd] = useState('');
-  const [storeName, setStoreName] = useState(user?.storeName);
-  const [location, setLocation] = useState(user?.location);
-  const [paymentMethod,setPaymentMethod]=useState(user?.paymentMethod);
-  const [online, setOnline] = useState(true);
-  const [onhand, setOnhand] = useState(false);
-  const [wepayCode, setWepayCode] = useState( user?.wepayCode !== undefined ? user?.wepayCode : '');
+  const [storeName, setStoreName] = useState(user?.storeName !== undefined ? user?.storeName : '');
+  const [location, setLocation] = useState(user?.location !== undefined ? user?.location : '');
+  const [paymentMethod,setPaymentMethod]=useState(user?.paymentMethod !== undefined ? user.paymentMethod : [] );
+  const handleCheckboxChange = (props) => {
 
+    if(paymentMethod.includes(props)){
+
+      setPaymentMethod( prev => prev.filter( x => x !== props ) )
+
+    }else{
+
+      setPaymentMethod( prev => [...prev,props] )
+
+    }
+
+  }
+  const [wepayCode, setWepayCode] = useState( user?.wepayCode !== undefined ? user?.wepayCode : '');
   const [imgURL, setImgURL] = useState('');
   const [previewImgURL,setPreviewImgURL] =useState(user?.imgURL)
-
   const updateImage = (e) => {
     
     if (e.target.files[0]) {
@@ -48,7 +56,7 @@ const Profile = (props) => {
 
     }
 
-  };
+  };  
 
   return (
     <>
@@ -57,19 +65,15 @@ const Profile = (props) => {
             <>
               <Navbar />
               <div
-                className='pt-28 md:pt-32 pb-10 px-4 md:px-8 w-full min-h-screen flex flex-col md:flex-row text-textColor dark:text-darkTextColor'
+                className='pt-28 md:pt-32 pb-10 px-4 md:px-8 w-full min-h-screen md:h-screen flex flex-col md:flex-row text-textColor dark:text-darkTextColor'
               >
                 {/* Left */}
                 <div
-                  className='md:pt-16 w-full md:w-1/2 flex flex-col space-y-10  items-center'
+                  className='md:pt-0 w-full md:w-1/2 flex flex-col space-y-10  items-center'
                 >
                   <div className="relative select-none">
-                    <Image
+                    <img
                       src={previewImgURL}
-                      placeholder='blur'
-                      blurDataURL={previewImgURL}
-                      width={288}
-                      height={288}
                       className="w-48 h-48 md:w-72 md:h-72 rounded-full shadow-md shadow-shadowColor dark:shadow-none dark:border-[1px] border-shadowColor/30"
                     />
 
@@ -123,41 +127,48 @@ const Profile = (props) => {
                 {/* Right */}
                 <div className="py-14 md:pt-0 md:pb-7 w-full md:w-1/2 flex flex-col space-y-5">
 
-                  <div className='mb-1 flex items-center justify-end space-x-5 text-center font-bold text-lg'>
-                    <div
-                    onClick={ () => setTypeOfInfo('store') } 
-                    className={ typeOfInfo == 'store' ? "select-none p-1 px-2 cursor-pointer rounded-md border-[1px] text-effectColor border-effectColor dark:text-darkTextColor dark:border-darkTextColor" : 'select-none p-1 px-2 cursor-pointer rounded-md text-darkTextColor2 border-[1px] border-darkTextColor2 hover:text-effectColor hover:border-effectColor dark:hover:text-darkTextColor dark:hover:border-darkTextColor' }>معلومات المتجر</div>
+                  <div className='mb-[10px] w-[100%] md:w-[80%] self-end flex items-center justify-center md:justify-end space-x-5 text-center font-bold text-[14px] md:text-base'>
+                    {
+                      user.role == 'seller' && (
+                        <div
+                        onClick={ () => setTypeOfInfo('store') } 
+                        className={ typeOfInfo == 'store' ? "select-none py-2 w-1/2 cursor-pointer rounded-md border-[1px] text-effectColor border-effectColor dark:text-darkTextColor dark:border-darkTextColor" : 'select-none py-2 w-1/2 cursor-pointer rounded-md text-darkTextColor2 border-[1px] border-darkTextColor2 hover:text-effectColor hover:border-effectColor dark:hover:text-darkTextColor dark:hover:border-darkTextColor' }>معلومات المتجر</div>
+                      )
+                    }
+                    
                     <div
                     onClick={ () => setTypeOfInfo('personal') } 
-                    className={ typeOfInfo == 'personal' ? "select-none p-1 px-2 cursor-pointer rounded-md border-[1px] text-effectColor border-effectColor dark:text-darkTextColor dark:border-darkTextColor" : 'select-none p-1 px-2 cursor-pointer rounded-md text-darkTextColor2 border-[1px] border-darkTextColor2 hover:text-effectColor hover:border-effectColor dark:hover:text-darkTextColor dark:hover:border-darkTextColor'}>معلوماتي</div>
+                    className={ typeOfInfo == 'personal' ? `select-none py-2 ${user.role !== 'seller' ? 'w-full md:w-1/2' : 'w-1/2' } cursor-pointer rounded-md border-[1px] text-effectColor border-effectColor dark:text-darkTextColor dark:border-darkTextColor` : `select-none py-2 ${user.role !== 'seller' ? 'w-full md:w-1/2' : 'w-1/2' } cursor-pointer rounded-md text-darkTextColor2 border-[1px] border-darkTextColor2 hover:text-effectColor hover:border-effectColor dark:hover:text-darkTextColor dark:hover:border-darkTextColor`}>معلوماتي</div>
                   </div>
                   
                   {
                     typeOfInfo == 'personal' ? (
                       <>
-                          <label className="text-end pr-2"> : الاسم الثلاثي </label>
-                          <div className="flex h-10 justify-end space-x-5">
-                            <span
-                              onClick={() => setEnableFullName((prev) => !prev)}
-                              className="select-none text-darkTextColor2 underline hover:text-textColor dark:hover:text-darkTextColor cursor-pointer self-center"
-                            >
-                              تعديل
-                            </span>
-                            <input
-                              type="text"
-                              disabled={enableFullName}
-                              value={fullName}
-                              onChange={(e) => setFullName(e.target.value)}
-                              className="w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
-                            />
-                          </div>
+                          <div className='w-[100%] md:w-[80%] self-end flex justify-between items-center space-x-3'>
 
+                            <div
+                              className={`bg-darkTextColor ${enableFullName ? 'text-darkTextColor2' : 'text-textColor dark:text-darkBgColor' } px-2 py-[5px] rounded-lg cursor-pointer flex items-center justify-center shadow-lg`}
+                              onClick={() => setEnableFullName((prev) => !prev)}
+                            >
+                              <MdEdit className="w-6 h-6" />
+                            </div>
+                            <label className="text-end pr-2"> : الاسم الثلاثي </label>
+
+                          </div>    
+                          <input
+                            type="text"
+                            disabled={enableFullName}
+                            value={fullName}
+                            onChange={(e) => setFullName(e.target.value)}
+                            className="self-end h-10 w-[100%] md:w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
+                          />
+                          
                           <label className="text-end pr-2">: البريد الإلكتروني </label>
                           <input
                               type="email"
                               disabled={true}
                               value={user.email}
-                              className="self-end h-10 w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
+                              className="self-end h-10 w-[100%] md:w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                           />
 
                           <label className="text-end pr-2">أدخل كلمة المرور القديمة</label>
@@ -165,54 +176,61 @@ const Profile = (props) => {
                             type="password"
                             value={oldPassword}
                             onChange={(e)=>setOldPassword(e.target.value)}
-                            className="self-end h-10 w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
+                            className="self-end h-10 w-[100%] md:w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
                           />
                           <label className="text-end pr-2">أدخل كلمة المرور الجديدة</label>
                           <input
                             type="password"
                             value={newPassword}
                             onChange={(e)=>setNewPasswordd(e.target.value)}
-                            className="self-end h-10 w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
+                            className="self-end h-10 w-[100%] md:w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
                           />
                       </>
                     ) : (
                       <>
-                          <label className="text-end pr-2">: اسم المتجر</label>
-                          <div className="flex justify-end h-10 space-x-5">
-                            <span
+
+                          <div className='w-[100%] md:w-[80%] self-end flex justify-between items-center space-x-3'>
+
+                            <div
+                              className={`bg-darkTextColor ${enableStoreName ? 'text-darkTextColor2' : 'text-textColor dark:text-darkBgColor' } px-2 py-[5px] rounded-lg cursor-pointer flex items-center justify-center shadow-lg`}
                               onClick={() => setEnableStoreName((prev) => !prev)}
-                              className="select-none text-darkTextColor2 underline hover:text-textColor dark:hover:text-darkTextColor cursor-pointer self-center"
                             >
-                              تعديل
-                            </span>
-                            <input
-                              type="text"
-                              disabled={enableStoreName}
-                              value={storeName}
-                              onChange={(e) => setStoreName(e.target.value)}
-                              className="w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
-                            />
-                          </div>
+                              <MdEdit className="w-6 h-6" />
+                            </div>
+                            <label className="text-end pr-2"> : اسم المتجر </label>
 
-                          <label className="text-end pr-2">: عنوان المتجر</label>
-                          <div className="flex justify-end h-10 space-x-5">
-                            <span
+                          </div>             
+                          <input
+                            type="text"
+                            disabled={enableStoreName}
+                            value={storeName}
+                            onChange={(e) => setStoreName(e.target.value)}
+                            className="self-end h-10 w-[100%] md:w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
+                          />
+                          
+                          <div className='w-[100%] md:w-[80%] self-end flex justify-between items-center space-x-3'>
+
+                            <div
+                              className={`bg-darkTextColor ${enableLocation ? 'text-darkTextColor2' : 'text-textColor dark:text-darkBgColor' } px-2 py-[5px] rounded-lg cursor-pointer flex items-center justify-center shadow-lg`}
                               onClick={() => setEnableLocation((prev) => !prev)}
-                              className="select-none text-darkTextColor2 underline hover:text-textColor dark:hover:text-darkTextColor cursor-pointer self-center"
                             >
-                              تعديل
-                            </span>
-                            <input
-                              type="text"
-                              disabled={enableLocation}
-                              value={location}
-                              onChange={(e) => setLocation(e.target.value)}
-                              className="w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
-                            />
-                          </div>
+                              <MdEdit className="w-6 h-6" />
+                            </div>
+                            <label className="text-end pr-2"> : عنوان المتجر </label>
 
-                          <label className="text-end pr-2">: الدفع</label>
-                          <div className="flex justify-end space-x-14 pr-2">
+                          </div>   
+                          <input
+                            type="text"
+                            disabled={enableLocation}
+                            value={location}
+                            onChange={(e) => setLocation(e.target.value)}
+                            className="self-end h-10 w-[100%] md:w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
+                          />
+                          
+
+                          <label className="w-[100%] md:w-[80%] self-end text-end pr-2">: الدفع</label>
+                          <div className="w-[100%] md:w-[80%] self-end flex justify-around space-x-3">
+
                             <div className="flex items-center space-x-2">
                               <label
                                 htmlFor="onHand"
@@ -221,13 +239,14 @@ const Profile = (props) => {
                                 عند التسليم
                               </label>
                               <input
-                                defaultChecked={false}
                                 type="checkbox"
                                 id="onHand"
-                                onChange={() => setOnhand((prev) => !prev)}
+                                checked={paymentMethod.includes('on delivery')}
+                                onChange={() => handleCheckboxChange('on delivery')}
                                 className="w-4 h-4"
                               />
                             </div>
+
                             <div className="flex items-center space-x-1">
                               <label
                                 htmlFor="wepay"
@@ -236,33 +255,38 @@ const Profile = (props) => {
                                 wepay عن طريق
                               </label>
                               <input
-                                defaultChecked={true}
                                 type="checkbox"
                                 id="wepay"
-                                onChange={() => setOnline((prev) => !prev)}
+                                checked={paymentMethod.includes('wepay')}
+                                onChange={() => handleCheckboxChange('wepay')}
                                 className="w-4 h-4"
                               />
                             </div>
+
                           </div>
                           {
-                            online && (
+                            paymentMethod.includes('wepay') && (
                               <>
-                                <label className="text-end pr-2">: wepay كود حسابي على </label>
-                                <div className="flex justify-end h-10 space-x-5">
-                                  <span
+                                <div className='w-[100%] md:w-[80%] self-end flex justify-between items-center space-x-3'>
+
+                                  <div
+                                    className={`bg-darkTextColor ${enableWepayCode ? 'text-darkTextColor2' : 'text-textColor dark:text-darkBgColor' } px-2 py-[5px] rounded-lg cursor-pointer flex items-center justify-center shadow-lg`}
                                     onClick={() => setEnableWepayCode((prev) => !prev)}
-                                    className="select-none text-darkTextColor2 underline hover:text-textColor dark:hover:text-darkTextColor cursor-pointer self-center"
                                   >
-                                    تعديل
-                                  </span>
-                                  <input
-                                    type="text"
-                                    disabled={enableWepayCode}
-                                    value={wepayCode}
-                                    onChange={(e) => setWepayCode(e.target.value)}
-                                    className="w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
-                                  />
-                                </div>
+                                    <MdEdit className="w-6 h-6" />
+                                  </div>
+                                  <label className="text-end pr-2"> : wepay كود  </label>
+
+                                </div> 
+                                
+                                <input
+                                  type="text"
+                                  disabled={enableWepayCode}
+                                  value={wepayCode}
+                                  onChange={(e) => setWepayCode(e.target.value)}
+                                  className="self-end h-10 w-[100%] md:w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
+                                />
+                                
                               </>
                             )
                           }
@@ -271,8 +295,8 @@ const Profile = (props) => {
                   }
 
 
-                  <div className='self-end w-[80%] flex justify-center'>
-                    <button className="mt-1 py-1 px-5">إرسال</button>
+                  <div className='self-end w-[100%] md:w-[80%] flex justify-center'>
+                    <button className="mt-[5px] py-1 px-5">إرسال</button>
                   </div>
 
                 </div>
