@@ -65,7 +65,7 @@ const Profile = (props) => {
             <>
               <Navbar />
               <div
-                className='pt-28 md:pt-32 pb-10 px-4 md:px-8 w-full min-h-screen md:h-screen flex flex-col md:flex-row text-textColor dark:text-darkTextColor'
+                className='pt-28 md:pt-32 pb-4 px-4 md:px-8 w-full min-h-screen md:h-screen flex flex-col md:flex-row text-textColor dark:text-darkTextColor'
               >
                 {/* Left */}
                 <div
