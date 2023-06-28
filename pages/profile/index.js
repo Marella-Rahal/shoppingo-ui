@@ -5,16 +5,26 @@ import Navbar from '../../components/Navbar';
 import { wrapper } from '../../Redux/Store'
 import { parseCookies, setCookie } from 'nookies';
 import axios from 'axios';
-import { saveUser, selectUser } from '../../Redux/Slices/userSlice';
-import { useSelector } from 'react-redux';
+import { saveSeller, saveUser, selectSeller, selectUser } from '../../Redux/Slices/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import FailToGet from '../../components/FailToGet'
 import { MdEdit } from 'react-icons/md';
+import NotePopUp, { showPopUpNote } from '../../components/PopUp/NotePopUp';
+import { ThreeDots } from 'react-loader-spinner';
+
+const NAME_REGEX=/^([\p{L}\s]+ ){2}[\p{L}\s]+$/u;
 
 const Profile = (props) => {
 
   const router = useRouter();
+  const cookies = parseCookies();
+  const token = cookies.token;
   const user = useSelector(selectUser);
+  const seller = useSelector(selectSeller);
+  const dispatch = useDispatch();
   const [typeOfInfo, setTypeOfInfo]=useState('personal');
+  const [noteMsg,setNoteMsg]=useState('');
+  const [sendingStatus,setSendingStatus]=useState(false);
 
   const [enableFullName, setEnableFullName] = useState(true);
   const [enableStoreName, setEnableStoreName] = useState(true);
@@ -24,9 +34,9 @@ const Profile = (props) => {
   const [fullName, setFullName] = useState(user?.fullName);
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPasswordd] = useState('');
-  const [storeName, setStoreName] = useState(user?.storeName !== undefined ? user?.storeName : '');
-  const [location, setLocation] = useState(user?.location !== undefined ? user?.location : '');
-  const [paymentMethod,setPaymentMethod]=useState(user?.paymentMethod !== undefined ? user.paymentMethod : [] );
+  const [storeName, setStoreName] = useState(seller?.storeName);
+  const [location, setLocation] = useState(seller?.location);
+  const [paymentMethod,setPaymentMethod]=useState(seller?.paymentMethod);
   const handleCheckboxChange = (props) => {
 
     if(paymentMethod.includes(props)){
@@ -40,7 +50,8 @@ const Profile = (props) => {
     }
 
   }
-  const [wepayCode, setWepayCode] = useState( user?.wepayCode !== undefined ? user?.wepayCode : '');
+  const [wepayCode, setWepayCode] = useState(seller?.wepayCode);
+
   const [imgURL, setImgURL] = useState('');
   const [previewImgURL,setPreviewImgURL] =useState(user?.imgURL)
   const updateImage = (e) => {
@@ -56,13 +67,142 @@ const Profile = (props) => {
 
     }
 
-  };  
+  };
+  
+  const updateInfo =async (e) => {
+
+      e.preventDefault();
+
+      const fd=new FormData();
+
+      if(imgURL){
+        fd.append('imgURL',imgURL,imgURL.name);
+      }
+
+      if( !NAME_REGEX.test(fullName) ){
+        setNoteMsg(
+            <h5 className='text-red-600 text-center flex flex-col justify-center items-center'>
+                <span>  الرجاء إدخال الاسم الثلاثي </span>   
+            </h5>
+          );
+        showPopUpNote();
+        return;
+      }else{
+
+        fd.append("fullName",fullName);
+
+      }
+
+      if( newPassword && !oldPassword ){
+        setNoteMsg(
+          <h5 className='text-red-600 text-center flex flex-col justify-center items-center'>
+              لتعديل كلمة المرور الرجاء إدخال كلمة المرور القديمة أولاً
+          </h5>
+        );
+        showPopUpNote();
+        return;
+      }
+
+      if( oldPassword && newPassword ){
+
+        if(newPassword.length < 8){
+          setNoteMsg(
+            <h5 className='text-red-600 text-center flex flex-col justify-center items-center'>
+                <span>كلمة المرور الجديدة غير صالحة</span>
+                <span>يجب أن تكون أكثر من 7 أحرف </span>
+            </h5>
+          );
+          showPopUpNote();
+          return;
+        }else{
+
+          fd.append("oldPassword",oldPassword);
+          fd.append("newPassword",newPassword);
+
+        }
+        
+      }
+
+      //!
+
+      if(!fd.entries().next().done){
+
+        try {
+
+          setSendingStatus(true);
+
+          const res = await axios.put(`${process.env.server_url}/api/v2.0/auth/updateInfo`,fd,{
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+
+          if(!res.data.success){
+
+            setSendingStatus(false);
+
+            setNoteMsg(
+              <h5 className='text-red-600 text-center'>{res.data.message}</h5>
+            );
+
+            showPopUpNote();
+
+          }else{
+            // Set the imgURL in the cookie
+            setCookie(null, 'imgURL', res.data.user.imgURL, {
+              secure: true, // Set to true if using HTTPS
+              sameSite: 'none', // Adjust according to your requirements
+            });
+
+            dispatch(saveUser(res.data.user));
+
+            res.data.user.role == 'seller' && dispatch(saveSeller(res.data.seller))
+
+            setImgURL('');
+            setEnableFullName(true);
+            setOldPassword('');
+            setNewPasswordd('');
+            setEnableStoreName(true);
+            setEnableLocation(true);
+            setEnableWepayCode(true);
+
+            setSendingStatus(false);
+          }
+          
+        } catch (error) {
+
+          setSendingStatus(false);
+
+          setNoteMsg(
+            <h5 className='text-red-600 text-center'>{error?.message}</h5>
+          );
+
+          showPopUpNote();
+          
+        }
+
+      }
+
+
+  }
 
   return (
     <>
       {
           props.success ? (
             <>
+              {
+                sendingStatus && (
+                  <div className='fixed z-[100] w-full h-full bg-black/30 flex justify-center items-center'>
+                      <ThreeDots
+                      width="75"
+                      color="white"
+                      visible={true}
+                      /> 
+                  </div>
+                )
+              }
+              <NotePopUp noteMsg={noteMsg}/>
               <Navbar />
               <div
                 className='pt-32 pb-4 px-4 md:px-8 w-full min-h-screen md:h-screen flex flex-col md:flex-row text-textColor dark:text-darkTextColor'
@@ -71,27 +211,39 @@ const Profile = (props) => {
                 <div
                   className='md:pt-0 w-full md:w-1/2 flex flex-col space-y-10  items-center'
                 >
-                  <div className="relative select-none">
-                    <img
-                      src={previewImgURL}
-                      className="w-48 h-48 md:w-72 md:h-72 rounded-full shadow-md shadow-shadowColor dark:shadow-none dark:border-[1px] border-shadowColor/30"
-                    />
+                  {
+                    typeOfInfo == 'personal' ? (
+                        <div className="relative select-none">
+                          <img
+                            src={previewImgURL}
+                            className="w-48 h-48 md:w-72 md:h-72 rounded-full shadow-md shadow-shadowColor dark:shadow-none dark:border-[1px] border-shadowColor/30"
+                          />
 
-                    <label
-                      htmlFor="profilePhoto"
-                      className="absolute bottom-0 right-7 md:bottom-1 md:right-10 w-10 h-10 md:w-14 md:h-14 flex justify-center items-center rounded-full bg-bgColor shadow-md shadow-shadowColor dark:shadow-none dark:border-[1px] border-shadowColor/30 hover:scale-[1.1] cursor-pointer"
-                    >
-                      <BsCamera className="w-6 h-6 md:w-10 md:h-10 text-textColor dark:text-darkBgColor" />
-                    </label>
+                          <label
+                            htmlFor="profilePhoto"
+                            className="absolute bottom-0 right-7 md:bottom-1 md:right-10 w-10 h-10 md:w-14 md:h-14 flex justify-center items-center rounded-full bg-bgColor shadow-md shadow-shadowColor dark:shadow-none dark:border-[1px] border-shadowColor/30 hover:scale-[1.1] cursor-pointer"
+                          >
+                            <BsCamera className="w-6 h-6 md:w-10 md:h-10 text-textColor dark:text-darkBgColor" />
+                          </label>
 
-                    <input
-                      type="file"
-                      accept="image/*"
-                      id="profilePhoto"
-                      className="hidden"
-                      onChange={updateImage}
-                    />
-                  </div>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            id="profilePhoto"
+                            className="hidden"
+                            onChange={updateImage}
+                          />
+                        </div>
+                    ) : (
+
+                        <img
+                          src={seller?.storeImageURL}
+                          className="w-48 h-48 md:w-72 md:h-72 rounded-full shadow-md shadow-shadowColor dark:shadow-none dark:border-[1px] border-shadowColor/30"
+                        />
+
+                    )
+                  }
+                  
                   <div className="flex  space-x-5">
                     <button
                       onClick={() => router.push('/profile/myPurchases')}
@@ -125,7 +277,7 @@ const Profile = (props) => {
                 </div>
 
                 {/* Right */}
-                <div className="py-14 md:pt-0 md:pb-7 w-full md:w-1/2 flex flex-col space-y-5">
+                <form onSubmit={updateInfo} className="py-14 md:pt-0 md:pb-7 w-full md:w-1/2 flex flex-col space-y-5">
 
                   <div className='mb-[10px] w-[100%] md:w-[80%] self-end flex items-center justify-center md:justify-end space-x-5 text-center font-bold text-[14px] md:text-base'>
                     {
@@ -296,10 +448,10 @@ const Profile = (props) => {
 
 
                   <div className='self-end w-[100%] md:w-[80%] flex justify-center'>
-                    <button className="mt-[5px] py-1 px-5">إرسال</button>
+                    <button className="mt-[5px] py-1 px-5">حفظ التغييرات</button>
                   </div>
 
-                </div>
+                </form>
 
               </div>
 
@@ -327,6 +479,8 @@ export const getServerSideProps = wrapper.getServerSideProps( store => async (co
           },
         });
 
+        store.dispatch(saveUser(res.data.user))
+
         setCookie(context, 'imgURL', res.data.user.imgURL, {
           path:'/',
           secure:true,
@@ -339,7 +493,7 @@ export const getServerSideProps = wrapper.getServerSideProps( store => async (co
           sameSite:'none'
         })
 
-        store.dispatch(saveUser(res.data.user))
+        res.data.user.role == 'seller' && store.dispatch(saveSeller(res.data.seller)) 
 
         return {
           props : {
