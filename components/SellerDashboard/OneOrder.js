@@ -8,10 +8,10 @@ function OneOrder(props) {
     <AnimatePresence mode="wait">
       <motion.div
       key={props.id}
-      initial={{opacity:0,scale:0}} 
-      animate={{opacity:1,scale:1}} 
-      exit={{opacity:0,scale:0}}
-      transition={{ease:'easeInOut',duration:0.7}} 
+      initial={{opacity:0,scaleY:0}} 
+      animate={{opacity:1,scaleY:"100%"}} 
+      exit={{opacity:0,scaleY:0}}
+      transition={{ease:'easeInOut',duration:0.5}} 
       className="flex md:flex-row md:space-x-3 flex-col-reverse md:justify-between w-full border my-5 px-5 py-5 md:py-7 shadow-md rounded-lg dark:border-0 dark:shadow-white dark:shadow-sm text-center">
         <div className="py-2 md:py-0 justify-between w-full md:w-auto flex flex-col-reverse md:flex-row ">
           {props.page2 && (
