@@ -17,14 +17,16 @@ const AuthenticationBody = ({ children, upgrade, setImgURL , previewImgURL , set
 
   return (
     <>
-      <div className="pt-28 pb-14 w-full min-h-screen md:h-screen flex flex-col md:flex-row bg-gradient-to-bl from-bgColor to-gradientTo md:to-gradientTo/50 dark:from-darkTextColor2 dark:to-darkBgColor">
+      <div className="pt-28 pb-14 w-full min-h-screen md:h-screen flex flex-col justify-center md:flex-row bg-gradient-to-bl from-bgColor to-gradientTo md:to-gradientTo/50 dark:from-darkTextColor2 dark:to-darkBgColor">
         {!upgrade ? (
+
           <div className="hidden md:flex w-1/2 h-full opacity-80">
             <img src="../authentication.svg" className="w-full h-full" />
           </div>
+
         ) : (
-          <div className=" flex w-full md:w-1/2 h-full mb-10 md:mb-0 ">
-            <div className=" w-full  flex flex-col items-center h-full justify-center align-middle">
+          <div className="flex w-full md:w-1/2 h-full mb-10 md:mb-0">
+            <div className="w-full flex flex-col items-center h-full justify-center align-middle">
               <div className="relative select-none">
                 <img
                   src={previewImgURL}
@@ -49,11 +51,15 @@ const AuthenticationBody = ({ children, upgrade, setImgURL , previewImgURL , set
             </div>
           </div>
         )}
+
         <div className="w-full md:w-1/2 md:h-full flex justify-center items-center">
+
           <div className="bg-bgColor dark:bg-darkTextColor rounded-lg md:shadow-2xl md:shadow-darkTextColor2 px-4 py-7 md:p-7 w-[90%] md:w-[75%]">
             {children}
           </div>
+
         </div>
+
       </div>
     </>
   );
