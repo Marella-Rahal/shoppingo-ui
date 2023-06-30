@@ -78,7 +78,7 @@ const Profile = (props) => {
       if(oldPassword.length==0){
         setNoteMsg(
           <h5 className='text-red-600 text-center flex flex-col justify-center items-center'>
-            الرجاء إدخال كلمة المرور لإجراء أي تعديل
+            الرجاء إدخال كلمة المرور القديمة لإجراء أي تعديل
           </h5>
         );
         showPopUpNote();
