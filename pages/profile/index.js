@@ -50,7 +50,7 @@ const Profile = (props) => {
     }
 
   }
-  const [wepayCode, setWepayCode] = useState(seller?.wepayCode);
+  const [wepayCode, setWepayCode] = useState(seller?.wepayCode == undefined ? '' : seller?.wepayCode );
 
   const [imgURL, setImgURL] = useState('');
   const [previewImgURL,setPreviewImgURL] =useState(user?.imgURL)
@@ -144,7 +144,7 @@ const Profile = (props) => {
 
           setNoteMsg(
             <h5 className='text-red-600 text-center flex flex-col justify-center items-center'>
-                الرجاء إدخال  موقع المتجر
+                الرجاء إدخال  عنوان المتجر
             </h5>
           );
           showPopUpNote();
@@ -234,6 +234,7 @@ const Profile = (props) => {
           setNewPasswordd('');
           setEnableStoreName(true);
           setEnableLocation(true);
+          !paymentMethod.includes('wepay') && setWepayCode('')
           setEnableWepayCode(true);
 
           setSendingStatus(false);
