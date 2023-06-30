@@ -75,7 +75,19 @@ const Profile = (props) => {
 
       const fd=new FormData();
 
-      if(imgURL){
+      if(oldPassword.length==0){
+        setNoteMsg(
+          <h5 className='text-red-600 text-center flex flex-col justify-center items-center'>
+            الرجاء إدخال كلمة المرور لإجراء أي تعديل
+          </h5>
+        );
+        showPopUpNote();
+        return;
+      }else{
+        fd.append('oldPassword',oldPassword)
+      }
+
+      if( imgURL ){
         fd.append('imgURL',imgURL,imgURL.name);
       }
 
@@ -93,17 +105,7 @@ const Profile = (props) => {
 
       }
 
-      if( newPassword && !oldPassword ){
-        setNoteMsg(
-          <h5 className='text-red-600 text-center flex flex-col justify-center items-center'>
-              لتعديل كلمة المرور الرجاء إدخال كلمة المرور القديمة أولاً
-          </h5>
-        );
-        showPopUpNote();
-        return;
-      }
-
-      if( oldPassword && newPassword ){
+      if( newPassword ){
 
         if(newPassword.length < 8){
           setNoteMsg(
@@ -116,71 +118,137 @@ const Profile = (props) => {
           return;
         }else{
 
-          fd.append("oldPassword",oldPassword);
           fd.append("newPassword",newPassword);
 
         }
         
       }
 
-      //!
+      if(user.role == 'seller'){
 
-      if(!fd.entries().next().done){
+        if(storeName.length==0){
 
-        try {
+          setNoteMsg(
+            <h5 className='text-red-600 text-center flex flex-col justify-center items-center'>
+                الرجاء إدخال اسم المتجر
+            </h5>
+          );
+          showPopUpNote();
+          return;
 
-          setSendingStatus(true);
+        }else{
+          fd.append('storeName',storeName)
+        }
 
-          const res = await axios.put(`${process.env.server_url}/api/v2.0/auth/updateInfo`,fd,{
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          })
+        if(location.length==0){
 
-          if(!res.data.success){
+          setNoteMsg(
+            <h5 className='text-red-600 text-center flex flex-col justify-center items-center'>
+                الرجاء إدخال  موقع المتجر
+            </h5>
+          );
+          showPopUpNote();
+          return;
 
-            setSendingStatus(false);
+        }else{
+          fd.append('location',location)
+        }
 
+        if(paymentMethod.length==0){
+
+          setNoteMsg(
+            <h5 className='text-red-600 text-center flex flex-col justify-center items-center'>
+                الرجاء اختيار طريقة دفع واحدة على الأقل
+            </h5>
+          );
+          showPopUpNote();
+          return;
+
+        }else{
+          fd.append('paymentMethod',JSON.stringify(paymentMethod))
+        }
+
+        if( paymentMethod.includes('wepay') ){
+
+          if(wepayCode.length!==6){
             setNoteMsg(
-              <h5 className='text-red-600 text-center'>{res.data.message}</h5>
+              <h5 className='text-red-600 text-center flex flex-col justify-center items-center'>
+                  <span>  كود تحويل غير صالح </span>
+                  <span> يجب أن يكون مؤلف من 6 أرقام </span>   
+              </h5>
             );
-
             showPopUpNote();
-
+            return ;
           }else{
-            // Set the imgURL in the cookie
-            setCookie(null, 'imgURL', res.data.user.imgURL, {
-              secure: true, // Set to true if using HTTPS
-              sameSite: 'none', // Adjust according to your requirements
-            });
-
-            dispatch(saveUser(res.data.user));
-
-            res.data.user.role == 'seller' && dispatch(saveSeller(res.data.seller))
-
-            setImgURL('');
-            setEnableFullName(true);
-            setOldPassword('');
-            setNewPasswordd('');
-            setEnableStoreName(true);
-            setEnableLocation(true);
-            setEnableWepayCode(true);
-
-            setSendingStatus(false);
+            fd.append('wepayCode',wepayCode);
           }
-          
-        } catch (error) {
+
+        }
+      }
+
+      // printing the form data values
+      // for (const entry of fd.entries()) {
+      //   console.log(entry[0] + ': ' + entry[1]);
+      // }
+
+      try {
+
+        setSendingStatus(true);
+
+        const res = await axios.put(`${process.env.server_url}/api/v2.0/auth/updateInfo`,fd,{
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+
+        if(!res.data.success){
 
           setSendingStatus(false);
 
           setNoteMsg(
-            <h5 className='text-red-600 text-center'>{error?.message}</h5>
+            <h5 className='text-red-600 text-center'>{res.data.message}</h5>
           );
 
           showPopUpNote();
-          
-        }
 
+        }else{
+
+          dispatch(saveUser(res.data.user));
+
+          // Set the imgURL in the cookie
+          setCookie(null, 'imgURL', res.data.user.imgURL, {
+            secure: true, // Set to true if using HTTPS
+            sameSite: 'none', // Adjust according to your requirements
+          });
+
+          setCookie(null, 'role', res.data.user.role , {
+            secure:true,
+            sameSite:'none'
+          })
+
+          res.data.user.role == 'seller' && dispatch(saveSeller(res.data.seller))
+
+          setImgURL('');
+          setEnableFullName(true);
+          setOldPassword('');
+          setNewPasswordd('');
+          setEnableStoreName(true);
+          setEnableLocation(true);
+          setEnableWepayCode(true);
+
+          setSendingStatus(false);
+        }
+        
+      } catch (error) {
+
+        setSendingStatus(false);
+
+        setNoteMsg(
+          <h5 className='text-red-600 text-center'>{error?.message}</h5>
+        );
+
+        showPopUpNote();
+        
       }
 
 
@@ -209,7 +277,7 @@ const Profile = (props) => {
               >
                 {/* Left */}
                 <div
-                  className='md:pt-0 w-full md:w-1/2 flex flex-col space-y-10  items-center'
+                  className='w-full md:w-1/2 flex flex-col space-y-10 justify-center items-center'
                 >
                   {
                     typeOfInfo == 'personal' ? (
@@ -295,7 +363,7 @@ const Profile = (props) => {
                   
                   {
                     typeOfInfo == 'personal' ? (
-                      <>
+                      <div className="h-full flex flex-col space-y-5 justify-center">
                           <div className='w-[100%] md:w-[80%] self-end flex justify-between items-center space-x-3'>
 
                             <div
@@ -337,9 +405,9 @@ const Profile = (props) => {
                             onChange={(e)=>setNewPasswordd(e.target.value)}
                             className="self-end h-10 w-[100%] md:w-[80%] rounded-md outline-none text-end pr-2 shadow-sm shadow-shadowColor"
                           />
-                      </>
+                      </div>
                     ) : (
-                      <>
+                      <div className="h-full flex flex-col space-y-5 justify-center">
 
                           <div className='w-[100%] md:w-[80%] self-end flex justify-between items-center space-x-3'>
 
@@ -442,7 +510,7 @@ const Profile = (props) => {
                               </>
                             )
                           }
-                      </>
+                      </div>
                     )
                   }
 

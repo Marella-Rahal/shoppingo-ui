@@ -1,12 +1,17 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 export const showPopUpNote = () => {
   document.querySelector(".fullScreenNote").style.display = "flex";
 };
 
-const NotePopUp = ({ noteMsg }) => {
+const NotePopUp = ({ noteMsg , goBack }) => {
+
+  const router =useRouter();
+
   const closePopUp = () => {
-    document.querySelector(".fullScreenNote").style.display = "none";
+    goBack && router.back() ;
+    !goBack && (document.querySelector(".fullScreenNote").style.display = "none" );
   };
 
   return (
