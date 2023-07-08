@@ -31,6 +31,8 @@ module.exports = {
       boxShadow: {
        'mapShadow': "inset 0px 0px 16px 6px rgba(0,0,0,0.10)",
        'darkMapShadow' : "inset 0px 0px 16px 6px rgba(255,255,255,0.10)",
+       'cardShadow' : "0px 0px 5px 5px rgba(0,0,0,0.1)",
+       'darkCardShadow' : "0px 0px 5px 5px rgba(0,0,0,0.4)",
       }
     },
   },
