@@ -22,7 +22,7 @@ const Marker = ({ image, color }) => {
           className="marker-btn after:top-[80%] xs:after:top-[83%] sm:after:top-[85%] bg-transparent dark:bg-gradient-to-tr dark:from-transparent dark:to-transparent"
           style={{ backgroundColor: color, borderColor: color }}
         >
-          <img src={image} alt="product image" className="marker-img" />
+          <img src={image} alt="product image" className="marker-img bg-gray-200" />
         </button>
       </motion.div>
       <style jsx>
@@ -48,7 +48,7 @@ const Marker = ({ image, color }) => {
           .marker-btn::after {
             content: " ";
             position: absolute;
-            left: 50%;
+            left: 51%;
             margin-left: -10px;
             border-width: 10px;
             border-style: solid;
@@ -60,8 +60,8 @@ const Marker = ({ image, color }) => {
 
           // the image
           .marker-img {
-            width: 21px;
-            height: 23px;
+            width: 25px;
+            height: 25px;
             border-radius: 100%;
             margin: auto;
           }
