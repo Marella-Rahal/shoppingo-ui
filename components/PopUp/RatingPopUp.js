@@ -1,14 +1,57 @@
 import React from "react";
 import {AnimatePresence, motion} from 'framer-motion';
+import axios from "axios";
+import { parseCookies } from "nookies";
+import { useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
+import { showPopUpNote } from "./NotePopUp";
 
 const RatingPopUp = (props) => {
 
-  //*************** */
-  const sendRating = (e) => {
+  const cookies = parseCookies();
+  const token = cookies.token;
+
+  const [value,setValue] = useState('');
+  const [sendingStatus,setSendingStatus]=useState(false);
+
+  const sendRating = async (e) => {
+
     e.preventDefault();
-    props.setRatingPopUp(false);
+
+    try {
+      
+      setSendingStatus(true);
+
+      const res = await axios.post(`${process.env.server_url}/api/v2.0/shop/addReview/${props.brandId}`,{
+        value
+      },{
+        headers : {
+          Authorization : `Bearer ${token}`
+        }
+      })
+
+      setSendingStatus(false);
+
+      setValue('');
+
+      props.setRatingPopUp(false);
+
+      props.setNoteMsg(<h5 className='text-red-600 text-center'>{res.data.message}</h5>);
+      showPopUpNote();
+
+      props.setRating(String(res.data.meanRating));
+
+    } catch (error) {
+
+      setSendingStatus(false);
+
+      props.setNoteMsg(<h5 className='text-red-600 text-center'>{error?.message}</h5>);
+      showPopUpNote();
+
+    }
+
   };
-  //*************** */
+
 
   return (
     <AnimatePresence mode="wait">
@@ -28,21 +71,41 @@ const RatingPopUp = (props) => {
                     step="1"
                     required
                     placeholder="3"
+                    value={value}
+                    onChange={ (e) => setValue(e.target.value) }
                     className="px-2 rounded-md shadow-md shadow-shadowColor w-full outline-none ring-yellow-400 dark:ring-darkTextColor2 focus:ring-2"
                   />
 
                   <div className="flex space-x-3">
                       <button
                         type="button"
-                        className="bg-yellow-400 hover:bg-yellow-600 w-[75px]"
+                        className="bg-yellow-400 hover:bg-yellow-600 p-0 w-[75px] h-[30px] flex justify-center items-center"
+                        disabled={sendingStatus}
                         onClick={() => props.setRatingPopUp(false)}
                       >
-                        إغلاق
+                        {
+                          !sendingStatus ? 'إغلاق' : (
+                            <ThreeDots
+                              width="30"
+                              color="#ffffff"
+                              visible={true}
+                            />
+                          )
+                        }
                       </button>
                       <button
-                        className="bg-yellow-400 hover:bg-yellow-600 w-[75px]"
+                        disabled={sendingStatus}
+                        className="bg-yellow-400 hover:bg-yellow-600 p-0 w-[75px] h-[30px] flex justify-center items-center"
                       >
-                        تقييم
+                        {
+                          !sendingStatus ? 'تقييم' : (
+                            <ThreeDots
+                              width="30"
+                              color="#ffffff"
+                              visible={true}
+                            />
+                          )
+                        }
                       </button>
                   </div>
 

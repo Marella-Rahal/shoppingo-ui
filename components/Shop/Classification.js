@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-const Classification = (props) => {
+const Classification = ({woman , WShow , MShow}) => {
   //** for putting htmlfor and id for every input and label */
   const [gender, setGender] = useState("");
   useEffect(() => {
-    props.woman == true ? setGender("woman") : setGender("man");
+    woman == true ? setGender("woman") : setGender("man");
   }, []);
   //************************ */
-
   return (
     <>
       {/* drop down */}
-      <div className="absolute top-[70px] left-[1px] md:top-[50px] md:-left-[37px] bg-white text-textColor dark:text-darkBgColor rounded-lg shadow-md shadow-shadowColor hidden group-hover:flex text-sm font-bold">
+      <div className={`absolute top-[70px] left-[1px] md:top-[50px] md:-left-[37px] bg-white text-textColor dark:text-darkBgColor rounded-lg shadow-md shadow-shadowColor ${ (WShow || MShow) ? 'flex' : 'hidden' } text-sm font-bold`}>
         {/* left section */}
         <div className="flex flex-col items-end p-2 space-y-2">
-          {props.woman && (
+          {woman && (
             <>
               {/* one label */}
               <div className="flex space-x-2 items-center">
@@ -103,7 +102,7 @@ const Classification = (props) => {
         <div className="min-h-full w-[3px] mx-1 bg-shadowColor/20" />
         {/* right section */}
         <div className="flex flex-col items-end p-2 space-y-2">
-          {props.woman && (
+          {woman && (
             <>
               {/* one label */}
               <div className="flex space-x-2 items-center">

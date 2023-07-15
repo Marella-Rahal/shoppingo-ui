@@ -28,7 +28,7 @@ const DynamicProduct=dynamic(()=>import('../../components/Shop/Product'),{
 
 const products=[
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -36,7 +36,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -44,7 +44,7 @@ const products=[
     rating:"3.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:false,
     offer:true,
     oPrice:100000,
@@ -52,7 +52,7 @@ const products=[
     rating:"0.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:false,
     offer:false,
     oPrice:'',
@@ -60,7 +60,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -68,7 +68,7 @@ const products=[
     rating:"1.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:false,
     offer:false,
     oPrice:'',
@@ -76,7 +76,7 @@ const products=[
     rating:"0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -84,7 +84,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:"",
@@ -92,7 +92,7 @@ const products=[
     rating:"5.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:false,
     offer:true,
     oPrice:200000,
@@ -100,7 +100,7 @@ const products=[
     rating:"2.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:false,
     offer:true,
     oPrice:100000,
@@ -108,7 +108,7 @@ const products=[
     rating:"3.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -116,7 +116,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -124,7 +124,7 @@ const products=[
     rating:"3.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:false,
     offer:true,
     oPrice:100000,
@@ -132,7 +132,7 @@ const products=[
     rating:"0.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:false,
     offer:false,
     oPrice:'',
@@ -140,7 +140,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -148,7 +148,7 @@ const products=[
     rating:"1.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:false,
     offer:false,
     oPrice:'',
@@ -156,7 +156,7 @@ const products=[
     rating:"0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -164,7 +164,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:"",
@@ -172,7 +172,7 @@ const products=[
     rating:"5.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:false,
     offer:true,
     oPrice:200000,
@@ -180,7 +180,7 @@ const products=[
     rating:"2.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:false,
     offer:true,
     oPrice:100000,
@@ -417,7 +417,7 @@ const ProductId = () => {
                   </span>
                 </div>
                 {/* Shop Name */}
-                <div className="font-semibold cursor-pointer hover:underline text-textColor dark:text-darkTextColor text-end" onClick={() => router.push('/shop/1')}>For_you</div>
+                <div className="font-semibold cursor-pointer hover:underline text-textColor dark:text-darkTextColor text-end" onClick={() => router.push({ pathname : '/sellers/sellerProducts' , query : { sellerId : 1 } })}>For_you</div>
 
                 {/* Address */}
                 <div className="text-textColor2 dark:text-darkTextColor2 text-end">

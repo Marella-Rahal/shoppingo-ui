@@ -5,10 +5,15 @@ import RatingPopUp from "../../components/PopUp/RatingPopUp";
 import { useRouter } from "next/router";
 import { useTheme } from 'next-themes';
 import {AnimatePresence, motion} from 'framer-motion';
+import Image from "next/image";
+import { parseCookies } from "nookies";
+import { showPopUpNote } from "../PopUp/NotePopUp";
 
 
 const Product = (props) => {
   const router = useRouter();
+  const cookies =parseCookies();
+  const token = cookies.token;
   const { theme , setTheme }=useTheme();
   const [oImg,setOImg]=useState('');
   useEffect(()=>{
@@ -22,6 +27,7 @@ const Product = (props) => {
   },[theme])
   // ****************** Stars ***********************
   const [ratingPopUp, setRatingPopUp] = useState(false);
+  const [rating,setRating]=useState(props.rating);
   const [fullStars, setFullStars] = useState([]);
   const [halfStars, setHalfStars] = useState([]);
   const [emptyStars, setEmptyStars] = useState([]);
@@ -30,13 +36,13 @@ const Product = (props) => {
     var halfStars = [];
     var emptyStars = [];
     // full stars
-    for (let i = 0; i < Number(props.rating[0]); i++) {
+    for (let i = 0; i < Number(rating[0]); i++) {
       fullStars.push(1);
     }
     // half stars
-    if (Number(props.rating[2]) > 2 && Number(props.rating[2]) < 8) {
+    if (Number(rating[2]) > 2 && Number(rating[2]) < 8) {
       halfStars.push(1);
-    } else if (Number(props.rating[2]) >= 8) {
+    } else if (Number(rating[2]) >= 8) {
       fullStars.push(1);
     }
 
@@ -48,7 +54,7 @@ const Product = (props) => {
     setFullStars(fullStars);
     setHalfStars(halfStars);
     setEmptyStars(emptyStars);
-  }, [props.rating]);
+  }, [rating]);
   // ****************** Stars ***********************
 
   return (
@@ -56,23 +62,27 @@ const Product = (props) => {
 
         <motion.div 
         key={props.id}
-        initial={{opacity:0,scale:0}} 
+        initial={{opacity:0,scale:0.8}} 
         animate={{opacity:1,scale:1}} 
-        exit={{opacity:0,scale:0}}
-        transition={{ease:'easeInOut',duration:0.7}} 
+        exit={{opacity:0,scale:0.8}}
+        transition={{ease:'easeInOut',duration:0.5}} 
         dir="ltr">
 
-          {/* //! **********************************************/}
           <div
             className="relative flex flex-col space-y-3 pb-3 w-[250px] h-fit rounded-lg shadow-sm shadow-shadowColor m-5"
           >
                 {/* section 1 */}
 
                 {/* product image */}
-                <img
-                  src={props.img}
-                  className="w-full h-[270px] rounded-t-lg border-b-2 border-shadowColor/10 cursor-pointer"
-                  onClick={() => router.push(`/productDetail/${props.id}`)}
+                <Image
+                src={props.img}
+                placeholder="blur"
+                blurDataURL={props.img}
+                loading="lazy"
+                width={250}
+                height={270}
+                className="w-full h-[270px] rounded-t-lg border-b-2 border-shadowColor/10 cursor-pointer"
+                onClick={() => router.push(`/productDetail/${props.id}`)}
                 />
 
                 {/* heart */}
@@ -93,7 +103,12 @@ const Product = (props) => {
                   <button
                     className="rounded-md bg-textColor/90 hover:bg-[#050531] dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl py-[3px] px-[17px]"
                     onClick={() => {
-                      setRatingPopUp(true);
+                      if(token){
+                        setRatingPopUp(true)
+                      }else{
+                        props.setNoteMsg(<h5 className='text-red-600 text-center'>يجب عليك تسجيل الدخول أولاً للتقييم</h5>);
+                        showPopUpNote();
+                      }
                     }}
                   >
                     تقييم
@@ -135,12 +150,11 @@ const Product = (props) => {
                       />
                     ))}
                   </div>
-                  <span className="font-bold dark:text-yellow-400">{props.rating}</span>
+                  <span className="font-bold dark:text-yellow-400">{rating}</span>
                 </div>
-                <RatingPopUp ratingPopUp={ratingPopUp} setRatingPopUp={setRatingPopUp} />
+                <RatingPopUp ratingPopUp={ratingPopUp} setRatingPopUp={setRatingPopUp} setRating={setRating} setNoteMsg={props.setNoteMsg} brandId={props.brandId}/>
                 
           </div>
-          {/* //! **********************************************/}
 
         </motion.div>
 

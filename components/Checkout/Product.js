@@ -35,7 +35,7 @@ const Product = (props) => {
 
                 <p
                   className="text-center cursor-pointer hover:underline"
-                  onClick={() => router.push(`/shop/${props.shopId}`)}
+                  onClick={() => router.push({ pathname : '/sellers/sellerProducts' , query : { sellerId : props.shopId } }) }
                 >
                   {props.shopName}
                 </p>
