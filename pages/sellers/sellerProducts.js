@@ -6,7 +6,7 @@ import FailToGet from "../../components/FailToGet";
 import NotePopUp from "../../components/PopUp/NotePopUp";
 import { useState } from "react";
 
-const sellerProducts = (props) => {
+const SellerProducts = (props) => {
 
     const [noteMsg,setNoteMsg]=useState('')
 
@@ -34,7 +34,7 @@ const sellerProducts = (props) => {
     );
 }
 
-export default sellerProducts
+export default SellerProducts
 
 export const getServerSideProps = async (context) => {
 

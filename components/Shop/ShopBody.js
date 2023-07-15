@@ -86,7 +86,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProd
       {/* Search and classification */}
       <div className="flex flex-col-reverse md:items-center md:flex-row md:justify-between">
         {/* Search */}
-        <Search />
+        <Search setProducts={setProducts} uniqueProducts={uniqueProducts} shopRoute={shopRoute}/>
         {/* Classification */}
         <div className="flex flex-col-reverse md:flex-row md:space-x-3 md:items-center">
           {/* woman */}
