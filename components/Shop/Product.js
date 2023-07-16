@@ -99,21 +99,26 @@ const Product = (props) => {
                 )}
 
                 {/* section 2 */}
-                <div className="flex justify-between items-center px-3 h-[40px]">
-                  <button
-                    className="rounded-md bg-textColor/90 hover:bg-[#050531] dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl py-[3px] px-[17px]"
-                    onClick={() => {
-                      if(token){
-                        setRatingPopUp(true)
-                      }else{
-                        props.setNoteMsg(<h5 className='text-red-600 text-center'>يجب عليك تسجيل الدخول أولاً للتقييم</h5>);
-                        showPopUpNote();
-                      }
-                    }}
-                  >
-                    تقييم
-                  </button>
-                  <div className="flex flex-col ">
+                <div className={`flex ${ props.offersRoute ? 'justify-end' : 'justify-between' } items-center px-3 h-[40px]`}>
+                  {
+                    !props.offersRoute && (
+                        <button
+                          className="rounded-md bg-textColor/90 hover:bg-[#050531] dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl py-[3px] px-[17px]"
+                          onClick={() => {
+                            if(token){
+                              setRatingPopUp(true)
+                            }else{
+                              props.setNoteMsg(<h5 className='text-red-600 text-center'>يجب عليك تسجيل الدخول أولاً للتقييم</h5>);
+                              showPopUpNote();
+                            }
+                          }}
+                        >
+                          تقييم
+                        </button>
+                    )
+                  }
+                  
+                  <div className="flex flex-col">
                     {props.offer && (
                       <div className="flex text-[10px] text-textColor2 dark:text-darkTextColor2 line-through self-end">
                         <div className="mr-1">ل.س</div>
@@ -125,6 +130,7 @@ const Product = (props) => {
                       <div className="font-bold">{props.nPrice}</div>
                     </div>
                   </div>
+
                 </div>
                 {/* section 3 */}
                 <div className="flex justify-between items-center px-3">

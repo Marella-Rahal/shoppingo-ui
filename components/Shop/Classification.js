@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,shopRoute }) => {
+const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,shopRoute ,selectedOptionsForMale ,selectedOptionsForFemale , setSelectedOptionsForFemale , setSelectedOptionsForMale  }) => {
 
   //** for putting htmlfor and id for every input and label */
   const [gender, setGender] = useState("");
@@ -9,36 +9,46 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
   }, []);
   //************************ */
 
-  const [selectedOptions,setSelectedOptions]=useState([]);
-
   const handleCheckBoxChange = (type) => {
 
     // remove the value from the selectedOptions or adding it
-    if(selectedOptions.includes(type)){
-      setSelectedOptions( prev => prev.filter( t => t!= type ) )
+    if(woman){
+      if(selectedOptionsForFemale.includes(type)){
+        setSelectedOptionsForFemale( prev => prev.filter( t => t!= type ) )
+      }else{
+        setSelectedOptionsForFemale( [...selectedOptionsForFemale , type ] )
+      }
     }else{
-      setSelectedOptions( [...selectedOptions , type ] )
+      if(selectedOptionsForMale.includes(type)){
+        setSelectedOptionsForMale( prev => prev.filter( t => t!= type ) )
+      }else{
+        setSelectedOptionsForMale( [...selectedOptionsForMale , type ] )
+      }
     }
+    
 
   }
 
   useEffect(()=>{
 
-    if(selectedOptions.length!==0){
+    if(selectedOptionsForFemale.length !== 0 || selectedOptionsForMale.length !== 0){
 
       // Filter your data based on the selected options
       const filteredData = uniqueProducts.filter((p) => {
         // Check if any of the selected options matches the product
-        return selectedOptions.some((option) => ( shopRoute ? (p.shippestProduct.type == option && p.shippestProduct.gender == gender) : (p.product.type == option && p.product.gender == gender) ) );
+        return selectedOptionsForFemale.some((option) => ( shopRoute ? (p.shippestProduct.type == option && p.shippestProduct.gender == 'female' ) : (p.product.type == option && p.product.gender == 'female') )) || selectedOptionsForMale.some((option) => ( shopRoute ? (p.shippestProduct.type == option && p.shippestProduct.gender == 'male' ) : (p.product.type == option && p.product.gender == 'male') )) ;
+
       });
 
       setProducts(filteredData);
 
     }else{
+
       setProducts(uniqueProducts);
+
     }
 
-  },[selectedOptions])
+  },[selectedOptionsForMale , selectedOptionsForFemale])
 
   return (
     <>
@@ -56,7 +66,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
                 <input
                   type="checkbox"
                   id={`${gender} + skirt`}
-                  checked={selectedOptions.includes("تنورة")}
+                  checked={selectedOptionsForFemale.includes("تنورة")}
                   onChange={() => handleCheckBoxChange("تنورة")}
                   className="w-[14px] h-[14px]"
                 />
@@ -71,7 +81,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + short`}
-              checked={selectedOptions.includes("شورت")}
+              checked={woman? selectedOptionsForFemale.includes("شورت") : selectedOptionsForMale.includes("شورت") }
               onChange={() => handleCheckBoxChange("شورت")}
               className="w-[14px] h-[14px]"
             />
@@ -84,7 +94,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + bijama`}
-              checked={selectedOptions.includes("بجامة")}
+              checked={woman? selectedOptionsForFemale.includes("بجامة") : selectedOptionsForMale.includes("بجامة")}
               onChange={() => handleCheckBoxChange("بجامة")}
               className="w-[14px] h-[14px]"
             />
@@ -97,7 +107,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + hoody`}
-              checked={selectedOptions.includes("هوديز")}
+              checked={woman? selectedOptionsForFemale.includes("هوديز") : selectedOptionsForMale.includes("هوديز")}
               onChange={() => handleCheckBoxChange("هوديز")}
               className="w-[14px] h-[14px]"
             />
@@ -110,7 +120,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + hat`}
-              checked={selectedOptions.includes("قبعة")}
+              checked={woman? selectedOptionsForFemale.includes("قبعة") : selectedOptionsForMale.includes("قبعة")}
               onChange={() => handleCheckBoxChange("قبعة")}
               className="w-[14px] h-[14px]"
             />
@@ -123,7 +133,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + scarve`}
-              checked={selectedOptions.includes("وشاح")}
+              checked={woman? selectedOptionsForFemale.includes("وشاح") : selectedOptionsForMale.includes("وشاح")}
               onChange={() => handleCheckBoxChange("وشاح")}
               className="w-[14px] h-[14px]"
             />
@@ -139,7 +149,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + tie`}
-              checked={selectedOptions.includes("ربطة عنق")}
+              checked={woman? selectedOptionsForFemale.includes("ربطة عنق") : selectedOptionsForMale.includes("ربطة عنق")}
               onChange={() => handleCheckBoxChange("ربطة عنق")}
               className="w-[14px] h-[14px]"
             />
@@ -159,7 +169,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
                 <input
                   type="checkbox"
                   id={`${gender} + dress`}
-                  checked={selectedOptions.includes("فستان")}
+                  checked={selectedOptionsForFemale.includes("فستان")}
                   onChange={() => handleCheckBoxChange("فستان")}
                   className="w-[14px] h-[14px]"
                 />
@@ -174,7 +184,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + jacket`}
-              checked={selectedOptions.includes("جاكيت")}
+              checked={woman? selectedOptionsForFemale.includes("جاكيت") : selectedOptionsForMale.includes("جاكيت")}
               onChange={() => handleCheckBoxChange("جاكيت")}
               className="w-[14px] h-[14px]"
             />
@@ -187,7 +197,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + suit`}
-              checked={selectedOptions.includes("طقم")}
+              checked={woman? selectedOptionsForFemale.includes("طقم") : selectedOptionsForMale.includes("طقم")}
               onChange={() => handleCheckBoxChange("طقم")}
               className="w-[14px] h-[14px]"
             />
@@ -200,7 +210,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + pant`}
-              checked={selectedOptions.includes("بنطال")}
+              checked={woman? selectedOptionsForFemale.includes("بنطال") : selectedOptionsForMale.includes("بنطال")}
               onChange={() => handleCheckBoxChange("بنطال")}
               className="w-[14px] h-[14px]"
             />
@@ -213,7 +223,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + shirt`}
-              checked={selectedOptions.includes("قميص")}
+              checked={woman? selectedOptionsForFemale.includes("قميص") : selectedOptionsForMale.includes("قميص")}
               onChange={() => handleCheckBoxChange("قميص")}
               className="w-[14px] h-[14px]"
             />
@@ -226,7 +236,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + tshirt`}
-              checked={selectedOptions.includes("كنزة")}
+              checked={woman? selectedOptionsForFemale.includes("كنزة") : selectedOptionsForMale.includes("كنزة")}
               onChange={() => handleCheckBoxChange("كنزة")}
               className="w-[14px] h-[14px]"
             />
@@ -239,7 +249,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + belt`}
-              checked={selectedOptions.includes("حزام")}
+              checked={woman? selectedOptionsForFemale.includes("حزام") : selectedOptionsForMale.includes("حزام")}
               onChange={() => handleCheckBoxChange("حزام")}
               className="w-[14px] h-[14px]"
             />
@@ -255,7 +265,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
             <input
               type="checkbox"
               id={`${gender} + swimwear`}
-              checked={selectedOptions.includes("ملابس سباحة")}
+              checked={woman? selectedOptionsForFemale.includes("ملابس سباحة") : selectedOptionsForMale.includes("ملابس سباحة")}
               onChange={() => handleCheckBoxChange("ملابس سباحة")}
               className="w-[14px] h-[14px]"
             />

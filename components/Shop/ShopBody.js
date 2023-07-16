@@ -37,6 +37,8 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProd
   const [PShow,setPShow]=useState(false);
   const [MShow,setMShow]=useState(false);
   const [WShow,setWShow]=useState(false);
+  const [selectedOptionsForFemale,setSelectedOptionsForFemale]=useState([]);
+  const [selectedOptionsForMale,setSelectedOptionsForMale]=useState([]);
 
   const [products,setProducts]=useState(uniqueProducts);
 
@@ -94,7 +96,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProd
 
             <TiArrowSortedDown className={` absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] dark:text-[#474747] dark:md:text-[#323232] w-7 h-7 ${ WShow ? 'flex' : 'hidden' } `} />
 
-            <Classification woman={true} WShow={WShow} setProducts={setProducts} uniqueProducts={uniqueProducts} shopRoute={shopRoute}/>
+            <Classification woman={true} WShow={WShow} setProducts={setProducts} uniqueProducts={uniqueProducts} shopRoute={shopRoute} selectedOptionsForMale={selectedOptionsForMale} selectedOptionsForFemale={selectedOptionsForFemale} setSelectedOptionsForFemale={setSelectedOptionsForFemale} setSelectedOptionsForMale={setSelectedOptionsForMale}/>
           </div>
 
           {/* man */}
@@ -107,7 +109,8 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProd
 
             <TiArrowSortedDown className={` absolute  top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] dark:text-[#474747] dark:md:text-[#323232] w-7 h-7 ${ MShow ? 'flex' : 'hidden' } `} />
 
-            <Classification woman={false} MShow={MShow} setProducts={setProducts} uniqueProducts={uniqueProducts} shopRoute={shopRoute}/>
+            <Classification woman={false} MShow={MShow} setProducts={setProducts} uniqueProducts={uniqueProducts} shopRoute={shopRoute}
+            selectedOptionsForMale={selectedOptionsForMale} selectedOptionsForFemale={selectedOptionsForFemale} setSelectedOptionsForFemale={setSelectedOptionsForFemale} setSelectedOptionsForMale={setSelectedOptionsForMale}/>
           </div>
 
           {/* price */}
@@ -157,9 +160,9 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProd
             {
                 productsDisplayed.map((one,index)=>{
                   if(shopRoute){
-                    return <DynamicProduct key={index} brandId={one.brand._id} id={one.shippestProduct._id} img={one.shippestProduct.frontImgURL} fav={false} offer={one.shippestProduct.price !== one.price } oPrice={one.shippestProduct.price} nPrice={one.price} rating={String(one.meanRating)} setNoteMsg={setNoteMsg}/>
+                    return <DynamicProduct key={index} brandId={one.brand._id} id={one.shippestProduct._id} img={one.shippestProduct.frontImgURL} fav={false} offer={one.shippestProduct.price !== one.price } oPrice={one.shippestProduct.price} nPrice={one.price} rating={String(one.meanRating)} setNoteMsg={setNoteMsg} offersRoute={offersRoute}/>
                   }else{
-                    return <DynamicProduct key={index} brandId={one.product.brand} id={one.product._id} img={one.product.frontImgURL} fav={false} offer={one.product.price !== one.updatedPrice} oPrice={one.product.price} nPrice={one.updatedPrice} rating={String(one.meanRating)} setNoteMsg={setNoteMsg}/>
+                    return <DynamicProduct key={index} brandId={one.product.brand} id={one.product._id} img={one.product.frontImgURL} fav={false} offer={one.product.price !== one.updatedPrice} oPrice={one.product.price} nPrice={one.updatedPrice} rating={String(one.meanRating)} setNoteMsg={setNoteMsg} offersRoute={offersRoute}/>
                   }
                   
                 })
