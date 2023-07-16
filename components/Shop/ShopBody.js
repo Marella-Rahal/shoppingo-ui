@@ -20,9 +20,6 @@ import { useRouter } from "next/router";
 
 const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProducts }) => {
 
-  //! ******
-  console.log(uniqueProducts);
-
   const cookies = parseCookies();
   const role = cookies.role;
   const router =useRouter();
@@ -97,7 +94,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProd
 
             <TiArrowSortedDown className={` absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] dark:text-[#474747] dark:md:text-[#323232] w-7 h-7 ${ WShow ? 'flex' : 'hidden' } `} />
 
-            <Classification woman={true} WShow={WShow}/>
+            <Classification woman={true} WShow={WShow} setProducts={setProducts} uniqueProducts={uniqueProducts} shopRoute={shopRoute}/>
           </div>
 
           {/* man */}
@@ -110,7 +107,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProd
 
             <TiArrowSortedDown className={` absolute  top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] dark:text-[#474747] dark:md:text-[#323232] w-7 h-7 ${ MShow ? 'flex' : 'hidden' } `} />
 
-            <Classification woman={false} MShow={MShow}/>
+            <Classification woman={false} MShow={MShow} setProducts={setProducts} uniqueProducts={uniqueProducts} shopRoute={shopRoute}/>
           </div>
 
           {/* price */}
