@@ -29,7 +29,7 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
       // Filter your data based on the selected options
       const filteredData = uniqueProducts.filter((p) => {
         // Check if any of the selected options matches the product
-        return selectedOptions.some((option) => ( shopRoute ? (p.shippestProduct.type == option && p.shippestProduct.gender == gender) : (p.product.type == option && p.shippestProduct.gender == gender) ) );
+        return selectedOptions.some((option) => ( shopRoute ? (p.shippestProduct.type == option && p.shippestProduct.gender == gender) : (p.product.type == option && p.product.gender == gender) ) );
       });
 
       setProducts(filteredData);
