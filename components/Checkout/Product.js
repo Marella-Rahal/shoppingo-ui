@@ -10,10 +10,10 @@ const Product = (props) => {
 
       <motion.div
       key={props.id}
-      initial={{opacity:0,scale:0}} 
-      animate={{opacity:1,scale:1}} 
-      exit={{opacity:0,scale:0}}
-      transition={{ease:'easeInOut',duration:0.7}} 
+      initial={{opacity:0,scale:0.8}} 
+        animate={{opacity:1,scale:1}} 
+        exit={{opacity:0,scale:0.8}}
+        transition={{ease:'easeInOut',duration:0.5}} 
       dir="ltr">
 
         <div className="relative flex flex-col w-[200px] rounded-md shadow-sm shadow-shadowColor font-bold text-[13px] ml-5">
@@ -27,7 +27,7 @@ const Product = (props) => {
               <img
                 src={props.img}
                 className="w-full h-[150px] rounded-t-md border-b-2 border-shadowColor/20 cursor-pointer"
-                onClick={() => router.push(`/productDetail/${props.id}`)}
+                onClick={() => router.push({ pathname : '/productDetail' , query : {productId : props.id} })}
               />
 
               {/* Store Name */}
@@ -35,7 +35,7 @@ const Product = (props) => {
 
                 <p
                   className="text-center cursor-pointer hover:underline"
-                  onClick={() => router.push({ pathname : '/sellers/sellerProducts' , query : { sellerId : props.shopId } }) }
+                  onClick={() => router.push({ pathname : '/sellerProducts' , query : { sellerId : props.shopId } }) }
                 >
                   {props.shopName}
                 </p>

@@ -6,22 +6,22 @@ import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md";
-import Sizes from "../../components/ProductDetail/Sizes";
-import Colors from "../../components/ProductDetail/Colors";
+import Sizes from "../components/ProductDetail/Sizes";
+import Colors from "../components/ProductDetail/Colors";
 import { motion } from "framer-motion";
-import NotePopUp, { showPopUpNote } from "../../components/PopUp/NotePopUp";
-import usePosition from "../../hooks/usePosition";
-import Navbar from "../../components/Navbar";
+import NotePopUp, { showPopUpNote } from "../components/PopUp/NotePopUp";
+import usePosition from "../hooks/usePosition";
+import Navbar from "../components/Navbar";
 import { useRouter } from "next/router";
 
 import dynamic from "next/dynamic";
-import Loading from "../../components/Loading";
-const Map = dynamic(() => import("../../components/Map/Map"), {
+import Loading from "../components/Loading";
+const Map = dynamic(() => import("../components/Map/Map"), {
   loading: () => <Loading />,
   ssr: false,
 });
-import Placeholder from "../../components/Shop/Placeholder";
-const DynamicProduct=dynamic(()=>import('../../components/Shop/Product'),{
+import Placeholder from "../components/Shop/Placeholder";
+const DynamicProduct=dynamic(()=>import('../components/Shop/Product'),{
   loading: () => <Placeholder/> ,
   ssr: false,
 })
@@ -193,7 +193,7 @@ const products=[
 const images = ["../../product.jpg", "../../product1.jpg"];
 //*********************************************/
 
-const ProductId = () => {
+const ProductDetail = () => {
   const router=useRouter();
   //* for the foreground and background image
   const [imgUrl, setImgUrl] = useState(images[0]);
@@ -460,4 +460,4 @@ const ProductId = () => {
   );
 };
 
-export default ProductId;
+export default ProductDetail;

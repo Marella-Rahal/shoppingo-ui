@@ -12,7 +12,7 @@ import { ColorRing } from "react-loader-spinner";
 
 const products=[
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -20,7 +20,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -28,7 +28,7 @@ const products=[
     rating:"3.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -36,7 +36,7 @@ const products=[
     rating:"0.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -44,7 +44,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -52,7 +52,7 @@ const products=[
     rating:"1.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -60,7 +60,7 @@ const products=[
     rating:"0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -68,7 +68,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:"",
@@ -76,7 +76,7 @@ const products=[
     rating:"5.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:200000,
@@ -84,7 +84,7 @@ const products=[
     rating:"2.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -92,7 +92,7 @@ const products=[
     rating:"3.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -100,7 +100,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -108,7 +108,7 @@ const products=[
     rating:"3.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -116,7 +116,7 @@ const products=[
     rating:"0.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -124,7 +124,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -132,7 +132,7 @@ const products=[
     rating:"1.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -140,7 +140,7 @@ const products=[
     rating:"0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -148,7 +148,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:"",
@@ -156,7 +156,7 @@ const products=[
     rating:"5.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:200000,
@@ -164,7 +164,7 @@ const products=[
     rating:"2.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -172,7 +172,7 @@ const products=[
     rating:"3.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -180,7 +180,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -188,7 +188,7 @@ const products=[
     rating:"3.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -196,7 +196,7 @@ const products=[
     rating:"0.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -204,7 +204,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -212,7 +212,7 @@ const products=[
     rating:"1.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -220,7 +220,7 @@ const products=[
     rating:"0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -228,7 +228,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:"",
@@ -236,7 +236,7 @@ const products=[
     rating:"5.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:200000,
@@ -244,7 +244,7 @@ const products=[
     rating:"2.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -252,7 +252,7 @@ const products=[
     rating:"3.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -260,7 +260,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -268,7 +268,7 @@ const products=[
     rating:"3.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -276,7 +276,7 @@ const products=[
     rating:"0.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -284,7 +284,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -292,7 +292,7 @@ const products=[
     rating:"1.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -300,7 +300,7 @@ const products=[
     rating:"0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -308,7 +308,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:"",
@@ -316,7 +316,7 @@ const products=[
     rating:"5.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:200000,
@@ -324,7 +324,7 @@ const products=[
     rating:"2.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -332,7 +332,7 @@ const products=[
     rating:"3.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -340,7 +340,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -348,7 +348,7 @@ const products=[
     rating:"3.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -356,7 +356,7 @@ const products=[
     rating:"0.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -364,7 +364,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -372,7 +372,7 @@ const products=[
     rating:"1.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -380,7 +380,7 @@ const products=[
     rating:"0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -388,7 +388,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:"",
@@ -396,7 +396,7 @@ const products=[
     rating:"5.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:200000,
@@ -404,7 +404,7 @@ const products=[
     rating:"2.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -412,7 +412,7 @@ const products=[
     rating:"3.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -420,7 +420,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -428,7 +428,7 @@ const products=[
     rating:"3.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -436,7 +436,7 @@ const products=[
     rating:"0.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -444,7 +444,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -452,7 +452,7 @@ const products=[
     rating:"1.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:'',
@@ -460,7 +460,7 @@ const products=[
     rating:"0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,
@@ -468,7 +468,7 @@ const products=[
     rating:"4.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:false,
     oPrice:"",
@@ -476,7 +476,7 @@ const products=[
     rating:"5.0"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:200000,
@@ -484,7 +484,7 @@ const products=[
     rating:"2.5"
   },
   {
-    img:'../product.jpg',
+    img:'/product.jpg',
     fav:true,
     offer:true,
     oPrice:100000,

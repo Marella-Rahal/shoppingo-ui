@@ -81,8 +81,6 @@ const Navbar = () => {
       router.asPath == '/profile/confirmSellers' ||
       router.asPath == '/profile/sellerDashboard' ||
       router.asPath == '/profile/myPurchases' ||
-      router.asPath == `/sellers/sellerProducts?sellerId=${router.query.sellerId}` ||
-      router.asPath == `/productDetail/${router.query.productId}` ||
       router.asPath == '/shoppingCard/checkout'
     ) {
       setLogoUrl(theme == 'light' ? '../logo.svg' : '../darkLogo.svg');

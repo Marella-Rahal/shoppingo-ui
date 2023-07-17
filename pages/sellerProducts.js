@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
-import ShopBody from "../../components/Shop/ShopBody";
+import Navbar from "../components/Navbar";
+import ShopBody from "../components/Shop/ShopBody";
 import axios from "axios";
-import FailToGet from "../../components/FailToGet";
-import NotePopUp from "../../components/PopUp/NotePopUp";
+import FailToGet from "../components/FailToGet";
+import NotePopUp from "../components/PopUp/NotePopUp";
 import { useState } from "react";
 
 const SellerProducts = (props) => {

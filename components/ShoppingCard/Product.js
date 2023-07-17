@@ -58,11 +58,11 @@ const Product = (props) => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={props.id}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0 }}
-        transition={{ ease: 'easeInOut', duration: 0.7 }}
+        key={props.productId}
+        initial={{opacity:0,scale:0.8}} 
+        animate={{opacity:1,scale:1}} 
+        exit={{opacity:0,scale:0.8}}
+        transition={{ease:'easeInOut',duration:0.5}} 
         className="relative flex flex-col w-[275px] rounded-md shadow-sm shadow-shadowColor mt-14 mr-1 xs:mx-3"
       >
         <div
@@ -77,14 +77,14 @@ const Product = (props) => {
         <img
           src={props.img}
           className="w-full h-[250px] rounded-t-md border-b-2 border-shadowColor/20 cursor-pointer"
-          onClick={() => router.push(`/productDetail/${props.productId}`)}
+          onClick={() => router.push( { pathname : '/productDetail' , query : {productId : props.productId} } )}
         />
 
         {/* Store Name - view on map */}
         <div className="flex flex-col justify-center w-full h-[50px] border-b-2 border-shadowColor/20">
           <p
             className="text-center font-bold cursor-pointer hover:underline"
-            onClick={() => router.push({ pathname : '/sellers/sellerProducts' , query : { sellerId : props.shopId } })}
+            onClick={() => router.push({ pathname : '/sellerProducts' , query : { sellerId : props.shopId } })}
           >
             {props.shopName}
           </p>

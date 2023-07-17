@@ -82,7 +82,7 @@ const Product = (props) => {
                 width={250}
                 height={270}
                 className="w-full h-[270px] rounded-t-lg border-b-2 border-shadowColor/10 cursor-pointer"
-                onClick={() => router.push(`/productDetail/${props.id}`)}
+                onClick={() => router.push( { pathname : '/productDetail' , query : {productId : props.id} } )}
                 />
 
                 {/* heart */}
