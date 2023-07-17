@@ -39,8 +39,6 @@ const RatingPopUp = (props) => {
       props.setNoteMsg(<h5 className='text-red-600 text-center'>{res.data.message}</h5>);
       showPopUpNote();
 
-      props.setRating(String(res.data.meanRating));
-
       props.uniqueProducts.forEach((p)=>{
         if(props.shopRoute){
           p.brand._id==props.brandId ? p.meanRating = res.data.meanRating : null

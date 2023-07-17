@@ -27,7 +27,6 @@ const Product = (props) => {
   },[theme])
   // ****************** Stars ***********************
   const [ratingPopUp, setRatingPopUp] = useState(false);
-  const [rating,setRating]=useState(props.rating);
   const [fullStars, setFullStars] = useState([]);
   const [halfStars, setHalfStars] = useState([]);
   const [emptyStars, setEmptyStars] = useState([]);
@@ -36,13 +35,13 @@ const Product = (props) => {
     var halfStars = [];
     var emptyStars = [];
     // full stars
-    for (let i = 0; i < Number(rating[0]); i++) {
+    for (let i = 0; i < Number(props.rating[0]); i++) {
       fullStars.push(1);
     }
     // half stars
-    if (Number(rating[2]) > 2 && Number(rating[2]) < 8) {
+    if (Number(props.rating[2]) > 2 && Number(props.rating[2]) < 8) {
       halfStars.push(1);
-    } else if (Number(rating[2]) >= 8) {
+    } else if (Number(props.rating[2]) >= 8) {
       fullStars.push(1);
     }
 
@@ -54,7 +53,7 @@ const Product = (props) => {
     setFullStars(fullStars);
     setHalfStars(halfStars);
     setEmptyStars(emptyStars);
-  }, [rating]);
+  }, [props.rating]);
   // ****************** Stars ***********************
 
   return (
@@ -99,24 +98,21 @@ const Product = (props) => {
                 )}
 
                 {/* section 2 */}
-                <div className={`flex ${ props.offersRoute ? 'justify-end' : 'justify-between' } items-center px-3 h-[40px]`}>
-                  {
-                    !props.offersRoute && (
-                        <button
-                          className="rounded-md bg-textColor/90 hover:bg-[#050531] dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl py-[3px] px-[17px]"
-                          onClick={() => {
-                            if(token){
-                              setRatingPopUp(true)
-                            }else{
-                              props.setNoteMsg(<h5 className='text-red-600 text-center'>يجب عليك تسجيل الدخول أولاً للتقييم</h5>);
-                              showPopUpNote();
-                            }
-                          }}
-                        >
-                          تقييم
-                        </button>
-                    )
-                  }
+                <div className={`flex justify-between items-center px-3 h-[40px]`}>
+                  
+                  <button
+                    className="rounded-md bg-textColor/90 hover:bg-[#050531] dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl py-[3px] px-[17px]"
+                    onClick={() => {
+                      if(token){
+                        setRatingPopUp(true)
+                      }else{
+                        props.setNoteMsg(<h5 className='text-red-600 text-center'>يجب عليك تسجيل الدخول أولاً للتقييم</h5>);
+                        showPopUpNote();
+                      }
+                    }}
+                  >
+                    تقييم
+                  </button>
                   
                   <div className="flex flex-col">
                     {props.offer && (
@@ -156,9 +152,9 @@ const Product = (props) => {
                       />
                     ))}
                   </div>
-                  <span className="font-bold dark:text-yellow-400">{rating}</span>
+                  <span className="font-bold dark:text-yellow-400">{props.rating}</span>
                 </div>
-                <RatingPopUp ratingPopUp={ratingPopUp} setRatingPopUp={setRatingPopUp} setRating={setRating} setNoteMsg={props.setNoteMsg} brandId={props.brandId} uniqueProducts={props.uniqueProducts} shopRoute={props.shopRoute}/>
+                <RatingPopUp ratingPopUp={ratingPopUp} setRatingPopUp={setRatingPopUp} setNoteMsg={props.setNoteMsg} brandId={props.brandId} uniqueProducts={props.uniqueProducts} shopRoute={props.shopRoute}/>
                 
           </div>
 

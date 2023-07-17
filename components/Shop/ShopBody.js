@@ -160,9 +160,9 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProd
             {
                 productsDisplayed.map((one,index)=>{
                   if(shopRoute){
-                    return <DynamicProduct key={index} brandId={one.brand._id} id={one.shippestProduct._id} img={one.shippestProduct.frontImgURL} fav={false} offer={one.shippestProduct.price !== one.price } oPrice={one.shippestProduct.price} nPrice={one.price} rating={String(one.meanRating)} setNoteMsg={setNoteMsg} offersRoute={offersRoute} uniqueProducts={uniqueProducts} shopRoute={shopRoute}/>
+                    return <DynamicProduct key={index} brandId={one.brand._id} id={one.shippestProduct._id} img={one.shippestProduct.frontImgURL} fav={false} offer={one.shippestProduct.price !== one.price } oPrice={one.shippestProduct.price} nPrice={one.price} rating={String(one.meanRating)} setNoteMsg={setNoteMsg} uniqueProducts={uniqueProducts} shopRoute={shopRoute}/>
                   }else{
-                    return <DynamicProduct key={index} brandId={one.product.brand} id={one.product._id} img={one.product.frontImgURL} fav={false} offer={one.product.price !== one.updatedPrice} oPrice={one.product.price} nPrice={one.updatedPrice} rating={String(one.meanRating)} setNoteMsg={setNoteMsg} offersRoute={offersRoute} uniqueProducts={uniqueProducts} shopRoute={shopRoute}/>
+                    return <DynamicProduct key={index} brandId={one.product.brand} id={one.product._id} img={one.product.frontImgURL} fav={false} offer={one.product.price !== one.updatedPrice} oPrice={one.product.price} nPrice={one.updatedPrice} rating={String(one.meanRating)} setNoteMsg={setNoteMsg} uniqueProducts={uniqueProducts} shopRoute={shopRoute}/>
                   }
                   
                 })
