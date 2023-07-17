@@ -158,7 +158,7 @@ const Product = (props) => {
                   </div>
                   <span className="font-bold dark:text-yellow-400">{rating}</span>
                 </div>
-                <RatingPopUp ratingPopUp={ratingPopUp} setRatingPopUp={setRatingPopUp} setRating={setRating} setNoteMsg={props.setNoteMsg} brandId={props.brandId}/>
+                <RatingPopUp ratingPopUp={ratingPopUp} setRatingPopUp={setRatingPopUp} setRating={setRating} setNoteMsg={props.setNoteMsg} brandId={props.brandId} uniqueProducts={props.uniqueProducts} shopRoute={props.shopRoute}/>
                 
           </div>
 

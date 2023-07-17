@@ -41,6 +41,14 @@ const RatingPopUp = (props) => {
 
       props.setRating(String(res.data.meanRating));
 
+      props.uniqueProducts.forEach((p)=>{
+        if(props.shopRoute){
+          p.brand._id==props.brandId ? p.meanRating = res.data.meanRating : null
+        }else{
+          p.product.brand==props.brandId ? p.meanRating = res.data.meanRating : null
+        }
+      })
+
     } catch (error) {
 
       setSendingStatus(false);
