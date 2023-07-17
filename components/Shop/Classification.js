@@ -7,10 +7,12 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
   useEffect(() => {
     woman == true ? setGender("female") : setGender("male");
   }, []);
+  const [filter,setFilter]=useState(false);
   //************************ */
 
   const handleCheckBoxChange = (type) => {
 
+    setFilter(true);
     // remove the value from the selectedOptions or adding it
     if(woman){
       if(selectedOptionsForFemale.includes(type)){
@@ -31,20 +33,28 @@ const Classification = ({ woman , WShow , MShow , setProducts , uniqueProducts ,
 
   useEffect(()=>{
 
-    if(selectedOptionsForFemale.length !== 0 || selectedOptionsForMale.length !== 0){
+    if(filter){
 
-      // Filter your data based on the selected options
-      const filteredData = uniqueProducts.filter((p) => {
-        // Check if any of the selected options matches the product
-        return selectedOptionsForFemale.some((option) => ( shopRoute ? (p.shippestProduct.type == option && p.shippestProduct.gender == 'female' ) : (p.product.type == option && p.product.gender == 'female') )) || selectedOptionsForMale.some((option) => ( shopRoute ? (p.shippestProduct.type == option && p.shippestProduct.gender == 'male' ) : (p.product.type == option && p.product.gender == 'male') )) ;
+      setFilter(false);
 
-      });
+      document.querySelector('#searchId').value='';
 
-      setProducts(filteredData);
-
-    }else{
-
-      setProducts(uniqueProducts);
+      if(selectedOptionsForFemale.length !== 0 || selectedOptionsForMale.length !== 0){
+  
+        // Filter your data based on the selected options
+        const filteredData = uniqueProducts.filter((p) => {
+          // Check if any of the selected options matches the product
+          return selectedOptionsForFemale.some((option) => ( shopRoute ? (p.shippestProduct.type == option && p.shippestProduct.gender == 'female' ) : (p.product.type == option && p.product.gender == 'female') )) || selectedOptionsForMale.some((option) => ( shopRoute ? (p.shippestProduct.type == option && p.shippestProduct.gender == 'male' ) : (p.product.type == option && p.product.gender == 'male') )) ;
+  
+        }).sort( (a,b) => ( shopRoute ? a.price : a.updatedPrice )  -  ( shopRoute ? b.price : b.updatedPrice ) );
+  
+        setProducts(filteredData);
+  
+      }else{
+  
+        setProducts(uniqueProducts);
+  
+      }
 
     }
 

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { showPopUpNote } from "../PopUp/NotePopUp";
 
-const PriceClassification = ({PShow , setPShow , setProducts , uniqueProducts ,shopRoute ,setNoteMsg}) => {
+const PriceClassification = ({PShow , setPShow , setProducts , uniqueProducts ,shopRoute ,setNoteMsg , setSelectedOptionsForFemale , setSelectedOptionsForMale}) => {
 
   const [from,setFrom]=useState('');
   const [to,setTo]=useState('');
@@ -13,6 +13,10 @@ const PriceClassification = ({PShow , setPShow , setProducts , uniqueProducts ,s
 
       if(type=='LTH'){
 
+        setSelectedOptionsForFemale([]);
+        setSelectedOptionsForMale([]);
+        document.querySelector('#searchId').value='';
+
         sortedData.sort( (a,b) => ( shopRoute ? a.price : a.updatedPrice )  -  ( shopRoute ? b.price : b.updatedPrice )  );
 
         setProducts(sortedData);
@@ -20,6 +24,10 @@ const PriceClassification = ({PShow , setPShow , setProducts , uniqueProducts ,s
         setPShow(false);
 
       }else if(type=='HTL'){
+
+        setSelectedOptionsForFemale([]);
+        setSelectedOptionsForMale([]);
+        document.querySelector('#searchId').value='';
 
         sortedData.sort( (a,b) => ( shopRoute ? b.price : b.updatedPrice )  -  ( shopRoute ? a.price : a.updatedPrice ) );
 
@@ -46,7 +54,14 @@ const PriceClassification = ({PShow , setPShow , setProducts , uniqueProducts ,s
 
         }else{
 
+          setSelectedOptionsForFemale([]);
+          setSelectedOptionsForMale([]);
+          document.querySelector('#searchId').value='';
+
           setProducts(sortedData.filter( s => (shopRoute ? s.price : s.updatedPrice) >= Number(from) && (shopRoute ? s.price : s.updatedPrice) <= Number(to) ).sort( (a,b) => (shopRoute ? a.price : a.updatedPrice)  -  (shopRoute ? b.price : b.updatedPrice) ));
+
+          setFrom('');
+          setTo('');
 
           setPShow(false);
         }

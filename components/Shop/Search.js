@@ -1,13 +1,16 @@
 import React from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 
-const Search = ({ setProducts , uniqueProducts , shopRoute }) => {
+const Search = ({ setProducts , uniqueProducts , shopRoute , setSelectedOptionsForFemale , setSelectedOptionsForMale}) => {
 
   const handleSearchChange = (e) => {
 
+    setSelectedOptionsForFemale([]);
+    setSelectedOptionsForMale([]);
+
     if(e.target.value){
 
-      setProducts( uniqueProducts.filter( p => shopRoute ? p.shippestProduct.description.includes(e.target.value) : p.product.description.includes(e.target.value) ) )
+      setProducts( uniqueProducts.filter( p => shopRoute ? p.shippestProduct.description.includes(e.target.value) : p.product.description.includes(e.target.value) ).sort( (a,b) => (shopRoute ? a.price : a.updatedPrice)  -  (shopRoute ? b.price : b.updatedPrice) ) )
 
     }else{
 
@@ -24,6 +27,7 @@ const Search = ({ setProducts , uniqueProducts , shopRoute }) => {
       </label>
       <input
         type="text"
+        id="searchId"
         onChange={handleSearchChange}
         className="w-full md:w-[230px] rounded-r-full shadow-sm shadow-shadowColor outline-none border-2 border-transparent focus:border-effectColor dark:focus:border-darkTextColor2  px-3 py-[5px] text-textColor dark:text-darkBgColor text-end"
       />

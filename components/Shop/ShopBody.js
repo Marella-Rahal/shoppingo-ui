@@ -85,7 +85,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProd
       {/* Search and classification */}
       <div className="flex flex-col-reverse md:items-center md:flex-row md:justify-between">
         {/* Search */}
-        <Search setProducts={setProducts} uniqueProducts={uniqueProducts} shopRoute={shopRoute}/>
+        <Search setProducts={setProducts} uniqueProducts={uniqueProducts} shopRoute={shopRoute} setSelectedOptionsForFemale={setSelectedOptionsForFemale} setSelectedOptionsForMale={setSelectedOptionsForMale}/>
         {/* Classification */}
         <div className="flex flex-col-reverse md:flex-row md:space-x-3 md:items-center">
           {/* woman */}
@@ -123,7 +123,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProd
             <TiArrowSortedDown className={`absolute top-[50px] left-[8px] md:top-[30px] md:left-[30px] text-[#bb0202] dark:text-[#474747] dark:md:text-[#323232] w-7 h-7 ${PShow ? 'flex' : 'hidden' } `} />
 
             {/* drop down */}
-            <PriceClassification PShow={PShow} setPShow={setPShow} setProducts={setProducts} uniqueProducts={uniqueProducts} shopRoute={shopRoute} setNoteMsg={setNoteMsg}/>
+            <PriceClassification PShow={PShow} setPShow={setPShow} setProducts={setProducts} uniqueProducts={uniqueProducts} shopRoute={shopRoute} setNoteMsg={setNoteMsg} setSelectedOptionsForFemale={setSelectedOptionsForFemale} setSelectedOptionsForMale={setSelectedOptionsForMale}/>
           </div>
 
           <div className="self-center">: ترتيب حسب </div>
