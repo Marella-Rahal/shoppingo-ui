@@ -7,6 +7,7 @@ import NotePopUp, { showPopUpNote } from '../../../components/PopUp/NotePopUp';
 import axios from 'axios';
 import { parseCookies } from 'nookies';
 import { ThreeDots } from 'react-loader-spinner';
+import { useRouter } from 'next/router';
 
 const AddProduct = () => {
   const [Man, setMan] = useState([
@@ -72,12 +73,13 @@ const AddProduct = () => {
   const [brand, setBrand] = useState();
   const [modelNumber, setModelNumber] = useState();
   const [price, setPrice] = useState();
-  const [fixedDiscount, setFixedDiscount] = useState();
+  const [fixedDiscount, setFixedDiscount] = useState(0);
   const [PercentageDiscount, setPercentageDiscount] = useState();
   const [description, setDescription] = useState();
   const [frontImgURL, setFrontImgURL] = useState();
   const [backImgURL, setBackImgURL] = useState();
   const [variations, setVariations] = useState([]);
+  const router = useRouter();
 
   const cookies = parseCookies();
   const token = cookies.token;
@@ -85,11 +87,11 @@ const AddProduct = () => {
 
   const sendData = async (e) => {
     const fd = new FormData();
-    setSendingStatus(true);
+    
     if (frontImgURL) {
       fd.append('frontImgURL', frontImgURL, frontImgURL.name);
     } else {
-      setSendingStatus(false);
+
       setNoteMsg(
         <h5 className="text-red-600 text-center flex flex-col justify-center items-center">
           الرجاء رفع صورة أمامية للمنتج
@@ -102,7 +104,6 @@ const AddProduct = () => {
     if (backImgURL) {
       fd.append('backImgURL', backImgURL, backImgURL.name);
     } else {
-      setSendingStatus(false);
 
       setNoteMsg(
         <h5 className="text-red-600 text-center flex flex-col justify-center items-center">
@@ -115,9 +116,7 @@ const AddProduct = () => {
 
     if (variations.length != 0) {
       fd.append('variations', JSON.stringify(variations));
-      console.log(variations);
     } else {
-      setSendingStatus(false);
 
       setNoteMsg(
         <h5 className="text-red-600 text-center flex flex-col justify-center items-center">
@@ -129,7 +128,7 @@ const AddProduct = () => {
     }
 
     if (description == undefined) {
-      setSendingStatus(false);
+
       setNoteMsg(
         <h5 className="text-red-600 text-center flex flex-col justify-center items-center">
           الرجاء ادخل وصف للمنتج
@@ -137,8 +136,8 @@ const AddProduct = () => {
       );
       showPopUpNote();
       return;
-    } else if (description.length < 50) {
-      setSendingStatus(false);
+    } else if (description.length < 10) {
+
       setNoteMsg(
         <h5 className="text-red-600 text-center flex flex-col justify-center items-center">
           الرجاء ادخل تفاصيل أكثر في وصف المنتج
@@ -151,7 +150,7 @@ const AddProduct = () => {
     }
 
     if (price == undefined) {
-      setSendingStatus(false);
+
       setNoteMsg(
         <h5 className="text-red-600 text-center flex flex-col justify-center items-center">
           الرجاء ادخل السعر
@@ -164,7 +163,7 @@ const AddProduct = () => {
     }
 
     if (modelNumber == undefined) {
-      setSendingStatus(false);
+
       setNoteMsg(
         <h5 className="text-red-600 text-center flex flex-col justify-center items-center">
           الرجاء ادخل رقم الموديل
@@ -177,7 +176,7 @@ const AddProduct = () => {
     }
 
     if (brand == undefined) {
-      setSendingStatus(false);
+
       setNoteMsg(
         <h5 className="text-red-600 text-center flex flex-col justify-center items-center">
           الرجاء ادخل اسم الماركة
@@ -190,7 +189,7 @@ const AddProduct = () => {
     }
 
     if (fixedDiscount == undefined) {
-      setSendingStatus(false);
+
       fd.append('fixedDiscount', undefined);
     } else {
       fd.append('fixedDiscount', fixedDiscount);
@@ -205,10 +204,15 @@ const AddProduct = () => {
     fd.append('gender', gender);
     fd.append('type', type);
     fd.append('style', style);
-    for (let [key, value] of fd.entries()) {
-      console.log(`${key}: ${value}`);
-    }
+
+    // for (let [key, value] of fd.entries()) {
+    //   console.log(`${key}: ${value}`);
+    // }
+
     try {
+
+      setSendingStatus(true);
+
       const res = await axios.post(
         `${process.env.server_url}/api/v2.0/shop/addProduct`,
         fd,
@@ -220,20 +224,23 @@ const AddProduct = () => {
       );
 
       if (!res.data.success) {
+
         setSendingStatus(false);
         setNoteMsg(
           <h5 className="text-red-600 text-center">{res.data.message}</h5>
         );
 
         showPopUpNote();
+
       } else {
-        console.log(res.data.message);
-        console.log('sssss');
-        setSendingStatus(false);
+        
+        router.push('/shop');
+        
       }
     } catch (error) {
+
       setSendingStatus(false);
-      console.log('asdfasdfasdf');
+
       setNoteMsg(
         <h5 className="text-red-600 text-center">{error?.message}</h5>
       );
@@ -247,9 +254,9 @@ const AddProduct = () => {
       setArrayForSizes((ArrayForSizes) => [...ArrayForSizes, value]);
       var object = { size: value, quantity: 1, colors: [''] };
       setVariations([...variations, object]);
-      console.log(variations, 'yes');
+      
     } else {
-      // console.log(ArrayForSizes,"not");
+      
       ArrayForSizes.forEach(function (item, i) {
         if (item == value) ArrayForSizes[i] = value + 2;
       });
@@ -258,9 +265,9 @@ const AddProduct = () => {
       //   setArrayForSizes (ArrayForSizes.filter(function(item) {
       //     return item !== value;
       // }))
-      console.log(variations, 'not');
+
     }
-    // console.log(ArrayForSizes,"sss");
+    
   }
 
   const [img, setImg] = useState('../../defaultProduct.jfif');
@@ -288,8 +295,18 @@ const AddProduct = () => {
 
   return (
     <>
+      {
+          sendingStatus && (
+            <div className='fixed z-[100] w-full h-full bg-black/30 flex justify-center items-center'>
+                <ThreeDots
+                width="75"
+                color="white"
+                visible={true}
+                /> 
+            </div>
+          )
+      }
       <NotePopUp noteMsg={noteMsg} />
-
       <Navbar />
       <div className="pt-28 pb-14 px-4 md:px-8 relative ">
         {/* div for inputs */}
@@ -342,7 +359,7 @@ const AddProduct = () => {
                 </div>
                 <div className=" flex w-full justify-end mb-2 pr-2">
                   <div className="flex space-x-3">
-                    <label className=" text-sm md:text-md">نسبة مئوية</label>
+                    <label htmlFor='percentageDiscount' className=" text-sm md:text-md">نسبة مئوية</label>
                     <input
                       type="radio"
                       value="percentageDiscount"
@@ -356,7 +373,7 @@ const AddProduct = () => {
                   </div>
 
                   <div className="flex space-x-3 pl-20 ">
-                    <label htmlFor="male" className="text-sm md:text-md">
+                    <label htmlFor="fixedDiscount" className="text-sm md:text-md">
                       قيمة ثابتة
                     </label>
                     <input
@@ -375,7 +392,7 @@ const AddProduct = () => {
                 <div
                   className={
                     selectDiscount
-                      ? 'flex justify-end'
+                      ? 'flex justify-end w-[99.9%]'
                       : 'flex justify-end w-full'
                   }
                 >
@@ -387,9 +404,9 @@ const AddProduct = () => {
                     onChange={(e) => {
                       if (selectDiscount) {
                         setPercentageDiscount(e.target.value);
-                        setFixedDiscount();
+                        setFixedDiscount(0);
                       } else {
-                        setFixedDiscount(e.target.value);
+                        setFixedDiscount(e.target.value.length !== 0 ? e.target.value : 0);
                         setPercentageDiscount();
                       }
                     }}
@@ -752,11 +769,7 @@ const AddProduct = () => {
           }}
           className="mt-14 w-24 h-10 flex justify-center items-center bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
         >
-          {!sendingStatus ? (
-            'إضافة المنتج'
-          ) : (
-            <ThreeDots width="30" color="#ffffff" visible={true} />
-          )}{' '}
+          إضافة المنتج 
         </button>
       </div>
     </>
