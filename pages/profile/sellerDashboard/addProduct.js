@@ -10,26 +10,36 @@ import { ThreeDots } from 'react-loader-spinner';
 
 const AddProduct = () => {
   const [Man, setMan] = useState([
+    'جاكيت',
+    'طقم',
     'بنطال',
-    'بيجاما',
+    'قميص',
     'كنزة',
-    'بنطال',
-    'بيجاما',
-    'كنزة',
-    'بنطال',
-    'بيجاما',
-    'كنزة',
+    'حزام',
+    'ملابس سباحة',
+    'شورت',
+    'بجامة',
+    'هوديز',
+    'قبعة',
+    'وشاح',
+    'ربطة عنق',
   ]);
   const [Woman, setWoman] = useState([
+    'فستان',
     'تنورة',
-    'بيجاما',
-    'كنزة',
+    'جاكيت',
+    'طقم',
     'بنطال',
-    'بيجاما',
+    'قميص',
     'كنزة',
-    'بنطال',
-    'بيجاما',
-    'تنورة',
+    'حزام',
+    'ملابس سباحة',
+    'شورت',
+    'بجامة',
+    'هوديز',
+    'قبعة',
+    'وشاح',
+    'ربطة عنق',
   ]);
   const [TypeOfClothes, setTypeOfClothes] = useState(Man);
 
@@ -465,7 +475,7 @@ const AddProduct = () => {
                   onChange={(e) => {
                     setDescription(e.target.value);
                   }}
-                  className="mt-5 focus:outline-0 text-end rounded-xl p-2 shadow-xl w-full h-[117px] dark:bg-white dark:text-black sliderScroll mb-7 md:mb-0"
+                  className="mt-5 focus:outline-0 text-end rounded-xl p-2 shadow-xl w-full h-[144px] dark:bg-white dark:text-black sliderScroll mb-7 md:mb-0"
                 />
               </div>
             </div>

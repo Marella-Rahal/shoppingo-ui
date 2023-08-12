@@ -22,16 +22,16 @@ const Product = (props) => {
 
       <motion.div
       key={props.id}
-      initial={{opacity:0,scale:0.8}} 
+      initial={{opacity:0,scale:0}} 
       animate={{opacity:1,scale:1}} 
-      exit={{opacity:0,scale:0.8}}
-      transition={{ease:'easeInOut',duration:0.5}} 
+      exit={{opacity:0,scale:0}}
+      transition={{ease:'easeInOut',duration:0.7}} 
       className="relative flex flex-col space-y-5 pb-3 w-[200px] h-fit rounded-lg shadow-sm shadow-shadowColor m-5" >
           
           <img
           src={props.img}
           className="w-full h-[200px] rounded-t-lg border-b-2 border-shadowColor/10 cursor-pointer"
-          onClick={()=>router.push({ pathname : '/productDetail' , query : {productId : props.id} })}
+          onClick={()=>router.push(`/productDetail/${props.id}`)}
           />
 
           {

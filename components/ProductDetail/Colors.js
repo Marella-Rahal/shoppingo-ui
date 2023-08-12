@@ -1,11 +1,14 @@
 import React from "react";
 
-const Colors = ({ color }) => {
+const Colors = ({ color , productColor , setProductColor }) => {
   return (
     <>
       <input
         type="radio"
         name="color"
+        value={color}
+        checked={color == productColor}
+        onChange={(e) => setProductColor(e.target.value)}
         className="colors relative w-5 h-5 mt-3"
       />
       <style jsx>

@@ -14,125 +14,30 @@ import { ColorRing } from "react-loader-spinner";
 
 const products=[
   {
-    img:"../product.jpg",
-    price:"5000000000000000000",
+    img:"../1.jpg",
+    price:"1000000",
     withOffer:true
   },
   {
-    img:"../product.jpg",
-    price:"5000000000000000000",
+    img:"../2.jpg",
+    price:"100000",
     withOffer:false
   },
   {
-    img:"../product.jpg",
-    price:"5000000000000000000",
+    img:"../15.jpg",
+    price:"30000",
     withOffer:true
   },
   {
-    img:"../product.jpg",
-    price:"5000000000000000000",
+    img:"../18.jpg",
+    price:"1000000",
     withOffer:false
   },
   {
-    img:"../product.jpg",
-    price:"5000000000000000000",
+    img:"../71.jpg",
+    price:"3000000",
     withOffer:true
   },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:true
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:true
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:true
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:false
-  },
-  {
-    img:"../product.jpg",
-    price:"5000000000000000000",
-    withOffer:true
-  }
 ]
 
 const Index = () => {
@@ -194,7 +99,7 @@ const Index = () => {
 
               <div className='flex justify-center items-center text-center text-white text-lg font-bold px-2 py-5 h-1/2'>
                 مستخدم  
-                <span className='ml-1'> 1000000000 </span>
+                <span className='ml-1'> 10 </span>
               </div>
             
             </div>
@@ -206,7 +111,7 @@ const Index = () => {
                 </div>
                 <div className='flex justify-center items-center text-center text-white text-lg font-bold px-2 py-5 h-1/2'>
                   ل.س
-                  <span className='ml-1'>1000000000000</span>
+                  <span className='ml-1'>800000</span>
                 </div>
 
           </div>
@@ -254,11 +159,11 @@ const Index = () => {
                 />
               </div>  
             }
-            endMessage={
-              <div className="flex justify-center items-center my-5">
-                <b>تهانينا ! لقد رأيت كل المنتجات</b>
-              </div>
-            }
+            // endMessage={
+            //   <div className="flex justify-center items-center my-5">
+            //     <b>تهانينا ! لقد رأيت كل المنتجات</b>
+            //   </div>
+            // }
         >
   
               <div className="px-4 md:px-8 flex justify-evenly flex-wrap">

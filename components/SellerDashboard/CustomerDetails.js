@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 function CustomerDetails(props) {
+  console.log('Bahaa');
+  console.log(props);
+
   const [change, setChange] = useState(true);
   return (
     <Popup
@@ -23,30 +26,37 @@ function CustomerDetails(props) {
       {(close) => (
         <>
           <motion.div
-          initial={{opacity:0,y:'-200%',x:'-50%'}} 
-          animate={{opacity:1,y:'-50%',x:'-50%'}} 
-          transition={{ease:'easeInOut',duration:0.7}} 
-          className="fixed z-10 top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-col justify-between shadow-2xl rounded-lg bg-gray-50 w-[90%] md:w-[600px] p-3 md:p-5">
+            initial={{ opacity: 0, y: '-200%', x: '-50%' }}
+            animate={{ opacity: 1, y: '-50%', x: '-50%' }}
+            transition={{ ease: 'easeInOut', duration: 0.7 }}
+            className="fixed z-10 top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] flex flex-col justify-between shadow-2xl rounded-lg bg-gray-50 w-[90%] md:w-[600px] p-3 md:p-5"
+          >
             <div className="flex flex-col w-full">
               {/* first row */}
               <div className="flex md:flex-row flex-col-reverse w-full justify-between md:pb-5">
                 {/* email */}
                 <div className="flex flex-col space-y-2 text-right w-full md:w-1/2 pb-2">
-                  <div className="font-bold text-lg text-textColor dark:text-darkBgColor">الإيميل</div>
+                  <div className="font-bold text-lg text-textColor dark:text-darkBgColor">
+                    الإيميل
+                  </div>
+
                   <input
                     disabled={change}
                     type="Text"
-                    defaultValue={`${props.value.value.email}`}
+                    defaultValue={`${props.value.value.details.email}`}
                     className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                   />
                 </div>
                 {/* full name */}
                 <div className="flex flex-col space-y-2 text-right w-full md:w-1/2 pb-2 md:ml-3 ">
-                  <div className="font-bold text-lg text-textColor dark:text-darkBgColor">الاسم الثلاثي</div>
+                  <div className="font-bold text-lg text-textColor dark:text-darkBgColor">
+                    الاسم الثلاثي
+                  </div>
+
                   <input
                     disabled={change}
                     type="Text"
-                    defaultValue={`${props.value.value.fullName}`}
+                    defaultValue={`${props.value.value.details.firstName}  ${props.value.value.details.lastName}`}
                     className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                   />
                 </div>
@@ -54,42 +64,48 @@ function CustomerDetails(props) {
               <div className="flex md:flex-row flex-col-reverse w-full justify-between md:pb-5">
                 {/* city */}
                 <div className="flex flex-col space-y-2 text-right w-full md:w-1/2  pb-2">
-                  <div className="font-bold text-lg text-textColor dark:text-darkBgColor">المدينة</div>
+                  <div className="font-bold text-lg text-textColor dark:text-darkBgColor">
+                    المدينة
+                  </div>
+
                   <input
                     disabled={change}
                     type="Text"
-                    defaultValue={`${props.value.value.city}`}
+                    defaultValue={`${props.value.value.details.city}`}
                     className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                   />
                 </div>
                 {/* number */}
                 <div className="flex flex-col space-y-2 text-right w-full md:w-1/2 pb-2 md:ml-3">
-                  <div className="font-bold text-lg text-textColor dark:text-darkBgColor">رقم الموبايل</div>
+                  <div className="font-bold text-lg text-textColor dark:text-darkBgColor">
+                    رقم الموبايل
+                  </div>
+
                   <input
                     disabled={change}
                     type="Text"
-                    defaultValue={`${props.value.value.number}`}
+                    defaultValue={`${props.value.value.details.phoneNumber}`}
                     className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                   />
                 </div>
               </div>
               {/* address */}
               <div className="flex flex-col space-y-2 text-right w-full pb-2">
-                <div className="font-bold text-lg text-textColor dark:text-darkBgColor">العنوان</div>
+                <div className="font-bold text-lg text-textColor dark:text-darkBgColor">
+                  العنوان
+                </div>
+
                 <input
                   disabled={change}
                   type="Text"
-                  defaultValue={`${props.value.value.Address}`}
+                  defaultValue={`${props.value.value.details.address}`}
                   className="rounded-md outline-none text-end py-1 pr-2 shadow-sm shadow-shadowColor disabled:text-darkTextColor"
                 />
               </div>
             </div>
 
             <div className="flex w-full justify-between mt-5">
-              <button
-                className="px-4 py-3"
-                onClick={() => close()}
-              >
+              <button className="px-4 py-3" onClick={() => close()}>
                 إغلاق
               </button>
               {props.value.page2 && (

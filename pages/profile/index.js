@@ -234,7 +234,9 @@ const Profile = (props) => {
           setNewPasswordd('');
           setEnableStoreName(true);
           setEnableLocation(true);
-          !paymentMethod.includes('wepay') && setWepayCode('')
+          if(paymentMethod !== undefined){
+            !paymentMethod.includes('wepay') && setWepayCode('')
+          }
           setEnableWepayCode(true);
 
           setSendingStatus(false);

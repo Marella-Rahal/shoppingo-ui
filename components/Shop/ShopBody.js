@@ -138,7 +138,7 @@ const ShopBody = ({ shopRoute, offersRoute, shopIdRoute , setNoteMsg ,uniqueProd
       </div>
 
       {
-        role == 'seller' && (
+        (role == 'seller' && !shopIdRoute ) && (
           <div className='mb-7 flex space-x-3 justify-between items-center'>
 
             <button className='w-[100px] py-1' onClick={() => router.push("/profile/sellerDashboard/order")}>

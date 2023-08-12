@@ -19,6 +19,7 @@ import axios from 'axios';
 import NotePopUp, { showPopUpNote } from '../../components/PopUp/NotePopUp';
 import emptyResult from "../../public/emptyShoppingCard.json";
 import Lottie from "lottie-react";
+import FailToGet from '../../components/FailToGet';
 
 const ShoppingCard = (props) => {
   const router = useRouter();
@@ -108,93 +109,101 @@ const ShoppingCard = (props) => {
   };
   return (
     <>
-      <NotePopUp noteMsg={noteMsg} />
+      {
+        props.success ? (
+          <>
+            <NotePopUp noteMsg={noteMsg} />
+            <Navbar />
+            <div className={`pt-28 pb-14 px-4 md:px-8 ${cartItems.length !== 0 ? 'min-h-screen' : 'h-screen' } flex flex-col`}>
+              <div className="flex flex-col space-y-7 md:space-y-0 md:flex-row md:justify-between md:space-x-7">
+                {/* Delete */}
+                <button
+                  onClick={() => {
+                    removeAllItems();
+                  }}
+                  className="py-2 w-full md:w-[125px] flex space-x-2 justify-center items-center bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
+                >
+                  <span>حذف الكل</span>
+                  <MdDelete className="w-5 h-5" />
+                </button>
 
-      <Navbar />
-      <div className={`pt-28 pb-14 px-4 md:px-8 ${cartItems.length !== 0 ? 'min-h-screen' : 'h-screen' } flex flex-col`}>
-        <div className="flex flex-col space-y-7 md:space-y-0 md:flex-row md:justify-between md:space-x-7">
-          {/* Delete */}
-          <button
-            onClick={() => {
-              removeAllItems();
-            }}
-            className="py-2 w-full md:w-[125px] flex space-x-2 justify-center items-center bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
-          >
-            <span>حذف الكل</span>
-            <MdDelete className="w-5 h-5" />
-          </button>
+                {/* price */}
+                <div className="py-2 px-4 w-full md:w-fit rounded-lg border-[1px] border-textColor dark:border-gray-500 shadow-sm shadow-shadowColor text-center">
+                  {` السعر الكلي : ${totalPrice} ل.س`}  
+                </div>
 
-          {/* price */}
-          <div className="py-2 px-4 w-full md:w-fit rounded-lg border-[1px] border-textColor dark:border-gray-500 shadow-sm shadow-shadowColor text-center">
-             {` السعر الكلي : ${totalPrice} ل.س`}  
-          </div>
-
-          {/* buy */}
-          <button
-            className="py-2 w-full md:w-[125px] bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
-            onClick={() => router.push('/shoppingCard/checkout')}
-          >
-            شراء
-          </button>
-        </div>
-        {/* Product */}
-        {
-          cartItems.length !== 0 ? (
-              <InfiniteScroll
-                dataLength={ cartItems.length }
-                next={displayNext}
-                hasMore={hasMore}
-                loader={
-                  <div className="flex justify-center items-center mt-10 mb-5">
-                    <ColorRing
-                      height="50"
-                      width="50"
-                      colors={['gray', 'gray', 'gray', 'gray', 'gray']}
-                    />
-                  </div>
-                }
-                endMessage={
-                  <div className="flex justify-center items-center mt-10 mb-5">
-                    <b>تهانينا ! لقد رأيت كل المنتجات</b>
-                  </div>
-                }
-              >
-                  <div className='flex justify-evenly flex-wrap'>
-                    {
-                        cartItems.map((one, index) => {
-                          return (
-                            <DynamicProduct
-                              key={index}
-                              id={index}
-                              cartItems={cartItems}
-                              setNoteMsg={setNoteMsg}
-                              setCartitems={setCartitems}
-                              totalPrice={totalPrice}
-                              settotalPrice={settotalPrice}
-                              img={cartItems[index]['product']['frontImgURL']}
-                              shopName={
-                                cartItems[index]['product']['seller']['storeName']
-                              }
-                              shopId={cartItems[index]['product']['seller']['_id']}
-                              productId={cartItems[index]['_id']}
-                              color={cartItems[index]['color']}
-                              size={cartItems[index]['size']}
-                              price={cartItems[index]['price']}
-                              qty={cartItems[index]['quantity']}
-                            />
-                          );
-                        })
-                    }
-                  </div>
-              </InfiniteScroll>
-          ) : (
-              <div className='h-full flex justify-center'>
-                <Lottie className='mt-20' animationData={emptyResult} loop={true} />
+                {/* buy */}
+                <button
+                  className="py-2 w-full md:w-[125px] bg-gradient-to-l from-gradientFrom to-gradientTo hover:bg-gradient-to-b dark:bg-gradient-to-tr dark:from-darkBgColor dark:to-darkTextColor2 dark:hover:bg-gradient-to-tl"
+                  onClick={() => router.push('/shoppingCard/checkout')}
+                >
+                  شراء
+                </button>
               </div>
-          )
-        }
-        
-      </div>
+              {/* Product */}
+              {
+                cartItems.length !== 0 ? (
+                    <InfiniteScroll
+                      dataLength={ cartItems.length }
+                      next={displayNext}
+                      hasMore={hasMore}
+                      loader={
+                        <div className="flex justify-center items-center mt-10 mb-5">
+                          <ColorRing
+                            height="50"
+                            width="50"
+                            colors={['gray', 'gray', 'gray', 'gray', 'gray']}
+                          />
+                        </div>
+                      }
+                      endMessage={
+                        <div className="flex justify-center items-center mt-10 mb-5">
+                          <b>تهانينا ! لقد رأيت كل المنتجات</b>
+                        </div>
+                      }
+                    >
+                        <div className='flex justify-evenly flex-wrap'>
+                          {
+                              cartItems.map((one, index) => {
+                                return (
+                                  <DynamicProduct
+                                    key={index}
+                                    id={index}
+                                    cartItems={cartItems}
+                                    setNoteMsg={setNoteMsg}
+                                    setCartitems={setCartitems}
+                                    totalPrice={totalPrice}
+                                    settotalPrice={settotalPrice}
+                                    img={cartItems[index]['product']['frontImgURL']}
+                                    shopName={
+                                      cartItems[index]['product']['seller']['storeName']
+                                    }
+                                    shopId={cartItems[index]['product']['seller']['_id']}
+                                    productId={cartItems[index]['_id']}
+                                    color={cartItems[index]['color']}
+                                    size={cartItems[index]['size']}
+                                    price={cartItems[index]['price']}
+                                    qty={cartItems[index]['quantity']}
+                                  />
+                                );
+                              })
+                          }
+                        </div>
+                    </InfiniteScroll>
+                ) : (
+                    <div className='h-full flex justify-center'>
+                      <Lottie className='mt-20' animationData={emptyResult} loop={true} />
+                    </div>
+                )
+              }
+              
+            </div>
+          </>
+        ) : (
+          <FailToGet/>
+        )
+      }
+      
     </>
   );
 };
@@ -221,6 +230,7 @@ export const getServerSideProps = async (context) => {
           res.data.success ? res.data.cart.cartItems : [],
         totalPrice:
           res.data.success ? res.data.cart.totalPrice : 0,
+        success: true,  
       },
     };
   } catch (error) {

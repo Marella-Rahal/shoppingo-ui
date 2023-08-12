@@ -21,10 +21,16 @@ const Map = dynamic(() => import("../components/Map/Map"), {
   ssr: false,
 });
 import Placeholder from "../components/Shop/Placeholder";
+import { parseCookies } from "nookies";
+import axios from "axios";
 const DynamicProduct=dynamic(()=>import('../components/Shop/Product'),{
   loading: () => <Placeholder/> ,
   ssr: false,
 })
+
+import FailToGet from '../components/FailToGet';
+import { ThreeCircles, ThreeDots } from "react-loader-spinner";
+import { useTheme } from "next-themes";
 
 const products=[
   {
@@ -189,275 +195,519 @@ const products=[
   },
 ]
 
-//***********The product images****************/
-const images = ["../../product.jpg", "../../product1.jpg"];
-//*********************************************/
+const ProductDetail = (props) => {
 
-const ProductDetail = () => {
   const router=useRouter();
-  //* for the foreground and background image
-  const [imgUrl, setImgUrl] = useState(images[0]);
-  //* to display and hidden detail
+  const cookies = parseCookies();
+  const token = cookies.token;
+  const [imgUrl, setImgUrl] = useState(true);
+  const [isImgLoading,setIsImgLoading]=useState(false);
+  const [loaderColor,setLoaderColor]=useState('');
+  const [mapLoaderColor,setMapLoaderColor]=useState('');
+  const {theme} = useTheme();
+  useEffect(()=>{
+    theme == 'light' ? setLoaderColor('#d7271a') : setLoaderColor('#121212')
+    theme == 'light' ? setMapLoaderColor('#111D4A') : setMapLoaderColor('white')
+  },[theme])
+
   const [showDescription, setShowDescription] = useState(true);
   const [showSizes, setShowSizes] = useState(true);
   const [showQty, setShowQty] = useState(true);
   const [showColors, setShowColors] = useState(true);
   const [showPrice, setShowPrice] = useState(true);
-  //! to set constraint on how much i can drag the slider to the left
+
+  const [product,setProduct]=useState(props?.product)
+  const [updatedPrice,setUpdatedPrice]=useState(props?.updatedPrice);
+  const [recommendation,setRecommendation]=useState([]);
+  const [productSize,setProductSize]=useState(props?.product?.variations[0]?.size);
+  const [productColor,setProductColor]=useState('');
+
+  // console.log("recommendation",recommendation);
+  
+  //* to set constraint on how much i can drag the slider to the left
   // const [width, setWidth] = useState(0);
   // const slider = useRef();
   // useEffect(() => {
   //   setWidth(slider.current.scrollWidth - slider.current.offsetWidth);
   // }, []);
-  //! **************************************************
+  //* **************************************************
 
-  //todo *********** the massage for the popUp
   const [noteMsg, setNoteMsg] = useState("");
-  //todo ********** the location of the user
   const [coords, error] = usePosition();
+  const [errOnce,setErrOnce]=useState(false);
+  const [coordsOnce,setCoordsOnce]=useState(false);
+  const [isMapLoading,setIsMapLoading]=useState(true);
+  const [isProductsLoading,setIsProductsLoading]=useState(true);
+  const [sendingStatus,setSendingStatus]=useState(false);
+
   useEffect(() => {
-      if (error) {
-        setNoteMsg(
-          <>
+
+    if (error && props.success && !errOnce) {
+      setErrOnce(true);
+      setNoteMsg(
+        <>
             <h5 className="text-effectColor text-center">
               فشلنا في الحصول على موقعك لذلك سيتم تعطيل بعض الميزات التي تتطلب
               الموقع ضمن هذه الصفحة أو أعد تحميل الصفحة للمحاولة مرة أخرى
             </h5>
-          </>
-        );
-        showPopUpNote();
-      }
+        </>
+      );
+      showPopUpNote();
+    }
+    
   }, [error])
+
+  useEffect(()=>{
+
+    if(coords.length !== 0 && props.success && !coordsOnce){
+      setCoordsOnce(true);
+      getMapProduct(coords);
+    }
+
+    //! to show the map every time the coorde changes in case they dont autimaticaly
+
+  },[coords])
+
+  useEffect(()=>{
+
+    getSimilarProducts();
+
+  },[])
+  
+  const getMapProduct = async (coords) => {
+
+    console.log("map product" ,coords);
+
+    try {
+
+      const res = await axios.get(`${process.env.server_url}/api/v2.0/shop/getMapProduct/${product._id}`,{
+        params : {
+          long : coords[0],
+          lat : coords[1],
+          brand : product.brand,
+        },
+        headers : {
+          Authorization : `Bearer ${token}`
+        }
+      })
+
+      console.log(res.data)
+
+      setIsMapLoading(false);
+      
+    } catch (error) {
+
+      getMapProduct(coords);
+
+    }
+
+  }
+
+  const getSimilarProducts = async () => {
+
+    try {
+
+      const res = await axios.get(`${process.env.server_url}/api/v2.0/shop/getSimilarProducts`,{
+        headers : {
+          Authorization : `Bearer ${token}`
+        }
+      })
+
+      setRecommendation(res.data.recommendation !== undefined ? res.data.recommendation : []);
+
+      setIsProductsLoading(false);
+      
+    } catch (error) {
+
+      getSimilarProducts()
+
+    }
+
+  }
+
+  const addToCart = async () => {
+
+    if(!productColor || !productSize){
+      setNoteMsg(
+        <h5 className='text-red-600 text-center'>الرجاء تحديد قياس المنتج ولونه لإضافته لسلة المشتريات</h5>
+      );
+
+      showPopUpNote();
+      return ;
+    }
+
+    try {
+
+      setSendingStatus(true);
+
+      const res = axios.post(`${process.env.server_url}/api/v2.0/cart/addItemToCart`,{
+        productId : product._id,
+        size : productSize ,
+        color : productColor ,
+        quantity : 1,
+        price : updatedPrice
+
+      },{
+        headers : {
+          Authorization : `Bearer ${token}`
+        }
+      })
+
+
+      setSendingStatus(false);
+
+      //! **********
+      setNoteMsg(
+        <h5 className='text-red-600 text-center'>{res.data.message}</h5>
+      );
+
+      showPopUpNote();
+      
+    } catch (error) {
+
+      setSendingStatus(false);
+
+      setNoteMsg(
+          <h5 className='text-red-600 text-center'>{error?.message}</h5>
+      );
+
+      showPopUpNote();
+      
+    }
+
+  }
+
   return (
     <>
-      <NotePopUp noteMsg={noteMsg} />
-      <Navbar/>
-      <div className="w-full min-h-screen pt-24 pb-10 px-4 md:px-8 flex flex-col space-y-5">
-        {/* section 1 */}
-        <div className="flex flex-col-reverse md:flex-row md:space-x-7">
-          {/* Map */}
-          <div
-            className="w-full md:w-1/2 lg:w-2/3 h-[500px] md:h-auto rounded-lg mt-10 md:mt-0 shadow-mapShadow dark:shadow-darkMapShadow"
-          >
-            {coords.length > 0 && <Map coords={coords} sellerRoute={false} />}
-          </div>
+      {
+        props.success ? (
+          <>
+              {
+                sendingStatus && (
+                  <div className='fixed z-[100] w-full h-full bg-black/30 flex justify-center items-center'>
+                      <ThreeDots
+                      width="75"
+                      color="white"
+                      visible={true}
+                      /> 
+                  </div>
+                )
+              }
+              <NotePopUp noteMsg={noteMsg} />
+              <Navbar/>
+              <div className="w-full min-h-screen pt-24 pb-10 px-4 md:px-8 flex flex-col space-y-5">
+                {/* section 1 */}
+                <div className="flex flex-col-reverse md:flex-row md:space-x-7">
+                  {/* Map */}
+                  <div
+                    className="w-full md:w-1/2 lg:w-2/3 h-[500px] md:h-auto rounded-lg mt-10 md:mt-0 shadow-mapShadow dark:shadow-darkMapShadow"
+                  > 
+                    {
+                      isMapLoading ? (
+                        <div className="w-full h-full flex justify-center items-center rounded-lg">
+                          <ThreeCircles
+                          color={mapLoaderColor}
+                          width={50}
+                          visible={true}/>
+                        </div>
+                      ) : (
+                        <Map coords={coords} sellerRoute={false} />
+                      )
+                    }
+                  </div>
 
-          {/* product detail */}
-          <div className="w-full md:w-1/2 lg:w-1/3 h-fit flex flex-col space-y-3">
-            {/* product image */}
-            <div className="flex flex-col-reverse md:flex-row  md:justify-around">
-              {/* Add to cart  */}
-              <button className="self-center flex items-center justify-center flex-wrap-reverse rounded-md mt-5 md:mt-0 mr-0 md:mr-3 p-2">
-                <HiShoppingCart className="mr-2" />
-                أضف إلى
-              </button>
+                  {/* product detail */}
+                  <div className="w-full md:w-1/2 lg:w-1/3 h-fit flex flex-col space-y-3">
+                    {/* product image */}
+                    <div className="flex flex-col-reverse md:flex-row  md:justify-around">
+                      {/* Add to cart  */}
+                      <button onClick={addToCart} className="self-center flex items-center justify-center flex-wrap-reverse rounded-md mt-5 md:mt-0 mr-0 md:mr-3 p-2">
+                        <HiShoppingCart className="mr-2" />
+                        أضف إلى
+                      </button>
 
-              {/* img */}
-              <div
-                style={{ backgroundImage: `url(${imgUrl})` }}
-                className="relative self-center w-[240px] h-[260px] bg-center bg-cover rounded-xl shadow-md shadow-shadowColor"
-              >
-                <MdOutlineArrowBackIos
-                  style={{ boxShadow: "0px 0px 5px 3px rgba(255,255,255,1)" }}
-                  className="absolute top-[45%] cursor-pointer hover:scale-[1.1] text-xl bg-bgColor/70 text-effectColor dark:text-darkBgColor"
-                  onClick={() => setImgUrl(images[0])}
-                />
-                <MdOutlineArrowForwardIos
-                  style={{ boxShadow: "0px 0px 5px 3px rgba(255,255,255,1)" }}
-                  className="absolute top-[45%] right-0  cursor-pointer hover:scale-[1.1] text-xl bg-bgColor/70 text-effectColor dark:text-darkBgColor"
-                  onClick={() => setImgUrl(images[1])}
-                />
-              </div>
-            </div>
+                      {/* img */}
+                      <div className="relative self-center w-[240px] h-[260px] rounded-xl shadow-md shadow-shadowColor select-none">
+                        
+                        <img 
+                        src={imgUrl?product.frontImgURL:product.backImgURL}
+                        onLoad={()=>setIsImgLoading(false)}
+                        className={`bg-bgColor dark:bg-white w-full h-full rounded-xl ${isImgLoading ? 'hidden' : 'flex' }`}/>
+                        
+                        <div className={`bg-bgColor dark:bg-white w-full h-full rounded-xl ${isImgLoading ? 'flex' : 'hidden' } justify-center items-center`}>
+                          <ThreeCircles
+                          color={loaderColor}
+                          width={50}
+                          visible={true}/>
+                        </div>
 
-            {/* description */}
-            <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
-              {!showDescription && (
-                <MdOutlineKeyboardArrowDown
-                  className="text-2xl cursor-pointer hover:scale-[1.1]"
-                  onClick={() => setShowDescription(true)}
-                />
-              )}
+                        <MdOutlineArrowBackIos
+                          style={{ boxShadow: "0px 0px 5px 3px rgba(255,255,255,1)" }}
+                          className="absolute top-[45%] cursor-pointer hover:scale-[1.1] text-xl bg-bgColor/70 text-effectColor dark:text-darkBgColor"
+                          onClick={() => { setIsImgLoading(true) ; setImgUrl(prev=>!prev) }}
+                        />
+                        <MdOutlineArrowForwardIos
+                          style={{ boxShadow: "0px 0px 5px 3px rgba(255,255,255,1)" }}
+                          className="absolute top-[45%] right-0  cursor-pointer hover:scale-[1.1] text-xl bg-bgColor/70 text-effectColor dark:text-darkBgColor"
+                          onClick={() => { setIsImgLoading(true) ; setImgUrl(prev=>!prev) }}
+                        />
 
-              {showDescription && (
-                <MdOutlineKeyboardArrowUp
-                  className="text-2xl cursor-pointer hover:scale-[1.1]"
-                  onClick={() => setShowDescription(false)}
-                />
-              )}
-              <span className="font-semibold">الوصف</span>
-            </div>
-            {showDescription && (
-              <div className="text-end text-textColor2 dark:text-darkTextColor2">
-                Adipisicing eiusmod et consequat tempor magna. Quis dolor aute
-                ut fugiat dolore ipsum incididunt dolore ea est. Labore
-                excepteur do ut sit anim laboris velit voluptate sit dolor magna
-                elit tempor.
-              </div>
-            )}
+                      </div>
 
-            {/* sizes */}
-            <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
-              {!showSizes && (
-                <MdOutlineKeyboardArrowDown
-                  className="text-2xl cursor-pointer hover:scale-[1.1]"
-                  onClick={() => setShowSizes(true)}
-                />
-              )}
+                    </div>
 
-              {showSizes && (
-                <MdOutlineKeyboardArrowUp
-                  className="text-2xl cursor-pointer hover:scale-[1.1]"
-                  onClick={() => setShowSizes(false)}
-                />
-              )}
-              <span className="font-semibold">القياسات</span>
-            </div>
-            {showSizes && (
-              <div className="flex space-x-4 flex-wrap justify-end">
-                <Sizes size="s" />
-                <Sizes size="m" />
-                <Sizes size="l" />
-                <Sizes size="xl" />
-                <Sizes size="2xl" />
-                <Sizes size="3xl" />
-                <Sizes size="4xl" />
-                <Sizes size="5xl" />
-                <Sizes size="6xl" />
-              </div>
-            )}
+                    {/* description */}
+                    <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
+                      {!showDescription && (
+                        <MdOutlineKeyboardArrowDown
+                          className="text-2xl cursor-pointer hover:scale-[1.1]"
+                          onClick={() => setShowDescription(true)}
+                        />
+                      )}
 
-            {/* Quantity */}
-            <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
-              {!showQty && (
-                <MdOutlineKeyboardArrowDown
-                  className="text-2xl cursor-pointer hover:scale-[1.1]"
-                  onClick={() => setShowQty(true)}
-                />
-              )}
+                      {showDescription && (
+                        <MdOutlineKeyboardArrowUp
+                          className="text-2xl cursor-pointer hover:scale-[1.1]"
+                          onClick={() => setShowDescription(false)}
+                        />
+                      )}
+                      <span className="font-semibold">الوصف</span>
+                    </div>
+                    {showDescription && (
+                      <div className="text-end text-textColor2 dark:text-darkTextColor2">
+                       {product.type} - {product.style} - {product.description}
+                      </div>
+                    )}
 
-              {showQty && (
-                <MdOutlineKeyboardArrowUp
-                  className="text-2xl cursor-pointer hover:scale-[1.1]"
-                  onClick={() => setShowQty(false)}
-                />
-              )}
+                    {/* sizes */}
+                    <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
+                      {!showSizes && (
+                        <MdOutlineKeyboardArrowDown
+                          className="text-2xl cursor-pointer hover:scale-[1.1]"
+                          onClick={() => setShowSizes(true)}
+                        />
+                      )}
 
-              <span className="font-semibold">الكمية</span>
-            </div>
-            {showQty && <div className="text-end text-textColor2 dark:text-darkTextColor2">1000</div>}
+                      {showSizes && (
+                        <MdOutlineKeyboardArrowUp
+                          className="text-2xl cursor-pointer hover:scale-[1.1]"
+                          onClick={() => setShowSizes(false)}
+                        />
+                      )}
+                      <span className="font-semibold">القياسات</span>
+                    </div>
+                    {showSizes && (
+                      <div className="flex space-x-4 flex-wrap justify-end">
+                        {
+                          product.variations.map((one,index)=>{
+                            return <Sizes key={index} size={one.size} productSize={productSize} setProductSize={setProductSize}/>
+                          })
+                        }
+                        
+                      </div>
+                    )}
 
-            {/* colors */}
-            <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
-              {!showColors && (
-                <MdOutlineKeyboardArrowDown
-                  className="text-2xl cursor-pointer hover:scale-[1.1]"
-                  onClick={() => setShowColors(true)}
-                />
-              )}
+                    {/* Quantity */}
+                    <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
+                      {!showQty && (
+                        <MdOutlineKeyboardArrowDown
+                          className="text-2xl cursor-pointer hover:scale-[1.1]"
+                          onClick={() => setShowQty(true)}
+                        />
+                      )}
 
-              {showColors && (
-                <MdOutlineKeyboardArrowUp
-                  className="text-2xl cursor-pointer hover:scale-[1.1]"
-                  onClick={() => setShowColors(false)}
-                />
-              )}
-              <span className="font-semibold">الألوان</span>
-            </div>
-            {showColors && (
-              <div className="flex space-x-3 flex-wrap justify-end">
-                <Colors color="red" />
-                <Colors color="blue" />
-                <Colors color="yellow" />
-                <Colors color="green" />
-                <Colors color="white" />
-                <Colors color="grey" />
-                <Colors color="#fff8f0" />
-                <Colors color="black" />
-                <Colors color="#111d4a" />
-                <Colors color="#d7271a" />
-                <Colors color="red" />
-                <Colors color="blue" />
-                <Colors color="yellow" />
-                <Colors color="green" />
-                <Colors color="white" />
-                <Colors color="#161616" />
-              </div>
-            )}
+                      {showQty && (
+                        <MdOutlineKeyboardArrowUp
+                          className="text-2xl cursor-pointer hover:scale-[1.1]"
+                          onClick={() => setShowQty(false)}
+                        />
+                      )}
 
-            {/* price and location */}
-            <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
-              {!showPrice && (
-                <MdOutlineKeyboardArrowDown
-                  className="text-2xl cursor-pointer hover:scale-[1.1]"
-                  onClick={() => setShowPrice(true)}
-                />
-              )}
+                      <span className="font-semibold">الكمية</span>
+                    </div>
+                    {
+                      showQty && (
+                        <div className="text-end text-textColor2 dark:text-darkTextColor2">
+                        {
+                          product.variations.map( q => {
+                            if(q.size == productSize){
+                              return q.quantity 
+                            }
+                          })
+                        }
+                        </div>
+                      )
+                      
+                    }
 
-              {showPrice && (
-                <MdOutlineKeyboardArrowUp
-                  className="text-2xl cursor-pointer hover:scale-[1.1]"
-                  onClick={() => setShowPrice(false)}
-                />
-              )}
-              <span className="font-semibold">السعر والعنوان</span>
-            </div>
+                    {/* colors */}
+                    <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
+                      {!showColors && (
+                        <MdOutlineKeyboardArrowDown
+                          className="text-2xl cursor-pointer hover:scale-[1.1]"
+                          onClick={() => setShowColors(true)}
+                        />
+                      )}
 
-            {showPrice && (
-              <div className="flex flex-col space-y-2">
-                {/* new price and old price */}
-                <div className="flex space-x-3 flex-wrap justify-end">
-                  <span className="mt-2 flex font-semibold text-textColor dark:text-darkTextColor">
-                    <span className="mr-2">ل.س</span>
-                    500000
-                  </span>
-                  <span className="mt-2 flex line-through text-textColor2 dark:text-darkTextColor2">
-                    <span className="mr-2">ل.س</span>
-                    700000
-                  </span>
+                      {showColors && (
+                        <MdOutlineKeyboardArrowUp
+                          className="text-2xl cursor-pointer hover:scale-[1.1]"
+                          onClick={() => setShowColors(false)}
+                        />
+                      )}
+                      <span className="font-semibold">الألوان</span>
+                    </div>
+                    {showColors && (
+                      <div className="flex space-x-3 flex-wrap justify-end">
+                        {
+                          product.variations.map( c => {
+                            if( c.size == productSize ){
+                              return c.colors.map( (color,index) => <Colors key={index} color={color} productColor={productColor} setProductColor={setProductColor} /> )
+                            }
+                          })
+                        }
+                      </div>
+                    )}
+
+                    {/* price and location */}
+                    <div className="border-b-[1px] border-textColor dark:border-darkTextColor flex justify-between">
+                      {!showPrice && (
+                        <MdOutlineKeyboardArrowDown
+                          className="text-2xl cursor-pointer hover:scale-[1.1]"
+                          onClick={() => setShowPrice(true)}
+                        />
+                      )}
+
+                      {showPrice && (
+                        <MdOutlineKeyboardArrowUp
+                          className="text-2xl cursor-pointer hover:scale-[1.1]"
+                          onClick={() => setShowPrice(false)}
+                        />
+                      )}
+                      <span className="font-semibold">السعر والعنوان</span>
+                    </div>
+
+                    {showPrice && (
+                      <div className="flex flex-col space-y-2">
+                        {/* new price and old price */}
+                        <div className="flex space-x-3 flex-wrap justify-end">
+                          
+                          <span className="mt-2 flex font-semibold text-textColor dark:text-darkTextColor">
+                            <span className="mr-2">ل.س</span>
+                            {updatedPrice}
+                          </span>
+                          {
+                            updatedPrice !== product.price && (
+                              <span className="mt-2 flex line-through text-textColor2 dark:text-darkTextColor2">
+                                <span className="mr-2">ل.س</span>
+                                {product.price}
+                              </span>
+                            )
+                          }
+                        </div>
+                        {/* Shop Name */}
+                        <div className="font-semibold cursor-pointer hover:underline text-textColor dark:text-darkTextColor text-end" onClick={() => router.push({ pathname : '/sellerProducts' , query : { sellerId : product.seller._id } })}>{product.seller.storeName}</div>
+
+                        {/* Address */}
+                        <div className="text-textColor2 dark:text-darkTextColor2 text-end">
+                          {product.seller.location}
+                        </div>
+                      </div>
+                    )}
+
+                  </div>
                 </div>
-                {/* Shop Name */}
-                <div className="font-semibold cursor-pointer hover:underline text-textColor dark:text-darkTextColor text-end" onClick={() => router.push({ pathname : '/sellers/sellerProducts' , query : { sellerId : 1 } })}>For_you</div>
-
-                {/* Address */}
-                <div className="text-textColor2 dark:text-darkTextColor2 text-end">
-                  حمص-شارع الحضارة-مقابل الإطفائية
+                {/* line */}
+                <div className="flex items-center space-x-3 mt-7">
+                  <div className="w-1/2 h-[1px] bg-textColor dark:bg-darkTextColor" />
+                  <div className="w-20 xs:w-28 h-10 text-sm font-semibold flex justify-center items-center text-center">
+                    منتجات مشابهة
+                  </div>
+                  <div className="w-1/2 h-[1px] bg-textColor dark:bg-darkTextColor" />
                 </div>
-              </div>
-            )}
-          </div>
-        </div>
-        {/* line */}
-        <div className="flex items-center space-x-3 mt-7">
-          <div className="w-1/2 h-[1px] bg-textColor dark:bg-darkTextColor" />
-          <div className="w-20 xs:w-28 h-10 text-sm font-semibold flex justify-center items-center text-center">
-            منتجات مشابهة
-          </div>
-          <div className="w-1/2 h-[1px] bg-textColor dark:bg-darkTextColor" />
-        </div>
-        {/* other Product */}
-        {/* //! slider with framer motion */}
-        <motion.div
-          dir="rtl"
-          // ref={slider}
-          // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
-          className="overflow-auto sliderScroll rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
-        >
-          <motion.div
-            // drag="x"
-            // dragConstraints={{ right: 0, left: -width }}
-            className="flex"
-          >
-            {
-              products.map((one,index)=>{
-                return <DynamicProduct key={index} id={index} img={one.img} fav={one.fav} offer={one.offer} oPrice={one.oPrice} nPrice={one.nPrice} rating={one.rating}/>
-              })
-            }
-          </motion.div>
-        </motion.div>
-      </div>
+                {/* other Product */}
+                {/* //! slider with framer motion */}
+                <motion.div
+                  dir="rtl"
+                  // ref={slider}
+                  // className="overflow-hidden cursor-grab p-5 rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
+                  className="overflow-auto sliderScroll rounded-lg border-x-4 border-textColor dark:border-darkTextColor shadow-mapShadow dark:shadow-darkMapShadow"
+                >
+                  <motion.div
+                    // drag="x"
+                    // dragConstraints={{ right: 0, left: -width }}
+                    className="flex"
+                  >
+                    {
+                      isProductsLoading ? (
+                        <div className="w-full h-full flex justify-center items-center rounded-lg">
+                          <ThreeCircles
+                          color={mapLoaderColor}
+                          width={50}
+                          visible={true}/>
+                        </div>
+                      ) : (
+                        products.map((one,index)=>{
+                          return <DynamicProduct key={index} id={index} img={one.img} fav={one.fav} offer={one.offer} oPrice={one.oPrice} nPrice={one.nPrice} rating={one.rating}/>
+                        })
+                      )
+                      
+                    }
+                  </motion.div>
+                </motion.div>
+              </div>   
+          </>
+        ) : (
+          <FailToGet/>
+        )
+      }
     </>
   );
 };
 
 export default ProductDetail;
+
+export const getServerSideProps = async (context) => {
+
+    const cookies = parseCookies(context);
+    const token = cookies.token ;
+
+    try {
+
+        const res = await axios.get(`${process.env.server_url}/api/v2.0/shop/getProductDetails/${context.query.productId}`,{
+          headers : {
+            Authorization : `Bearer ${token}`
+          }
+        })
+
+        return {
+          props : {
+            updatedPrice : res.data.updatedPrice,
+            product : res.data.product ,
+            success : true
+          }
+        }
+      
+    } catch (error) {
+
+        if(error?.response?.status == 401){
+
+          return {
+            redirect: {
+              destination: '/login',
+              permanent: false, // Set to false if it's a temporary redirect
+            },
+          }
+
+        }else{
+
+            return {
+              props : {
+                success : false
+              }
+            }
+
+        }
+    }
+
+}

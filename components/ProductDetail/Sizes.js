@@ -1,7 +1,7 @@
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 
-const Sizes = ({ size }) => {
+const Sizes = ({ size , productSize , setProductSize }) => {
 
   const { theme , setTheme } = useTheme();
   const [radioColor , setRadioColor] = useState('');
@@ -19,6 +19,9 @@ const Sizes = ({ size }) => {
           type="radio"
           name="size"
           id={size}
+          value={size}
+          checked={size == productSize}
+          onChange={(e) => setProductSize(e.target.value)}
           className="sizes relative w-4 h-4 self-center"
         />
       </div>
