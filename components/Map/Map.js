@@ -14,70 +14,11 @@ mapboxgl.setRTLTextPlugin(
   true // Lazy load the plugin
 );
 
-const blue = [
-  {
-    id: 1,
-    coo: [36.720798, 34.725587],
-    name: "For_you",
-    old: "100000",
-    new: "50000",
-    img: "../../product.jpg",
-  },
-  {
-    id: 2,
-    coo: [36.720798, 34.7254],
-    name: "For_you",
-    old: "100000",
-    new: "50000",
-    img: "../../product.jpg",
-  },
-];
-
-const red = [
-  {
-    id: 3,
-    coo: [36.7206, 34.725587],
-    name: "For_you",
-    old: "100000",
-    new: "50000",
-    img: "../../product.jpg",
-  },
-  {
-    id: 4,
-    coo: [36.6, 34.725587],
-    name: "For_you",
-    old: "100000",
-    new: "50000",
-    img: "../../product.jpg",
-  },
-];
-
-const green = [
-  {
-    id: 5,
-    coo: [36.7206, 34.725],
-    name: "For_you",
-    old: "100000",
-    new: "50000",
-    img: "../../product.jpg",
-  },
-];
-
-const orange = [
-  {
-    id: 6,
-    coo: [36.55, 34.725587],
-    name: "For_you",
-    old: "100000",
-    new: "100000",
-    img: "../../product.jpg",
-  },
-];
-
-const Map = ({ coords, sellerRoute ,stores }) => {
+const Map = ({ coords, sellerRoute ,stores, blue, orange, red, green, setProduct, setUpdatedPrice, setProductSize, setProductColor, setProductDetailLoader }) => {
 
   const cookies = parseCookies();
-  const imgURL = cookies.imgURL ;
+  const token = cookies.token;
+  const imgURL = cookies.imgURL;
 
   //************ Start of Map **************************/
   const mapContainerRef = useRef(null);
@@ -172,9 +113,9 @@ const Map = ({ coords, sellerRoute ,stores }) => {
         addMarkers(stores, "#111D4A");
       } else {
         addMarkers(blue, "blue");
-        addMarkers(orange, "orange");
+        addMarkers([orange], "orange");
         addMarkers(red, "red");
-        addMarkers(green, "green");
+        addMarkers([green], "green");
       }
 
     }
@@ -198,11 +139,11 @@ const Map = ({ coords, sellerRoute ,stores }) => {
         );
       } else {
         // product marker
-        root.render(<Marker image={x.img} color={markerColor} />);
+        root.render(<Marker image={x.frontImgURL} color={markerColor} />);
       }
 
       new mapboxgl.Marker(el, { offset: [0, -10] })
-        .setLngLat(x.coo)
+        .setLngLat(sellerRoute? x.coo : x.seller.coo)
         .addTo(map);
 
       el.addEventListener("click", (e) => {
@@ -211,14 +152,41 @@ const Map = ({ coords, sellerRoute ,stores }) => {
         /* make thw direction */
         if (coords.length > 0) {
           const routeColor = sellerRoute ? "blue" : "#111d4a";
-          getRoute(coords, x.coo, routeColor);
+          const distinationCoords = sellerRoute ? x.coo : x.seller.coo ;
+          getRoute(coords, distinationCoords, routeColor);
         }
         /* Fly to the point */
-        flyToStore(x.coo);
+        flyToStore(sellerRoute? x.coo : x.seller.coo);
         /* Close all other popups and display popup for clicked store */
         createPopUp(x, markerColor);
+
+        if(!sellerRoute){
+          getProductDetail(x._id)
+        }
+
       });
     }
+  }
+
+  //************** getProductDetail *************
+
+  async function getProductDetail(productId){
+
+      setProductDetailLoader(true);
+
+      const res = await axios.get(`${process.env.server_url}/api/v2.0/shop/getProductDetails/${productId}`,{
+        headers : {
+          Authorization : `Bearer ${token}`
+        }
+      })
+
+      setProduct(res.data.product);
+      setUpdatedPrice(res.data.updatedPrice);
+      setProductSize(res.data.product.variations[0].size);
+      setProductColor('');
+
+      setProductDetailLoader(false);
+
   }
 
   //**************removing Markers **************
@@ -378,7 +346,7 @@ const Map = ({ coords, sellerRoute ,stores }) => {
             borderTopRightRadius: "17px",
           }}
         >
-          {marker.name}
+          {marker.seller.storeName}
         </h4>
 
         <h5
@@ -393,7 +361,7 @@ const Map = ({ coords, sellerRoute ,stores }) => {
             borderBottomRightRadius: "17px",
           }}
         >
-          {marker.old != marker.new ? (
+          {marker.fixedDiscount !== 0 ? (
             <div
               style={{
                 color: `${markerColor}`,
@@ -402,17 +370,17 @@ const Map = ({ coords, sellerRoute ,stores }) => {
             >
               <div className="flex space-x-2 line-through">
                 <span>ل.س</span>
-                <span>{marker.old}</span>
+                <span>{marker.price}</span>
               </div>
               <div className="flex space-x-2">
                 <span>ل.س</span>
-                <span>{marker.new}</span>
+                <span>{marker.price - marker.fixedDiscount}</span>
               </div>
             </div>
           ) : (
             <div className="flex space-x-2">
               <span>ل.س</span>
-              <span>{marker.new}</span>
+              <span>{marker.price}</span>
             </div>
           )}
         </h5>
@@ -430,7 +398,7 @@ const Map = ({ coords, sellerRoute ,stores }) => {
     }
 
     const popup = new mapboxgl.Popup({ closeOnClick: true }) //! ***** the close on click
-      .setLngLat(marker.coo)
+      .setLngLat(sellerRoute ? marker.coo : marker.seller.coo)
       .setDOMContent(my_popup_container)
       .addTo(map);
   }

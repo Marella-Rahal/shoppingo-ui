@@ -31,169 +31,8 @@ const DynamicProduct=dynamic(()=>import('../components/Shop/Product'),{
 import FailToGet from '../components/FailToGet';
 import { ThreeCircles, ThreeDots } from "react-loader-spinner";
 import { useTheme } from "next-themes";
-
-const products=[
-  {
-    img:'/product.jpg',
-    fav:true,
-    offer:true,
-    oPrice:100000,
-    nPrice:70000,
-    rating:"4.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:true,
-    offer:false,
-    oPrice:'',
-    nPrice:70000,
-    rating:"3.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:false,
-    offer:true,
-    oPrice:100000,
-    nPrice:70000,
-    rating:"0.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:false,
-    offer:false,
-    oPrice:'',
-    nPrice:70000,
-    rating:"4.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:true,
-    offer:true,
-    oPrice:100000,
-    nPrice:70000,
-    rating:"1.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:false,
-    offer:false,
-    oPrice:'',
-    nPrice:70000,
-    rating:"0"
-  },
-  {
-    img:'/product.jpg',
-    fav:true,
-    offer:true,
-    oPrice:100000,
-    nPrice:70000,
-    rating:"4.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:true,
-    offer:false,
-    oPrice:"",
-    nPrice:70000,
-    rating:"5.0"
-  },
-  {
-    img:'/product.jpg',
-    fav:false,
-    offer:true,
-    oPrice:200000,
-    nPrice:150000,
-    rating:"2.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:false,
-    offer:true,
-    oPrice:100000,
-    nPrice:70000,
-    rating:"3.0"
-  },
-  {
-    img:'/product.jpg',
-    fav:true,
-    offer:true,
-    oPrice:100000,
-    nPrice:70000,
-    rating:"4.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:true,
-    offer:false,
-    oPrice:'',
-    nPrice:70000,
-    rating:"3.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:false,
-    offer:true,
-    oPrice:100000,
-    nPrice:70000,
-    rating:"0.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:false,
-    offer:false,
-    oPrice:'',
-    nPrice:70000,
-    rating:"4.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:true,
-    offer:true,
-    oPrice:100000,
-    nPrice:70000,
-    rating:"1.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:false,
-    offer:false,
-    oPrice:'',
-    nPrice:70000,
-    rating:"0"
-  },
-  {
-    img:'/product.jpg',
-    fav:true,
-    offer:true,
-    oPrice:100000,
-    nPrice:70000,
-    rating:"4.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:true,
-    offer:false,
-    oPrice:"",
-    nPrice:70000,
-    rating:"5.0"
-  },
-  {
-    img:'/product.jpg',
-    fav:false,
-    offer:true,
-    oPrice:200000,
-    nPrice:150000,
-    rating:"2.5"
-  },
-  {
-    img:'/product.jpg',
-    fav:false,
-    offer:true,
-    oPrice:100000,
-    nPrice:70000,
-    rating:"3.0"
-  },
-]
+import emptyResult from "../public/empty.json";
+import Lottie from "lottie-react";
 
 const ProductDetail = (props) => {
 
@@ -202,6 +41,7 @@ const ProductDetail = (props) => {
   const token = cookies.token;
   const [imgUrl, setImgUrl] = useState(true);
   const [isImgLoading,setIsImgLoading]=useState(false);
+  const [productDetailLoader,setProductDetailLoader]=useState(false);
   const [loaderColor,setLoaderColor]=useState('');
   const [mapLoaderColor,setMapLoaderColor]=useState('');
   const {theme} = useTheme();
@@ -218,11 +58,18 @@ const ProductDetail = (props) => {
 
   const [product,setProduct]=useState(props?.product)
   const [updatedPrice,setUpdatedPrice]=useState(props?.updatedPrice);
-  const [recommendation,setRecommendation]=useState([]);
   const [productSize,setProductSize]=useState(props?.product?.variations[0]?.size);
   const [productColor,setProductColor]=useState('');
 
-  // console.log("recommendation",recommendation);
+  const [blue,setBlue]=useState([]);
+  const [orange,setOrange]=useState({});
+  const [red,setRed]=useState([]);
+  const [green,setGreen]=useState({});
+
+  const [recommendation,setRecommendation]=useState([]);
+
+  //! *************************
+  console.log("recommendation",recommendation);
   
   //* to set constraint on how much i can drag the slider to the left
   // const [width, setWidth] = useState(0);
@@ -264,8 +111,6 @@ const ProductDetail = (props) => {
       getMapProduct(coords);
     }
 
-    //! to show the map every time the coorde changes in case they dont autimaticaly
-
   },[coords])
 
   useEffect(()=>{
@@ -275,8 +120,6 @@ const ProductDetail = (props) => {
   },[])
   
   const getMapProduct = async (coords) => {
-
-    console.log("map product" ,coords);
 
     try {
 
@@ -291,7 +134,10 @@ const ProductDetail = (props) => {
         }
       })
 
-      console.log(res.data)
+      setBlue(res.data.otherProducts);
+      setOrange(res.data.nearestProduct);
+      setRed(res.data.productsWithDiscount);
+      setGreen(res.data.shippestProduct);
 
       setIsMapLoading(false);
       
@@ -410,7 +256,7 @@ const ProductDetail = (props) => {
                           visible={true}/>
                         </div>
                       ) : (
-                        <Map coords={coords} sellerRoute={false} />
+                        <Map coords={coords} sellerRoute={false} blue={blue} orange={orange} red={red} green={green} setProduct={setProduct} setUpdatedPrice={setUpdatedPrice} setProductSize={setProductSize} setProductColor={setProductColor} setProductDetailLoader={setProductDetailLoader}/>
                       )
                     }
                   </div>
@@ -473,9 +319,21 @@ const ProductDetail = (props) => {
                       <span className="font-semibold">الوصف</span>
                     </div>
                     {showDescription && (
-                      <div className="text-end text-textColor2 dark:text-darkTextColor2">
-                       {product.type} - {product.style} - {product.description}
-                      </div>
+
+                      productDetailLoader ? (
+                        <div className="flex justify-end items-center">
+                          <ThreeDots
+                          color={mapLoaderColor}
+                          width={40}
+                          height={30}
+                          visible={true}/>
+                        </div>
+                      ) : (
+                        <div className="text-end text-textColor2 dark:text-darkTextColor2">
+                          {product.type} - {product.style} - {product.description}
+                        </div>
+                      )
+                      
                     )}
 
                     {/* sizes */}
@@ -496,14 +354,27 @@ const ProductDetail = (props) => {
                       <span className="font-semibold">القياسات</span>
                     </div>
                     {showSizes && (
-                      <div className="flex space-x-4 flex-wrap justify-end">
-                        {
-                          product.variations.map((one,index)=>{
-                            return <Sizes key={index} size={one.size} productSize={productSize} setProductSize={setProductSize}/>
-                          })
-                        }
-                        
-                      </div>
+
+                      productDetailLoader ? (
+                        <div className="flex justify-end items-center">
+                          <ThreeDots
+                          color={mapLoaderColor}
+                          width={40}
+                          height={30}
+                          visible={true}/>
+                        </div>
+                      ) : (
+                        <div className="flex space-x-4 flex-wrap justify-end">
+
+                          {
+                            product.variations.map((one,index)=>{
+                              return <Sizes key={index} size={one.size} productSize={productSize} setProductSize={setProductSize} setProductColor={setProductColor}/>
+                            })
+                          }
+                          
+                        </div>
+                      )
+                      
                     )}
 
                     {/* Quantity */}
@@ -526,15 +397,27 @@ const ProductDetail = (props) => {
                     </div>
                     {
                       showQty && (
-                        <div className="text-end text-textColor2 dark:text-darkTextColor2">
-                        {
-                          product.variations.map( q => {
-                            if(q.size == productSize){
-                              return q.quantity 
-                            }
-                          })
-                        }
-                        </div>
+
+                        productDetailLoader ? (
+                          <div className="flex justify-end items-center">
+                            <ThreeDots
+                            color={mapLoaderColor}
+                            width={40}
+                            height={30}
+                            visible={true}/>
+                          </div>
+                        ) : (
+                          <div className="text-end text-textColor2 dark:text-darkTextColor2">
+                          {
+                            product.variations.map( q => {
+                              if(q.size == productSize){
+                                return q.quantity 
+                              }
+                            })
+                          }
+                          </div>
+                        )
+                        
                       )
                       
                     }
@@ -557,7 +440,17 @@ const ProductDetail = (props) => {
                       <span className="font-semibold">الألوان</span>
                     </div>
                     {showColors && (
-                      <div className="flex space-x-3 flex-wrap justify-end">
+
+                      productDetailLoader ? (
+                        <div className="flex justify-end items-center">
+                            <ThreeDots
+                            color={mapLoaderColor}
+                            width={40}
+                            height={30}
+                            visible={true}/>
+                        </div>
+                      ) : (
+                        <div className="flex space-x-3 flex-wrap justify-end">
                         {
                           product.variations.map( c => {
                             if( c.size == productSize ){
@@ -565,7 +458,9 @@ const ProductDetail = (props) => {
                             }
                           })
                         }
-                      </div>
+                        </div>
+                      )
+                      
                     )}
 
                     {/* price and location */}
@@ -587,31 +482,43 @@ const ProductDetail = (props) => {
                     </div>
 
                     {showPrice && (
-                      <div className="flex flex-col space-y-2">
-                        {/* new price and old price */}
-                        <div className="flex space-x-3 flex-wrap justify-end">
-                          
-                          <span className="mt-2 flex font-semibold text-textColor dark:text-darkTextColor">
-                            <span className="mr-2">ل.س</span>
-                            {updatedPrice}
-                          </span>
-                          {
-                            updatedPrice !== product.price && (
-                              <span className="mt-2 flex line-through text-textColor2 dark:text-darkTextColor2">
-                                <span className="mr-2">ل.س</span>
-                                {product.price}
-                              </span>
-                            )
-                          }
-                        </div>
-                        {/* Shop Name */}
-                        <div className="font-semibold cursor-pointer hover:underline text-textColor dark:text-darkTextColor text-end" onClick={() => router.push({ pathname : '/sellerProducts' , query : { sellerId : product.seller._id } })}>{product.seller.storeName}</div>
 
-                        {/* Address */}
-                        <div className="text-textColor2 dark:text-darkTextColor2 text-end">
-                          {product.seller.location}
+                      productDetailLoader ? (
+                        <div className="flex justify-end items-center">
+                            <ThreeDots
+                            color={mapLoaderColor}
+                            width={40}
+                            height={30}
+                            visible={true}/>
                         </div>
-                      </div>
+                      ) : (
+                        <div className="flex flex-col space-y-2">
+                          {/* new price and old price */}
+                          <div className="flex space-x-3 flex-wrap justify-end">
+                            
+                            <span className="mt-2 flex font-semibold text-textColor dark:text-darkTextColor">
+                              <span className="mr-2">ل.س</span>
+                              {updatedPrice}
+                            </span>
+                            {
+                              updatedPrice !== product.price && (
+                                <span className="mt-2 flex line-through text-textColor2 dark:text-darkTextColor2">
+                                  <span className="mr-2">ل.س</span>
+                                  {product.price}
+                                </span>
+                              )
+                            }
+                          </div>
+                          {/* Shop Name */}
+                          <div className="font-semibold cursor-pointer hover:underline text-textColor dark:text-darkTextColor text-end" onClick={() => router.push({ pathname : '/sellerProducts' , query : { sellerId : product.seller._id } })}>{product.seller.storeName}</div>
+
+                          {/* Address */}
+                          <div className="text-textColor2 dark:text-darkTextColor2 text-end">
+                            {product.seller.location}
+                          </div>
+                        </div>
+                      )
+                      
                     )}
 
                   </div>
@@ -639,16 +546,26 @@ const ProductDetail = (props) => {
                   >
                     {
                       isProductsLoading ? (
+
                         <div className="w-full h-full flex justify-center items-center rounded-lg">
-                          <ThreeCircles
+                          <ThreeDots
                           color={mapLoaderColor}
                           width={50}
                           visible={true}/>
                         </div>
+
                       ) : (
-                        products.map((one,index)=>{
-                          return <DynamicProduct key={index} id={index} img={one.img} fav={one.fav} offer={one.offer} oPrice={one.oPrice} nPrice={one.nPrice} rating={one.rating}/>
-                        })
+                        
+                        recommendation.length !== 0 ? (
+                          recommendation.map((one,index)=>{
+                            return <DynamicProduct key={index} brandId={one.brand} id={one._id} img={one.frontImgURL} fav={false} offer={one.fixedDiscount !== undefined } oPrice={one.price} nPrice={one.fixedDiscount !== undefined ? one.price-one.fixedDiscount :one.price } rating={'3'} setNoteMsg={setNoteMsg} uniqueProducts={recommendation} shopRoute={true}/>
+                          })
+                        ) : (
+                          <div className='w-full flex justify-center'>
+                            <Lottie animationData={emptyResult} loop={true} />
+                          </div>
+                        )
+
                       )
                       
                     }
