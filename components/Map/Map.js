@@ -361,7 +361,7 @@ const Map = ({ coords, sellerRoute ,stores, blue, orange, red, green, setProduct
             borderBottomRightRadius: "17px",
           }}
         >
-          {marker.fixedDiscount !== 0 ? (
+          { (marker.fixedDiscount !== 0 && marker.fixedDiscount !== undefined ) ? (
             <div
               style={{
                 color: `${markerColor}`,

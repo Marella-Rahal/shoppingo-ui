@@ -558,7 +558,7 @@ const ProductDetail = (props) => {
                         
                         recommendation.length !== 0 ? (
                           recommendation.map((one,index)=>{
-                            return <DynamicProduct key={index} brandId={one.brand} id={one._id} img={one.frontImgURL} fav={false} offer={one.fixedDiscount !== undefined } oPrice={one.price} nPrice={one.fixedDiscount !== undefined ? one.price-one.fixedDiscount :one.price } rating={'3'} setNoteMsg={setNoteMsg} uniqueProducts={recommendation} shopRoute={true}/>
+                            return <DynamicProduct key={index} brandId={one.brand} id={one._id} img={one.frontImgURL} fav={false} offer={marker.fixedDiscount !== 0 && marker.fixedDiscount !== undefined } oPrice={one.price} nPrice={ (marker.fixedDiscount !== 0 && marker.fixedDiscount !== undefined ) ? one.price-one.fixedDiscount :one.price } rating={'3'} setNoteMsg={setNoteMsg} uniqueProducts={recommendation} shopRoute={true}/>
                           })
                         ) : (
                           <div className='w-full flex justify-center'>
