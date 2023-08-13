@@ -120,16 +120,19 @@ const Product = (props) => {
               : الكمية
             </p>
 
-            <div className="flex justify-between px-2">
-              <div className="w-6 h-6 rounded-full shadow-md flex items-center justify-center shadow-shadowColor bg-textColor2 dark:bg-darkTextColor2 border-[3px] border-white cursor-pointer hover:scale-[1.1]">
+            <div 
+            // className="flex justify-between px-2"
+            className='flex justify-center'
+            >
+              {/* <div className="w-6 h-6 rounded-full shadow-md flex items-center justify-center shadow-shadowColor bg-textColor2 dark:bg-darkTextColor2 border-[3px] border-white cursor-pointer hover:scale-[1.1]">
                 <FaMinus className="text-white" />
-              </div>
+              </div> */}
 
               <div className="font-bold">{props.qty}</div>
 
-              <div className="w-6 h-6 rounded-full shadow-md flex items-center justify-center shadow-shadowColor bg-textColor2 dark:bg-darkTextColor2 border-[3px] border-white cursor-pointer hover:scale-[1.1]">
+              {/* <div className="w-6 h-6 rounded-full shadow-md flex items-center justify-center shadow-shadowColor bg-textColor2 dark:bg-darkTextColor2 border-[3px] border-white cursor-pointer hover:scale-[1.1]">
                 <FaPlus className="text-white" />
-              </div>
+              </div> */}
             </div>
           </div>
 

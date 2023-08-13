@@ -356,9 +356,8 @@ const ProductDetail = (props) => {
 
       setSendingStatus(false);
 
-      //! **********
       setNoteMsg(
-        <h5 className='text-red-600 text-center'>{res.data.message}</h5>
+        <h5 className='text-red-600 text-center'>تمت اضافة المنتج بنجاح الى سلة التسوق</h5>
       );
 
       showPopUpNote();

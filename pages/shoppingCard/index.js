@@ -157,9 +157,10 @@ const ShoppingCard = (props) => {
                         </div>
                       }
                       endMessage={
-                        <div className="flex justify-center items-center mt-10 mb-5">
-                          <b>تهانينا ! لقد رأيت كل المنتجات</b>
-                        </div>
+                        // <div className="flex justify-center items-center mt-10 mb-5">
+                        //   <b>تهانينا ! لقد رأيت كل المنتجات</b>
+                        // </div>
+                        <br/>
                       }
                     >
                         <div className='flex justify-evenly flex-wrap'>
@@ -179,7 +180,7 @@ const ShoppingCard = (props) => {
                                       cartItems[index]['product']['seller']['storeName']
                                     }
                                     shopId={cartItems[index]['product']['seller']['_id']}
-                                    productId={cartItems[index]['_id']}
+                                    productId={cartItems[index]['product']['_id']}
                                     color={cartItems[index]['color']}
                                     size={cartItems[index]['size']}
                                     price={cartItems[index]['price']}
