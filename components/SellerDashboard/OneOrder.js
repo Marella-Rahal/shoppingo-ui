@@ -79,7 +79,7 @@ function OneOrder(props) {
               console.log(typeof item.deliveryStatus);
               console.log('asdfasdfasdfasdfasdf');
               return (
-                <div className="flex flex-col-reverse md:flex-row md:justify-between w-full border my-5 px-5 py-5 md:py-7 rounded-lg ">
+                <div key={index} className="flex flex-col-reverse md:flex-row md:justify-between w-full border my-5 px-5 py-5 md:py-7 rounded-lg ">
                   <div className="py-2 md:py-0 justify-between w-full md:w-auto flex flex-col-reverse md:flex-row ">
                     <ProductDetails value={item} />
                   </div>
@@ -129,7 +129,7 @@ function OneOrder(props) {
 
             {props.value.wepayItems.map((item, index) => {
               return (
-                <div className="flex flex-col-reverse md:flex-row md:justify-between w-full border my-5 px-5 py-5 md:py-7 rounded-lg ">
+                <div key={index} className="flex flex-col-reverse md:flex-row md:justify-between w-full border my-5 px-5 py-5 md:py-7 rounded-lg ">
                   <div className="py-2 md:py-0 justify-between w-full md:w-auto flex flex-col-reverse md:flex-row ">
                     <ProductDetails value={item} />
                   </div>
