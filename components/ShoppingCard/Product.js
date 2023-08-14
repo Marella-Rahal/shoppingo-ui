@@ -8,57 +8,57 @@ import { parseCookies } from 'nookies';
 import { showPopUpNote } from '../PopUp/NotePopUp';
 
 const Product = (props) => {
+
+  const cookies = parseCookies();
+  const token = cookies.token;
   const router = useRouter();
 
-  const [noteMsg, setNoteMsg] = useState('');
-
   const removeProduct = async (id) => {
-    const cookies = parseCookies();
-    const token = cookies.token;
-    console.log(id);
+    
     try {
-      const res = await axios.delete(
-        `${process.env.server_url}/api/v2.0/cart/deleteItemFromCart/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      if (res.data.success) {
-        console.log('تم الحذف');
+
+        props.setSendingStatus(true);
+
+        const res = await axios.delete(
+          `${process.env.server_url}/api/v2.0/cart/deleteItemFromCart/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        
+        props.setSendingStatus(false);
+
         props.cartItems.map((item) => {
           if (item._id === id) {
             props.settotalPrice(props.totalPrice - item.price);
           }
         });
+
         const updatedCartItems = props.cartItems.filter(
           (item) => item._id !== id
         );
         props.setCartitems(updatedCartItems);
-      } else {
-        console.log(res.data.message);
-        props.setNoteMsg(
-          <h5 className="text-red-600 text-center">{res.data.message}</h5>
-        );
 
-        showPopUpNote();
-      }
     } catch (error) {
-      console.log(error.message);
+
+      props.setSendingStatus(false);
 
       props.setNoteMsg(
         <h5 className="text-red-600 text-center">{error?.message}</h5>
       );
 
       showPopUpNote();
+
     }
+
   };
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={props.productId}
+        key={props.id}
         initial={{opacity:0,scale:0.8}} 
         animate={{opacity:1,scale:1}} 
         exit={{opacity:0,scale:0.8}}
@@ -67,7 +67,7 @@ const Product = (props) => {
       >
         <div
           onClick={() => {
-            removeProduct(props.productId);
+            removeProduct(props.id);
           }}
           className="absolute -top-5 -right-4 w-9 h-9 rounded-full bg-textColor dark:bg-darkTextColor2 border-[3px] border-white shadow-md shadow-shadowColor flex justify-center items-center hover:scale-[1.1] cursor-pointer"
         >

@@ -13,7 +13,7 @@ const DynamicProduct = dynamic(
 );
 
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { ColorRing } from 'react-loader-spinner';
+import { ColorRing, ThreeDots } from 'react-loader-spinner';
 import { parseCookies } from 'nookies';
 import axios from 'axios';
 import NotePopUp, { showPopUpNote } from '../../components/PopUp/NotePopUp';
@@ -22,10 +22,14 @@ import Lottie from "lottie-react";
 import FailToGet from '../../components/FailToGet';
 
 const ShoppingCard = (props) => {
+
   const router = useRouter();
-  console.log(props.cartItems);
-  const [cartItems, setCartitems] = useState(props.cartItems);
-  const [totalPrice, settotalPrice] = useState(props.totalPrice);
+  const [noteMsg, setNoteMsg] = useState('');
+  const [sendingStatus,setSendingStatus]=useState(false);
+
+  const [cartItems, setCartitems] = useState(props?.cartItems);
+  const [totalPrice, settotalPrice] = useState(props?.totalPrice);
+
   //! this is tha data for InfiniteScrolling
   const [productsPerPage, setProductsPerPage] = useState(12);
   const [page, setPage] = useState(1);
@@ -42,15 +46,6 @@ const ShoppingCard = (props) => {
       return productsPerPage >= cartItems.length ? false : true;
     }
   });
-
-  //*******************************************/
-  // console.log(
-  //   'displayProducts :',
-  //   displayProducts.length,
-  //   'hasMore :',
-  //   hasMore
-  // );
-  //*******************************************/
 
   const displayNext = () => {
     if (cartItems != undefined) {
@@ -76,42 +71,58 @@ const ShoppingCard = (props) => {
       }
     }
   };
-  //! ****************************************
-  const [noteMsg, setNoteMsg] = useState('');
 
   const removeAllItems = async () => {
     const cookies = parseCookies();
     const token = cookies.token;
 
     try {
-      const res = await axios.delete(
-        `${process.env.server_url}/api/v2.0/cart/deleteCartItems`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      if (res.data.success) {
-        console.log('تم الحذف');
+
+        setSendingStatus(true);
+
+        const res = await axios.delete(
+          `${process.env.server_url}/api/v2.0/cart/deleteCartItems`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        setSendingStatus(false);
+  
         setCartitems([]);
         settotalPrice(0);
+
+      } catch (error) {
+
+        setSendingStatus(false);
+
+        setNoteMsg(
+          <h5 className="text-red-600 text-center">{error?.message}</h5>
+        );
+
+        showPopUpNote();
       }
-    } catch (error) {
-      console.log(error);
 
-      setNoteMsg(
-        <h5 className="text-red-600 text-center">{error?.message}</h5>
-      );
-
-      showPopUpNote();
-    }
   };
+
   return (
     <>
       {
         props.success ? (
           <>
+            {
+                sendingStatus && (
+                  <div className='fixed z-[100] w-full h-full bg-black/30 flex justify-center items-center'>
+                      <ThreeDots
+                      width="75"
+                      color="white"
+                      visible={true}
+                      /> 
+                  </div>
+                )
+            }
             <NotePopUp noteMsg={noteMsg} />
             <Navbar />
             <div className={`pt-28 pb-14 px-4 md:px-8 ${cartItems.length !== 0 ? 'min-h-screen' : 'h-screen' } flex flex-col`}>
@@ -169,7 +180,7 @@ const ShoppingCard = (props) => {
                                 return (
                                   <DynamicProduct
                                     key={index}
-                                    id={index}
+                                    id={cartItems[index]['_id']}
                                     cartItems={cartItems}
                                     setNoteMsg={setNoteMsg}
                                     setCartitems={setCartitems}
@@ -185,6 +196,7 @@ const ShoppingCard = (props) => {
                                     size={cartItems[index]['size']}
                                     price={cartItems[index]['price']}
                                     qty={cartItems[index]['quantity']}
+                                    setSendingStatus={setSendingStatus}
                                   />
                                 );
                               })
