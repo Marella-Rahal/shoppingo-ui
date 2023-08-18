@@ -69,6 +69,42 @@ const Checkout = (props) => {
     const [city,setCity]=useState('');
     const [address,setAddress]=useState('');
 
+    const [returned,setReturned]=useState(false);
+    const [waitForReturned, setWaitForReturned] = useState(null);
+
+    useEffect(() => {
+
+        if (returned && waitForReturned) {
+
+            waitForReturned.resolve();
+
+        }
+
+    }, [returned, waitForReturned]);
+
+    useEffect(() => {
+
+        const eventListener = (event) => {
+
+            if (event.origin !== 'https://wepay-marella-rahal.vercel.app') {
+                return;
+            }
+            
+            // console.log(event.data.returned);
+            setReturned(true);
+            
+        };
+
+        window.addEventListener('message', eventListener);
+
+        return () => {
+            window.removeEventListener('message', eventListener);
+        };
+        
+
+    }, []);
+
+
     const checkOutFunction = async (e) => {
 
         
@@ -137,7 +173,38 @@ const Checkout = (props) => {
                 setNoteMsg(
                   'wepay جاري معالجة الطلبات التي تقبل الدفع عن طريق'
                 );
+
+                const array = sendingW.map( x => { 
+                    return {
+                        storeName : x.item.product.seller.storeName ,
+                        code : x.item.product.seller.wepayCode,
+                        price : x.item.price + 5000
+                    }
+                })
+                const codesWithPrices = [];
+                array.forEach( x =>{
+            
+                    const existedCodeIndex = codesWithPrices.findIndex(obj=> obj.code == x.code);
+            
+                    if(existedCodeIndex !== -1){
+                        codesWithPrices[existedCodeIndex].price += x.price 
+                    }else{
+                        codesWithPrices.push(x);
+                    }
+            
+                })
+
+                const queryString = encodeURIComponent(JSON.stringify(codesWithPrices));
+                const newTabUrl = `https://wepay-marella-rahal.vercel.app/shippingAndPayment?objects=${queryString}`;
+                window.open(newTabUrl, '_blank');
+
+                const waitForReturnedPromise = new Promise((resolve) => {
+                    setWaitForReturned({ resolve });
+                });
         
+                await waitForReturnedPromise;
+                
+
                 const resW = await axios.post(`${process.env.server_url}/api/v2.0/cart/wepayOrder`,{
                   firstName,middleName,lastName,email,phoneNumber,city,address,wepayItems : sendingW
                 },{
@@ -172,7 +239,7 @@ const Checkout = (props) => {
     
         }
     
-      }
+    }
 
     return (
         <>

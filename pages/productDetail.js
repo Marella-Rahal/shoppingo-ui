@@ -67,9 +67,6 @@ const ProductDetail = (props) => {
   const [green,setGreen]=useState({});
 
   const [recommendation,setRecommendation]=useState([]);
-
-  //! *************************
-  console.log("recommendation",recommendation);
   
   //* to set constraint on how much i can drag the slider to the left
   // const [width, setWidth] = useState(0);
@@ -558,7 +555,7 @@ const ProductDetail = (props) => {
                         
                         recommendation.length !== 0 ? (
                           recommendation.map((one,index)=>{
-                            return <DynamicProduct key={index} brandId={one.brand} id={one._id} img={one.frontImgURL} fav={false} offer={one.fixedDiscount !== 0 && one.fixedDiscount !== undefined } oPrice={one.price} nPrice={ (one.fixedDiscount !== 0 && one.fixedDiscount !== undefined ) ? one.price-one.fixedDiscount :one.price } rating={'3'} setNoteMsg={setNoteMsg} uniqueProducts={recommendation} shopRoute={true}/>
+                            return <DynamicProduct key={index} brandId={one.product.brand} id={one.product._id} img={one.product.frontImgURL} fav={false} offer={one.product.price !== one.updatedPrice} oPrice={one.product.price} nPrice={one.updatedPrice} rating={String(one.meanRating)} setNoteMsg={setNoteMsg} uniqueProducts={recommendation} shopRoute={false}/>
                           })
                         ) : (
                           <div className='w-full flex justify-center'>
